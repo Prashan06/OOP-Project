@@ -9,6 +9,7 @@ class Farmer {
     float Money;
     int DayLength;
     int DayCount;
+    int time;
     std::string FarmName;
 
     public:
@@ -20,6 +21,7 @@ class Farmer {
     void getStatus();
     void setFarmName();
     std::string getFarmName();
+    int getDayCount();
 };
 
 #endif
