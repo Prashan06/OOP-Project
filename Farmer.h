@@ -7,6 +7,10 @@
 class Farmer {
     protected:
     float Money;
+    // Field** Fields;
+	// Barn** Barns;
+	// Tool** Tools;
+
     int DayLength;
     int DayCount;
     int time;
@@ -15,9 +19,9 @@ class Farmer {
     public:
     float getMoneyCount();
     void setMoneyCount();
-    void addFields();
-    void addBarns();
-    void addTools();
+    // void addFields();
+    // void addBarns();
+    // void addTools();
     void getStatus();
     void setFarmName();
     std::string getFarmName();
