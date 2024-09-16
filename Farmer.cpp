@@ -12,7 +12,7 @@ Farmer:: Farmer() : Money(100), DayLength(60), time(time_t(NULL)-time_t(0)), Far
 float Farmer:: getMoneyCount(){
     return Money;
 }
-void Farmer:: setMoneyCount(){
+void Farmer:: setMoneyCount(int Money){
     this -> Money = Money;
 }
 
