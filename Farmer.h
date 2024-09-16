@@ -14,7 +14,7 @@ class Farmer {
     // Tool** Tools;
 
     int DayLength;
-    int DayCount;
+    int DayCount = 0;
     time_t time;
     char FarmName[21];
 
