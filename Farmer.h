@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <string>
+#include <ctime>
+#include <chrono>
 
 class Farmer {
     protected:
@@ -13,10 +15,11 @@ class Farmer {
 
     int DayLength;
     int DayCount;
-    int time;
+    time_t time;
     std::string FarmName;
 
     public:
+    Farmer();
     float getMoneyCount();
     void setMoneyCount();
     // void addFields();
