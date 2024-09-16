@@ -13,8 +13,8 @@ class Farmer {
 
     int DayLength;
     int DayCount;
-    int time;
-    std::string FarmName;
+    time_t time;
+    char FarmName[21];
 
     public:
     float getMoneyCount();
