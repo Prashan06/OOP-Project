@@ -8,7 +8,7 @@
 
 class Farmer {
     protected:
-    float Money;
+    int Money;
     // Field** Fields;
     // Barn** Barns;
     // Tool** Tools;
