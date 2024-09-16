@@ -7,9 +7,6 @@
 class Farmer {
     protected:
     float Money;
-    Field Fields**;
-    Barn Barns**;
-    Tool Tools**;
     int DayLength;
     int DayCount;
     std::string FarmName;
