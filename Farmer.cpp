@@ -1,10 +1,13 @@
 #include "Farmer.h"
 
-Farmer:: Farmer() : Money(0), DayLength(0), DayCount(0), time(0), FarmName(""){}
+using namespace std;
 
-Farmer :: Farmer() : Money(Money), DayLength(60), DayCount(0), time(0), FarmName(""){
-
+Farmer:: Farmer() : Money(100), DayLength(60), time(time_t(NULL)-time_t(0)), FarmName(""){
+    if (time % DayLength == 0) {
+        DayCount++;
+    }
 }
+
 
 float Farmer:: getMoneyCount(){
     return Money;
@@ -19,9 +22,24 @@ void Farmer:: getStatus(){
     std::cout << "The current day is: " << getDayCount() << std::endl;
 }
 
-void Farmer::setFarmName(){
+
+void Farmer::setFarmName() {
+    cout << "what would you like to call your farm (max 20 characters): " << endl;
+    cin >> FarmName;
+    int i = 0;
+    while (FarmName[i] != '\0'){
+        i++;
+    }
+    if (i > 20){
+        cout << "Farm name is too long, enter a shorter one" << endl;
+    }
 
 }
-std::string Farmer::getFarmName(){
-
+string Farmer::getFarmName() {
+    return FarmName;
 }
+
+int Farmer::getDayCount() {
+    return DayCount;
+}
+

@@ -16,7 +16,7 @@ class Farmer {
     int DayLength;
     int DayCount;
     time_t time;
-    std::string FarmName;
+    char FarmName[21];
 
     public:
     Farmer();
