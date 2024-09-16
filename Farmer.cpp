@@ -42,4 +42,3 @@ string Farmer::getFarmName() {
 int Farmer::getDayCount() {
     return DayCount;
 }
-
