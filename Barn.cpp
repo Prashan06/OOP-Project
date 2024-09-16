@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Barn::Barn() : animalCount(0) {}
+Barn::Barn() : animalCount(0), breedPrice(0) {}
 
 void Barn::breedAnimals(){
     if (animalCount % 2 == 0){
@@ -14,5 +14,7 @@ void Barn::breedAnimals(){
     }
 }
 
-void Barn::setPrice() {}
+void Barn::setPrice() {
+    breedPrice = 80;
+}
 

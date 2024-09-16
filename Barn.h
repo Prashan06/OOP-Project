@@ -9,6 +9,7 @@ using namespace std;
 class Barn : public Farm {
     protected:
         int animalCount;
+        int breedPrice;
     public:
         Barn();
         void breedAnimals();
@@ -16,6 +17,7 @@ class Barn : public Farm {
         virtual int setMaxAnimalCapacity();
         virtual int MaxBarnCapacity();
         virtual void increaseBarnCapacity();
+        void setPrice();
 };
 
 
