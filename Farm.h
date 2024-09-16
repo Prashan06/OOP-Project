@@ -9,7 +9,7 @@ class Farm {
         virtual int sellItem() = 0;
         virtual double setGrowthRate() = 0;
         virtual void setPrice() = 0;
-        virtual void getPrice() = 0;
+        virtual int getPrice() = 0;
         virtual void getNumberOfItems() = 0; 
 };
 
