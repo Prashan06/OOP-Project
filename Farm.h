@@ -1,5 +1,5 @@
-#ifndef FARMER_H
-#define FARMER_H
+#ifndef FARM_H
+#define FARM_H
 
 #include <iostream>
 
