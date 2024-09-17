@@ -11,6 +11,7 @@ class Farm {
         virtual void setPrice() = 0;
         virtual int getPrice() = 0;
         virtual int getNumberOfItems() = 0; 
+        virtual void buyItem() = 0;
 };
 
 #endif

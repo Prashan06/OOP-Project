@@ -1,19 +1,31 @@
 #include "Pigs.h"
 
-Pigs::Pigs() : maxPigCapacity(10), PigCount(0), PigPrice(5) {}
+Pigs::Pigs() : maxPigCapacity(10), PigCount(0), PigPrice(5), increaseCapacityPrice(10) {}
 
 int Pigs::setMaxAnimalCapacity(int maxPigCapacity){
-    this ->maxPigCapacity = maxPigCapacity;
+    this -> maxPigCapacity = maxPigCapacity;
 }
 
 void Pigs::increaseBarnCapacity(){
-    this -> maxPigCapacity = maxPigCapacity + 5;
+    if (Money > increaseCapacityPrice) {
+        cout << "would you like to increase the capacity? Enter Y or N" << endl;
+        cin >> optionChoice;
+        while (optionChoice != "Y" || optionChoice != "N") {
+            cout << "invalide input! please enter Y or N" << endl;
+            cin >> optionChoice;
+        }
+
+        if (optionChoice == "Y"){
+            this -> maxPigCapacity = maxPigCapacity + 5;
+            Money = Money - increaseCapacityPrice;
+        }
+    }
 }
 int Pigs::getPigCount() {
     return PigCount;
 }
 
-void Pigs::buyPig() {
+void Pigs::buyItem() {
     cout << "how many pigs would you like to buy, you can buy" << Money/PigPrice << "Pigs" << endl;
     cin >> boughtPigs;
     while (boughtPigs > Money/PigPrice) {
@@ -29,7 +41,7 @@ void Pigs::buyPig() {
 
 int Pigs::sellItem(){
     if (sellReady = true){
-        std::cout << "How many pigs do you want to sell: " << 
+        std::cout << "How many pigs do you want to sell: " << endl;
     }
 }
 

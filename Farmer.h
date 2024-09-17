@@ -17,6 +17,7 @@ class Farmer {
     int DayCount = 0;
     time_t time;
     char FarmName[21];
+    string optionChoice;
 
     public:
     Farmer();

@@ -10,17 +10,13 @@ using namespace std;
 class Barn : public Farm, public Farmer {
     protected:
         int animalCount;
-        int breedPrice;
     public:
         Barn();
-        void breedAnimals();
         int getAnimalCount();
-        void setAnimalCount(int pigCount, int cowCount, int sheepCount);
+        void setAnimalCount(int pigCount, int cowCount);
         virtual int setMaxAnimalCapacity();
         virtual int MaxBarnCapacity();
         virtual void increaseBarnCapacity();
-        void setPrice();
-        int getPrice();
 };
 
 
