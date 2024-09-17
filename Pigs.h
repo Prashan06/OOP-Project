@@ -14,14 +14,23 @@ class Pigs : public Barn {
     int PigCount;
     int PigPrice; 
     int boughtPigs;
+<<<<<<< HEAD
     int numberOfTimesPigsAreBought;   
     int* pigArray = new int [numberOfTimesPigsAreBought];
 
+=======
+    int numberOfTimesPigsAreBought;
+    int* pigArray = new int[numberOfTimesPigsAreBought];
+>>>>>>> 92d0cd3fed12fdd6e85a0969b7c3178d44f2a011
     int PigPrice;
     bool sellReady;
     int sellReadyPigCount;
     int sellPrice;
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 92d0cd3fed12fdd6e85a0969b7c3178d44f2a011
     public:
     Pigs();
     int getAnimalCount();
