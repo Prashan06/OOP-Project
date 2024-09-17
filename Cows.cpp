@@ -1,6 +1,6 @@
 #include "Cows.h"
 
-Cows::Cows() : cowGrowthRate(40), maxCowCapacity(10), cowCount(0), cowPrice(10), increaseCapacityPrice(15) {}
+Cows::Cows() : cowGrowthRate(40), maxCowCapacity(10), cowCount(0), cowPrice(10), increaseCapacityPrice(15), sellPrice(12) {}
 
 int Cows::setMaxAnimalCapacity(int maxCowCapacity) {
     this -> maxCowCapacity = maxCowCapacity;
@@ -59,11 +59,12 @@ int Cows::sellItem() {
     }
 
     if (optionChoice == "Y") {
-        for (int j = 0; j < numberOfTimesCowsAreBought; j++) {
+        for (int j = soldIndex; j < numberOfTimesCowsAreBought; j++) {
             cowArray[j] = cowArray[j - soldIndex];
             timeArray[j] = timeArray[j - soldIndex];
             numberOfTimesCowsAreBought = numberOfTimesCowsAreBought - soldIndex;
             cowCount = cowCount - sellReadyCowCount;
+            Money = Money + sellReadyCowPrice;
         }       
     }
 }
