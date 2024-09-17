@@ -24,11 +24,18 @@ void Pigs::buyPig() {
     numberOfTimesPigsAreBought++;
     Money = Money - (boughtPigs * PigPrice);
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> df767925f1574b07e10be196458839bd3e6966d9
 int Pigs::sellItem(){
     if (sellReady = true){
-        std::cout << "How many pigs do you want to sell: ";
+        std::cout << "How many pigs do you want to sell: " << 
     }
 }
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> df767925f1574b07e10be196458839bd3e6966d9
