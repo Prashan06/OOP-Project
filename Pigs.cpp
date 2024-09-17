@@ -13,7 +13,6 @@ int Pigs::getPigCount() {
     return PigCount;
 }
 
-<<<<<<< HEAD
 void Pigs::buyPig() {
     cout << "how many pigs would you like to buy, you can buy" << Money/PigPrice << "Pigs" << endl;
     cin >> boughtPigs;
@@ -21,8 +20,10 @@ void Pigs::buyPig() {
         cout << "Not enough money to buy that many pigs, please enter a number less than" << Money/PigPrice << "pigs" << endl;
     }
     PigCount = PigCount + boughtPigs;
+    pigArray[numberOfTimesPigsAreBought] = boughtPigs;
+    numberOfTimesPigsAreBought++;
+    Money = Money - (boughtPigs * PigPrice);
 }
-=======
 int Pigs::sellItem(){
     if (sellReady = true){
         std::cout << "How many pigs do you want to sell: ";
@@ -30,5 +31,4 @@ int Pigs::sellItem(){
 }
 
 
->>>>>>> 96c5cfce2f316782d0ffa3a328f16f7c99d0f47d
 
