@@ -1,9 +1,10 @@
-#include "Pigs.h"
+#include <iostream>
+#include "Barn.h"
+#include "Farm.h"
+#include "Pig.h"
 
-Pigs::Pigs(){}
-int Pigs::setMaxAnimalCapacity(int maxPigCapacity){
-    this ->maxPigCapacity = maxPigCapacity;
+using namespace std;
+
+int Pig::Sellitem() {
+    
 }
-int Pigs::MaxBarnCapacity();
-void Pigs::increaseBarnCapacity();
-int Pigs::getPigCount();
