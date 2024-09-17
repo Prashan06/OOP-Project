@@ -12,7 +12,10 @@ class Pigs : public Barn {
     int currentPigCount;
     double growthRate;
     int PigCount;
-    int PigPrice; 
+    int PigPrice;
+    bool SellReady;
+    
+
 
     public:
     Pigs();
