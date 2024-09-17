@@ -12,19 +12,15 @@ class Pigs : public Barn {
     int currentPigCount;
     double growthRate;
     int PigCount;
-<<<<<<< HEAD
     int PigPrice; 
     int boughtPigs;
-    int numberOfTimesPigsAreBought = 0;
-    int pigArray[numberOfTimesPigsAreBought];
-
-=======
+    int numberOfTimesPigsAreBought;
+    int* pigArray = new int[numberOfTimesPigsAreBought];
     int PigPrice;
     bool sellReady;
     int sellReadyPigCount;
     int sellPrice;
-    
->>>>>>> 96c5cfce2f316782d0ffa3a328f16f7c99d0f47d
+
     public:
     Pigs();
     int getAnimalCount();
