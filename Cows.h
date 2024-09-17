@@ -10,7 +10,7 @@ class Cows : public Barn {
     protected:
     // The attributes of the function are initialised. 
         int maxCowCapacity;
-        int growthRate;
+        int cowGrowthRate;
         int cowCount;
         int cowPrice; 
         int boughtCows;
