@@ -14,11 +14,14 @@ class Barn : public Farm {
         Barn();
         void breedAnimals();
         int getAnimalCount();
+        void setAnimalCount(int pigCount, int cowCount, int sheepCount);
         virtual int setMaxAnimalCapacity();
         virtual int MaxBarnCapacity();
         virtual void increaseBarnCapacity();
         void setPrice();
+        int getPrice();
 };
+
 
 
 #endif

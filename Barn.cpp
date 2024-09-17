@@ -18,3 +18,15 @@ void Barn::setPrice() {
     breedPrice = 80;
 }
 
+int Barn::getPrice() {
+    return breedPrice;
+}
+
+void Barn::setAnimalCount(int pigCount, int cowCount, int sheepCount) {
+    animalCount = pigCount + cowCount + sheepCount; 
+}
+
+int Barn::getAnimalCount() {
+    return animalCount;
+}
+
