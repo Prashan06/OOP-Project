@@ -11,10 +11,6 @@ class Pigs : public Barn {
     int maxPigCapacity;
     int currentPigCount;
     double growthRate;
-
-    public:
-    Pigs();
-    int setMaxAnimalCapacity();
     int PigCount;
     int PigPrice; 
 
@@ -22,10 +18,8 @@ class Pigs : public Barn {
     Pigs();
     int getAnimalCount();
     int setMaxAnimalCapacity(int maxPigCapacity);
-    int MaxBarnCapacity();
     void increaseBarnCapacity();
     int getPigCount();
-
     int sellItem();
     double setGrowthRate();
     void setPrice();
