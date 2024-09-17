@@ -3,10 +3,11 @@
 
 #include <iostream>
 #include "Farm.h"
+#include "Farmer.h"
 
 using namespace std;
 
-class Barn : public Farm {
+class Barn : public Farm, public Farmer {
     protected:
         int animalCount;
         int breedPrice;

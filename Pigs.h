@@ -9,11 +9,8 @@ class Pigs : public Barn {
     protected:
     // The attributes of the function are initialised. 
     int maxPigCapacity;
-<<<<<<< HEAD
     int currentPigCount;
     double growthRate;
-=======
->>>>>>> 2cb4ce6a29de8b333bd32748f60a9b47648ce83e
     int PigCount;
     int PigPrice; 
 
@@ -28,6 +25,7 @@ class Pigs : public Barn {
     void setPrice();
     int getPrice();
     int getNumberOfItems(); 
+    void buyPig();
 };
 
 #endif
