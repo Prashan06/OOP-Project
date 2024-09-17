@@ -10,7 +10,7 @@ void Pigs::increaseBarnCapacity(){
     if (Money > increaseCapacityPrice) {
         cout << "would you like to increase the capacity? Enter Y or N" << endl;
         cin >> optionChoice;
-        while (optionChoice != "Y" || optionChoice != "N") {
+        while (optionChoice != "Y" && optionChoice != "N") {
             cout << "invalide input! please enter Y or N" << endl;
             cin >> optionChoice;
         }
@@ -40,33 +40,30 @@ void Pigs::buyItem() {
 }
 
 int Pigs::sellItem(){
-    if (sellReady = true){
-        std::cout << "How many pigs do you want to sell: " << endl;
-        for (int i  = 0; i < numberOfTimesPigsAreBought; i++){
-            if (sellReady == true){
-                sellReadyPigCount = sellReadyPigCount + pigArray[i];
-            }
+    int soldIndex = 0;
+    for (int i = 0; i < numberOfTimesPigsAreBought; i++){
+        if (timeArray[i] >= 30){
+            sellReadyPigCount = sellReadyPigCount + pigArray[i];
+            soldIndex++;
         }
+    }
 
-        sellReadyPigPrice = sellReadyPigCount * sellPrice;
+    sellReadyPigPrice = sellReadyPigCount * sellPrice;
 
-        std::cout << "You can sell " << sellReadyPigCount << " pigs " << " for " << sellReadyPigCount * sellPrice << " dollars." << std::endl; 
+    cout << "You can sell " << sellReadyPigCount << " pigs " << " for " << sellReadyPigPrice << " dollars." << endl;
+    cout << "Would you like to sell them? Enter Y or N" << endl; 
 
-        if (optionChoice == "Y") {
-            int index = 0;
-            for (index = 0; index < numberOfTimesPigsAreBought; index++){
-                if (sellReady == true){
-                    pigArray[index] = 0;
-                    timeArray[index] = 0;
-                    soldPigsCount++;
-                }
-            }
-            
-            for (int j = index; index < numberOfTimesPigsAreBought; j ++){
-                pigArray[j] = pigArray[j+soldPigsCount];
-                timeArray[j] = timeArray[j+soldPigsCount];
-            } 
-        }
+    while (optionChoice != "Y" && optionChoice != "N") {
+            cout << "invalide input! please enter Y or N" << endl;
+            cin >> optionChoice;
+    }
+
+    if (optionChoice == "Y") {
+        for (int j = 0; j < numberOfTimesPigsAreBought; j++){
+            pigArray[j] = pigArray[j - soldIndex];
+            timeArray[j] = timeArray[j - soldIndex];
+            numberOfTimesPigsAreBought = numberOfTimesPigsAreBought - soldIndex;
+        }       
     }
 }
 
