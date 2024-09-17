@@ -11,3 +11,4 @@ void Pigs::increaseBarnCapacity(){
 int Pigs::getPigCount() {
     return PigCount;
 }
+
