@@ -15,14 +15,17 @@ class Pigs : public Barn {
     int PigCount;
     int PigPrice; 
     int boughtPigs;
-    int numberOfTimesPigsAreBought;   
+    int numberOfTimesPigsAreBought;  
     int* pigArray = new int [numberOfTimesPigsAreBought];
     int* timeArray = new int [numberOfTimesPigsAreBought];
 
     int PigPrice;
     bool sellReady;
     int sellReadyPigCount;
+    int sellReadyPigPrice;
+    int soldPigs;
     int sellPrice;
+    int soldPigsCount;
     
 
     public:

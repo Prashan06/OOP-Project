@@ -28,10 +28,31 @@ void Pigs::buyPig() {
 }
 
 int Pigs::sellItem(){
-    if (sellReady = true){
-        std::cout << "How many pigs do you want to sell: " << 
+    for (int i  = 0; i < numberOfTimesPigsAreBought; i++){
+        if (sellReady == true){
+            sellReadyPigCount = sellReadyPigCount + pigArray[i];
+        }
+    }
+
+    sellReadyPigPrice = sellReadyPigCount * sellPrice;
+
+    std::cout << "You can sell " << sellReadyPigCount << " pigs " << " for " << sellReadyPigCount * sellPrice << " dollars." << std::endl; 
+
+    if (optionchoice == "Y") {
+        int index = 0;
+        for (index = 0; index < numberOfTimesPigsAreBought; index++){
+            if (sellReady == true){
+                pigArray[index] = 0;
+                timeArray[index] = 0;
+                soldPigsCount++;
+            }
+        }
+        
+        for (int j = index; index < numberOfTimesPigsAreBought; j ++){
+            pigArray[j] = pigArray[j+soldPigsCount];
+            timeArray[j] = timeArray[i+soldPigsCount];
+        } 
     }
 }
-
 
 
