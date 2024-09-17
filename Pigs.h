@@ -10,20 +10,17 @@ class Pigs : public Barn {
     protected:
     // The attributes of the function are initialised. 
     int maxPigCapacity;
-    double growthRate;
-    int PigCount;
-    int PigPrice; 
+    int growthRate;
+    int pigCount;
+    int pigPrice; 
     int boughtPigs;
     int numberOfTimesPigsAreBought;  
     int* pigArray = new int [numberOfTimesPigsAreBought];
     int* timeArray = new int [numberOfTimesPigsAreBought];
     int increaseCapacityPrice;
-    bool sellReady;
     int sellReadyPigCount;
     int sellReadyPigPrice;
-    int soldPigs;
     int sellPrice;
-    int soldPigsCount;
     
 
     public:

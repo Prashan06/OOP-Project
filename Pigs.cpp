@@ -1,6 +1,6 @@
 #include "Pigs.h"
 
-Pigs::Pigs() : maxPigCapacity(10), PigCount(0), PigPrice(5), increaseCapacityPrice(10) {}
+Pigs::Pigs() : growthRate(30), maxPigCapacity(10), pigCount(0), pigPrice(5), increaseCapacityPrice(10) {}
 
 int Pigs::setMaxAnimalCapacity(int maxPigCapacity){
     this -> maxPigCapacity = maxPigCapacity;
@@ -22,27 +22,27 @@ void Pigs::increaseBarnCapacity(){
     }
 }
 int Pigs::getPigCount() {
-    return PigCount;
+    return pigCount;
 }
 
 void Pigs::buyItem() {
-    cout << "how many pigs would you like to buy, you can buy" << Money/PigPrice << "Pigs" << endl;
+    cout << "how many pigs would you like to buy, you can buy" << Money/pigPrice << "Pigs" << endl;
     cin >> boughtPigs;
-    while (boughtPigs > Money/PigPrice) {
-        cout << "Not enough money to buy that many pigs, please enter a number less than" << Money/PigPrice << "pigs" << endl;
+    while (boughtPigs > Money/pigPrice) {
+        cout << "Not enough money to buy that many pigs, please enter a number less than" << Money/pigPrice << "pigs" << endl;
     }
-    PigCount = PigCount + boughtPigs;
+    pigCount = pigCount + boughtPigs;
     pigArray[numberOfTimesPigsAreBought] = boughtPigs;
     timeArray[numberOfTimesPigsAreBought] = time_t(NULL) - time_t(0);
     numberOfTimesPigsAreBought++;
-    Money = Money - (boughtPigs * PigPrice);
+    Money = Money - (boughtPigs * pigPrice);
 
 }
 
 int Pigs::sellItem(){
     int soldIndex = 0;
     for (int i = 0; i < numberOfTimesPigsAreBought; i++){
-        if (timeArray[i] >= 30){
+        if (timeArray[i] >= growthRate){
             sellReadyPigCount = sellReadyPigCount + pigArray[i];
             soldIndex++;
         }
@@ -63,6 +63,7 @@ int Pigs::sellItem(){
             pigArray[j] = pigArray[j - soldIndex];
             timeArray[j] = timeArray[j - soldIndex];
             numberOfTimesPigsAreBought = numberOfTimesPigsAreBought - soldIndex;
+            pigCount = pigCount - sellReadyPigCount;
         }       
     }
 }
