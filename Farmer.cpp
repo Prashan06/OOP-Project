@@ -5,6 +5,7 @@ using namespace std;
 Farmer:: Farmer() : Money(100), DayLength(60), time(time_t(NULL)-time_t(0)), FarmName(""){
     if (time % DayLength == 0) {
         DayCount++;
+        Money = Money + 50;
     }
 }
 

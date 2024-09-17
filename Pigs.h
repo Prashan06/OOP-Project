@@ -9,32 +9,30 @@
 class Pigs : public Barn {
     protected:
     // The attributes of the function are initialised. 
-    int maxPigCapacity;
-    int growthRate;
-    int pigCount;
-    int pigPrice; 
-    int boughtPigs;
-    int numberOfTimesPigsAreBought;  
-    int* pigArray = new int [numberOfTimesPigsAreBought];
-    int* timeArray = new int [numberOfTimesPigsAreBought];
-    int increaseCapacityPrice;
-    int sellReadyPigCount;
-    int sellReadyPigPrice;
-    int sellPrice;
-    
+        int maxPigCapacity;
+        int growthRate;
+        int pigCount;
+        int pigPrice; 
+        int boughtPigs;
+        int numberOfTimesPigsAreBought;  
+        int* pigArray = new int [numberOfTimesPigsAreBought];
+        int* timeArray = new int [numberOfTimesPigsAreBought];
+        int increaseCapacityPrice;
+        int sellReadyPigCount;
+        int sellReadyPigPrice;
+        int sellPrice;
 
     public:
-    Pigs();
-    int getAnimalCount();
-    int setMaxAnimalCapacity(int maxPigCapacity);
-    void increaseBarnCapacity();
-    int getPigCount();
-    int sellItem();
-    double setGrowthRate();
-    void setPrice();
-    int getPrice();
-    int getNumberOfItems(); 
-    void buyItem();
+        Pigs();
+        int setMaxAnimalCapacity(int maxPigCapacity);
+        void increaseBarnCapacity();
+        int getPigCount();
+        int sellItem();
+        double setGrowthRate();
+        void setPrice();
+        int getPrice();
+        int getNumberOfItems(); 
+        void buyItem();
 };
 
 #endif

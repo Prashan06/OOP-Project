@@ -2,24 +2,38 @@
 #define COWS_H
 
 #include "Barn.h"
+#include "ctime"
 
-// This class will contains methods relating to the breeding, selling ,etc of Cows.
+// This class will contains methods relating to the breeding, selling ,etc of pigs.
 // This class inherits from the Barn class.
 class Cows : public Barn {
     protected:
+    // The attributes of the function are initialised. 
+        int maxCowCapacity;
+        int growthRate;
+        int cowCount;
+        int cowPrice; 
+        int boughtCows;
+        int numberOfTimesCowsAreBought;  
+        int* cowArray = new int [numberOfTimesCowsAreBought];
+        int* timeArray = new int [numberOfTimesCowsAreBought];
+        int increaseCapacityPrice;
+        int sellReadyCowCount;
+        int sellReadyCowPrice;
+        int sellPrice;
+    
 
     public:
-    Cows();
-    int getAnimalCount();
-    int setMaxAnimalCapacity();
-    int MaxBarnCapacity();
-    void increaseBarnCapacity();
-    void setPrice();
-    int sellItem() = 0;
-    double setGrowthRate() = 0;
-    void setPrice() = 0;
-    int getPrice() = 0;
-    int getNumberOfItems() = 0; 
+        Cows();
+        int setMaxAnimalCapacity(int maxPigCapacity);
+        void increaseBarnCapacity();
+        int getCowCount();
+        int sellItem();
+        double setGrowthRate();
+        void setPrice();
+        int getPrice();
+        int getNumberOfItems(); 
+        void buyItem();
 };
 
 #endif
