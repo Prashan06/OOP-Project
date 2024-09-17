@@ -13,6 +13,9 @@ class Pigs : public Barn {
     double growthRate;
     int PigCount;
     int PigPrice; 
+    int boughtPigs;
+    int numberOfTimesPigsAreBought = 0;
+    int pigArray[numberOfTimesPigsAreBought];
 
     public:
     Pigs();
