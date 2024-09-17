@@ -11,15 +11,15 @@ class Cows : public Barn {
     public:
     Cows();
     int getAnimalCount();
-    virtual int setMaxAnimalCapacity();
-    virtual int MaxBarnCapacity();
-    virtual void increaseBarnCapacity();
+    int setMaxAnimalCapacity();
+    int MaxBarnCapacity();
+    void increaseBarnCapacity();
     void setPrice();
-    virtual int sellItem() = 0;
-    virtual double setGrowthRate() = 0;
-    virtual void setPrice() = 0;
-    virtual int getPrice() = 0;
-    virtual void getNumberOfItems() = 0; 
+    int sellItem() = 0;
+    double setGrowthRate() = 0;
+    void setPrice() = 0;
+    int getPrice() = 0;
+    int getNumberOfItems() = 0; 
 };
 
 #endif
