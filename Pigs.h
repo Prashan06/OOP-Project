@@ -7,22 +7,24 @@
 // This class inherits from the Barn class.
 class Pigs : public Barn {
     protected:
+    // The attributes of the function are initialised. 
     int maxPigCapacity;
-    int currentPigCount;
-
+    int PigCount;
+    int PigPrice; 
 
     public:
     Pigs();
     int getAnimalCount();
-    int setMaxAnimalCapacity();
+    int setMaxAnimalCapacity(int maxPigCapacity);
     int MaxBarnCapacity();
     void increaseBarnCapacity();
-    void setPrice();
+    int getPigCount();
+
     int sellItem();
     double setGrowthRate();
     void setPrice();
     int getPrice();
-    void getNumberOfItems(); 
+    int getNumberOfItems(); 
 };
 
 #endif
