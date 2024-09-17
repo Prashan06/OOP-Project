@@ -13,10 +13,10 @@ class Pigs : public Barn {
     double growthRate;
     int PigCount;
     int PigPrice;
-    bool SellReady;
+    bool sellReady;
+    int sellReadyPigCount;
+    int sellPrice;
     
-
-
     public:
     Pigs();
     int getAnimalCount();

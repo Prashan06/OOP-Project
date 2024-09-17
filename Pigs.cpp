@@ -12,3 +12,11 @@ int Pigs::getPigCount() {
     return PigCount;
 }
 
+int Pigs::sellItem(){
+    if (sellReady = true){
+        std::cout << "How many pigs do you want to sell: ";
+    }
+}
+
+
+
