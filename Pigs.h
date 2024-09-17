@@ -9,11 +9,10 @@ class Pigs : public Barn {
     protected:
     int maxPigCapacity;
     int currentPigCount;
-
+    double growthRate;
 
     public:
     Pigs();
-    int getAnimalCount();
     int setMaxAnimalCapacity();
     int MaxBarnCapacity();
     void increaseBarnCapacity();
@@ -22,7 +21,8 @@ class Pigs : public Barn {
     double setGrowthRate();
     void setPrice();
     int getPrice();
-    void getNumberOfItems(); 
+    int getNumberOfItems(); 
+    void BuyPig();
 };
 
 #endif
