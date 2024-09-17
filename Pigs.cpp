@@ -1,6 +1,6 @@
 #include "Pigs.h"
 
-Pigs::Pigs() : pigGrowthRate(30), maxPigCapacity(10), pigCount(0), pigPrice(5), increaseCapacityPrice(10) {}
+Pigs::Pigs() : pigGrowthRate(30), maxPigCapacity(10), pigCount(0), pigPrice(5), increaseCapacityPrice(10), sellPrice(8) {}
 
 int Pigs::setMaxAnimalCapacity(int maxPigCapacity) {
     this -> maxPigCapacity = maxPigCapacity;
@@ -59,11 +59,12 @@ int Pigs::sellItem() {
     }
 
     if (optionChoice == "Y") {
-        for (int j = 0; j < numberOfTimesPigsAreBought; j++) {
+        for (int j = soldIndex; j < numberOfTimesPigsAreBought; j++) {
             pigArray[j] = pigArray[j - soldIndex];
             timeArray[j] = timeArray[j - soldIndex];
             numberOfTimesPigsAreBought = numberOfTimesPigsAreBought - soldIndex;
             pigCount = pigCount - sellReadyPigCount;
+            Money = Money - sellReadyPigPrice;
         }       
     }
 }
