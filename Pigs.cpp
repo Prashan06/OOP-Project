@@ -1,4 +1,5 @@
 #include "Pigs.h"
+#include <ctime>
 
 Pigs::Pigs() : pigGrowthRate(30), maxPigCapacity(10), pigCount(0), pigPrice(5), increaseCapacityPrice(10), sellPrice(8) {}
 
@@ -17,7 +18,7 @@ void Pigs::increaseBarnCapacity() {
 
         if (optionChoice == "Y") {
             this -> maxPigCapacity = maxPigCapacity + 5;
-            Money = Money - increaseCapacityPrice;
+            Money = getMoneyCount() - increaseCapacityPrice;
         }
     }
 }
@@ -31,20 +32,24 @@ void Pigs::buyItem() {
     while (boughtPigs > Money/pigPrice) {
         cout << "Not enough money to buy that many pigs, please enter a number less than" << Money/pigPrice << "pigs" << endl;
     }
+    boughtTime = std::time(nullptr);
     pigCount = pigCount + boughtPigs;
     pigArray[numberOfTimesPigsAreBought] = boughtPigs;
-    timeArray[numberOfTimesPigsAreBought] = time_t(NULL) - time_t(0);
+    timeArray[numberOfTimesPigsAreBought] = boughtTime;
     numberOfTimesPigsAreBought++;
     Money = Money - (boughtPigs * pigPrice);
+    
 
 }
 
 int Pigs::sellItem() {
+    std::time_t currentTime = std::time(nullptr);
     int soldIndex = 0;
     for (int i = 0; i < numberOfTimesPigsAreBought; i++){
-        if (timeArray[i] >= pigGrowthRate){
+        if (std::difftime(currentTime, timeArray[i]) >= pigGrowthRate){
             sellReadyPigCount = sellReadyPigCount + pigArray[i];
             soldIndex++;
+
         }
     }
 
