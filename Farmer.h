@@ -21,7 +21,7 @@ class Farmer {
 
     public:
     Farmer();
-    float getMoneyCount();
+    int getMoneyCount();
     void setMoneyCount(int Money);
     // void addFields();
     // void addBarns();

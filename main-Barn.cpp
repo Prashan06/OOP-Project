@@ -5,11 +5,16 @@
 
 int main(){
     Pigs p;
-
+    char Y = 'N';
+    p.getMoneyCount();
     p.setMaxAnimalCapacity(20);
     p.increaseBarnCapacity();
     p.buyItem();
-    p.sellItem();
+    std::cout << "Y or N" << std::endl;
+    std::cin >> Y;
+    if (Y == 'Y'){
+        p.sellItem();
+    }
 
     return 0;
 }
