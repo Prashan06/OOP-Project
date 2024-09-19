@@ -11,7 +11,6 @@ Farmer:: Farmer() : Money(50), DayLength(60), time(time_t(NULL)-time_t(0)), Farm
 
 
 int Farmer:: getMoneyCount(){
-    std::cout << "Money is: " << Money << std::endl;
     return Money;
 }
 void Farmer:: setMoneyCount(int Money){

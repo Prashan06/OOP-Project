@@ -21,6 +21,7 @@ class Pigs : public Barn {
         int sellReadyPigCount;
         int sellReadyPigPrice;
         int sellPrice;
+        int newMoney;
 
     public:
         Pigs();
