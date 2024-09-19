@@ -6,7 +6,7 @@
 class Farm {
 
     public:
-        virtual int sellItem() = 0;
+        virtual void sellItem() = 0;
         virtual void buyItem() = 0;
 };
 

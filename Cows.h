@@ -21,19 +21,17 @@ class Cows : public Barn {
         int sellReadyCowCount;
         int sellReadyCowPrice;
         int sellPrice;
+        int newMoney;
     
 
     public:
         Cows();
-        int setMaxAnimalCapacity(int maxPigCapacity);
+        int setMaxAnimalCapacity(int maxCowCapacity);
         void increaseBarnCapacity();
         int getCowCount();
-        int sellItem();
-        double setGrowthRate();
-        void setPrice();
-        int getPrice();
-        int getNumberOfItems(); 
+        void sellItem();
         void buyItem();
+        ~Cows();
 };
 
 #endif

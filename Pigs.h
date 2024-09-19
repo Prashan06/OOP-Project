@@ -28,8 +28,7 @@ class Pigs : public Barn {
         int setMaxAnimalCapacity(int maxPigCapacity);
         void increaseBarnCapacity();
         int getPigCount();
-        int sellItem();
-        int getNumberOfItems(); 
+        void sellItem(); 
         void buyItem();
         ~Pigs();
 };

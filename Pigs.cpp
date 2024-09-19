@@ -46,7 +46,7 @@ void Pigs::buyItem() {
     std::cout << "Money is: " << Money << " Pig Count is:  " << getPigCount() << std::endl;
 }
 
-int Pigs::sellItem() {
+void Pigs::sellItem() {
     int soldIndex = 0;
     time_t currentTime = std::time(nullptr);
     for (int i = 0; i < numberOfTimesPigsAreBought; i++){
@@ -73,8 +73,6 @@ int Pigs::sellItem() {
             timeArray[j] = timeArray[j - soldIndex];
             numberOfTimesPigsAreBought = numberOfTimesPigsAreBought - soldIndex;
             pigCount = pigCount - sellReadyPigCount;
-            newMoney = getMoneyCount() + sellReadyPigPrice;
-            setMoneyCount(newMoney);
         }    
 
         newMoney = getMoneyCount() + sellReadyPigPrice;
