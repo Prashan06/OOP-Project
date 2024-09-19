@@ -15,7 +15,6 @@ class Barn : public Farm, public Farmer {
         int getAnimalCount();
         void setAnimalCount(int pigCount, int cowCount);
         virtual int setMaxAnimalCapacity();
-        virtual int MaxBarnCapacity();
         virtual void increaseBarnCapacity();
 };
 

@@ -1,10 +1,10 @@
 #include "Pigs.h"
-#include <ctime>
 
-Pigs::Pigs() : pigGrowthRate(30), maxPigCapacity(10), pigCount(0), pigPrice(5), increaseCapacityPrice(10), sellPrice(8) {}
+Pigs::Pigs() : pigGrowthRate(30), maxPigCapacity(10), pigCount(0), pigPrice(5), increaseCapacityPrice(10), sellPrice(8), sellReadyPigCount(0), numberOfTimesPigsAreBought(0),newMoney(0),Barn(){}
 
 int Pigs::setMaxAnimalCapacity(int maxPigCapacity) {
     this -> maxPigCapacity = maxPigCapacity;
+    std::cout << "Max Pig Capacity is: " << maxPigCapacity << std::endl; 
 }
 
 void Pigs::increaseBarnCapacity() {
@@ -18,45 +18,49 @@ void Pigs::increaseBarnCapacity() {
 
         if (optionChoice == "Y") {
             this -> maxPigCapacity = maxPigCapacity + 5;
-            Money = getMoneyCount() - increaseCapacityPrice;
+            newMoney =  getMoneyCount() - increaseCapacityPrice;
+            setMoneyCount(newMoney);
         }
     }
+    std::cout << "Max Pig Capacity is: " << maxPigCapacity << std::endl; 
+
 }
 int Pigs::getPigCount() {
     return pigCount;
 }
 
 void Pigs::buyItem() {
-    cout << "how many pigs would you like to buy, you can buy" << Money/pigPrice << "pigs: " << endl;
+    cout << "how many pigs would you like to buy, you can buy " << Money/pigPrice << " pigs: " << endl;
     cin >> boughtPigs;
-    while (boughtPigs > Money/pigPrice) {
+    while (boughtPigs > getMoneyCount()/pigPrice) {
         cout << "Not enough money to buy that many pigs, please enter a number less than" << Money/pigPrice << "pigs" << endl;
     }
-    boughtTime = std::time(nullptr);
     pigCount = pigCount + boughtPigs;
+    std::cout << "Number of pigs are: " << pigCount << std::endl;
     pigArray[numberOfTimesPigsAreBought] = boughtPigs;
+    time_t boughtTime = std::time(nullptr);
     timeArray[numberOfTimesPigsAreBought] = boughtTime;
     numberOfTimesPigsAreBought++;
-    Money = Money - (boughtPigs * pigPrice);
-    
-
+    newMoney = getMoneyCount() - (boughtPigs * pigPrice);
+    setMoneyCount(newMoney);
+    std::cout << "Money is: " << Money << " Pig Count is:  " << getPigCount() << std::endl;
 }
 
 int Pigs::sellItem() {
-    std::time_t currentTime = std::time(nullptr);
     int soldIndex = 0;
+    time_t currentTime = std::time(nullptr);
     for (int i = 0; i < numberOfTimesPigsAreBought; i++){
-        if (std::difftime(currentTime, timeArray[i]) >= pigGrowthRate){
+        if (difftime(currentTime, timeArray[i]) >= pigGrowthRate){
             sellReadyPigCount = sellReadyPigCount + pigArray[i];
             soldIndex++;
-
         }
     }
 
     sellReadyPigPrice = sellReadyPigCount * sellPrice;
 
-    cout << "You can sell " << sellReadyPigCount << " pigs " << " for " << sellReadyPigPrice << " dollars." << endl;
+    cout << "You can sell " << sellReadyPigCount << " pigs for " << sellReadyPigPrice << " dollars." << endl;
     cout << "Would you like to sell them? Enter Y or N" << endl; 
+    cin >> optionChoice;
 
     while (optionChoice != "Y" && optionChoice != "N") {
             cout << "invalid input! please enter Y or N" << endl;
@@ -69,9 +73,18 @@ int Pigs::sellItem() {
             timeArray[j] = timeArray[j - soldIndex];
             numberOfTimesPigsAreBought = numberOfTimesPigsAreBought - soldIndex;
             pigCount = pigCount - sellReadyPigCount;
-            Money = Money - sellReadyPigPrice;
-        }       
+            newMoney = getMoneyCount() + sellReadyPigPrice;
+            setMoneyCount(newMoney);
+        }    
+
+        newMoney = getMoneyCount() + sellReadyPigPrice;
+        setMoneyCount(newMoney);   
     }
+    std::cout << "number of times pigs are bought are: " <<numberOfTimesPigsAreBought<<" Pig Count is: " << getPigCount() << " Money is: " << getMoneyCount() << std::endl;
 }
 
 
+Pigs::~Pigs() {
+    delete [] timeArray;
+    delete [] pigArray;
+}

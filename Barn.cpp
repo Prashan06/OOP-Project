@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Barn.h"
 #include "Farm.h"
+#include "Farmer.h"
 
 using namespace std;
 
@@ -13,4 +14,7 @@ void Barn::setAnimalCount(int pigCount, int cowCount) {
 int Barn::getAnimalCount() {
     return animalCount;
 }
+
+int Barn::setMaxAnimalCapacity(){}
+void Barn::increaseBarnCapacity(){}
 
