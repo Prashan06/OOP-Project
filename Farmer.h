@@ -17,7 +17,7 @@ class Farmer {
     int DayCount = 0;
     time_t time;
     char FarmName[21];
-    string optionChoice;
+    std::string optionChoice;
 
     public:
     Farmer();

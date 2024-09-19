@@ -28,11 +28,9 @@ class Pigs : public Barn {
         void increaseBarnCapacity();
         int getPigCount();
         int sellItem();
-        double setGrowthRate();
-        void setPrice();
-        int getPrice();
         int getNumberOfItems(); 
         void buyItem();
+        ~Pigs();
 };
 
 #endif
