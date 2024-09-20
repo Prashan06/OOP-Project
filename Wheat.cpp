@@ -1,7 +1,7 @@
 #include "Wheat.h"
 
 
-Wheat::Wheat() : GrowthRate(15), maxWheatCapacity(15), wheatCount(0), wheatPrice(3), increaseCapacityPrice(8), sellPrice(5), sellReadyWheatCount(0),numberOfTimesWheatAreBought(0), newMoney(0), Field(){}
+Wheat::Wheat() : wheatGrowthRate(15), maxWheatCapacity(15), wheatCount(0), wheatPrice(3), increaseCapacityPrice(8), sellPrice(5), sellReadyWheatCount(0),numberOfTimesWheatAreBought(0), newMoney(0), Field(){}
 
 int Wheat::setMaxCropsCapacity(int maxWheatCapacity) {
     this -> maxWheatCapacity = maxWheatCapacity;
@@ -47,11 +47,11 @@ void Wheat::buyItem() {
     std::cout << "Money is: " << Money << " Wheat Count is:  " << getWheatCount() << std::endl;
 }
 
-int Wheat::sellItem() {
+void Wheat::sellItem() {
     int soldIndex = 0;
     time_t currentTime = std::time(nullptr);
     for (int i = 0; i < numberOfTimesWheatAreBought; i++){
-        if (difftime(currentTime, timeArray[i]) >= GrowthRate){
+        if (difftime(currentTime, timeArray[i]) >= wheatGrowthRate){
             sellReadyWheatCount = sellReadyWheatCount + wheatArray[i];
             soldIndex++;
         }

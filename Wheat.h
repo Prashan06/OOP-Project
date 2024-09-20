@@ -10,7 +10,7 @@ class Wheat : public Field {
     protected:
     // The attributes of the function are initialised. 
         int maxWheatCapacity;
-        int GrowthRate;
+        int wheatGrowthRate;
         int wheatCount;
         int wheatPrice; 
         int boughtWheat;
