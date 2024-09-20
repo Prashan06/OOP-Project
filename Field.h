@@ -1,22 +1,23 @@
 #ifndef FIELD_H
 #define FIELD_H
 
+#include <iostream>
 #include "Farm.h"
 #include "Farmer.h"
 
 class Field : public Farm, public Farmer {
     protected:
-    int FertilizationPrice;
+    int FertilisationPrice;
     int PesticidePrice;
 
     public:
+    Field();
     virtual void Fertilzation();
     virtual void Pesticide();
-    void setPrice();
-    int getPrice();
-    virtual int maxFieldCapacity();
+    int getCropCount();
+    void setCropCount(int wheatCount, int cornCount );    
     virtual int increaseMaxFieldCapacity();
-    virtual int getMaxFieldCapacity();
+    virtual void setMaxFieldCapacity();
 };
 
 #endif
