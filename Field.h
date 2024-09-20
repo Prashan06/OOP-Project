@@ -7,13 +7,15 @@
 
 class Field : public Farm, public Farmer {
     protected:
-    int FertilisationPrice;
-    int PesticidePrice;
+    int wheatCount;
+    int cornCount;
+    int wheatGrowthRate;
+    int cornGrowthRate;
+    int cropCount;
+
 
     public:
     Field();
-    virtual void Fertilzation();
-    virtual void Pesticide();
     int getCropCount();
     void setCropCount(int wheatCount, int cornCount);    
     virtual int increaseMaxFieldCapacity();

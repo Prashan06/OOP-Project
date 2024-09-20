@@ -1,19 +1,13 @@
 #include "Field.h"
 
-void Field::Fertilzation(){
-    //Bank account - Fertilization Price.
-}
-void Field::Pesticide(){
-    //Bank account - Pesticide Price.
-}
-void Field:: setPrice(){
-    FertilizationPrice = 90;
-    PesticidePrice = 80;
-}
-int Field:: getPrice(){
-    std:: cout << "Fertilzer Price is: " << FertilizationPrice << "Pesticide Price is: " << PesticidePrice << std::endl;
-}
+Field::Field() : Farm(), wheatCount(0), cornCount(0),wheatGrowthRate(0), cornGrowthRate(0), cropCount(0){}
 
-int Field::maxFieldCapacity(){}
+int Field::getCropCount(){
+    cropCount = wheatCount + cornCount;
+    return cropCount;
+}
+void Field::setCropCount(int wheatCount, int cornCount){
+    cropCount = wheatCount + cornCount;
+} 
 int Field::increaseMaxFieldCapacity(){}
-int Field::getMaxFieldCapacity(){}
+void Field::setMaxFieldCapacity(){}
