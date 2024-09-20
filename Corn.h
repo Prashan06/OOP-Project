@@ -1,12 +1,12 @@
 #ifndef CORN_H
 #define CORN_H
 
-#include "Barn.h"
+#include "Field.h"
 #include "ctime"
 
 // This class will contains methods relating to the breeding, selling ,etc of pigs.
 // This class inherits from the Barn class.
-class Corn : public Barn {
+class Corn : public Field {
     protected:
     // The attributes of the function are initialised. 
         int maxCornCapacity;
