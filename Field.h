@@ -2,8 +2,9 @@
 #define FIELD_H
 
 #include "Farm.h"
+#include "Farmer.h"
 
-class Field{
+class Field : public Farm, public Farmer {
     protected:
     int FertilizationPrice;
     int PesticidePrice;

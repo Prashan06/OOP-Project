@@ -1,10 +1,11 @@
 #include <iostream>
 #include "Barn.h"
 #include "Farm.h"
+#include "Farmer.h"
 
 using namespace std;
 
-Barn::Barn() : animalCount(0) {}
+Barn::Barn() : Farmer(), animalCount(0) {}
 
 void Barn::setAnimalCount(int pigCount, int cowCount) {
     animalCount = pigCount + cowCount; 
@@ -13,4 +14,7 @@ void Barn::setAnimalCount(int pigCount, int cowCount) {
 int Barn::getAnimalCount() {
     return animalCount;
 }
+
+int Barn::setMaxAnimalCapacity(){}
+void Barn::increaseBarnCapacity(){}
 

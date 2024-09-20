@@ -1,9 +1,13 @@
 #include "Cows.h"
+#include <ctime>
 
-Cows::Cows() : cowGrowthRate(40), maxCowCapacity(10), cowCount(0), cowPrice(10), increaseCapacityPrice(15), sellPrice(12) {}
+using namespace std;
+
+Cows::Cows() : cowGrowthRate(40), maxCowCapacity(10), cowCount(0), cowPrice(10), increaseCapacityPrice(15), sellPrice(12), sellReadyCowCount(0), numberOfTimesCowsAreBought(0), newMoney(0), Barn() {}
 
 int Cows::setMaxAnimalCapacity(int maxCowCapacity) {
     this -> maxCowCapacity = maxCowCapacity;
+    cout << "Max cow capacity is: " << maxCowCapacity << endl;
 }
 
 void Cows::increaseBarnCapacity() {
@@ -17,8 +21,10 @@ void Cows::increaseBarnCapacity() {
 
         if (optionChoice == "Y") {
             this -> maxCowCapacity = maxCowCapacity + 5;
-            Money = Money - increaseCapacityPrice;
+            newMoney = getMoneyCount() - increaseCapacityPrice;
+            setMoneyCount(newMoney);
         }
+        cout << "Max cow capacity is: " << maxCowCapacity << endl;
     }
 }
 int Cows::getCowCount() {
@@ -26,23 +32,27 @@ int Cows::getCowCount() {
 }
 
 void Cows::buyItem() {
-    cout << "how many pigs would you like to buy, you can buy" << Money/cowPrice << "cows: " << endl;
+    cout << "how many cows would you like to buy, you can buy" << Money/cowPrice << "cows: " << endl;
     cin >> boughtCows;
-    while (boughtCows > Money/cowPrice) {
-        cout << "Not enough money to buy that many cows, please enter a number less than" << Money/cowPrice << "cows" << endl;
+    while (boughtCows > getMoneyCount()/cowPrice) {
+        cout << "Not enough money to buy that many cows, please enter a number less than" << getMoneyCount()/cowPrice << "cows" << endl;
     }
     cowCount = cowCount + boughtCows;
     cowArray[numberOfTimesCowsAreBought] = boughtCows;
-    timeArray[numberOfTimesCowsAreBought] = time_t(NULL) - time_t(0);
+    time_t boughtTime = std::time(nullptr);
+    timeArray[numberOfTimesCowsAreBought] = boughtTime;
     numberOfTimesCowsAreBought++;
-    Money = Money - (boughtCows * cowPrice);
+    newMoney = getMoneyCount() - (boughtCows * cowPrice);
+    setMoneyCount(newMoney);
+    std::cout << "Money is: " << Money << " Cow count is:  " << getCowCount() << std::endl;
 
 }
 
-int Cows::sellItem() {
+void Cows::sellItem() {
     int soldIndex = 0;
+    time_t currentTime = std::time(nullptr);
     for (int i = 0; i < numberOfTimesCowsAreBought; i++) {
-        if (timeArray[i] >= cowGrowthRate) {
+        if (difftime(currentTime, timeArray[i]) >= cowGrowthRate) {
             sellReadyCowCount = sellReadyCowCount + cowArray[i];
             soldIndex++;
         }
@@ -64,7 +74,14 @@ int Cows::sellItem() {
             timeArray[j] = timeArray[j - soldIndex];
             numberOfTimesCowsAreBought = numberOfTimesCowsAreBought - soldIndex;
             cowCount = cowCount - sellReadyCowCount;
-            Money = Money + sellReadyCowPrice;
-        }       
+        }  
+        newMoney = getMoneyCount() + sellReadyCowPrice;
+        setMoneyCount(newMoney);
     }
+    std::cout <<" Cow Count is: " << getCowCount() << " Money is: " << getMoneyCount() << std::endl;
+}
+
+Cows::~Cows() {
+    delete [] timeArray;
+    delete [] cowArray;
 }

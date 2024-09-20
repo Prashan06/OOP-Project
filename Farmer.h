@@ -17,11 +17,11 @@ class Farmer {
     int DayCount = 0;
     time_t time;
     char FarmName[21];
-    string optionChoice;
+    std::string optionChoice;
 
     public:
     Farmer();
-    float getMoneyCount();
+    int getMoneyCount();
     void setMoneyCount(int Money);
     // void addFields();
     // void addBarns();

@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Farmer:: Farmer() : Money(100), DayLength(60), time(time_t(NULL)-time_t(0)), FarmName(""){
+Farmer:: Farmer() : Money(50), DayLength(60), time(time_t(NULL)-time_t(0)), FarmName(""){
     if (time % DayLength == 0) {
         DayCount++;
         Money = Money + 50;
@@ -10,7 +10,7 @@ Farmer:: Farmer() : Money(100), DayLength(60), time(time_t(NULL)-time_t(0)), Far
 }
 
 
-float Farmer:: getMoneyCount(){
+int Farmer:: getMoneyCount(){
     return Money;
 }
 void Farmer:: setMoneyCount(int Money){
