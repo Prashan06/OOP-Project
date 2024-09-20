@@ -15,7 +15,7 @@ class Field : public Farm, public Farmer {
     virtual void Fertilzation();
     virtual void Pesticide();
     int getCropCount();
-    void setCropCount(int wheatCount, int cornCount );    
+    void setCropCount(int wheatCount, int cornCount);    
     virtual int increaseMaxFieldCapacity();
     virtual void setMaxFieldCapacity();
 };
