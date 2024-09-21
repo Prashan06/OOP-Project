@@ -11,6 +11,7 @@ int Farmer::nextDay() {
     time_t currentTime = std::time(nullptr);
     int timer = difftime(startTime, currentTime);
     if (timer % DayLength == 0) {
+        cout << "A new day has begun!" << endl;
         DayCount++;
         Money = Money + 50;
     }

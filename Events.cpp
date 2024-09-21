@@ -41,7 +41,7 @@ void Events::executeEvent(Farmer farmer, Cows cow, Pigs pig, Barn barn) {
 
             case 2:
                 // prompt user about event
-                
+
                 cout << "A disease has spread throughout your barn!" << endl;
                 cout << "half of your animals have died" << endl;
 
@@ -53,6 +53,7 @@ void Events::executeEvent(Farmer farmer, Cows cow, Pigs pig, Barn barn) {
                     cowCounter = cowCounter + cow.getCowArray()[i];
                     i++;
                 }
+                i--; // as index of array starts at 0;
                 cow.getCowArray()[i] = cow.getCowArray()[i] - (cowCounter - ((cow.getCowCount())/2));
                 for (int j = i; j < cow.getNumberOfTimesCowsAreBought(); j++) {
                     cow.getCowArray()[j] = cow.getCowArray()[j - i];
@@ -69,6 +70,7 @@ void Events::executeEvent(Farmer farmer, Cows cow, Pigs pig, Barn barn) {
                     pigCounter = pigCounter + pig.getPigArray()[k];
                     k++;
                 }
+                k--; // as index of array starts at 0
                 pig.getPigArray()[k] = pig.getPigArray()[k] - (pigCounter - ((pig.getPigCount())/2));
                 for (int l = k; l < pig.getNumberOfTimesPigsAreBought(); l++) {
                     pig.getPigArray()[l] = pig.getPigArray()[l - k];
@@ -76,10 +78,18 @@ void Events::executeEvent(Farmer farmer, Cows cow, Pigs pig, Barn barn) {
                 }
                 pig.setPigCount((pig.getPigCount()/2));
                 barn.setAnimalCount(pig.getPigCount(), cow.getCowCount());
+                break;
 
             case 3:
+                // prompt user about event
                 cout << "Its tax day! you must pay your taxes." << endl;
-                
+                cout << "100 dollars has been payed to the tax office" << endl;
+
+                farmer.setMoneyCount((farmer.getMoneyCount() - 100));
+                break;
+            
+            default: 
+                break;
         }
     }
 }
