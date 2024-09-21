@@ -8,7 +8,7 @@ using namespace std;
 Barn::Barn() : Farmer(), animalCount(0) {}
 
 void Barn::setAnimalCount(int pigCount, int cowCount) {
-    animalCount = pigCount + cowCount; 
+    this -> animalCount = pigCount + cowCount; 
 }
 
 int Barn::getAnimalCount() {
@@ -18,3 +18,5 @@ int Barn::getAnimalCount() {
 int Barn::setMaxAnimalCapacity(){}
 void Barn::increaseBarnCapacity(){}
 
+void Barn::sellItem() {}
+void Barn::buyItem() {}

@@ -16,6 +16,8 @@ class Barn : public Farm, public Farmer {
         void setAnimalCount(int pigCount, int cowCount);
         virtual int setMaxAnimalCapacity();
         virtual void increaseBarnCapacity();
+        void Barn::sellItem();
+        void Barn::buyItem();
 };
 
 

@@ -1,12 +1,20 @@
+#include <iostream>
+#include <ctime>
 #include "Farmer.h"
 
 using namespace std;
 
-Farmer:: Farmer() : Money(50), DayLength(60), time(time_t(NULL)-time_t(0)), FarmName(""){
-    if (time % DayLength == 0) {
+
+Farmer:: Farmer() : Money(50), DayLength(60), startTime(std::time(nullptr)), FarmName(""){}
+
+int Farmer::nextDay() {
+    time_t currentTime = std::time(nullptr);
+    int timer = difftime(startTime, currentTime);
+    if (timer % DayLength == 0) {
         DayCount++;
         Money = Money + 50;
     }
+    return timer;
 }
 
 
@@ -47,4 +55,8 @@ string Farmer::getFarmName() {
 
 int Farmer::getDayCount() {
     return DayCount;
+}
+
+int Farmer::getDayLength() {
+    return DayLength;
 }

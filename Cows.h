@@ -28,9 +28,13 @@ class Cows : public Barn {
         Cows();
         int setMaxAnimalCapacity(int maxCowCapacity);
         void increaseBarnCapacity();
+        void setCowCount(int cowCount);
         int getCowCount();
         void sellItem();
         void buyItem();
+        int getNumberOfTimesCowsAreBought();
+        int* getTimeArray();
+        int* getCowArray();
         ~Cows();
 };
 

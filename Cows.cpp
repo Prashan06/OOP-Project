@@ -27,6 +27,11 @@ void Cows::increaseBarnCapacity() {
         cout << "Max cow capacity is: " << maxCowCapacity << endl;
     }
 }
+
+void Cows::setCowCount(int cowCount) {
+    this -> cowCount = cowCount;
+}
+
 int Cows::getCowCount() {
     return cowCount;
 }
@@ -80,6 +85,19 @@ void Cows::sellItem() {
     }
     std::cout <<" Cow Count is: " << getCowCount() << " Money is: " << getMoneyCount() << std::endl;
 }
+
+int Cows::getNumberOfTimesCowsAreBought() {
+    return numberOfTimesCowsAreBought;
+}
+
+int* Cows::getTimeArray() {
+    return timeArray;
+}
+
+int* Cows::getCowArray() {
+    return cowArray;
+}
+
 
 Cows::~Cows() {
     delete [] timeArray;

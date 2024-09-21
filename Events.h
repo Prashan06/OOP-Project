@@ -11,12 +11,8 @@ using namespace std;
 
 class Events : public Farmer , public Pigs, public Cows, public Wheat, public Corn {
     protected:
-
     public:
-        void pestInvasion();
-        void animalDisease();
-        void Tax();
-
+        void executeEvent(Farmer farmer, Cows cow, Pigs pig, Barn barn);
 };
 
 

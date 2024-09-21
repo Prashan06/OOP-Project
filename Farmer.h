@@ -15,12 +15,13 @@ class Farmer {
 
     int DayLength;
     int DayCount = 0;
-    time_t time;
+    time_t startTime;
     char FarmName[21];
     std::string optionChoice;
 
     public:
     Farmer();
+    int nextDay();
     int getMoneyCount();
     void setMoneyCount(int Money);
     // void addFields();
@@ -30,6 +31,7 @@ class Farmer {
     void setFarmName();
     std::string getFarmName();
     int getDayCount();
+    int getDayLength();
 };
 
 #endif
