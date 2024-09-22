@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Farm.h"
 #include "Farmer.h"
+#include <ctime>
 
 class Field : public Farm, public Farmer {
     protected:
@@ -12,10 +13,15 @@ class Field : public Farm, public Farmer {
     int wheatGrowthRate;
     int cornGrowthRate;
     int cropCount;
+    int dayCount;
+    int fertiliserDuration;
+    time_t fertiliserTimer;
+    time_t PesticideTimer;
 
 
     public:
     Field();
+    void Fertilisation();
     void Pesticide();
     int getCropCount();
     void setCropCount(int wheatCount, int cornCount);    
