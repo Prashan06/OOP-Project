@@ -90,6 +90,10 @@ int Pigs::getNumberOfTimesPigsAreBought() {
     return numberOfTimesPigsAreBought;
 }
 
+void Pigs::setNumberOfTimesPigsAreBought(int numberOfTimesPigsAreBought) {
+    this -> numberOfTimesPigsAreBought = numberOfTimesPigsAreBought;
+}
+
 int* Pigs::getPigArray() {
     return pigArray;
 }

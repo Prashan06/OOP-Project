@@ -60,7 +60,7 @@ void Events::executeEvent(Farmer farmer, Cows cow, Pigs pig, Barn barn) {
                     cow.getTimeArray()[j] = cow.getTimeArray()[j - i];
                 }
                 cow.setCowCount((cow.getCowCount()/2));
-                barn.setAnimalCount(pig.getPigCount(), cow.getCowCount());
+                cow.setNumberOfTimesCowsAreBought((cow.getNumberOfTimesCowsAreBought() - i));
 
                 // half the amount of pigs in the barn
 
@@ -76,7 +76,9 @@ void Events::executeEvent(Farmer farmer, Cows cow, Pigs pig, Barn barn) {
                     pig.getPigArray()[l] = pig.getPigArray()[l - k];
                     pig.getTimeArray()[l] = pig.getTimeArray()[l - k];
                 }
+                
                 pig.setPigCount((pig.getPigCount()/2));
+                pig.setNumberOfTimesPigsAreBought((pig.getNumberOfTimesPigsAreBought() - k));
                 barn.setAnimalCount(pig.getPigCount(), cow.getCowCount());
                 break;
 

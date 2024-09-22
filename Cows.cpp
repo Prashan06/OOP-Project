@@ -90,6 +90,10 @@ int Cows::getNumberOfTimesCowsAreBought() {
     return numberOfTimesCowsAreBought;
 }
 
+void Cows::setNumberOfTimesCowsAreBought(int numberOfTimesCowsAreBought) {
+    this -> numberOfTimesCowsAreBought = numberOfTimesCowsAreBought;
+}
+
 int* Cows::getTimeArray() {
     return timeArray;
 }

@@ -35,6 +35,7 @@ class Cows : public Barn {
         int getNumberOfTimesCowsAreBought();
         int* getTimeArray();
         int* getCowArray();
+        void setNumberOfTimesCowsAreBought(int numberOfTimesCowsAreBought);
         ~Cows();
 };
 
