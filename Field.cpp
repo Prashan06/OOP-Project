@@ -20,6 +20,7 @@ void Field::Fertilisation(){
     std::cin >> optionChoice;
         if (optionChoice == "Y"){
             std::cout << "Fertilisation has begun" << std::endl;
+            setMoneyCount(Money - 50);
             fertiliserTimer = time(0);
             dayCount = (fertiliserTimer - time(NULL))/60;
             while ( dayCount <= fertiliserDuration ){
@@ -37,7 +38,7 @@ void Field::Fertilisation(){
 void Field :: Pesticide() {
     std::cout << "Would you like to buy Pesticide? Y or N" << std::endl;
     std::cin >> optionChoice;
-        if (optionChoice == "Y"){
+        if (optionChoice == "N"){
             // if (pesitcide event = true) {
             // decrease animal count by only 25%;
             // decrease crop count by only 30%;
