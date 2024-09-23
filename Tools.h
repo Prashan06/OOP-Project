@@ -23,6 +23,7 @@ class Tools : public Cows, public Pigs, public Corn, public Wheat {
         int getCropEnhancerLevel();
         int getAnimalFeedLevel(); 
         
+        
 
 };
 

@@ -1,6 +1,6 @@
 #include "Field.h"
 
-Field::Field() : Farm(), wheatCount(0), cornCount(0),wheatGrowthRate(0), cornGrowthRate(0), cropCount(0), fertiliserTimer(0), PesticideTimer(0), fertiliserDuration(3){}
+Field::Field() : Farm(), wheatCount(0), cornCount(0), wheatGrowthRate(0), cornGrowthRate(0), cropCount(0), fertiliserTimer(0), PesticideTimer(0), fertiliserDuration(3){}
 
 
 int Field::getCropCount(){
@@ -32,15 +32,5 @@ void Field::Fertilisation(){
                 wheatGrowthRate = 15;
                 cornGrowthRate = 20;
             }
-        }
-}
-
-void Field :: Pesticide() {
-    std::cout << "Would you like to buy Pesticide? Y or N" << std::endl;
-    std::cin >> optionChoice;
-        if (optionChoice == "N"){
-            // if (pesitcide event = true) {
-            // decrease animal count by only 25%;
-            // decrease crop count by only 30%;
         }
 }
