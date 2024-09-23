@@ -28,7 +28,7 @@ class Wheat : public Field {
         int setMaxCropsCapacity(int maxWheatCapacity);
         int getWheatCount();
         void increaseFieldCapacity();
-        int getPigCount();
+        int getWheatCount();
         void sellItem();
         int getNumberOfItems(); 
         void buyItem();
