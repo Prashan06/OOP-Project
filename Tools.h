@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Tools : public Events {
+class Tools : public Cows, public Pigs, public Corn, public Wheat {
     protected: 
         string cropEnhancer;
         int cropEnhancerLevel;
