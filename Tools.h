@@ -1,33 +1,20 @@
 #ifndef TOOLS_H
 #define TOOLS_H
-#include <iostream>
-#include <string>
-#include "Events.h"
 
-using namespace std;
+#include "Farmer.h"
 
-class Tools : public Cows, public Pigs, public Corn, public Wheat {
-    protected: 
-        string cropEnhancer;
-        int cropEnhancerLevel;
-        string animalFeed;
-        int animalFeedLevel;
-        int cropEnhancerPrice;
-        int animalFeedPrice;
-        string optionChoice;
+class Tools: public Farmer{
 
-    public: 
-        Tools();
-        void upgradeCropEnhancer();
-        void upgradeAnimalFeed();
-        int getCropEnhancerLevel();
-        int getAnimalFeedLevel(); 
-        
-        
+    protected:
+
+        int costPerField;
+        bool repaired;
+
+    public:
+
+        void repair();
+        void repairedtoFalse();
 
 };
-
-
-
 
 #endif
