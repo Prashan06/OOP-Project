@@ -89,6 +89,22 @@ void Events::executeEvent(Farmer farmer, Cows cow, Pigs pig, Barn barn) {
 
                 farmer.setMoneyCount((farmer.getMoneyCount() - 100));
                 break;
+
+            case 4:
+
+                cout << "Your spraying machine has broken" << endl;
+                cout << "100 dollers must be paid to repair it" << endl;
+
+                //Logic
+
+                break;
+
+            case 5: 
+
+                cout << "Your FertilingMachine has broken" << endl;
+                cout << "100 dollers must be paid to repair it" << endl;
+
+                //Logic    
             
             default: 
                 break;
