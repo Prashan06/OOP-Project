@@ -15,7 +15,7 @@ void Events::executeEvent(Farmer farmer, Cows cow, Pigs pig, Barn barn) {
         // method to give random chance of event occuring every new day
         random_device rd; // obtain a random number from hardware
         mt19937 gen(rd()); // seed the generator, initialise generator
-        uniform_int_distribution<> distr(1, 20); // define the range
+        uniform_int_distribution<> distr(1, 3); // define the range
 
         int randomNumber = distr(gen); // generate random integer number
 
