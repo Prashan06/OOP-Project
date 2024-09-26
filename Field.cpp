@@ -12,7 +12,7 @@ void Field::setCropCount(int wheatCount, int cornCount){
     cropCount = wheatCount + cornCount;
 } 
 
-int Field::increaseMaxFieldCapacity(){}
+void Field::increaseMaxFieldCapacity(){}
 void Field::setMaxFieldCapacity(){}
 
 void Field::Fertilisation(){

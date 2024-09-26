@@ -2,9 +2,13 @@
 
 Pigs::Pigs() : pigGrowthRate(30), maxPigCapacity(10), pigCount(0), pigPrice(5), increaseCapacityPrice(10), sellPrice(8), sellReadyPigCount(0), numberOfTimesPigsAreBought(0),newMoney(0),Barn(){}
 
-int Pigs::setMaxAnimalCapacity(int maxPigCapacity) {
-    this -> maxPigCapacity = maxPigCapacity;
-    std::cout << "Max Pig Capacity is: " << maxPigCapacity << std::endl; 
+void Pigs::setMaxAnimalCapacity(int maxPigCapacity) {
+    if (maxPigCapacity < 10){
+        cout << "Error: parameter maxPigCapacity is too small, make sure it at least larger than 10" << endl;
+    } else{
+        this -> maxPigCapacity = maxPigCapacity;
+        std::cout << "Max Pig Capacity is: " << maxPigCapacity << std::endl; 
+    }
 }
 
 void Pigs::increaseBarnCapacity() {
@@ -27,7 +31,11 @@ void Pigs::increaseBarnCapacity() {
 }
 
 void Pigs::setPigCount(int pigCount) {
-    this -> pigCount = pigCount;
+    if (pigCount < 0){
+        cout << "Error: parameter is a negative value, make sure it is positive." << endl;
+    } else {
+        this -> pigCount = pigCount;
+    }
 }
 
 int Pigs::getPigCount() {
@@ -42,14 +50,14 @@ void Pigs::buyItem() {
         cin >> boughtPigs;
     }
     pigCount = pigCount + boughtPigs;
-    std::cout << "Number of pigs are: " << pigCount << std::endl;
+    std::cout << "Number of pigs owned: " << pigCount << std::endl;
     pigArray[numberOfTimesPigsAreBought] = boughtPigs;
     time_t boughtTime = std::time(nullptr);
     timeArray[numberOfTimesPigsAreBought] = boughtTime;
     numberOfTimesPigsAreBought++;
     newMoney = getMoneyCount() - (boughtPigs * pigPrice);
     setMoneyCount(newMoney);
-    std::cout << "Money is: " << Money << " Pig Count is:  " << getPigCount() << std::endl;
+    std::cout << "Money is: " << Money << " Pig Count is: " << getPigCount() << std::endl;
 }
 
 void Pigs::sellItem() {
@@ -83,7 +91,7 @@ void Pigs::sellItem() {
         newMoney = getMoneyCount() + sellReadyPigPrice;
         setMoneyCount(newMoney);   
     }
-    std::cout << "number of times pigs are bought are: " <<numberOfTimesPigsAreBought<<" Pig Count is: " << getPigCount() << " Money is: " << getMoneyCount() << std::endl;
+    std::cout <<numberOfTimesPigsAreBought<< " Pig Count is: " << getPigCount() << " Money is: " << getMoneyCount() << std::endl;
 }
 
 int Pigs::getNumberOfTimesPigsAreBought() {

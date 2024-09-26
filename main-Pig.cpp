@@ -18,7 +18,7 @@ int main () {
     p.increaseBarnCapacity(); // should increase the maximum barn capacity from 15 to 20
     cout << p.getMoneyCount() << endl; // checking that the money was reduced by 15 dollars
 
-    p.setPigCount(15); // should set pigCount to 15
+    p.setPigCount(10); // should set pigCount to 15
     cout << p.getPigCount() << endl; // should print 15
     p.setPigCount(-25); // should print error message.
 

@@ -5,7 +5,7 @@ using namespace std;
 
 Corn::Corn() : cornGrowthRate(20), maxCornCapacity(10), cornCount(0), cornPrice(5), increaseCapacityPrice(10), sellPrice(12), sellReadyCornCount(0), numberOfTimesCornIsBought(0), newMoney(0), Field() {}
 
-int Corn::setMaxCropCapacity(int maxCornCapacity) {
+void Corn::setMaxCropCapacity(int maxCornCapacity) {
     this -> maxCornCapacity = maxCornCapacity;
     cout << "Max corn capacity is: " << maxCornCapacity << endl;
 }

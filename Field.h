@@ -25,7 +25,7 @@ class Field : public Farm, public Farmer {
     void Pesticide();
     int getCropCount();
     void setCropCount(int wheatCount, int cornCount);    
-    virtual int increaseMaxFieldCapacity();
+    virtual void increaseMaxFieldCapacity();
     virtual void setMaxFieldCapacity();
 };
 

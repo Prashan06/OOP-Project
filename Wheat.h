@@ -25,7 +25,7 @@ class Wheat : public Field {
 
     public:
         Wheat();
-        int setMaxCropsCapacity(int maxWheatCapacity);
+        void setMaxCropsCapacity(int maxWheatCapacity);
         int getWheatCount();
         void increaseFieldCapacity();
         void sellItem();

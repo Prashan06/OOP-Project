@@ -6,7 +6,7 @@ using namespace std;
 
 Wheat::Wheat() : wheatGrowthRate(15), maxWheatCapacity(15), wheatCount(0), wheatPrice(3), increaseCapacityPrice(8), sellPrice(5), sellReadyWheatCount(0),numberOfTimesWheatAreBought(0), newMoney(0), Field(){}
 
-int Wheat::setMaxCropsCapacity(int maxWheatCapacity) {
+void Wheat::setMaxCropsCapacity(int maxWheatCapacity) {
     this -> maxWheatCapacity = maxWheatCapacity;
     std::cout << "Max Wheat Capacity is: " << maxWheatCapacity << std::endl; 
 }

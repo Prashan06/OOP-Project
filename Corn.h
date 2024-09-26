@@ -26,7 +26,7 @@ class Corn : public Field {
 
     public:
         Corn();
-        int setMaxCropCapacity(int maxCornCapacity);
+        void setMaxCropCapacity(int maxCornCapacity);
         void increaseFieldCapacity();
         int getCornCount();
         void sellItem();
