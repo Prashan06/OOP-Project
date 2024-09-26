@@ -2,12 +2,12 @@
 #include <ctime>
 #include "Cows.h"
 
-// this file is going to test the Cow class to check that the functions specifically in Cow are acting as they are intended to
-// even though barn contains other inherited functions, they will not be tested as these functions will be tested in the file testing
+// this file is going to test the Cows class to check that the functions specifically in Cows are acting as they are intended to
+// even though Cows contains other inherited functions, they will not be tested as these functions will be tested in the file testing
 // the class in which the other functions are defined. 
 // the functions in this specific case are setMaxCapacity(int maxCapacity), increaseBarnCapacity(), setCowCount(int cowCount),
 // getCowCount(), buyItem(), sellItem(), getNumberOfTimesCowsAreBought(), setNumberOfTimesCowsAreBought(int numberOfTimesCowsAreBought), 
-// getTimeArray(), getCowArray() and ~Cows().
+// getTimeArray(), and getCowArray().
 
 int main () {
     Cows c;
@@ -18,7 +18,7 @@ int main () {
     c.increaseBarnCapacity(); // should increase the maximum barn capacity from 15 to 20
     cout << c.getMoneyCount() << endl; // checking that the money was reduced by 15 dollars
 
-    c.setCowCount(15); // should set CowCount to 15
+    c.setCowCount(15); // should set cowCount to 15
     cout << c.getCowCount() << endl; // should print 15
     c.setCowCount(-25); // should print error message.
 
