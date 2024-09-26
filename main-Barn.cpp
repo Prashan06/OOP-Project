@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// this file is going to test the barn class to check that the functions specifically in barn are acting as they are intended to
+// this file is going to test the Barn class to check that the functions specifically in Barn are acting as they are intended to
 // even though barn contains other inherited functions, they will not be tested as these functions will be tested in the file testing
 // the class in which the other functions are defined. 
 // the functions in this specific case are setAnimalCount() and getAnimalCount() 
