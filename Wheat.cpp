@@ -37,7 +37,7 @@ void Wheat::buyItem() {
     std::cout << "how much wheat would you like to buy, you can buy " << Money/wheatPrice << " pigs: " << std::endl;
     std::cin >> boughtWheat;
     while (boughtWheat > getMoneyCount()/wheatPrice) {
-        std::cout << "Not enough money to buy that many wheat, please enter a number less than" << Money/wheatPrice << "wheat" << std::endl;
+        std::cout << "Not enough money to buy that many wheat, please enter a number less than " << Money/wheatPrice << " wheat" << std::endl;
         cin >> boughtWheat;
     }
     wheatCount = wheatCount + boughtWheat;
@@ -76,12 +76,9 @@ void Wheat::sellItem() {
         for (int j = soldIndex; j < numberOfTimesWheatAreBought; j++) {
             wheatArray[j - soldIndex] = wheatArray[j];
             timeArray[j - soldIndex] = timeArray[j];
-            numberOfTimesWheatAreBought = numberOfTimesWheatAreBought - soldIndex;
-            wheatCount = wheatCount - sellReadyWheatCount;
-            newMoney = getMoneyCount() + sellReadyWheatPrice;
-            setMoneyCount(newMoney);
         }    
-
+        numberOfTimesWheatAreBought = numberOfTimesWheatAreBought - soldIndex;
+        wheatCount = wheatCount - sellReadyWheatCount;
         newMoney = getMoneyCount() + sellReadyWheatPrice;
         setMoneyCount(newMoney);   
     }

@@ -35,7 +35,7 @@ void Corn::buyItem() {
     cout << "how many corn crops would you like to buy, you can buy" << Money/cornPrice << "corn crops: " << endl;
     cin >> boughtCorn;
     while (boughtCorn > getMoneyCount()/cornPrice) {
-        cout << "Not enough money to buy that many corn crops, please enter a number less than" << getMoneyCount()/cornPrice << "corn crops" << endl;
+        cout << "Not enough money to buy that many corn crops, please enter a number less than " << getMoneyCount()/cornPrice << " corn crops" << endl;
         cin >> boughtCorn;
     }
     cornCount = cornCount + boughtCorn;
@@ -73,11 +73,12 @@ void Corn::sellItem() {
         for (int j = soldIndex; j < numberOfTimesCornIsBought; j++) {
             cornArray[j - soldIndex] = cornArray[j];
             timeArray[j - soldIndex] = timeArray[j];
-            numberOfTimesCornIsBought = numberOfTimesCornIsBought - soldIndex;
-            cornCount = cornCount - sellReadyCornCount;
-        }  
+        }
+        numberOfTimesCornIsBought = numberOfTimesCornIsBought - soldIndex;
+        cornCount = cornCount - sellReadyCornCount;
         newMoney = getMoneyCount() + sellReadyCornPrice;
         setMoneyCount(newMoney);
+        
     }
     cout <<" Corn crop count is: " << getCornCount() << " Money is: " << getMoneyCount() << endl;
 }

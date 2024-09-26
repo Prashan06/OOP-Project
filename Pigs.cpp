@@ -38,7 +38,7 @@ void Pigs::buyItem() {
     cout << "how many pigs would you like to buy, you can buy " << Money/pigPrice << " pigs: " << endl;
     cin >> boughtPigs;
     while (boughtPigs > getMoneyCount()/pigPrice) {
-        cout << "Not enough money to buy that many pigs, please enter a number less than" << Money/pigPrice << "pigs" << endl;
+        cout << "Not enough money to buy that many pigs, please enter a number less than " << Money/pigPrice << " pigs" << endl;
         cin >> boughtPigs;
     }
     pigCount = pigCount + boughtPigs;
@@ -77,10 +77,9 @@ void Pigs::sellItem() {
         for (int j = soldIndex; j < numberOfTimesPigsAreBought; j++) {
             pigArray[j - soldIndex] = pigArray[j];
             timeArray[j - soldIndex] = timeArray[j];
-            numberOfTimesPigsAreBought = numberOfTimesPigsAreBought - soldIndex;
-            pigCount = pigCount - sellReadyPigCount;
         }    
-
+        numberOfTimesPigsAreBought = numberOfTimesPigsAreBought - soldIndex;
+        pigCount = pigCount - sellReadyPigCount;
         newMoney = getMoneyCount() + sellReadyPigPrice;
         setMoneyCount(newMoney);   
     }
