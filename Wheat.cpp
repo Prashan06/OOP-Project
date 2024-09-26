@@ -1,4 +1,7 @@
+#include <iostream>
 #include "Wheat.h"
+
+using namespace std;
 
 
 Wheat::Wheat() : wheatGrowthRate(15), maxWheatCapacity(15), wheatCount(0), wheatPrice(3), increaseCapacityPrice(8), sellPrice(5), sellReadyWheatCount(0),numberOfTimesWheatAreBought(0), newMoney(0), Field(){}
@@ -35,9 +38,10 @@ void Wheat::buyItem() {
     std::cin >> boughtWheat;
     while (boughtWheat > getMoneyCount()/wheatPrice) {
         std::cout << "Not enough money to buy that many wheat, please enter a number less than" << Money/wheatPrice << "wheat" << std::endl;
+        cin >> boughtWheat;
     }
     wheatCount = wheatCount + boughtWheat;
-    std::cout << "Number of wheat are: " << wheatCount << std::endl;
+    std::cout << "Number of wheat crops: " << wheatCount << std::endl;
     wheatArray[numberOfTimesWheatAreBought] = boughtWheat;
     time_t boughtTime = std::time(nullptr);
     timeArray[numberOfTimesWheatAreBought] = boughtTime;
@@ -70,8 +74,8 @@ void Wheat::sellItem() {
 
     if (optionChoice == "Y") {
         for (int j = soldIndex; j < numberOfTimesWheatAreBought; j++) {
-            wheatArray[j] = wheatArray[j - soldIndex];
-            timeArray[j] = timeArray[j - soldIndex];
+            wheatArray[j - soldIndex] = wheatArray[j];
+            timeArray[j - soldIndex] = timeArray[j];
             numberOfTimesWheatAreBought = numberOfTimesWheatAreBought - soldIndex;
             wheatCount = wheatCount - sellReadyWheatCount;
             newMoney = getMoneyCount() + sellReadyWheatPrice;

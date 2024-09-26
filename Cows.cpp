@@ -6,13 +6,13 @@ using namespace std;
 Cows::Cows() : cowGrowthRate(40), maxCowCapacity(10), cowCount(0), cowPrice(10), increaseCapacityPrice(15), sellPrice(12), sellReadyCowCount(0), numberOfTimesCowsAreBought(0), newMoney(0), Barn() {}
 
 void Cows::setMaxAnimalCapacity(int maxCowCapacity) {
-    if (maxCowCapacity >= 0){
-    this -> maxCowCapacity = maxCowCapacity;
+    if (maxCowCapacity < 10){
+        cout << "Error: parameter maxCowCapacity is too small, make sure it at least larger than 10" << endl;
+        
+    } else {
+        this -> maxCowCapacity = maxCowCapacity;
+        cout << "Max cow capacity is: " << maxCowCapacity << endl;
     }
-    else {
-        cout << "Error: parameter maxCowCapacity is negative, make sure it is positve" << endl;
-    }
-    cout << "Max cow capacity is: " << maxCowCapacity << endl;
 }
 
 void Cows::increaseBarnCapacity() {
@@ -29,12 +29,15 @@ void Cows::increaseBarnCapacity() {
             newMoney = getMoneyCount() - increaseCapacityPrice;
             setMoneyCount(newMoney);
         }
-        cout << "Max cow capacity is: " << maxCowCapacity << endl;
     }
 }
 
 void Cows::setCowCount(int cowCount) {
-    this -> cowCount = cowCount;
+    if (cowCount > 0){
+        this -> cowCount = cowCount;
+    } else {
+        cout << "Error: parameter is a negative value, make sure it is positive." << endl;
+    }
 }
 
 int Cows::getCowCount() {
@@ -42,27 +45,29 @@ int Cows::getCowCount() {
 }
 
 void Cows::buyItem() {
-    cout << "how many cows would you like to buy, you can buy" << Money/cowPrice << "cows: " << endl;
+    cout << "how many cows would you like to buy, you can buy " << getMoneyCount()/cowPrice << " cows: " << endl;
     cin >> boughtCows;
     while (boughtCows > getMoneyCount()/cowPrice) {
         cout << "Not enough money to buy that many cows, please enter a number less than" << getMoneyCount()/cowPrice << "cows" << endl;
+        cin >> boughtCows;
     }
     cowCount = cowCount + boughtCows;
     cowArray[numberOfTimesCowsAreBought] = boughtCows;
-    time_t boughtTime = std::time(nullptr);
+    time_t boughtTime = std::time(0);
     timeArray[numberOfTimesCowsAreBought] = boughtTime;
     numberOfTimesCowsAreBought++;
     newMoney = getMoneyCount() - (boughtCows * cowPrice);
     setMoneyCount(newMoney);
-    std::cout << "Money is: " << Money << " Cow count is:  " << getCowCount() << std::endl;
+    std::cout << "Money is: " << Money << " Cow count is: " << getCowCount() << std::endl;
 
 }
 
 void Cows::sellItem() {
     int soldIndex = 0;
-    time_t currentTime = std::time(nullptr);
+    time_t currentTime = std::time(0);
     for (int i = 0; i < numberOfTimesCowsAreBought; i++) {
-        if (difftime(currentTime, timeArray[i]) >= cowGrowthRate) {
+        int timeDifference = difftime(currentTime, timeArray[i]);
+        if (timeDifference >= cowGrowthRate) {
             sellReadyCowCount = sellReadyCowCount + cowArray[i];
             soldIndex++;
         }
@@ -70,8 +75,9 @@ void Cows::sellItem() {
 
     sellReadyCowPrice = sellReadyCowCount * sellPrice;
 
-    cout << "You can sell " << sellReadyCowCount << " cows " << " for " << sellReadyCowPrice << " dollars." << endl;
+    cout << "You can sell " << sellReadyCowCount << " cows" << " for " << sellReadyCowPrice << " dollars." << endl;
     cout << "Would you like to sell them? Enter Y or N" << endl; 
+    cin >> optionChoice;
 
     while (optionChoice != "Y" && optionChoice != "N") {
             cout << "invalid input! please enter Y or N" << endl;
@@ -80,15 +86,15 @@ void Cows::sellItem() {
 
     if (optionChoice == "Y") {
         for (int j = soldIndex; j < numberOfTimesCowsAreBought; j++) {
-            cowArray[j] = cowArray[j - soldIndex];
-            timeArray[j] = timeArray[j - soldIndex];
+            cowArray[j - soldIndex] = cowArray[j];
+            timeArray[j - soldIndex] = timeArray[j];
             numberOfTimesCowsAreBought = numberOfTimesCowsAreBought - soldIndex;
             cowCount = cowCount - sellReadyCowCount;
         }  
         newMoney = getMoneyCount() + sellReadyCowPrice;
         setMoneyCount(newMoney);
     }
-    std::cout <<" Cow Count is: " << getCowCount() << " Money is: " << getMoneyCount() << std::endl;
+    std::cout << "Cow Count is: " << getCowCount() << " Money is: " << getMoneyCount() << std::endl;
 }
 
 int Cows::getNumberOfTimesCowsAreBought() {
