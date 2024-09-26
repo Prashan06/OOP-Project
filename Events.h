@@ -11,10 +11,10 @@
 
 using namespace std;
 
-class Events : public Farmer , public Pigs, public Cows, public Wheat, public Corn, public SprayingMachine, public FertilizingMachine{
+class Events : public Farmer , public Pigs, public Cows, public Wheat, public Corn {
     protected:
     public:
-        void executeEvent(Farmer farmer, Cows cow, Pigs pig, Barn barn, SprayingMachine sMachine, FerilizingMachine fMachine);
+        void executeEvent(Farmer farmer, Cows cow, Pigs pig, Barn barn);
 };
 
 
