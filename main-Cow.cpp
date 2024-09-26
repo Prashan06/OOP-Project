@@ -7,7 +7,7 @@
 // the class in which the other functions are defined. 
 // the functions in this specific case are setMaxCapacity(int maxCapacity), increaseBarnCapacity(), setCowCount(int cowCount),
 // getCowCount(), buyItem(), sellItem(), getNumberOfTimesCowsAreBought(), setNumberOfTimesCowsAreBought(int numberOfTimesCowsAreBought), 
-// getTimeArray(), getCowArray(), and ~Cows().
+// getTimeArray(), getCowArray() and ~Cows().
 
 int main () {
     Cows c;
@@ -22,9 +22,16 @@ int main () {
     cout << c.getCowCount() << endl; // should print 15
     c.setCowCount(-25); // should print error message.
 
+    c.setNumberOfTimesCowsAreBought(4);
+    cout << "number of times cows are bought: " << c.getNumberOfTimesCowsAreBought() << endl;
+    c.setNumberOfTimesCowsAreBought(0);
+    cout << "number of times cows are bought: " << c.getNumberOfTimesCowsAreBought() << endl;
+
     c.buyItem(); // should run user through the process to buy cows.
 
     c.buyItem(); // running through buying process again so that cow and time arrays are larger than 1 element
+
+    cout << "number of times cows are bought: " << c.getNumberOfTimesCowsAreBought() << endl; // should print number or times cows have been bought: 2
 
     int blocker; // method used in test to allow for some time to pass inbetween buying and printing array values to test that time is being incremented correctly
     cout << "enter number" << endl;
@@ -45,5 +52,11 @@ int main () {
         cout << c.getTimeArray()[j] << endl;
     }
 
+    cout << "number of times cows are bought: " << c.getNumberOfTimesCowsAreBought() << endl; // should print message then 0 if all cows are sold, 
+                                                                                              //should print message then 1 if only first batch of cows are sold
+
+    if (c.getNumberOfTimesCowsAreBought() > 0) { // testing destructor only if cow and time arrays arent already empty
+        c.~Cows();
+    }
     return 0;
 }
