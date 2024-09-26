@@ -5,8 +5,13 @@ using namespace std;
 
 Cows::Cows() : cowGrowthRate(40), maxCowCapacity(10), cowCount(0), cowPrice(10), increaseCapacityPrice(15), sellPrice(12), sellReadyCowCount(0), numberOfTimesCowsAreBought(0), newMoney(0), Barn() {}
 
-int Cows::setMaxAnimalCapacity(int maxCowCapacity) {
+void Cows::setMaxAnimalCapacity(int maxCowCapacity) {
+    if (maxCowCapacity >= 0){
     this -> maxCowCapacity = maxCowCapacity;
+    }
+    else {
+        cout << "Error: parameter maxCowCapacity is negative, make sure it is positve" << endl;
+    }
     cout << "Max cow capacity is: " << maxCowCapacity << endl;
 }
 
@@ -20,7 +25,7 @@ void Cows::increaseBarnCapacity() {
         }
 
         if (optionChoice == "Y") {
-            this -> maxCowCapacity = maxCowCapacity + 5;
+            setMaxAnimalCapacity((maxCowCapacity + 5));
             newMoney = getMoneyCount() - increaseCapacityPrice;
             setMoneyCount(newMoney);
         }

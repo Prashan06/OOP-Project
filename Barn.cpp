@@ -20,8 +20,7 @@ int Barn::getAnimalCount() {
     return animalCount;
 }
 
-int Barn::setMaxAnimalCapacity(){
-    return 0;
+void Barn::setMaxAnimalCapacity(){
 }
 void Barn::increaseBarnCapacity(){}
 

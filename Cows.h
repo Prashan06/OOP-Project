@@ -26,7 +26,7 @@ class Cows : public Barn {
 
     public:
         Cows();
-        int setMaxAnimalCapacity(int maxCowCapacity);
+        void setMaxAnimalCapacity(int maxCowCapacity);
         void increaseBarnCapacity();
         void setCowCount(int cowCount);
         int getCowCount();
