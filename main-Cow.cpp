@@ -55,8 +55,5 @@ int main () {
     cout << "number of times cows are bought: " << c.getNumberOfTimesCowsAreBought() << endl; // should print message then 0 if all cows are sold, 
                                                                                               //should print message then 1 if only first batch of cows are sold
 
-    if (c.getNumberOfTimesCowsAreBought() > 0) { // testing destructor only if cow and time arrays arent already empty
-        c.~Cows();
-    }
     return 0;
 }
