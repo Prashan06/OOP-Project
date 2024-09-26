@@ -91,7 +91,7 @@ void Pigs::sellItem() {
         newMoney = getMoneyCount() + sellReadyPigPrice;
         setMoneyCount(newMoney);   
     }
-    std::cout <<numberOfTimesPigsAreBought<< " Pig Count is: " << getPigCount() << " Money is: " << getMoneyCount() << std::endl;
+    std::cout << "Pig Count is: " << getPigCount() << " Money is: " << getMoneyCount() << std::endl;
 }
 
 int Pigs::getNumberOfTimesPigsAreBought() {
