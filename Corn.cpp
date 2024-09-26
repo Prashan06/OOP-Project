@@ -80,7 +80,7 @@ void Corn::sellItem() {
         setMoneyCount(newMoney);
         
     }
-    cout <<" Corn crop count is: " << getCornCount() << " Money is: " << getMoneyCount() << endl;
+    cout << "Corn crop count is: " << getCornCount() << " Money is: " << getMoneyCount() << endl;
 }
 
 Corn::~Corn() {
