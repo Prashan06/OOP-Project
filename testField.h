@@ -23,6 +23,8 @@ class Field{
 
     public:
 
+        Field();
+
         virtual void Fertilzation(); // Increases fertilizationPercentage, must not exceed 100%
         virtual void Pesticide(); // Increases pesticidePercentage, must not exceed 100%
 
