@@ -16,6 +16,9 @@ PesticidePrice = 10;
 fertilizerPercentage = 0.0;
 pesticidePercentage = 0.0;
 
+      int newMoney = getMoneyCount() - cropPlantPrice;
+        setMoneyCount(newMoney);
+
 }
 
 void Field::Fertilzation(){
@@ -46,13 +49,55 @@ void Field::Pesticide(){
 
 void Field::Grow(){
 
-    cropGrowth = cropGrowth + (cropGrowthRate * pesticidePercentage * fertilizerPercentage);
+    cropGrowth = cropGrowth + (cropGrowthRate * fertilizerPercentage);
+    if (cropGrowth > 100.0){
+        cropGrowth = 100.0;
+    }
 
 } 
 
 int Field::sellItem(){
 
-        int newMoney = getMoneyCount() - pesticidePrice;
+    if (isPlanted == true){
+
+        int soldPrice = cropGrowth*cropSellPrice;
+        int newMoney = getMoneyCount() + soldPrice;
         setMoneyCount(newMoney);
+        isPlanted = false;
+
+        fertilizerPercentage = 0.0;
+        pesticidePercentage = 0.0;
+        cropGrowth = 0.0;
+
+        cout << "You received: " << soldPrice << endl;
+
+    }else{
+
+        cout << "Field is not planted" << endl;
+
+    }
+
+
+}
+
+void Field::plant(){
+
+    if (isPlanted == false){
+
+        if (getMoneyCount()>cropPlantPrice){
+
+            isPlanted = true;
+
+        }else{
+
+            cout << "You do not have enough money to plant this field" << endl;
+
+        }
+
+    }else{
+
+        cout << "Field is already planted" << endl;
+
+    }
 
 }
