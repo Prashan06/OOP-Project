@@ -1,32 +1,54 @@
 #ifndef FIELD_H
 #define FIELD_H
 
-#include <iostream>
 #include "Farm.h"
-#include "Farmer.h"
-#include <ctime>
 
-class Field : public Farm, public Farmer {
+class Field{
+
     protected:
-    int wheatCount;
-    int cornCount;
-    int wheatGrowthRate;
-    int cornGrowthRate;
-    int cropCount;
-    int dayCount;
-    int fertiliserDuration;
-    time_t fertiliserTimer;
-    time_t PesticideTimer;
 
+    int cropPrice; // modified in wheat and corn classes
+
+    int cropGrowth; // tracks current stage of growth
+
+    int fertilizerPrice; 
+    int PesticidePrice;     
+
+    float fertilizerPercentage; // tracks how much fertilizer the field has received, is a percentage
+    float pesticidePercentage; // tracks how much pesticide the field has received, is a percentage
+
+     virtual int maxFieldCapacity();
 
     public:
-    Field();
-    void Fertilisation();
-    void Pesticide();
-    int getCropCount();
-    void setCropCount(int wheatCount, int cornCount);    
-    virtual void increaseMaxFieldCapacity();
-    virtual void setMaxFieldCapacity();
+
+    virtual void Fertilzation(); // Increases fertilizationPercentage must not exceed 100%
+    virtual void Pesticide(); // Increases pesticidePercentage must not exceed 100%
+
+    // set & get functions
+
+    void setCropPrice();
+    int getCropPrice();
+
+    void setCropGrowth();
+    int getCropGrowth();
+
+    void setFertilizerPrice();
+    int getFertilizerPrice();
+
+    void setPesticidePrice();
+    int getPesticidePrice();
+
+    void setFertilizerPercentage();
+    float getFertilizerPercentage();
+
+    void setFertilizerPercentage();
+    float getFertilizerPercentage();
+
+    virtual int increaseMaxFieldCapacity();
+    virtual int getMaxFieldCapacity();
+    
+    virtual int currentYield(); // Uses fertilizationPercentage, pesticidePercentage, growthLevel to calculate currentYield
+
 };
 
 #endif
