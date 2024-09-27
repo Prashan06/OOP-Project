@@ -31,6 +31,11 @@ class Wheat : public Field {
         void sellItem();
         void buyItem();
         void Fertilsation();
+        int getNumberOfTimesWheatAreBought();
+        void setNumberOfTimesWheatAreBought(int numberOfTimesWheatAreBought);
+        int* getTimeArray();
+        int* getWheatArray();
+        void setWheatCount(int wheatCount);
         ~Wheat();
 };
 

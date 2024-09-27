@@ -31,6 +31,11 @@ class Corn : public Field {
         int getCornCount();
         void sellItem();
         void buyItem();
+        int getNumberOfTimesCornIsBought();
+        void setNumberOfTimesCornIsBought(int numberOfTimesCornIsBought);
+        int* getTimeArray();
+        int* getCornArray();
+        void setCornCount(int cornCount);
         ~Corn();
 };
 
