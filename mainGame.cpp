@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "progress.txt" // needs editing
+#include "Progress.txt" 
 
 #include "Farm.h"
 #include "Farmer.h"
