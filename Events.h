@@ -3,9 +3,8 @@
 
 class Events{
 
-    protected:
-
     public:
+    virtual void Event() = 0;
 
 };
 
