@@ -12,6 +12,11 @@
 #include "Pig.h"
 #include "Farm.h"
 
+typedef vector <Wheat**,time_t> wheat_v;
+typedef vector <Corn**, time_t> corn_v;
+typedef vector <Pig**,time_t> pig_v;
+typedef vector <Cow**,time_t> cow_v;
+
 class Farmer {
     protected:
     int money;
