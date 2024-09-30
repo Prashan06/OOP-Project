@@ -9,6 +9,11 @@ class Field: public Farm{
 
     public:
 
+        Field();
+	    ~Field();
+
+        void applySpeedGrowth();
+
 };
 
 #endif
