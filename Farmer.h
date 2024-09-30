@@ -16,6 +16,7 @@ typedef vector <Wheat**> wheat_v;
 typedef vector <Corn**> corn_v;
 typedef vector <Pig**> pig_v;
 typedef vector <Cow**> cow_v;
+
 using namespace std;
 // Farmer Class 
 class Farmer {
@@ -29,8 +30,10 @@ class Farmer {
 	int cropCount;
 	int animalCount;
     Farm farm;
+    
     public:
     void setMoneyCount(int money);
+    int getMoneyCount();
     string getFarmName();
     void setFarmName();
     void getStatus();
