@@ -1,4 +1,5 @@
 #include "Farmer.h"
+
 // Constructor 
 Farmer:: Farmer() : money(50),pig(0),cow(0),wheat(0),corn(0),farmName(""),cropCount(0),animalCount(0) {}
 // Returns the amount of money the farmer has.
