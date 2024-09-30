@@ -1,15 +1,16 @@
+#ifndef FARM_H
+#define FARM_H
 
-+16
--2
-Original file line number	Diff line number	Diff line change
-#include <iostream>
+#include <chrono>
 
 class Farm {
+
     protected:
-    int buyPrice;
-    int sellPrice;
-    int sellTime;
-    time_t timer;
+        
+        int buyPrice;
+        int sellPrice;
+        int sellTime;
+        time_t timer;
 
     public:
         virtual void sellItem() = 0;
@@ -24,6 +25,7 @@ class Farm {
 	void setSellTime(int sellTime);
 	int getSellTime();
 	~Farm();
+
 };
 
 #endif
