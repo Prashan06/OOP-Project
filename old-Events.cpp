@@ -7,10 +7,13 @@
 #include "Corn.h"
 #include "Wheat.h"
 #include "Barn.h"
+//#include "SprayingMachine.h"
+//#include "FertilizingMachine.h"
+//#include "Tools.h"
 
 using namespace std;
 
-void Events::executeEvent(Farmer farmer, Cows cow, Pigs pig, Barn barn) {
+void Events::executeEvent(Farmer farmer, Cows cow, Pigs pig, Barn barn, SprayingMachine sMachine, FertilizingMachine fMachine) {
     if (farmer.nextDay() % farmer.getDayLength() == 0) {
         // method to give random chance of event occuring every new day
         random_device rd; // obtain a random number from hardware
@@ -24,6 +27,22 @@ void Events::executeEvent(Farmer farmer, Cows cow, Pigs pig, Barn barn) {
         switch (randomNumber) {
 
             case 1:
+                cout << "A pest infestation has taken over your farm!" << endl;
+                // cout << "Would you like to buy pesticide for " << pesticide price << "dollars?" << endl;
+                // cin >> optionChoice
+                //while (optionChoice != "Y" && optionChoice != "N") {
+                //cout << "invalid input! please enter Y or N" << endl;
+                //cin >> optionChoice;
+                //}
+
+                //if (optionChoice == "Y") {
+                    // implement pesticide function from tools;
+                //} else {
+                    //method to halve crops;
+                //}
+                
+
+            case 2:
                 // prompt user about event
 
                 cout << "A disease has spread throughout your barn!" << endl;
@@ -66,7 +85,7 @@ void Events::executeEvent(Farmer farmer, Cows cow, Pigs pig, Barn barn) {
                 barn.setAnimalCount(pig.getPigCount(), cow.getCowCount());
                 break;
 
-            case 2:
+            case 3:
                 // prompt user about event
                 cout << "Its tax day! you must pay your taxes." << endl;
                 cout << "100 dollars has been payed to the tax office" << endl;
@@ -76,19 +95,19 @@ void Events::executeEvent(Farmer farmer, Cows cow, Pigs pig, Barn barn) {
 
             case 4:
 
-                //cout << "Your spraying machine has broken" << endl;
-                //cout << "100 dollers must be paid to repair it" << endl;
+                cout << "Your spraying machine has broken" << endl;
+                cout << "100 dollers must be paid to repair it" << endl;
 
-                //Logic
+                repairedtoFalse(sMachine);
 
                 break;
 
             case 5: 
 
-                //cout << "Your FertilingMachine has broken" << endl;
-                //cout << "100 dollers must be paid to repair it" << endl;
+                cout << "Your FertilingMachine has broken" << endl;
+                cout << "100 dollers must be paid to repair it" << endl;
 
-                //Logic    
+                repairedtoFalse(fMachine);  
             
             default: 
                 break;

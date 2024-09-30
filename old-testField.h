@@ -7,13 +7,15 @@ class Field{
 
         protected:
 
+        bool isPlanted;
+
         int cropPlantPrice; // modified in wheat and corn classes
 
         int cropSellPrice; // modified in wheat and corn classes
 
         float cropGrowth; // tracks current stage of growth, is a percentage
  
-        int cropGrowthRate; // modified in wheat and corn classes
+        float cropGrowthRate; // modified in wheat and corn classes
 
         int fertilizerPrice; // price to fertilize 
         int PesticidePrice;     
@@ -29,6 +31,8 @@ class Field{
         virtual void Pesticide(); // Increases pesticidePercentage, must not exceed 100%
 
         virtual void Grow(); // uses cropGrowthRate & fertilizationPercentage to increase cropGowth, notifies when a crop is fully grown
+
+        virtual void plant();
 
         // set & get functions
 

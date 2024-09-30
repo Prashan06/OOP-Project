@@ -5,7 +5,7 @@
 
 class Farm {
 
-    Field** field array; << easier if this is a vector array
+    Field** field array; 
 
 };
 
