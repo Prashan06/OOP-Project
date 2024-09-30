@@ -30,7 +30,6 @@ class Wheat : public Field {
         void increaseFieldCapacity();
         void sellItem();
         void buyItem();
-        void Fertilsation();
         int getNumberOfTimesWheatAreBought();
         void setNumberOfTimesWheatAreBought(int numberOfTimesWheatAreBought);
         int* getTimeArray();
