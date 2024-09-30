@@ -1,32 +1,39 @@
 #ifndef FARMER_H
 #define FARMER_H
-#include <iostream>
+
 #include <string>
 #include <ctime>
 #include <chrono>
+#include <vector>
+
+#include "Wheat.h"
+#include "Corn.h"
+#include "Cow.h"
+#include "Pig.h"
+#include "Farm.h"
+
 class Farmer {
     protected:
-    int Money;
-    // Field** Fields;
-    // Barn** Barns;
-    // Tool** Tools;
-    int DayLength;
-    int DayCount = 0;
-    time_t startTime;
-    char FarmName[21];
-    std::string optionChoice;
+    int money;
+	wheat_v wheat;
+	corn_v corn;
+	pig_v pig;
+	cow_v cow;
+	char farmName[21];
+	int cropCount;
+	int animalCount;
+    Farm farm;
+
     public:
-    Farmer();
-    int nextDay();
-    int getMoneyCount();
-    void setMoneyCount(int Money);
-    // void addFields();
-    // void addBarns();
-    // void addTools();
-    void getStatus();
+    void setMoneyCount(int money);
+    string getFarmName();
     void setFarmName();
-    std::string getFarmName();
-    int getDayCount();
-    int getDayLength();
+    void getStatus();
+    void buyItem();
+    void sellItem();
+    int getCropCount();
+    void setCropCount ();
+    int getAnimalCount();
+    void setAnimalCount ();
 };
 #endif
