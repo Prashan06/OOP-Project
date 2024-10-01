@@ -84,6 +84,3 @@ int Farmer::getWheatCount(){
 int Farmer:: getCornCount(){
     return cornCount;
 }
-void Farmer::setAnimalCount (){
-    this-> animalCount = pig.size() + cow.size();
-}

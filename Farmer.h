@@ -45,6 +45,5 @@ class Farmer {
 	Void setCornCount(int cornCount);
 	~Farmer();
 
-
 };
 #endif
