@@ -33,7 +33,7 @@ class Farmer {
 
     public:
 
-        void setMoneyCount(int money);
+        void setMoney(int money);
         string getFarmName();
         void setFarmName();
         void getStatus();

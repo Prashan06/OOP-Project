@@ -3,17 +3,17 @@
 // Constructor 
 Farmer:: Farmer() : money(50),pig(0),cow(0),wheat(0),corn(0),farmName(""),cropCount(0),animalCount(0) {}
 // Returns the amount of money the farmer has.
-int Farmer:: getMoneyCount(){
+int Farmer:: getMoney(){
     return money;
 }
 // sets the amount of money the farmer has.
-void Farmer:: setMoneyCount(int money){
+void Farmer:: setMoney(int money){
     this -> money = money;
 }
 // returns the farm name and money.
 void Farmer:: getStatus(){
     std::cout << "Hello " << getFarmName() << std::endl;
-    std::cout << "Your bank account holds: " << getMoneyCount() << " Dollars" << std::endl;
+    std::cout << "Your bank account holds: " << getMoney() << " Dollars" << std::endl;
 }
 // sets the farm name.
 void Farmer::setFarmName() {
@@ -63,6 +63,7 @@ void Farmer:: setCropCount(){
 int Farmer::getAnimalCount(){
     return animalCount;
 }
+
 void Farmer::setAnimalCount (){
     this-> animalCount = pig.size() + cow.size();
 }
