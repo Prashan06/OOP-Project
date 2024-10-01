@@ -12,6 +12,7 @@
 #include "Pig.h"
 #include "Farm.h"
 
+//vector definition
 typedef vector <Wheat**,time_t> wheat_v;
 typedef vector <Corn**, time_t> corn_v;
 typedef vector <Pig**,time_t> pig_v;
@@ -23,15 +24,14 @@ class Farmer {
 
         int money;
         char farmName[21];
+        int cropCount;
+        int animalCount;
 
         //object arrays
         wheat_v wheat;
         corn_v corn;
         pig_v pig;
         cow_v cow;
-
-        int cropCount;
-        int animalCount;
 
         //Farm farm; should this be here?
 
@@ -45,13 +45,12 @@ class Farmer {
 
         void setMoney(int money);
         int getMoney();
-        void setCropCount(int cropCount);
-        int getCropCount ();
-        void setAnimalCount(int animalCount);
-        int getAnimalCount ();
-
         void setFarmName(string farmName);
         string getFarmName();
+        void setCropCount();
+        int getCropCount ();
+        void setAnimalCount();
+        int getAnimalCount ();
 
 };
 
