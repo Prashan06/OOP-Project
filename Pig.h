@@ -10,6 +10,9 @@ class Pig: public Barn, public Events{
 
     public:
 
+        Pig();
+        void applyHighYield();
+
 };
 
 #endif
