@@ -13,18 +13,16 @@ class Farm {
         time_t timer;
 
     public:
-        virtual void sellItem() = 0;
-        virtual void buyItem() = 0;
-    Farm();
-	virtual void applySpeedGrow();
-	virtual void applyHighYield();
-	int setBuyPrice(int buyPrice);
-    int getBuyPrice();
-	void setSellPrice(int sellPrice);
-    int getSellPrice();
-	void setSellTime(int sellTime);
-	int getSellTime();
-	~Farm();
+        Farm();
+        virtual void applySpeedGrow();
+        virtual void applyHighYield();
+        int setBuyPrice(int buyPrice);
+        int getBuyPrice();
+        void setSellPrice(int sellPrice);
+        int getSellPrice();
+        void setSellTime(int sellTime);
+        int getSellTime();
+        ~Farm();
 
 };
 
