@@ -4,7 +4,6 @@
 #include <string>
 #include <ctime>
 #include <chrono>
-#include <vector>
 
 #include "Wheat.h"
 #include "Corn.h"
@@ -12,46 +11,40 @@
 #include "Pig.h"
 #include "Farm.h"
 
-//vector definition
-typedef vector <Wheat**,time_t> wheat_v;
-typedef vector <Corn**, time_t> corn_v;
-typedef vector <Pig**,time_t> pig_v;
-typedef vector <Cow**,time_t> cow_v;
-
 class Farmer {
-
     protected:
-
-        int money;
-        char farmName[21];
-        int cropCount;
-        int animalCount;
-
-        //object arrays
-        wheat_v wheat;
-        corn_v corn;
-        pig_v pig;
-        cow_v cow;
-
-        //Farm farm; should this be here?
-
+	int money;
+	Wheat** wheat;
+	Corn** corn;
+	Pig** pig;
+	Cow** cow;
+	char farmName[21];
+	int cowCount;
+	int pigCount;
+	int wheatCount;
+	int cornCount;
+	Farm farm;
     public:
+    Farmer();
+	int getMoneyCount();
+	void setMoneyCount(int money);
+	string getFarmName();
+	Void setFarmName();
+	Void getStatus();
+	Void buyItem();
+    Int getCropCount ();
+    Int getAnimalCount ();
+	void sellItem();
+	int getCowCount()
+	int getPigCount();
+	int getWheatCount();
+	int getCornCount();
+	Void setCowCount(int cowCount);
+	Void setPigCount(int pigCount);
+	Void setWheatCount(int wheatCount);
+	Void setCornCount(int cornCount);
+	~Farmer();
 
-        void buyItem();
-        void sellItem();
-        void getStatus();
-
-        //getters and setters
-
-        void setMoney(int money);
-        int getMoney();
-        void setFarmName(string farmName);
-        string getFarmName();
-        void setCropCount();
-        int getCropCount ();
-        void setAnimalCount();
-        int getAnimalCount ();
 
 };
-
 #endif

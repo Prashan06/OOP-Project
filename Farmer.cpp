@@ -49,29 +49,41 @@ void Farmer:: buyItem(){
     cin >> product;
     switch (product) {
         case 'cow' :
-        farm.setBuyPrice(10);
         
         case 'pig':
         case 'corn':
         case 'wheat': 
     }
 }
+
 void Farmer:: sellItem(){
 }
+
+// Returns the number of wheat and corn currently in the farm.
 int Farmer:: getCropCount(){
-    return cropCount;
+    return this -> wheatCount + this ->cornCount;
 }
 // Sets the number of wheat and corn in the farm
 void Farmer:: setCropCount(){
     this->cropCount = wheat.size() + corn.size();
 }
+// returns the number of pig and cows currently in the farm
+int Farmer::getAnimalCount(){
+    return this -> cowCount + this -> pigCount;
+}
 
-void Farmer::setAnimalCount(){
+int Farmer::getCowCount(){
+    return cowCount;
+}
+int Farmer::getPigCount(){
+    return pigCount;
+}
+int Farmer::getWheatCount(){
+    return wheatCount;
+}
+int Farmer:: getCornCount(){
+    return cornCount;
+}
+void Farmer::setAnimalCount (){
     this-> animalCount = pig.size() + cow.size();
 }
-
-// returns the combined number of pig and cows currently in the farm
-int Farmer::getAnimalCount(){
-    return animalCount;
-}
-
