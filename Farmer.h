@@ -17,11 +17,11 @@ class Farmer {
         
         int money;
 
-        //vector arrays
-        vector<Wheat> wheatArray
-        vector<Corn> cornArray
-        vector<Pig> pigArray
-        vector<Cow> cowArray
+        //arrays
+        Wheat** Wheat[];
+        Corn** Corn[];
+        Pig** Pig[];
+        Cow** Cow[];
 
         //tracking variables for object creation
         int timesWheatPlanted;
@@ -58,6 +58,14 @@ class Farmer {
         Void setPigCount(int pigCount);
         Void setWheatCount(int wheatCount);
         Void setCornCount(int cornCount);
+        int timesWheatPlanted;
+        int timesCornPlanted;
+        int timesCowsBought;
+        int timesPigsBought;
+         int timesWheatPlanted;
+        int timesCornPlanted;
+        int timesCowsBought;
+        int timesPigsBought;
 
 };
 
