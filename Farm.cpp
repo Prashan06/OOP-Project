@@ -1,7 +1,7 @@
 #include "Farm.h"
 
 // Constructor
-Farm::Farm() : buyPrice(0), sellPrice(0), sellTime(60), timer(NULL){}
+Farm::Farm() : buyPrice(0), sellPrice(0), sellTime(60), timer(NULL), optionchoice (""){}
 void Farm::applySpeedGrow(){}
 void Farm::applyHighYield(){}
 

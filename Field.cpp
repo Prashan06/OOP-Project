@@ -29,11 +29,11 @@ int Field::getHighYieldPrice(){
     return highYieldPrice;
 }
 
-void Field::applySpeedGrowth(){
+void Field::applySpeedGrow(){
     cout << "Do you want to buy the SpeedGrow potion? Y or N " << endl;
     cin >> optionChoice;
     if (optionChoice == "Y"){
-        wheat.setSellTime() = wheat.setSellTime
+        wheat.setSellTime() = wheat.setSellTime;
     }
 }
 
@@ -45,7 +45,7 @@ void Field::applyPesticide(){
     cout << "Do you want to buy pesticide? Y or N " << endl;
     if (optionChoice == "Y" && pesticideApplied == false){
         // Note for corn and wheat events, if pesticide applied is true, reduce killing of corn and wheat.
-        pesticideAppled = true;
+        pesticideApplied = true;
     }
 }
 
