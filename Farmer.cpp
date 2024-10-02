@@ -61,7 +61,7 @@ void Farmer:: buyItem(){
                 cout << "You do not have enough money to buy " << amount << " cows" << endl;
                 money = money + cow.getBuyPrice()*amount;
             }
-
+ daeragethsryjdtkuyilttyuktdyjrsheagwarhetsjrydktufliyuktdjhrgs
             for (int i = cowCount ; i < cowCount + amount; i++ ){
                 cow[i] = Cow* c(i);
             }
