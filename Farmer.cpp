@@ -115,18 +115,7 @@ void Farmer:: sellItem(){
     int amount = 0;
     switch (product) {
         case 'cow' :
-            cout << "How many cows would you like to buy? " << endl;
-            cin >> amount;
-            timesCowsBought = timesCowsBought + amount;
-            money = money - cow.getBuyPrice()*amount;
-            if (money < 0 ) {
-                cout << "You do not have enough money to buy " << amount << " cows" << endl;
-                money = money + cow.getBuyPrice()*amount;
-            }
-            for (int i = cowCount ; i < cowCount + amount; i++ ){
-                cow[i] = Cow* c(i);
-                cowCount++;
-            }
+                
         case 'pig':
             
         case 'corn':
