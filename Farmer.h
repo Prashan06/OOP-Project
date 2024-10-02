@@ -37,10 +37,6 @@ class Farmer {
         int timesCornPlanted;
         int timesCowsBought;
         int timesPigsBought;
-        int timesWheatPlanted;
-        int timesCornPlanted;
-        int timesCowsBought;
-        int timesPigsBought;
    
     public:
 
