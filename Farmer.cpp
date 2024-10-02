@@ -47,9 +47,14 @@ void Farmer:: buyItem(){
     char product;
     cout << "What animal or crop would you like to sell? Enter response in lower case " << endl;
     cin >> product;
+    int amount = 0;
     switch (product) {
         case 'cow' :
-        
+            cout << "How many cows would you like to buy? " << endl;
+            cin >> amount;
+            for (int i = cowCount; i < cowCount + amount; i++ ){
+                cow[i] = Cow* c(i);
+            }
         case 'pig':
         case 'corn':
         case 'wheat': 
