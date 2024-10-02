@@ -6,14 +6,23 @@
 class Barn: public Farm{
 
     protected:
+        int speedGrowPrice;
+	    float highYieldFactor;
+	    int highYieldPrice;
+	    int speedGrowLevel;
 
     public:
-
-        Barn();
-	    ~Barn();
-
-        void applySpeedGrowth();
-
+    Barn();
+    void setHighYieldFactor(float highYieldFactor);
+	int getHighYieldFactor();
+    void setHighYieldPrice(int highYieldPrice);
+	int getHighYieldPrice();
+    void setSpeedGrowPrice (int speedGrowPrice);
+    int getSpeedGrowPrice ();
+    void applySpeedGrowth(int money);
+    void setSpeedGrowLevel (int speedGrowLevel);
+	int getSpeedGrowLevel();
+    ~Barn();
 };
 
 #endif
