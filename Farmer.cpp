@@ -114,6 +114,7 @@ void Farmer:: sellItem(){
     cout << "What animal or crop would you like to sell? (Enter response in lower case)" << endl;
     cin >> product;
     switch (product) {
+<<<<<<< HEAD
         case 'cow':
             int cowsReadyToSell;
             for (int i = 0, i < cowCount, i++){
@@ -135,6 +136,12 @@ void Farmer:: sellItem(){
                 cowCount++;
             }
         case 'pig': 
+=======
+        case 'cow' :
+                
+        case 'pig':
+            
+>>>>>>> 8afa26f40878cd1d7d33954c1bdcd6d577bb3ced
         case 'corn':
         case 'wheat': 
     }
