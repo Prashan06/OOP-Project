@@ -1,13 +1,60 @@
 #include "Barn.h"
-         
-Barn::Barn(){
+#include <iostream>
 
+using namespace std;
+
+// constructor
+Barn::Barn() : speedGrowPrice(0), highYieldFactor(0), highYieldPrice(0), speedGrowLevel(0) {}
+
+// setter for highYieldFactor
+void Barn::setHighYieldFactor(float highYieldFactor) {
+    this -> highYieldFactor = highYieldFactor;
 }
 
+// getter for highYieldFactor
+int Barn::getHighYieldFactor() {
+    return highYieldFactor;
+}
+
+// setter for highYieldPrice
+void Barn::setHighYieldPrice(int highYieldPrice) {
+    this -> highYieldPrice = highYieldPrice;
+}
+
+// getter for highYieldPrice
+int Barn::getHighYieldPrice() {
+    return highYieldPrice;
+}
+
+// setter for speedGrowPrice
+void Barn::setSpeedGrowPrice (int speedGrowPrice) {
+    this -> speedGrowPrice = speedGrowPrice;
+}
+
+// getter for speedGrowPrice
+int Barn::getSpeedGrowPrice () {
+    return speedGrowPrice;
+};
+
+// setter for speedGrowPrice
+void Barn::setSpeedGrowLevel(int speedGrowLevel) {
+    this -> speedGrowLevel = speedGrowLevel;
+}
+
+// getter for speedGrowPrice
+int Barn::getSpeedGrowLevel() {
+    return speedGrowLevel;
+}
+
+// method to apply the speed growth boost to the farmers items
+void Barn::applySpeedGrowth(int money) {
+    money = money-speedGrowPrice;
+    speedGrowLevel++;
+    timer--;
+}
+
+
+// destructor
 Barn::~Barn(){
-
-}
-
-void Barn::applySpeedGrowth(){
 
 }

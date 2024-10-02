@@ -2,8 +2,7 @@
 
 // Constructor
 Farm::Farm() : buyPrice(0), sellPrice(0), sellTime(60), timer(NULL){}
-void Farm::applySpeedGrow(){}
-void Farm::applyHighYield(){}
+
 
 // Sets the buyPrice.
 int Farm::setBuyPrice(int buyPrice){
@@ -37,3 +36,5 @@ int Farm::getSellTime(){
 
 // Destructor.
 Farm::~Farm(){}
+
+

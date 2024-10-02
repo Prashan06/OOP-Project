@@ -52,4 +52,3 @@ void Field::applyPesticide(){
 Field::~Field(){
 
 }
-
