@@ -78,6 +78,7 @@ class Farmer {
 	int wheatCount;
 	int cornCount;
 	Farm farm;
+	
     public:
     Farmer();
 	int getMoneyCount();

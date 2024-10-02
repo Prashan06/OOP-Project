@@ -41,6 +41,10 @@ string Farmer::getFarmName() {
 void Farmer:: getStatus(){
     std::cout << "Hello " << getFarmName() << std::endl;
     std::cout << "Your bank account holds: " << getMoney() << " Dollars" << std::endl;
+    std::cout << "You have " << cowCount << " cows" << std::endl;
+    std::cout << "You have " << pigCount << " pigs" << std::endl;
+    std::cout << "You have " << cornCount << " corns" << std::endl;
+    std::cout << "You have " << wheatCount << " wheat" << std::endl;
 }
 
 void Farmer:: buyItem(){
@@ -52,7 +56,13 @@ void Farmer:: buyItem(){
         case 'cow' :
             cout << "How many cows would you like to buy? " << endl;
             cin >> amount;
-            for (int i = cowCount; i < cowCount + amount; i++ ){
+            money = money - cow.getBuyPrice()*amount;
+            if (money < 0 ) {
+                cout << "You do not have enough money to buy " << amount << " cows" << endl;
+                money = money + cow.getBuyPrice()*amount;
+            }
+
+            for (int i = cowCount ; i < cowCount + amount; i++ ){
                 cow[i] = Cow* c(i);
             }
         case 'pig':
