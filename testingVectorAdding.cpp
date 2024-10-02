@@ -1,52 +1,31 @@
 #include <iostream>
-#include <vector>
-#include <string>
 
-using namespace std;
+class Field{
 
-class Person {
-public:
-    string name;
-    int age;
-    int index; // New attribute to store the index
+int fieldNumber;
+bool isPlanted();
+time_t timer;
 
-    Person() : name("Unknown"), age(0), index(-1) {}
-    Person(const string& n, int a, int i) : name(n), age(a), index(i) {}
+Field(int fieldNUmber);
 
-    void display() const {
-        cout << "Name: " << name << ", Age: " << age << ", Index: " << index << endl;
-    }
 };
 
-class Group {
-private:
-    vector<Person> people;
+class cowPaddocks{
 
-public:
-    void addPerson() {
-        Person personWithIndex = newPerson;
-        personWithIndex.index = people.size(); // Set the index
-        people.push_back(personWithIndex);
-    }
+    Field** Field[3];
+    int unlockedFields();
+    void giveStatus(); //only displays unlocked fields
+    void plantField(); // isPlanted == true & money deducted & timer initializd
+    void harvestField(); // isPlanted == false & money added
 
-    void displayGroup() const {
-        for (const auto& person : people) {
-            person.display();
-        }
-    }
 };
 
-int main() {
-    Group myGroup;
+int main(){
 
-    // Add Person objects to the group
-    myGroup.addPerson();
-    myGroup.addPerson();
+    Field f1(1);
+    Field f2(2);
+    Field f3(3);
 
-    // Display the group
-    myGroup.displayGroup();
-
-    return 0;
 }
 
 
