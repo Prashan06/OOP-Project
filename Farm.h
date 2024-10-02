@@ -2,6 +2,7 @@
 #define FARM_H
 
 #include <chrono>
+#include <string>
 
 class Farm {
 
@@ -11,6 +12,7 @@ class Farm {
         int sellPrice;
         int sellTime;
         time_t timer;
+        std::string optionChoice;
 
     public:
         Farm();
