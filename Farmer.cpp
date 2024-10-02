@@ -57,7 +57,7 @@ void Farmer:: buyItem(){
             cout << "How many cows would you like to buy? " << endl;
             cin >> amount;
             int amountPaid = cow.getBuyPrice()*amount;
-            money = money - amountPaid
+            money = money - amountPaid;
             if (money < amountPaid ) {
                 cout << "You do not have enough money to buy " << amount << " cows" << endl;
                 money = money + cow.getBuyPrice()*amount;
@@ -67,8 +67,44 @@ void Farmer:: buyItem(){
                 timesCowsBought++;
             }
         case 'pig':
+            cout << "How many pigs would you like to buy? " << endl;
+            cin >> amount;
+            int amountPaid = pig.getBuyPrice()*amount;
+            money = money - amountPaid;
+            if (money < amountPaid ) {
+                cout << "You do not have enough money to buy " << amount << " pigs" << endl;
+                money = money + pigs.getBuyPrice()*amount;
+            }
+            for (int i = pigCount ; i < pigCount + amount; i++ ){
+                pig[i] = Pig* c(timesPigsBought);
+                timesPigsBought++;
+            }
         case 'corn':
+            cout << "How many corn would you like to buy? " << endl;
+            cin >> amount;
+            int amountPaid = corn.getBuyPrice()*amount;
+            money = money - amountPaid;
+            if (money < amountPaid ) {
+                cout << "You do not have enough money to buy " << amount << " pigs" << endl;
+                money = money + corn.getBuyPrice()*amount;
+            }
+            for (int i = cornCount ; i < cornCount + amount; i++ ){
+                corn[i] = Corn* c(timesCornPlanted);
+                timesCornPlanted++;
+            }
         case 'wheat': 
+            cout << "How many wheat would you like to buy? " << endl;
+            cin >> amount;
+            int amountPaid = wheat.getBuyPrice()*amount;
+            money = money - amountPaid;
+            if (money < amountPaid ) {
+                cout << "You do not have enough money to buy " << amount << " wheat" << endl;
+                money = money + wheat.getBuyPrice()*amount;
+            }
+            for (int i = wheatCount ; i < wheatCount + amount; i++ ){
+                wheat[i] = Wheat* c(timesWheatPlanted);
+                timesWheatPlanted++;
+            }
     }
 }
 
