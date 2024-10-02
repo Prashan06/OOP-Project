@@ -49,6 +49,31 @@ void Farmer:: getStatus(){
 
 void Farmer:: buyItem(){
     char product;
+    cout << "What animal or crop would you like to buy? Enter response in lower case " << endl;
+    cin >> product;
+    int amount = 0;
+    switch (product) {
+        case 'cow' :
+            cout << "How many cows would you like to buy? " << endl;
+            cin >> amount;
+            timesCowsBought = timesCowsBought + amount;
+            int amountPaid = cow.getBuyPrice()*amount;
+            money = money - amountPaid
+            if (money < amountPaid ) {
+                cout << "You do not have enough money to buy " << amount << " cows" << endl;
+                money = money + cow.getBuyPrice()*amount;
+            }
+            for (int i = cowCount ; i < cowCount + amount; i++ ){
+                cow[i] = Cow* c(i);
+            }
+        case 'pig':
+        case 'corn':
+        case 'wheat': 
+    }
+}
+
+void Farmer:: sellItem(){
+        char product;
     cout << "What animal or crop would you like to sell? Enter response in lower case " << endl;
     cin >> product;
     int amount = 0;
@@ -71,31 +96,33 @@ void Farmer:: buyItem(){
     }
 }
 
-void Farmer:: sellItem(){
-}
-
-// Returns the number of wheat and corn currently in the farm.
+//Returns the combined number of wheat and corn currently in the farm.
 int Farmer:: getCropCount(){
     return this -> wheatCount + this ->cornCount;
 }
-// Sets the number of wheat and corn in the farm
+
+//Sets the combined number of wheat and corn currently in the farm.
 void Farmer:: setCropCount(){
-    this->cropCount = wheat.size() + corn.size();
+    this->cropCount = Wheat.size() + Corn.size();
 }
+
 // returns the number of pig and cows currently in the farm
 int Farmer::getAnimalCount(){
-    return this -> cowCount + this -> pigCount;
+    return this-> cowCount + this-> pigCount;
 }
 
 int Farmer::getCowCount(){
     return cowCount;
 }
+
 int Farmer::getPigCount(){
     return pigCount;
 }
+
 int Farmer::getWheatCount(){
     return wheatCount;
 }
+
 int Farmer:: getCornCount(){
     return cornCount;
 }
