@@ -1,6 +1,6 @@
 #include "Field.h"
 
-Field::Field() : speedGrowLevel(0), speedGrowPrice(10), pesticidePrice(20), highYieldFactor(0.2), highYieldPrice(10){
+Field::Field() : speedGrowLevel(0), speedGrowPrice(10), pesticidePrice(20), highYieldFactor(0), highYieldPrice(0){
 
 }
 
@@ -30,11 +30,22 @@ int Field::getHighYieldPrice(){
 }
 
 void Field::applySpeedGrowth(int money){
-    cout << "Do you want to buy the SpeedGrow potion? Y or N " << endl;
+    cout << "Do you want to buy the SpeedGrowth upgrade? Y or N " << endl;
     cin >> optionChoice;
-    if (optionChoice == "Y"){
-        wheat.setSellTime() = wheat.setSellTime;
+    while (optionChoice != "Y" && optionChoice != "N") {
+        cout << "invalid input! please enter Y or N" << endl;
+        cin >> optionChoice;
     }
+    if (optionChoice == "Y"){
+        // will need to do for every array sellTime--;
+        money = money - speedGrowPrice;
+        speedGrowLevel++;
+    }
+}
+
+// setter for pesticide applied
+void Field::setPesticideApplied (bool pesticideApplied) {
+    this -> pesticideApplied = pesticideApplied;
 }
 
 bool Field::getPesticideApplied(){
@@ -47,6 +58,16 @@ void Field::applyPesticide(){
         // Note for corn and wheat events, if pesticide applied is true, reduce killing of corn and wheat.
         pesticideApplied = true;
     }
+}
+
+// setter for speed grow level
+void Field::setSpeedGrowLevel (int speedGrowLevel) {
+    this -> speedGrowLevel = speedGrowLevel;
+}
+
+// getter speed grow level
+int Field::getSpeedGrowLevel() {
+    return speedGrowLevel;
 }
 
 Field::~Field(){
