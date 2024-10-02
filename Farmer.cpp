@@ -89,6 +89,7 @@ void Farmer:: sellItem(){
             }
             for (int i = cowCount ; i < cowCount + amount; i++ ){
                 cow[i] = Cow* c(i);
+                cowCount++;
             }
         case 'pig':
         case 'corn':
