@@ -12,7 +12,7 @@ class Farm {
         int sellPrice;
         int sellTime;
         time_t timer;
-        std::string optionchoice;
+        std::string optionChoice;
 
     public:
         Farm();

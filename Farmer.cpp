@@ -92,6 +92,7 @@ void Farmer:: sellItem(){
                 cowCount++;
             }
         case 'pig':
+            
         case 'corn':
         case 'wheat': 
     }
