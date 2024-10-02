@@ -1,31 +1,35 @@
 #include <iostream>
+#include <string>
+#include <vector>
 
-class Field{
+using namespace std;
 
-int fieldNumber;
-bool isPlanted();
-time_t timer;
+class Corn{
 
-Field(int fieldNUmber);
+    protected:
+
+        int cornNumber = 1;
+
+    public:
 
 };
 
-class cowPaddocks{
+class Farmer{
 
-    Field** Field[3];
-    int unlockedFields();
-    void giveStatus(); //only displays unlocked fields
-    void plantField(); // isPlanted == true & money deducted & timer initializd
-    void harvestField(); // isPlanted == false & money added
+    protected:
+
+        vector<Corn> cornArray;
+
+        int timesCornPlanted;
+
+    public:
+
+        void plantCorn();
 
 };
 
 int main(){
 
-    Field f1(1);
-    Field f2(2);
-    Field f3(3);
+    Farmer farmer1
 
 }
-
-

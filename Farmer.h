@@ -14,10 +14,14 @@
 class Farmer {
     protected:
 	int money;
-	Wheat** wheat;
-	Corn** corn;
-	Pig** pig;
-	Cow** cow;
+
+    //vector arrays
+    vector<Wheat> wheatArray
+	vector<Corn> cornArray
+	vector<Pig> pigArray
+	vector<Cow> cowArray
+
+
 	char farmName[21];
 	int cowCount;
 	int pigCount;
