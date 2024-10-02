@@ -29,7 +29,7 @@ int Field::getHighYieldPrice(){
     return highYieldPrice;
 }
 
-void Field::applySpeedGrow(){
+void Field::applySpeedGrowth(int money){
     cout << "Do you want to buy the SpeedGrow potion? Y or N " << endl;
     cin >> optionChoice;
     if (optionChoice == "Y"){
