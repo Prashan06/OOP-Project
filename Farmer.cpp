@@ -56,7 +56,6 @@ void Farmer:: buyItem(){
         case 'cow' :
             cout << "How many cows would you like to buy? " << endl;
             cin >> amount;
-            timesCowsBought = timesCowsBought + amount;
             int amountPaid = cow.getBuyPrice()*amount;
             money = money - amountPaid
             if (money < amountPaid ) {
@@ -64,7 +63,8 @@ void Farmer:: buyItem(){
                 money = money + cow.getBuyPrice()*amount;
             }
             for (int i = cowCount ; i < cowCount + amount; i++ ){
-                cow[i] = Cow* c(i);
+                cow[i] = Cow* c(timesCowsBought);
+                timesCowsBought++;
             }
         case 'pig':
         case 'corn':
