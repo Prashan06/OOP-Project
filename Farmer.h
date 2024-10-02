@@ -12,14 +12,25 @@
 #include "Farm.h"
 
 class Farmer {
-    protected:
-	int money;
 
-    //vector arrays
-    vector<Wheat> wheatArray
-	vector<Corn> cornArray
-	vector<Pig> pigArray
-	vector<Cow> cowArray
+    protected:
+        
+        int money;
+
+        //vector arrays
+        vector<Wheat> wheatArray
+        vector<Corn> cornArray
+        vector<Pig> pigArray
+        vector<Cow> cowArray
+
+        //tracking variables for object creation
+
+        int timesWheatPlanted;
+        int timesCornPlanted;
+        int timesCowsBought;
+        int timesPigsBought;
+
+
 
 
 	char farmName[21];
