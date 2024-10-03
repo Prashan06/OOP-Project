@@ -1,1 +1,8 @@
-class Corn {};
+#ifndef CORN_H
+#define CORN_H
+
+class Corn : public Field {
+
+};
+
+#endif
