@@ -49,12 +49,8 @@ void Farmer:: getStatus(){
 
 void Farmer:: buyItem(){
     char product;
-    cout << "What animal or crop would you like to buy, please choose cow, pig, wheat and corn? Enter response in lower case " << endl;
+    cout << "What animal or crop would you like to buy? Enter response in lower case " << endl;
     cin >> product;
-    while (product != "cow" && product != "wheat" && product != "pig" && product != "corn") {
-        cout << "invalid input! please enter cow, wheat, pig or corn" << endl;
-        cin >> product;
-    }
     int amount = 0;
     switch (product) {
         case 'cow' :
@@ -121,30 +117,27 @@ void Farmer:: sellItem(){
         case 'cow':
             int cowsReadyToSell;
             for (int i = 0, i < cowCount, i++){
-                bool readyToSell = 0;
-                if (cow[i].timer > timeToSell){
+                bool cowsReadyToSell = 0;
+                if (cows[i].timer > referenceCow.getTimeToSell()){
                     cowsReadyToSell++;
                 }
             }
-            cout << "You have " << cowReadyToSell << " cows ready to sell, would you like to proceed to sale (enter yes/no)? " << endl;
+            cout << "You have " << cowsReadyToSell << " cows ready to sell, would you like to proceed to sale (enter yes/no)? " << endl;
             cin >> yesNo;
-            timesCowsBought = timesCowsBought + amount;
-            int totalBuyPrice = cow.getBuyPrice()*amount;
-            //money = money - total
-            if (money < totalBuyPrice ) {
-                cout << "You do not have enough money to buy " << amount << " cows" << endl;
-            }else{
-                money = money - totalBuyPrice;
-            for (int i = cowCount ; i < cowCount + amount; i++ ){
-                cow[i] = Cow* c(i);
-                cowCount++;
-            }
+            switch (yesNo);
+                case 'no':
+
+                case 'yes':
+                    for(int i = 0, i <cowCount, i++){
+                    int totalSellPrice = cow[i].getSellPrice()*amount;
+                    money = money + totalSellPrice;
+                    for (int i = cowCount ; i < cowCount + amount; i++ ){
+                        cow[i] = cow* c(i);
+                        cowCount++;
+                    }
+                    }
             }
         case 'pig': 
-        case 'cow' :
-                
-        case 'pig':
-            
         case 'corn':
         case 'wheat': 
     }
