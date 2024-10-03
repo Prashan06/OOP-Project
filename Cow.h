@@ -3,6 +3,7 @@
 
 #include "Barn.h"
 #include "Events.h"
+#include "Farmer.h"
 
 #include <ctime>
 #include <chrono>
@@ -13,7 +14,7 @@ using namespace std;
 class Cow: public Barn, public Events{
 
     protected:
-
+    Farmer farmer;
     public:
     Cow();
     ~Cow();

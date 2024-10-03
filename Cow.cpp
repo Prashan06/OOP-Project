@@ -11,5 +11,8 @@ void Cow::applyHighYield(){
     sellPrice = sellPrice*highYieldFactor;
 }
 
-void Cow::Event(){}
+void Cow::Event(){
+    cout << "A disease has spread throughout the cows, half of your cows have died." << endl;
+    
+}
 Cow::~Cow(){}
