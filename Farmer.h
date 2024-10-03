@@ -17,10 +17,10 @@ class Farmer {
         int money;
 
         //arrays
-        Wheat** Wheat[];
-        Corn** Corn[];
-        Pig** Pig[];
-        Cow** Cow[];
+        Wheat** wheat;
+        Corn** corn;
+        Pig** pig;
+        Cow** cow;
 
         //tracking variables for object creation
         int timesWheatPlanted;

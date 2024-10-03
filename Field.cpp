@@ -1,6 +1,6 @@
 #include "Field.h"
 
-Field::Field() : speedGrowLevel(0), speedGrowPrice(10), pesticidePrice(20), highYieldFactor(0), highYieldPrice(0){
+Field::Field() : speedGrowLevel(0), speedGrowPrice(10), pesticidePrice(20), highYieldFactor(0.9), highYieldPrice(25){
 
 }
 

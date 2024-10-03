@@ -49,8 +49,12 @@ void Farmer:: getStatus(){
 
 void Farmer:: buyItem(){
     char product;
-    cout << "What animal or crop would you like to buy? Enter response in lower case " << endl;
+    cout << "What animal or crop would you like to buy, please choose cow, pig, wheat and corn? Enter response in lower case " << endl;
     cin >> product;
+    while (product != "cow" && product != "wheat" && product != "pig" && product != "corn") {
+        cout << "invalid input! please enter cow, wheat, pig or corn" << endl;
+        cin >> product;
+    }
     int amount = 0;
     switch (product) {
         case 'cow' :
