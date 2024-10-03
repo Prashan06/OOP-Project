@@ -15,4 +15,10 @@ void Cow::Event(){
     cout << "A disease has spread throughout the cows, half of your cows have died." << endl;
     
 }
+
+Cow* Cow::createNewCow() {
+    Cow* newCow;
+    return newCow;
+}
+
 Cow::~Cow(){}

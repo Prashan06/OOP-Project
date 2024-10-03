@@ -23,11 +23,6 @@ class Farmer {
         Cow** cow;
 
         //tracking variables for object creation
-        int timesWheatPlanted;
-        int timesCornPlanted;
-        int timesCowsBought;
-        int timesPigsBought;
-
         char farmName[21];
         int cowCount;
         int pigCount;

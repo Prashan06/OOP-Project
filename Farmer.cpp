@@ -52,6 +52,7 @@ void Farmer:: getStatus(){
 }
 
 void Farmer:: buyItem(){
+    Cow tempCow;
     string product;
     cout << "What animal or crop would you like to buy, please choose cow, pig, wheat and corn? Enter response in lower case " << endl;
     cin >> product;
@@ -64,14 +65,14 @@ void Farmer:: buyItem(){
     if (strcmp(product.c_str(), "cow") == 0) {
         cout << "How many cows would you like to buy?, you can buy" << endl;
         cin >> amount;
-        int amountPaid = cow.getBuyPrice()*amount;
+        int amountPaid = tempCow.getBuyPrice()*amount;
         money = money - amountPaid;
         if (money < amountPaid ) {
             cout << "You do not have enough money to buy " << amount << " cows" << endl;
-            money = money + cow.getBuyPrice()*amount;
+            money = money + tempCow.getBuyPrice()*amount;
         }
         for (int i = cowCount ; i < cowCount + amount; i++ ){
-            cow[i] = Cow* c(timesCowsBought);
+            cow[i] = tempCow.createNewCow();
             timesCowsBought++;
         }
     }
