@@ -125,16 +125,22 @@ void Farmer:: sellItem(){
             cout << "You have " << cowReadyToSell << " cows ready to sell, would you like to proceed to sale (enter yes/no)? " << endl;
             cin >> yesNo;
             timesCowsBought = timesCowsBought + amount;
-            money = money - cow.getBuyPrice()*amount;
-            if (money < 0 ) {
+            int totalBuyPrice = cow.getBuyPrice()*amount;
+            //money = money - total
+            if (money < totalBuyPrice ) {
                 cout << "You do not have enough money to buy " << amount << " cows" << endl;
-                money = money + cow.getBuyPrice()*amount;
-            }
+            }else{
+                money = money - totalBuyPrice;
             for (int i = cowCount ; i < cowCount + amount; i++ ){
                 cow[i] = Cow* c(i);
                 cowCount++;
             }
+            }
         case 'pig': 
+        case 'cow' :
+                
+        case 'pig':
+            
         case 'corn':
         case 'wheat': 
     }
