@@ -1,21 +1,42 @@
 #include "Wheat.h"
 
-Wheat::Wheat():Field(){
-
-    this->buyPrice = 10;
-    this->sellPrice = 20;
-    this->sellTime = 30;
-
-    this->pesticidePrice = 1;
-	this->highYieldFactor = 1.1;
-    this->highYieldPrice = 1;
-
+Wheat::Wheat() : Field() {
+    this -> sellPrice = 10;
+    this -> buyPrice = 15;
+    this -> sellTime = 30;
 }
+
+void Wheat::applyHighYield(Farmer ourFarmer){
+    if (ourFarmer.getMoneyCount() < highYieldPrice){
+        cout << "You do not have enough money to buy high yield fertilizer" << endl;
+    }else{
+        int newMoney = ourFarmer.getMoneyCount() - this->highYieldPrice;
+        ourFarmer.setMoneyCount(newMoney);
+    }
+}
+
 
 void Wheat::Event(Farmer ourFarmer){
+    int newWheatCount = 0;
+    if (getPesticideApplied() == true){
+        cout << "A disease has spread throughout the wheat, 1/4 of your wheat have died." << endl;
+        newWheatCount = ourFarmer.getWheatCount() - (ourFarmer.getWheatCount()*(1/4));
+        Wheat** tempWheatArray = ourFarmer.getWheatArray();
+        for (int i = ourFarmer.getWheatCount() - 1; i >= newWheatCount; i--){
+            delete tempWheatArray[i];
+            tempWheatArray[i] = nullptr;
+        }
+        ourFarmer.setWheatCount(newWheatCount); 
+    }
 
-}
-
-void Wheat::applyHighYield(){
-
+    if (getPesticideApplied() == false){
+        cout << "A disease has spread throughout the wheat, half of your wheat have died." << endl;
+        newWheatCount = ourFarmer.getWheatCount() - ourFarmer.getWheatCount()/2;
+        Wheat** tempWheatArray = ourFarmer.getWheatArray();
+        for (int i = ourFarmer.getWheatCount() - 1; i >= newWheatCount; i--){
+            delete tempWheatArray[i];
+            tempWheatArray[i] = nullptr;
+        }
+        ourFarmer.setWheatCount(newWheatCount);
+    }
 }
