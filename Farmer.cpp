@@ -142,7 +142,6 @@ void Farmer:: buyItem(){
 }
 
 void Farmer:: sellItem(){
-    Cow tempCow;
     string product;
     string yesNo;
     cout << "What animal or crop would you like to sell, cow, pig, wheat and corn? (Enter response in lower case)" << endl;
@@ -152,6 +151,7 @@ void Farmer:: sellItem(){
         cin >> product;
     }
     if (product == "cow") {
+        Cow tempCow;
         int cowsReadyToSell;
         for (int i = 0; i < cowCount; i++){
             if (cow[i]->getTimer() > cow[i]->getSellTime()){
@@ -173,10 +173,69 @@ void Farmer:: sellItem(){
         }
 
     } else if(product == "pig") {
-
+        Pig tempPig;
+        int pigsReadyToSell;
+        for (int i = 0; i < pigCount; i++){
+            if (pig[i]->getTimer() > pig[i]->getSellTime()){
+                pigsReadyToSell++;
+            }
+        }
+        cout << "You have " << pigsReadyToSell << " pigs ready to sell, would you like to sell these pigs (enter yes/no)? " << endl;
+        cin >> yesNo;
+        while (yesNo != "yes" && yesNo != "no") {
+            cout << "invalid input! please enter yes or no" << endl;
+            cin >> yesNo;
+        }
+        if (yesNo == "yes"){
+            for(int j = pigsReadyToSell; j < pigCount; j++) {
+                pig[j-pigsReadyToSell] = pig[j]; 
+            }
+            pigCount = pigCount - pigsReadyToSell;
+            money = money + ((tempPig.getSellPrice())*pigsReadyToSell);
+        }
     } else if (product == "wheat"){
+        Wheat tempWheat;
+        int wheatsReadyToSell;
+        for (int i = 0; i < wheatCount; i++){
+            if (wheat[i]->getTimer() > wheat[i]->getSellTime()){
+                wheatsReadyToSell++;
+            }
+        }
+        cout << "You have " << wheatsReadyToSell << " wheat crops ready to sell, would you like to sell these crops (enter yes/no)? " << endl;
+        cin >> yesNo;
+        while (yesNo != "yes" && yesNo != "no") {
+            cout << "invalid input! please enter yes or no" << endl;
+            cin >> yesNo;
+        }
+        if (yesNo == "yes"){
+            for(int j = wheatsReadyToSell; j < wheatCount; j++) {
+                wheat[j-wheatsReadyToSell] = wheat[j]; 
+            }
+            wheatCount = wheatCount - wheatsReadyToSell;
+            money = money + ((tempWheat.getSellPrice())*wheatsReadyToSell);
+        }
         
     } else if (product == "corn"){
+        Corn tempCorn;
+        int cornsReadyToSell;
+        for (int i = 0; i < cornCount; i++){
+            if (corn[i]->getTimer() > corn[i]->getSellTime()){
+                cornsReadyToSell++;
+            }
+        }
+        cout << "You have " << cornsReadyToSell << " corn crops ready to sell, would you like to sell these crops (enter yes/no)? " << endl;
+        cin >> yesNo;
+        while (yesNo != "yes" && yesNo != "no") {
+            cout << "invalid input! please enter yes or no" << endl;
+            cin >> yesNo;
+        }
+        if (yesNo == "yes"){
+            for(int j = cornsReadyToSell; j < cornCount; j++) {
+                corn[j-cornsReadyToSell] = corn[j]; 
+            }
+            cornCount = cornCount - cornsReadyToSell;
+            money = money + ((tempCorn.getSellPrice())*cornsReadyToSell);
+        }
         
     }
     
