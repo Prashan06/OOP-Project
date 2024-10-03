@@ -11,7 +11,8 @@ class Wheat: public Field, public Events{
     public:
         
         Wheat();
-        void Event();
+        ~Wheat();
+        void Event(Farmer ourFarmer);
         void applyHighYield();
 
 };

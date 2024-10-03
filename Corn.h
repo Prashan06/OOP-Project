@@ -11,7 +11,8 @@ class Corn: public Field, public Events{
     public:
         
         Corn();
-        void Event();
+        ~Corn();
+        void Event(Farmer ourFarmer);
         void applyHighYield();
 
 };
