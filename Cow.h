@@ -14,12 +14,12 @@ using namespace std;
 class Cow: public Barn, public Events{
 
     protected:
-    Farmer farmer;
+
     public:
     Cow();
     ~Cow();
     void applyHighYield();
-    void Event();
+    void Event(Farmer farmer);
     Cow* createNewCow();
 };
 
