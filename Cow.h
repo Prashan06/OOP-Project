@@ -20,7 +20,6 @@ class Cow: public Barn, public Events{
     ~Cow();
     void applyHighYield();
     void Event(Farmer farmer);
-    Cow* createNewCow();
 };
 
 #endif

@@ -34,6 +34,10 @@ int Farm::getSellTime(){
     return sellTime;
 }
 
+int Farm::getTimer() {
+    return timer;
+}
+
 // Destructor.
 Farm::~Farm(){}
 

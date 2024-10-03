@@ -3,7 +3,7 @@
 
 class Events {
     public:
-    virtual void Event() = 0;
+    virtual void Event(Farmer farmer) = 0;
 };
 
 #endif

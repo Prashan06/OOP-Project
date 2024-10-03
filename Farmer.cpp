@@ -1,4 +1,3 @@
-#include <cstring>
 #include "Farmer.h"
 
 using namespace std;
@@ -51,6 +50,26 @@ void Farmer:: getStatus(){
     std::cout << "You have " << wheatCount << " wheat" << std::endl;
 }
 
+Cow* Farmer::createNewCow() {
+    Cow* newCow;
+    return newCow;
+}
+
+Pig* Farmer::createNewPig() {
+    Pig* newPig;
+    return newPig;
+}
+
+Wheat* Farmer::createNewWheat() {
+    Wheat* newWheat;
+    return newWheat;
+}
+
+Corn* Farmer::createNewCorn() {
+    Corn* newCorn;
+    return newCorn;
+}
+
 void Farmer:: buyItem(){
     Cow tempCow;
     string product;
@@ -62,7 +81,7 @@ void Farmer:: buyItem(){
     }
     int amount = 0;
 
-    if (strcmp(product.c_str(), "cow") == 0) {
+    if (product == "cow") {
         cout << "How many cows would you like to buy?, you can buy " << money/tempCow.getBuyPrice() << " cows" << endl;
         cin >> amount;
         int amountPaid = tempCow.getBuyPrice()*amount;
@@ -71,15 +90,16 @@ void Farmer:: buyItem(){
             cout << "You do not have enough money to buy " << amount << " cows" << endl;
             money = money + tempCow.getBuyPrice()*amount;
         }
-        for (int i = cowCount ; i < cowCount + amount; i++ ){
-            cow[i] = tempCow.createNewCow();
+
+        for (int i = cowCount ; i < cowCount + amount; i++ ) {
+            cow[i] = createNewCow();
             timesCowsBought++;
         }
-    } else(strcmp(product.c_str(), "pig")){
+    } else if(product == "pig") {
 
-    } else(strcmp(product.c_str(), "wheat")){
+    } else if (product == "wheat"){
         
-    } else(strcmp(product.c_str(), "corn")){
+    } else if (product == "corn"){
         
     }
     
@@ -88,22 +108,35 @@ void Farmer:: buyItem(){
 void Farmer:: sellItem(){
     Cow tempCow;
     string product;
-    char yesNo;
+    string yesNo;
     cout << "What animal or crop would you like to sell, cow, pig, wheat and corn? (Enter response in lower case)" << endl;
     cin >> product;
     while (product != "cow" && product != "wheat" && product != "pig" && product != "corn") {
         cout << "invalid input! please enter cow, wheat, pig or corn" << endl;
         cin >> product;
     }
+    if (product == "cow") {
+        int cowsReadyToSell;
+        for (int i = 0; i < cowCount; i++){
+            if (cow[i]->getTimer() > cow[i]->getSellTime()){
+                cowsReadyToSell++;
+            }
+        }
+        cout << "You have " << cowsReadyToSell << " cows ready to sell, would you like to sell these cows (enter yes/no)? " << endl;
+        cin >> yesNo;
+        while (yesNo != "yes" && yesNo != "no") {
+            cout << "invalid input! please enter yes or no" << endl;
+            cin >> yesNo;
+        }
+        if (yesNo == "yes"){
+            for(int j = cowsReadyToSell; j < cowCount; j++) {
+                cow[i]
+            }
+        }
+    }
     switch (product) {
         case 'cow':
-            int cowsReadyToSell;
-            for (int i = 0; i < cowCount; i++){
-                bool readyToSell = 0;
-                if (cow[i].timer > timeToSell){
-                    cowsReadyToSell++;
-                }
-            }
+  
             cout << "You have " << cowReadyToSell << " cows ready to sell, would you like to proceed to sale (enter yes/no)? " << endl;
             cin >> yesNo;
             timesCowsBought = timesCowsBought + amount;
@@ -172,9 +205,4 @@ Wheat** Farmer::getWheatArray() {
 }
 Corn** Farmer::getCornArray() {
     return corn;
-}
-
-Cow* Cow::createNewCow() {
-    Cow* newCow;
-    return newCow;
 }

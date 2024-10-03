@@ -24,6 +24,7 @@ class Farm {
         int getSellPrice();
         void setSellTime(int sellTime);
         int getSellTime();
+        int getTimer();
         ~Farm();
 
 };

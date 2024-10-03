@@ -58,6 +58,10 @@ class Farmer {
 		Pig** getPigArray();
 		Wheat** getWheatArray();
 		Corn** getCornArray();
+		Cow* createNewCow();
+		Pig* createNewPig();
+		Wheat* createNewWheat();
+		Corn* createNewCorn();
 
 
 };
