@@ -1,9 +1,9 @@
 #include "Wheat.h"
 
 Wheat::Wheat() : Field() {
-    this -> sellPrice = 10;
-    this -> buyPrice = 15;
-    this -> sellTime = 30;
+    this -> sellPrice = 8;
+    this -> buyPrice = 10;
+    this -> sellTime = 20;
 }
 
 void Wheat::applyHighYield(Farmer ourFarmer){
