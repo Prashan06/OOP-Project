@@ -2,7 +2,14 @@
 
 Cow::Cow() : Barn() {
     timer = time(0);
+    sellPrice = 10;
+    buyPrice = 15;
+    sellTime = 30;
 }
-void Cow::applyHighYield(){}
+
+void Cow::applyHighYield(){
+    sellPrice = sellPrice*highYieldFactor;
+}
+
 void Cow::Event(){}
 Cow::~Cow(){}

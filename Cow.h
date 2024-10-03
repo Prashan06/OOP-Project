@@ -6,6 +6,9 @@
 
 #include <ctime>
 #include <chrono>
+#include <iostream>
+
+using namespace std;
 
 class Cow: public Barn, public Events{
 
