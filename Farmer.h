@@ -45,8 +45,6 @@ class Farmer {
         void setFarmName();
         void getStatus();
         void buyItem();
-        int getCropCount ();
-        int getAnimalCount ();
         void sellItem();
         int getCowCount();
         int getPigCount();
@@ -56,6 +54,10 @@ class Farmer {
         void setPigCount(int pigCount);
         void setWheatCount(int wheatCount);
         void setCornCount(int cornCount);
+		Cow** getCowArray();
+		Pig** getPigArray();
+		Wheat** getWheatArray();
+		Corn** getCornArray();
 
 
 };

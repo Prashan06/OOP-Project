@@ -16,9 +16,5 @@ void Cow::Event(Farmer farmer){
     
 }
 
-Cow* Cow::createNewCow() {
-    Cow* newCow;
-    return newCow;
-}
 
 Cow::~Cow(){}

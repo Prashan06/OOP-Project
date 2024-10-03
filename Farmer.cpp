@@ -63,7 +63,7 @@ void Farmer:: buyItem(){
     int amount = 0;
 
     if (strcmp(product.c_str(), "cow") == 0) {
-        cout << "How many cows would you like to buy?, you can buy" << endl;
+        cout << "How many cows would you like to buy?, you can buy " << money/tempCow.getBuyPrice() << " cows" << endl;
         cin >> amount;
         int amountPaid = tempCow.getBuyPrice()*amount;
         money = money - amountPaid;
@@ -82,60 +82,23 @@ void Farmer:: buyItem(){
     } else(strcmp(product.c_str(), "corn")){
         
     }
-    switch (product) {
-        case "cow" :
-            
-        case "pig":
-            cout << "How many pigs would you like to buy? " << endl;
-            cin >> amount;
-            int amountPaid = pig.getBuyPrice()*amount;
-            money = money - amountPaid;
-            if (money < amountPaid ) {
-                cout << "You do not have enough money to buy " << amount << " pigs" << endl;
-                money = money + pigs.getBuyPrice()*amount;
-            }
-            for (int i = pigCount ; i < pigCount + amount; i++ ){
-                pig[i] = Pig* c(timesPigsBought);
-                timesPigsBought++;
-            }
-        case "corn":
-            cout << "How many corn would you like to buy? " << endl;
-            cin >> amount;
-            int amountPaid = corn.getBuyPrice()*amount;
-            money = money - amountPaid;
-            if (money < amountPaid ) {
-                cout << "You do not have enough money to buy " << amount << " pigs" << endl;
-                money = money + corn.getBuyPrice()*amount;
-            }
-            for (int i = cornCount ; i < cornCount + amount; i++ ){
-                corn[i] = Corn* c(timesCornPlanted);
-                timesCornPlanted++;
-            }
-        case "wheat": 
-            cout << "How many wheat would you like to buy? " << endl;
-            cin >> amount;
-            int amountPaid = wheat.getBuyPrice()*amount;
-            money = money - amountPaid;
-            if (money < amountPaid ) {
-                cout << "You do not have enough money to buy " << amount << " wheat" << endl;
-                money = money + wheat.getBuyPrice()*amount;
-            }
-            for (int i = wheatCount ; i < wheatCount + amount; i++ ){
-                wheat[i] = Wheat* c(timesWheatPlanted);
-                timesWheatPlanted++;
-            }
-    }
+    
 }
 
 void Farmer:: sellItem(){
-        char product;
-        char yesNo;
-    cout << "What animal or crop would you like to sell? (Enter response in lower case)" << endl;
+    Cow tempCow;
+    string product;
+    char yesNo;
+    cout << "What animal or crop would you like to sell, cow, pig, wheat and corn? (Enter response in lower case)" << endl;
     cin >> product;
+    while (product != "cow" && product != "wheat" && product != "pig" && product != "corn") {
+        cout << "invalid input! please enter cow, wheat, pig or corn" << endl;
+        cin >> product;
+    }
     switch (product) {
         case 'cow':
             int cowsReadyToSell;
-            for (int i = 0, i < cowCount, i++){
+            for (int i = 0; i < cowCount; i++){
                 bool readyToSell = 0;
                 if (cow[i].timer > timeToSell){
                     cowsReadyToSell++;
@@ -165,19 +128,21 @@ void Farmer:: sellItem(){
     }
 }
 
-//Returns the combined number of wheat and corn currently in the farm.
-int Farmer:: getCropCount(){
-    return this -> wheatCount + this ->cornCount;
+
+void Farmer::setCowCount(int cowCount){
+    this->cowCount = cowCount;
 }
 
-//Sets the combined number of wheat and corn currently in the farm.
-void Farmer:: setCropCount(){
-    this->cropCount = Wheat.size() + Corn.size();
+void Farmer::setPigCount(int pigCount){
+    this->pigCount = pigCount;
 }
 
-// returns the number of pig and cows currently in the farm
-int Farmer::getAnimalCount(){
-    return this-> cowCount + this-> pigCount;
+void Farmer::setWheatCount(int wheatCount){
+    this->wheatCount = wheatCount;
+}
+
+void Farmer::setCornCount(int cornCount){
+    this->cornCount = cornCount;
 }
 
 int Farmer::getCowCount(){
@@ -194,4 +159,22 @@ int Farmer::getWheatCount(){
 
 int Farmer:: getCornCount(){
     return cornCount;
+}
+
+Cow** Farmer::getCowArray() {
+    return cow;
+}
+Pig** Farmer::getPigArray() {
+    return pig;
+}
+Wheat** Farmer::getWheatArray() {
+    return wheat;
+}
+Corn** Farmer::getCornArray() {
+    return corn;
+}
+
+Cow* Cow::createNewCow() {
+    Cow* newCow;
+    return newCow;
 }
