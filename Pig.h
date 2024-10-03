@@ -3,16 +3,24 @@
 
 #include "Barn.h"
 #include "Events.h"
+#include "Farmer.h"
+
+#include <ctime>
+#include <chrono>
+#include <iostream>
+
+using namespace std;
 
 class Pig: public Barn, public Events{
 
     protected:
-
+    
     public:
-
-        Pig();
-        void applyHighYield();
-
+    Pig();
+    ~Pig();
+    void applyHighYield();
+    void Event(Farmer farmer);
+    Pig* createNewPig();
 };
 
 #endif
