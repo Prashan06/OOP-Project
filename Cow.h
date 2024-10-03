@@ -4,18 +4,18 @@
 #include "Barn.h"
 #include "Events.h"
 
+#include <ctime>
+#include <chrono>
+
 class Cow: public Barn, public Events{
 
     protected:
 
     public:
-    Cows() - Constructor
-    ~Cows()
-Void applyHighYield() 
-Void events
-        Cow();
-        void applyHighYield();
-
+    Cow();
+    ~Cow();
+    void applyHighYield();
+    void Event();
 };
 
 #endif
