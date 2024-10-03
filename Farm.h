@@ -2,7 +2,8 @@
 #define FARM_H
 
 #include <chrono>
-#include <string>
+#include "Farmer.h"
+#include "Events.h"
 
 class Farm {
 
@@ -12,11 +13,10 @@ class Farm {
         int sellPrice;
         int sellTime;
         time_t timer;
-        std::string optionChoice;
 
     public:
         Farm();
-        virtual void applySpeedGrowth();
+        virtual void applySpeedGrow();
         virtual void applyHighYield();
         int setBuyPrice(int buyPrice);
         int getBuyPrice();

@@ -1,5 +1,4 @@
 #include "Wheat.h"
-#include "Events.h"
 
 Wheat::Wheat():Field(){
 
@@ -13,7 +12,7 @@ Wheat::Wheat():Field(){
 
 }
 
-void Wheat::Event(){
+void Wheat::Event(Farmer ourFarmer){
 
 }
 

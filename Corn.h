@@ -2,7 +2,6 @@
 #define CORN_H
 
 #include "Field.h"
-#include "Events.h"
 
 class Corn: public Field, public Events{
 
@@ -11,8 +10,9 @@ class Corn: public Field, public Events{
     public:
         
         Corn();
-        void Event();
-        void applyHighYield();
+        ~Corn();
+        void Event(Farmer ourFarmer);
+        void applyHighYield(Farmer ourFarmer);
 
 };
 
