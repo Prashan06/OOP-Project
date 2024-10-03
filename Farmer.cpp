@@ -270,7 +270,7 @@ int Farmer::getWheatCount(){
     return wheatCount;
 }
 
-int Farmer:: getCornCount(){
+int Farmer::getCornCount(){
     return cornCount;
 }
 
