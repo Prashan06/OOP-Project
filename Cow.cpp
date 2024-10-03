@@ -22,5 +22,13 @@ void Cow::Event(Farmer farmer){
 
 }
 
+void Cow::applyHighYield(Farmer ourFarmer){
 
-Cow::~Cow(){}
+    if (ourFarmer.getMoneyCount() < highYieldPrice){
+        cout << "You do not have enough money to buy high yield fertilizer" << endl;
+    }else{
+        int newMoney = ourFarmer.getMoneyCount() - this->highYieldPrice;
+        ourFarmer.setMoneyCount(newMoney);
+    }
+
+}
