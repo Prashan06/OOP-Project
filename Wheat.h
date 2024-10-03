@@ -9,6 +9,10 @@ class Wheat: public Field, public Events{
     protected:
 
     public:
+        
+        Wheat();
+        void Event();
+        void applyHighYield();
 
 };
 
