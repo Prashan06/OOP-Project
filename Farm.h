@@ -13,6 +13,7 @@ class Farm {
         int sellPrice;
         int sellTime;
         time_t timer;
+        string optionChoice;
 
     public:
         Farm();

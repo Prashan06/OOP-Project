@@ -71,7 +71,6 @@ Corn* Farmer::createNewCorn() {
 }
 
 void Farmer:: buyItem(){
-    Cow tempCow;
     string product;
     cout << "What animal or crop would you like to buy, please choose cow, pig, wheat and corn? Enter response in lower case " << endl;
     cin >> product;
@@ -82,25 +81,62 @@ void Farmer:: buyItem(){
     int amount = 0;
 
     if (product == "cow") {
+        Cow tempCow;
         cout << "How many cows would you like to buy?, you can buy " << money/tempCow.getBuyPrice() << " cows" << endl;
         cin >> amount;
-        int amountPaid = tempCow.getBuyPrice()*amount;
-        money = money - amountPaid;
-        if (money < amountPaid ) {
+        int amountPaid = tempCow.getBuyPrice() * amount;
+        while (money < amountPaid ) {
             cout << "You do not have enough money to buy " << amount << " cows" << endl;
-            money = money + tempCow.getBuyPrice()*amount;
         }
+        money = money - amountPaid;
 
         for (int i = cowCount ; i < cowCount + amount; i++ ) {
             cow[i] = createNewCow();
             timesCowsBought++;
         }
     } else if(product == "pig") {
+        Pig tempPig;
+        cout << "How many pigs would you like to buy?, you can buy " << money/tempPig.getBuyPrice() << " pigs" << endl;
+        cin >> amount;
+        int amountPaid = tempPig.getBuyPrice() * amount;
+        while (money < amountPaid ) {
+            cout << "You do not have enough money to buy " << amount << " pigs" << endl;
+        }
+        money = money - amountPaid;
 
+        for (int i = pigCount ; i < pigCount + amount; i++ ) {
+            pig[i] = createNewPig();
+            timesPigsBought++;
+        }
     } else if (product == "wheat"){
+        Wheat tempWheat;
+        cout << "How many wheat crops would you like to buy?, you can buy " << money/tempWheat.getBuyPrice() << " wheat" << endl;
+        cin >> amount;
+        int amountPaid = tempWheat.getBuyPrice() * amount;
+        while (money < amountPaid ) {
+            cout << "You do not have enough money to buy " << amount << " wheat" << endl;
+        }
+        money = money - amountPaid;
+
+        for (int i = wheatCount ; i < wheatCount + amount; i++ ) {
+            wheat[i] = createNewWheat();
+            timesWheatPlanted++;
+        }
         
     } else if (product == "corn"){
-        
+        Corn tempCorn;
+        cout << "How many corn crops would you like to buy?, you can buy " << money/tempCorn.getBuyPrice() << " corn" << endl;
+        cin >> amount;
+        int amountPaid = tempCorn.getBuyPrice() * amount;
+        while (money < amountPaid ) {
+            cout << "You do not have enough money to buy " << amount << " corn" << endl;
+        }
+        money = money - amountPaid;
+
+        for (int i = cornCount ; i < cornCount + amount; i++ ) {
+            corn[i] = createNewCorn();
+            timesCornPlanted++;
+        }
     }
     
 }
@@ -130,35 +166,20 @@ void Farmer:: sellItem(){
         }
         if (yesNo == "yes"){
             for(int j = cowsReadyToSell; j < cowCount; j++) {
-                cow[i]
+                cow[j-cowsReadyToSell] = cow[j]; 
             }
+            cowCount = cowCount - cowsReadyToSell;
+            money = money + ((tempCow.getSellPrice())*cowsReadyToSell);
         }
+
+    } else if(product == "pig") {
+
+    } else if (product == "wheat"){
+        
+    } else if (product == "corn"){
+        
     }
-    switch (product) {
-        case 'cow':
-  
-            cout << "You have " << cowReadyToSell << " cows ready to sell, would you like to proceed to sale (enter yes/no)? " << endl;
-            cin >> yesNo;
-            timesCowsBought = timesCowsBought + amount;
-            int totalBuyPrice = cow.getBuyPrice()*amount;
-            //money = money - total
-            if (money < totalBuyPrice ) {
-                cout << "You do not have enough money to buy " << amount << " cows" << endl;
-            }else{
-                money = money - totalBuyPrice;
-            for (int i = cowCount ; i < cowCount + amount; i++ ){
-                cow[i] = Cow* c(i);
-                cowCount++;
-            }
-            }
-        case 'pig': 
-        case 'cow' :
-                
-        case 'pig':
-            
-        case 'corn':
-        case 'wheat': 
-    }
+    
 }
 
 
