@@ -23,8 +23,6 @@ void Cow::Event(Farmer ourFarmer){
         delete tempCowArray[i];
         ourFarmer.setCowCount(ourFarmer.getCowCount()) = ourFarmer.getCowCount() - 1;
     }
-    
-
 }
 
 
