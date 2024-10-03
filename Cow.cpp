@@ -13,8 +13,13 @@ void Cow::applyHighYield(){
 
 void Cow::Event(Farmer farmer){
     cout << "A disease has spread throughout the cows, half of your cows have died." << endl;
-    farmer.getCowArray();
+    Cow** tempCowArray = farmer.getCowArray();
+    for (int i = farmer.getCowCount(); i > farmer.getCowCount() - (farmer.getCowCount()/2); i--){
+        delete tempCowArray[i];
+        farmer.setCowCount(farmer.getCowCount()) = farmer.getCowCount() - 1;
+    }
     
+
 }
 
 
