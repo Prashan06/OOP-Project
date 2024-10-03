@@ -57,7 +57,7 @@ void Barn::applySpeedGrowth(int money) {
     if (optionChoice == "Y"){
         money = money-speedGrowPrice;
         speedGrowLevel++;
-        // will need to do for every element in array sellTime--;
+        sellTime--;
     }
 }
 

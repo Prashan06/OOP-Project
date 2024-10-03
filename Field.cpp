@@ -37,7 +37,7 @@ void Field::applySpeedGrowth(int money){
         cin >> optionChoice;
     }
     if (optionChoice == "Y"){
-        // will need to do for every array sellTime--;
+        sellTime--;
         money = money - speedGrowPrice;
         speedGrowLevel++;
     }
