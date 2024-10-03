@@ -1,15 +1,19 @@
+#include <cstring>
 #include "Farmer.h"
 
+using namespace std;
+
+
 // Constructor 
-Farmer:: Farmer() : money(50),pig(0),cow(0),wheat(0),corn(0),farmName(""),cropCount(0),animalCount(0){}
+Farmer:: Farmer() : money(50), pig(nullptr), cow(nullptr), wheat(nullptr), corn(nullptr), farmName(""), pigCount(0), cowCount(0), wheatCount(0), cornCount(0), timesWheatPlanted(0), timesCornPlanted(0), timesCowsBought(0), timesPigsBought(0) {}
 
 // sets the amount of money the farmer has.
-void Farmer:: setMoney(int money){
+void Farmer::setMoneyCount(int money){
     this -> money = money;
 }
 
 // Returns the amount of money the farmer has.
-int Farmer:: getMoney(){
+int Farmer::getMoneyCount(){
     return money;
 }
 
@@ -40,7 +44,7 @@ string Farmer::getFarmName() {
 // returns the farm name and money.
 void Farmer:: getStatus(){
     std::cout << "Hello " << getFarmName() << std::endl;
-    std::cout << "Your bank account holds: " << getMoney() << " Dollars" << std::endl;
+    std::cout << "Your bank account holds: " << getMoneyCount() << " Dollars" << std::endl;
     std::cout << "You have " << cowCount << " cows" << std::endl;
     std::cout << "You have " << pigCount << " pigs" << std::endl;
     std::cout << "You have " << cornCount << " corns" << std::endl;
@@ -48,7 +52,7 @@ void Farmer:: getStatus(){
 }
 
 void Farmer:: buyItem(){
-    char product;
+    string product;
     cout << "What animal or crop would you like to buy, please choose cow, pig, wheat and corn? Enter response in lower case " << endl;
     cin >> product;
     while (product != "cow" && product != "wheat" && product != "pig" && product != "corn") {
@@ -56,21 +60,25 @@ void Farmer:: buyItem(){
         cin >> product;
     }
     int amount = 0;
+
+    if (strcmp(product.c_str(), "cow") == 0) {
+        cout << "How many cows would you like to buy?, you can buy" << endl;
+        cin >> amount;
+        int amountPaid = cow.getBuyPrice()*amount;
+        money = money - amountPaid;
+        if (money < amountPaid ) {
+            cout << "You do not have enough money to buy " << amount << " cows" << endl;
+            money = money + cow.getBuyPrice()*amount;
+        }
+        for (int i = cowCount ; i < cowCount + amount; i++ ){
+            cow[i] = Cow* c(timesCowsBought);
+            timesCowsBought++;
+        }
+    }
     switch (product) {
-        case 'cow' :
-            cout << "How many cows would you like to buy? " << endl;
-            cin >> amount;
-            int amountPaid = cow.getBuyPrice()*amount;
-            money = money - amountPaid;
-            if (money < amountPaid ) {
-                cout << "You do not have enough money to buy " << amount << " cows" << endl;
-                money = money + cow.getBuyPrice()*amount;
-            }
-            for (int i = cowCount ; i < cowCount + amount; i++ ){
-                cow[i] = Cow* c(timesCowsBought);
-                timesCowsBought++;
-            }
-        case 'pig':
+        case "cow" :
+            
+        case "pig":
             cout << "How many pigs would you like to buy? " << endl;
             cin >> amount;
             int amountPaid = pig.getBuyPrice()*amount;
@@ -83,7 +91,7 @@ void Farmer:: buyItem(){
                 pig[i] = Pig* c(timesPigsBought);
                 timesPigsBought++;
             }
-        case 'corn':
+        case "corn":
             cout << "How many corn would you like to buy? " << endl;
             cin >> amount;
             int amountPaid = corn.getBuyPrice()*amount;
@@ -96,7 +104,7 @@ void Farmer:: buyItem(){
                 corn[i] = Corn* c(timesCornPlanted);
                 timesCornPlanted++;
             }
-        case 'wheat': 
+        case "wheat": 
             cout << "How many wheat would you like to buy? " << endl;
             cin >> amount;
             int amountPaid = wheat.getBuyPrice()*amount;

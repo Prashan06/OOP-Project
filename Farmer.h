@@ -47,20 +47,20 @@ class Farmer {
         int getMoneyCount();
         void setMoneyCount(int money);
         string getFarmName();
-        Void setFarmName();
-        Void getStatus();
-        Void buyItem();
-        Int getCropCount ();
-        Int getAnimalCount ();
+        void setFarmName();
+        void getStatus();
+        void buyItem();
+        int getCropCount ();
+        int getAnimalCount ();
         void sellItem();
-        int getCowCount()
+        int getCowCount();
         int getPigCount();
         int getWheatCount();
         int getCornCount();
-        Void setCowCount(int cowCount);
-        Void setPigCount(int pigCount);
-        Void setWheatCount(int wheatCount);
-        Void setCornCount(int cornCount);
+        void setCowCount(int cowCount);
+        void setPigCount(int pigCount);
+        void setWheatCount(int wheatCount);
+        void setCornCount(int cornCount);
 
 
 };
