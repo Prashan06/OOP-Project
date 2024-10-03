@@ -75,6 +75,12 @@ void Farmer:: buyItem(){
             cow[i] = tempCow.createNewCow();
             timesCowsBought++;
         }
+    } else(strcmp(product.c_str(), "pig")){
+
+    } else(strcmp(product.c_str(), "wheat")){
+        
+    } else(strcmp(product.c_str(), "corn")){
+        
     }
     switch (product) {
         case "cow" :
