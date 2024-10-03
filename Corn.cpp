@@ -1,5 +1,4 @@
 #include "Corn.h"
-#include "Events.h"
 
 Corn::Corn():Field(){
 
@@ -13,7 +12,7 @@ Corn::Corn():Field(){
 
 }
 
-void Corn::Event(){
+void Corn::Event(Farmer ourFarmer){
 
 }
 
