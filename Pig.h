@@ -18,7 +18,7 @@ class Pig: public Barn, public Events{
     public:
     Pig();
     ~Pig();
-    void applyHighYield();
+    void applyHighYield(Farmer ourFarmer);
     void Event(Farmer farmer);
     Pig* createNewPig();
 };
