@@ -18,24 +18,13 @@ void Corn::applyHighYield(Farmer ourFarmer){
 
 
 void Corn::Event(Farmer ourFarmer){ 
-    int newCornCount = 0;
     if (getPesticideApplied() == true){
-        cout << "A disease has spread throughout the corn, y" << endl;
-        newCornCount = ourFarmer.getCornCount() - (ourFarmer.getCornCount()*(1/4));
-        for (int i = ourFarmer.getCornCount() - 1; i >= newCornCount; i--){
-            delete tempCornArray[i];
-            tempCornArray[i] = nullptr;
-        }
-        ourFarmer.setCornCount(newCornCount); 
+        cout << "A disease has spread throughout the corn, your corn growth rate has increased by 10 seconds" << endl;
+        this -> sellTime = this -> sellTime + 10;
     }
 
     if (getPesticideApplied() == false){
-        cout << "A disease has spread throughout the corn, half of your corn have died." << endl;
-        newCornCount = ourFarmer.getCornCount() - ourFarmer.getCornCount()/2;
-        for (int i = ourFarmer.getCornCount() - 1; i >= newCornCount; i--){
-            delete tempCornArray[i];
-            tempCornArray[i] = nullptr;
-        }
-        ourFarmer.setCornCount(newCornCount);
+        cout << "A disease has spread throughout the corn, your corn growth rate has increased by 20 seconds" << endl;
+        this -> sellTime = this -> sellTime + 20;
     }
 }
