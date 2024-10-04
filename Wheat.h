@@ -12,7 +12,7 @@ class Wheat: public Field, public Events{
         Wheat();
         ~Wheat();
         void Event(Farmer ourFarmer);
-        void applyHighYield();
+        void applyHighYield(Farmer ourFarmer);
 
 };
 
