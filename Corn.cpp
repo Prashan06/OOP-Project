@@ -13,12 +13,24 @@ Corn::Corn():Field(){
 }
 
 void Corn::Event(Farmer ourFarmer){
-    cout << "A swarm of locusts have attacked you fields" << endl;
-    int newCornCount = ourFarmer.getCornCount() * 0.5;
-    for (int i = newCornCount; i < ourFarmer.getCornCount(); i++){
+    int newCornCount = 0;
+    if (getPesticideApplied() == true){
+        cout << "A disease has spread throughout the corn, 1/2 of your corn have died." << endl;
+        int newCornCount = ourFarmer.getCornCount() * 0.5;
+        for (int i = newCornCount; i < ourFarmer.getCornCount(); i++){
         ourFarmer.getCornArray()[i - newCornCount] = ourFarmer.getCornArray()[i];
+        }
+        ourFarmer.setWheatCount(newCornCount);
     }
-    ourFarmer.setCornCount(newCornCount);
+
+    if (getPesticideApplied() == false){
+        cout << "A disease has spread throughout the wheat, half of your wheat have died." << endl;
+        int newWheatCount = ourFarmer.getWheatCount() * 0.5;
+        for (int i = newCornCount; i < ourFarmer.getCornCount(); i++){
+            ourFarmer.getCornArray()[i - newWheatCount] = ourFarmer.getCornArray()[i];
+        }
+        ourFarmer.setCornCount(newCornCount);
+    }
 }
 
 void Corn::applyHighYield(Farmer ourFarmer){
