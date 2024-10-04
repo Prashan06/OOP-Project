@@ -13,6 +13,8 @@ void Cow::applyHighYield(Farmer ourFarmer){
         int newMoney = ourFarmer.getMoneyCount() - this->highYieldPrice;
         ourFarmer.setMoneyCount(newMoney);
     }
+
+    this -> sellPrice = sellPrice * getHighYieldFactor();
 }
 
 
