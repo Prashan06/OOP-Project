@@ -13,6 +13,7 @@ void Wheat::applyHighYield(Farmer ourFarmer){
         int newMoney = ourFarmer.getMoneyCount() - this->highYieldPrice;
         ourFarmer.setMoneyCount(newMoney);
     }
+    this -> sellPrice = sellPrice * getHighYieldFactor();
 }
 
 
@@ -20,22 +21,18 @@ void Wheat::Event(Farmer ourFarmer){
     int newWheatCount = 0;
     if (getPesticideApplied() == true){
         cout << "A disease has spread throughout the wheat, 1/4 of your wheat have died." << endl;
-        newWheatCount = ourFarmer.getWheatCount() - (ourFarmer.getWheatCount()*(1/4));
-        Wheat** tempWheatArray = ourFarmer.getWheatArray();
-        for (int i = ourFarmer.getWheatCount() - 1; i >= newWheatCount; i--){
-            delete tempWheatArray[i];
-            tempWheatArray[i] = nullptr;
+        int newWheatCount = ourFarmer.getWheatCount() * 0.25;
+        for (int i = newWheatCount; i < ourFarmer.getWheatCount(); i++){
+        ourFarmer.getWheatArray()[i - newWheatCount] = ourFarmer.getWheatArray()[i];
         }
-        ourFarmer.setWheatCount(newWheatCount); 
+        ourFarmer.setWheatCount(newWheatCount);
     }
 
     if (getPesticideApplied() == false){
         cout << "A disease has spread throughout the wheat, half of your wheat have died." << endl;
-        newWheatCount = ourFarmer.getWheatCount() - ourFarmer.getWheatCount()/2;
-        Wheat** tempWheatArray = ourFarmer.getWheatArray();
-        for (int i = ourFarmer.getWheatCount() - 1; i >= newWheatCount; i--){
-            delete tempWheatArray[i];
-            tempWheatArray[i] = nullptr;
+        int newWheatCount = ourFarmer.getWheatCount() * 0.5;
+        for (int i = newWheatCount; i < ourFarmer.getWheatCount(); i++){
+            ourFarmer.getWheatArray()[i - newWheatCount] = ourFarmer.getWheatArray()[i];
         }
         ourFarmer.setWheatCount(newWheatCount);
     }
