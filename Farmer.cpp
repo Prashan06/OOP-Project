@@ -94,6 +94,7 @@ void Farmer:: buyItem(){
             cow[i] = createNewCow();
             timesCowsBought++;
         }
+        cowCount = cowCount + amount;
     } else if(product == "pig") {
         Pig tempPig;
         cout << "How many pigs would you like to buy?, you can buy " << money/tempPig.getBuyPrice() << " pigs" << endl;
@@ -108,6 +109,7 @@ void Farmer:: buyItem(){
             pig[i] = createNewPig();
             timesPigsBought++;
         }
+        pigCount = pigCount + amount;
     } else if (product == "wheat"){
         Wheat tempWheat;
         cout << "How many wheat crops would you like to buy?, you can buy " << money/tempWheat.getBuyPrice() << " wheat" << endl;
@@ -122,7 +124,7 @@ void Farmer:: buyItem(){
             wheat[i] = createNewWheat();
             timesWheatPlanted++;
         }
-        
+        wheatCount = wheatCount + amount;
     } else if (product == "corn"){
         Corn tempCorn;
         cout << "How many corn crops would you like to buy?, you can buy " << money/tempCorn.getBuyPrice() << " corn" << endl;
@@ -137,6 +139,7 @@ void Farmer:: buyItem(){
             corn[i] = createNewCorn();
             timesCornPlanted++;
         }
+        cornCount = cornCount + amount;
     }
     
 }
