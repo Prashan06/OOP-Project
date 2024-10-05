@@ -61,6 +61,10 @@ class unitTestFarmer {
             cout << "sellItem - cowCount test failed" << endl;
         }
 
+        for (int i = 0; i < f.getCowCount(); i++){
+            
+        }
+
     }
     public:
     void runTests () {
