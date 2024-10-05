@@ -8,6 +8,10 @@ class unitTestFarmer {
     protected:
     void testFarmer(){
         Farmer f;
+        // Enter a extremely long word to test input validation. Then enter name less than 20 characters
+        f.setFarmName();
+        // If number does not match the entered one, test has failed.
+        f.getFarmName();
         f.setMoneyCount(100);
         if (f.getMoneyCount() != 100){
             cout << "Money count test failed" << endl;
