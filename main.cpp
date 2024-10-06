@@ -15,6 +15,6 @@ using namespace std;
 
 int main(){
 
-    Farmer ourFarmer;
+    Farmer farmer;
 
 }
