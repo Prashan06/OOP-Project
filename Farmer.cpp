@@ -169,7 +169,8 @@ void Farmer:: sellItem(){
         }
         if (yesNo == "yes"){
             for(int j = cowsReadyToSell; j < cowCount; j++) {
-                cow[j-cowsReadyToSell] = cow[j]; 
+                cow[j-cowsReadyToSell] = cow[j];
+                delete cow[j]; 
             }
             cowCount = cowCount - cowsReadyToSell;
             money = money + ((tempCow.getSellPrice())*cowsReadyToSell);
@@ -191,7 +192,8 @@ void Farmer:: sellItem(){
         }
         if (yesNo == "yes"){
             for(int j = pigsReadyToSell; j < pigCount; j++) {
-                pig[j-pigsReadyToSell] = pig[j]; 
+                pig[j-pigsReadyToSell] = pig[j];
+                delete pig[j]; 
             }
             pigCount = pigCount - pigsReadyToSell;
             money = money + ((tempPig.getSellPrice())*pigsReadyToSell);
@@ -212,7 +214,8 @@ void Farmer:: sellItem(){
         }
         if (yesNo == "yes"){
             for(int j = wheatsReadyToSell; j < wheatCount; j++) {
-                wheat[j-wheatsReadyToSell] = wheat[j]; 
+                wheat[j-wheatsReadyToSell] = wheat[j];
+                delete wheat[j]; 
             }
             wheatCount = wheatCount - wheatsReadyToSell;
             money = money + ((tempWheat.getSellPrice())*wheatsReadyToSell);
@@ -234,7 +237,8 @@ void Farmer:: sellItem(){
         }
         if (yesNo == "yes"){
             for(int j = cornsReadyToSell; j < cornCount; j++) {
-                corn[j-cornsReadyToSell] = corn[j]; 
+                corn[j-cornsReadyToSell] = corn[j];
+                delete corn[j]; 
             }
             cornCount = cornCount - cornsReadyToSell;
             money = money + ((tempCorn.getSellPrice())*cornsReadyToSell);
