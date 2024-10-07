@@ -20,16 +20,16 @@ int main(){
 
     // initialising global variables to be used throughout the course of the game 
 
-    Farmer ourfarmer;
+    Farmer farmer;
     bool mainScreen = true;
     bool barnScreen, fieldScreen = false;
     string optionChoice;
 
-    ourfarmer.setFarmName();
+    farmer.setFarmName();
 
     while (mainScreen = true){
 
-        cout << "Hello " << ourfarmer.getFarmName() << "!" << endl;
+        cout << "Hello " << farmer.getFarmName() << "!" << endl;
         cout << "What action would you like to take?" << endl;
         cout << "" << endl;
         cout << "To view status, enter status" << endl;
@@ -37,7 +37,7 @@ int main(){
         cout << "To visit the Field, enter field" << endl;
         cin >> optionChoice;
         if (optionChoice == "status") {
-            ourfarmer.getStatus();
+            farmer.getStatus();
         } else if (optionChoice == "barn") {
             barnScreen = true;
             mainScreen = false;
@@ -58,30 +58,11 @@ int main(){
         cout << "To leave the Barn, enter leave" << endl;
         cin >> optionChoice;
         if (optionChoice == "buy") {
-<<<<<<< HEAD
             farmer.buyAnimal();
-            if (farmer.getCowCount() % 10 == 0) {
-                random_device rd; // obtain a random number from hardware
-                mt19937 gen(rd()); // seed the generator, initialise generator
-                uniform_int_distribution<> distr(1, 10); // define the range
-                int randomNumber = distr(gen);
-                if (randomNumber == 1) {
-                    farmer.getCowArray()[0]->Event(farmer);
-                }
-            } else if (farmer.getPigCount() % 10 == 0) {
-                random_device rd; // obtain a random number from hardware
-                mt19937 gen(rd()); // seed the generator, initialise generator
-                uniform_int_distribution<> distr(1, 10); // define the range
-                int randomNumber = distr(gen);
-                if (randomNumber == 1) {
-                    farmer.getPigArray()[0]->Event(farmer);
-                }
-            }
-=======
-            ourfarmer.buyAnimal();
->>>>>>> 3bb39ae0c6870ce2a537ed09a366157c398b250e
+            farmer.getCowArray()[0]->Event(farmer);
+            farmer.getPigArray()[0]->Event(farmer);
         } else if (optionChoice == "sell") {
-            ourfarmer.sellAnimal();
+            farmer.sellAnimal();
         } else if (optionChoice == "upgrade") {
             cout << "which upgrade would you like to buy?" << endl;
             cout << "" << endl;
@@ -89,14 +70,14 @@ int main(){
             cout << "To upgrade highYield, enter yield" << endl;
             cin >> optionChoice;
             if (optionChoice == "speed") {
-                ourfarmer.getCowArray()[0]->applySpeedGrowth(ourfarmer);
+                farmer.getCowArray()[0]->applySpeedGrowth(farmer);
             } else if (optionChoice == "yield") {
                 cout << "which animal would you like to apply highYield to, enter cow or pig" << endl;
                 cin >> optionChoice;
                 if (optionChoice == "cow"){
-                    ourfarmer.getCowArray()[0]->applyHighYield(ourfarmer);
+                    farmer.getCowArray()[0]->applyHighYield(farmer);
                 } else if (optionChoice == "pig") {
-                    ourfarmer.getPigArray()[0]->applyHighYield(ourfarmer);
+                    farmer.getPigArray()[0]->applyHighYield(farmer);
                 }
             }
         } else if (optionChoice == "leave") {
@@ -114,30 +95,11 @@ int main(){
         cout << "to leave the Field, enter leave" << endl;
         cin >> optionChoice;
         if (optionChoice == "buy") {
-<<<<<<< HEAD
             farmer.buyCrop();
-            if (farmer.getWheatCount() % 10 == 0) {
-                random_device rd; // obtain a random number from hardware
-                mt19937 gen(rd()); // seed the generator, initialise generator
-                uniform_int_distribution<> distr(1, 10); // define the range
-                int randomNumber = distr(gen);
-                if (randomNumber == 1) {
-                    farmer.getWheatArray()[0]->Event(farmer);
-                }
-            } else if (farmer.getCornCount() % 10 == 0) {
-                random_device rd; // obtain a random number from hardware
-                mt19937 gen(rd()); // seed the generator, initialise generator
-                uniform_int_distribution<> distr(1, 10); // define the range
-                int randomNumber = distr(gen);
-                if (randomNumber == 1) {
-                    farmer.getCornArray()[0]->Event(farmer);
-                }
-            }
-=======
-            ourfarmer.buyCrop();
->>>>>>> 3bb39ae0c6870ce2a537ed09a366157c398b250e
+            farmer.getWheatArray()[0]->Event(farmer);
+            farmer.getCornArray()[0]->Event(farmer);
         } else if (optionChoice == "sell") {
-            ourfarmer.sellCrop();
+            farmer.sellCrop();
         } else if (optionChoice == "upgrade") {
             cout << "which upgrade would you like to buy?" << endl;
             cout << "" << endl;
@@ -145,14 +107,14 @@ int main(){
             cout << "To upgrade highYield, enter yield" << endl;
             cin >> optionChoice;
             if (optionChoice == "speed") {
-                ourfarmer.getCornArray()[0]->applySpeedGrowth(ourfarmer);
+                farmer.getCornArray()[0]->applySpeedGrowth(farmer);
             } else if (optionChoice == "yield") {
                 cout << "which crop would you like to apply highYield to, enter corn or wheat" << endl;
                 cin >> optionChoice;
                 if (optionChoice == "corn"){
-                    ourfarmer.getCornArray()[0]->applyHighYield(ourfarmer);
+                    farmer.getCornArray()[0]->applyHighYield(farmer);
                 } else if (optionChoice == "wheat") {
-                    ourfarmer.getWheatArray()[0]->applyHighYield(ourfarmer);
+                    farmer.getWheatArray()[0]->applyHighYield(farmer);
                 }
             }
         } else if (optionChoice == "leave") {
@@ -160,6 +122,6 @@ int main(){
             fieldScreen = false;
         }
     }
-        return 0;
-    }
+    return 0;
+}
 
