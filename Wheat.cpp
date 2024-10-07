@@ -9,11 +9,14 @@ Wheat::Wheat() : Field() {
 void Wheat::applyHighYield(Farmer ourFarmer){
     if (ourFarmer.getMoneyCount() < highYieldPrice){
         cout << "You do not have enough money to buy high yield fertilizer" << endl;
-    }else{
+    } else {
         int newMoney = ourFarmer.getMoneyCount() - this->highYieldPrice;
         ourFarmer.setMoneyCount(newMoney);
+        for (int i = 0; i < ourFarmer.getCowCount() < i++;) {
+            ourFarmer.getWheatArray()[i]->setSellPrice(sellPrice * getHighYieldFactor());
+        }
+        cout << "highYield successfully applied" << endl;
     }
-    this -> sellPrice = sellPrice * getHighYieldFactor();
 }
 
 

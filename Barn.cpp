@@ -61,6 +61,7 @@ void Barn::applySpeedGrowth(Farmer farmer) {
             farmer.getPigArray()[i]->setSellTime(sellTime--);
         }
         speedGrowLevel++;
+        cout << "speedGrowth successfully applied" << endl;
     }
 }
 

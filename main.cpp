@@ -63,9 +63,9 @@ int main(){
             cout << "To upgrade highYield, enter yield" << endl;
             cin >> optionChoice;
             if (optionChoice == "speed") {
-                farmer.getCowArray()[1]->applySpeedGrowth(farmer);
+                farmer.getCowArray()[0]->applySpeedGrowth(farmer);
             } else if (optionChoice == "yield") {
-                farmer.getCowArray()[1]->applyHighYield(farmer);
+                farmer.getCowArray()[0]->applyHighYield(farmer);
             }
         }
 

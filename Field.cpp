@@ -50,6 +50,7 @@ void Field::applySpeedGrowth(Farmer farmer){
             farmer.getWheatArray()[i]->setSellTime(sellTime--);
         }
         speedGrowLevel++;
+        cout << "speedGrowth successfully applied" << endl;
     }
 }
 
