@@ -35,7 +35,7 @@ int Field::getHighYieldPrice(){
     return highYieldPrice;
 }
 
-void Field::applySpeedGrowth(int money){
+void Field::applySpeedGrowth(Farmer farmer){
     cout << "Do you want to buy the SpeedGrowth upgrade? Y or N " << endl;
     cin >> optionChoice;
     while (optionChoice != "Y" && optionChoice != "N") {
@@ -43,8 +43,12 @@ void Field::applySpeedGrowth(int money){
         cin >> optionChoice;
     }
     if (optionChoice == "Y"){
-        sellTime--;
-        money = money - speedGrowPrice;
+        farmer.setMoneyCount(farmer.getMoneyCount()-speedGrowPrice);
+        speedGrowLevel++;
+        for (int i = 0; i < farmer.getCowCount() < i++;) {
+            farmer.getCornArray()[i]->setSellTime(sellTime--);
+            farmer.getWheatArray()[i]->setSellTime(sellTime--);
+        }
         speedGrowLevel++;
     }
 }

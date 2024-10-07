@@ -17,8 +17,8 @@ class Farm {
 
     public:
         Farm();
-        virtual void applySpeedGrow();
-        virtual void applyHighYield();
+        virtual void applySpeedGrowth(Famer farmer);
+        virtual void applyHighYield(Farmer ourFarmer);
         int setBuyPrice(int buyPrice);
         int getBuyPrice();
         void setSellPrice(int sellPrice);

@@ -20,16 +20,17 @@ int main(){
     Farmer farmer;
     bool mainScreen = true;
     bool barnScreen, fieldScreen = false;
+    string optionChoice;
 
     farmer.setFarmName();
 
     while (mainScreen = true){
-        string optionChoice;
         cout << "Hello " << farmer.getFarmName() << "!" << endl;
         cout << "what action would you like to take?" << endl;
-        cout << "view status, enter status" << endl;
-        cout << "visit the barn, enter barn" << endl;
-        cout << "visit the field, enter field" << endl;
+        cout << "" << endl;
+        cout << "To view status, enter status" << endl;
+        cout << "To visit the barn, enter barn" << endl;
+        cout << "To visit the field, enter field" << endl;
         cin >> optionChoice;
         if (optionChoice == "status") {
             farmer.getStatus();
@@ -44,6 +45,35 @@ int main(){
     }
 
     while (barnScreen == true) {
+        cout << "welcome to the barn! what action would you like to take?" << endl;
+        cout << "" << endl;
+        cout << "To buy an animal, enter buy" << endl;
+        cout << "to purchase an upgrade, enter upgrade" << endl;
+        cout << "To sell an animal, enter sell" << endl;
+        cout << "to leave the barn, enter leave" << endl;
+        cin >> optionChoice;
+        if (optionChoice == "buy") {
+            farmer.buyItem();
+        } else if (optionChoice == "sell") {
+            farmer.sellItem();
+        } else if (optionChoice == "upgrade") {
+            cout << "would you like to upgrade the cows or pigs?" << endl;
+            cout << "enter cow to upgrade cows, and pig to upgrade pigs" << endl;
+            cin >> optionChoice;
+            if (optionChoice == "cow"){
+                cout << "which upgrade would you like to buy?" << endl;
+                cout << "" << endl;
+                cout << "To upgrade speedGrowth, enter speed" << endl;
+                cout << "To upgrade highYield, enter yield" << endl;
+                cin >> optionChoice;
+                if (optionChoice == "speed") {
+                    farmer.getCowArray()[1]->applySpeedGrowth(farmer.getMoneyCount());
+                } else if (optionChoice == "yield") {
+                    farmer.getCowArray()[1]->applyHighYield(farmer);
+                }
+            }
+
+        }
 
     }
 
@@ -52,5 +82,5 @@ int main(){
     }
 
     return 0;
-    
+
 }

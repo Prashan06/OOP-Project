@@ -47,7 +47,7 @@ int Barn::getSpeedGrowLevel() {
 }
 
 // method to apply the speed growth boost to the farmers items
-void Barn::applySpeedGrowth(int money) {
+void Barn::applySpeedGrowth(Farmer farmer) {
     cout << "Do you want to buy the SpeedGrowth upgrade? Y or N " << endl;
     cin >> optionChoice;
     while (optionChoice != "Y" && optionChoice != "N") {
@@ -55,9 +55,12 @@ void Barn::applySpeedGrowth(int money) {
         cin >> optionChoice;
     }
     if (optionChoice == "Y"){
-        money = money-speedGrowPrice;
+        farmer.setMoneyCount(farmer.getMoneyCount()-speedGrowPrice);
+        for (int i = 0; i < farmer.getCowCount() < i++;) {
+            farmer.getCowArray()[i]->setSellTime(sellTime--);
+            farmer.getPigArray()[i]->setSellTime(sellTime--);
+        }
         speedGrowLevel++;
-        sellTime--;
     }
 }
 
