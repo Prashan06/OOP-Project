@@ -1,13 +1,12 @@
 #ifndef PIG_H
 #define PIG_H
 
-#include "Barn.h"
-#include "Events.h"
-#include "Farmer.h"
-
 #include <ctime>
 #include <chrono>
 #include <iostream>
+#include "Barn.h"
+#include "Events.h"
+#include "Farmer.h"
 
 using namespace std;
 
