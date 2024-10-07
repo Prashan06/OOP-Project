@@ -5,7 +5,7 @@ Farm::Farm() : buyPrice(0), sellPrice(0), sellTime(60), timer(time(0)), optionCh
 
 
 // Sets the buyPrice.
-int Farm::setBuyPrice(int buyPrice){
+void Farm::setBuyPrice(int buyPrice){
     this -> buyPrice = buyPrice;
 }
 

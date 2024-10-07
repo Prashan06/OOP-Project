@@ -2,8 +2,10 @@
 #define WHEAT_H
 
 #include "Field.h"
+#include "Events.h"
+#include "Farmer.h"
 
-class Wheat: public Field, public Events{
+class Wheat: public Field, public Events {
 
     protected:
 

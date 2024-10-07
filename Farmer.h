@@ -10,6 +10,8 @@
 #include "Cow.h"
 #include "Pig.h"
 #include "Farm.h"
+#include "Barn.h"
+#include "Field.h"
 
 class Farmer {
     protected:

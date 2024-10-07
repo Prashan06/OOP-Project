@@ -2,8 +2,10 @@
 #define CORN_H
 
 #include "Field.h"
+#include "Events.h"
+#include "Farmer.h"
 
-class Corn: public Field, public Events{
+class Corn: public Field, public Events {
 
     protected:
 

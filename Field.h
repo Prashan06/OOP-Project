@@ -3,7 +3,7 @@
 
 #include "Farm.h"
 
-class Field: public Farm{
+class Field: public Farm {
 
     protected:
 

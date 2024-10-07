@@ -3,7 +3,7 @@
 
 #include "Farm.h"
 
-class Barn: public Farm{
+class Barn: public Farm {
 
     protected:
         int speedGrowPrice;

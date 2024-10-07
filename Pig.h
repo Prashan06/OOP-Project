@@ -11,7 +11,7 @@
 
 using namespace std;
 
-class Pig: public Barn, public Events{
+class Pig: public Barn, public Events {
 
     protected:
     

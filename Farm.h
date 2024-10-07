@@ -1,9 +1,14 @@
 #ifndef FARM_H
 #define FARM_H
 
+#include <iostream>
+#include <ctime>
 #include <chrono>
+#include <string>
 #include "Farmer.h"
 #include "Events.h"
+
+using namespace std;
 
 class Farm {
 
@@ -19,7 +24,7 @@ class Farm {
         Farm();
         virtual void applySpeedGrowth(Farmer farmer);
         virtual void applyHighYield(Farmer ourFarmer);
-        int setBuyPrice(int buyPrice);
+        void setBuyPrice(int buyPrice);
         int getBuyPrice();
         void setSellPrice(int sellPrice);
         int getSellPrice();
