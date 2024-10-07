@@ -28,7 +28,6 @@ void Wheat::applyHighYield(Farmer ourFarmer){
 
 
 void Wheat::Event(Farmer ourFarmer){
-<<<<<<< HEAD
     if (ourFarmer.getCowCount() % 10 == 0) {
         random_device rd; // obtain a random number from hardware
         mt19937 gen(rd()); // seed the generator, initialise generator
@@ -53,25 +52,6 @@ void Wheat::Event(Farmer ourFarmer){
                 }
                 ourFarmer.setWheatCount(newWheatCount);
             }
-=======
-
-    int newWheatCount = 0;
-    if (getPesticideApplied() == true){
-        cout << "A disease has spread throughout the wheat, 1/4 of your wheat have died" << endl;
-        int newWheatCount = ourFarmer.getWheatCount() * 0.25;
-        for (int i = newWheatCount; i < ourFarmer.getWheatCount(); i++){
-        ourFarmer.getWheatArray()[i - newWheatCount] = ourFarmer.getWheatArray()[i];
-        }
-        ourFarmer.setWheatCount(newWheatCount);
-    }
-
-    if (getPesticideApplied() == false){
-        cout << "A disease has spread throughout the wheat, 1/2 of your wheat have died." << endl;
-        int newWheatCount = ourFarmer.getWheatCount()*0.5;
-        for (int i = newWheatCount; i < ourFarmer.getWheatCount(); i++){
-            ourFarmer.getWheatArray()[i - newWheatCount] = ourFarmer.getWheatArray()[i];
->>>>>>> 3bb39ae0c6870ce2a537ed09a366157c398b250e
         }
     }
-
 }
