@@ -29,7 +29,7 @@ class unitTestPig{
     public:
 
         void runTests(){
-            testWheat();
+            testPig();
         }
 
 };
