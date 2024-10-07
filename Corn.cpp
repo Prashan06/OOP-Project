@@ -1,3 +1,4 @@
+#include <random>
 #include "Corn.h"
 
 Corn::Corn():Field(){
@@ -13,23 +14,32 @@ Corn::Corn():Field(){
 }
 
 void Corn::Event(Farmer ourFarmer){
-    int newCornCount = 0;
-    if (getPesticideApplied() == true){
-        cout << "A disease has spread throughout the corn, 1/2 of your corn have died." << endl;
-        int newCornCount = ourFarmer.getCornCount() * 0.5;
-        for (int i = newCornCount; i < ourFarmer.getCornCount(); i++){
-        ourFarmer.getCornArray()[i - newCornCount] = ourFarmer.getCornArray()[i];
-        }
-        ourFarmer.setWheatCount(newCornCount);
-    }
+    if (ourFarmer.getCornCount() % 10 == 0) {
+        random_device rd; // obtain a random number from hardware
+        mt19937 gen(rd()); // seed the generator, initialise generator
+        uniform_int_distribution<> distr(1, 10); // define the range
+        int randomNumber = distr(gen);
 
-    if (getPesticideApplied() == false){
-        cout << "A disease has spread throughout the corn, half of your corn have died." << endl;
-        int newCornCount = ourFarmer.getCornCount() * 0.5;
-        for (int i = newCornCount; i < ourFarmer.getCornCount(); i++){
-            ourFarmer.getCornArray()[i - newCornCount] = ourFarmer.getCornArray()[i];
+        if (randomNumber == 1) {
+            int newCornCount = 0;
+            if (getPesticideApplied() == true){
+                cout << "A disease has spread throughout the corn, 1/2 of your corn have died." << endl;
+                int newCornCount = ourFarmer.getCornCount() * 0.5;
+                for (int i = newCornCount; i < ourFarmer.getCornCount(); i++){
+                    ourFarmer.getCornArray()[i - newCornCount] = ourFarmer.getCornArray()[i];
+                }
+                ourFarmer.setWheatCount(newCornCount);
+            }
+
+            if (getPesticideApplied() == false){
+                cout << "A disease has spread throughout the corn, half of your corn have died." << endl;
+                int newCornCount = ourFarmer.getCornCount() * 0.5;
+                for (int i = newCornCount; i < ourFarmer.getCornCount(); i++){
+                    ourFarmer.getCornArray()[i - newCornCount] = ourFarmer.getCornArray()[i];
+                }
+                ourFarmer.setCornCount(newCornCount);
+            }
         }
-        ourFarmer.setCornCount(newCornCount);
     }
 }
 

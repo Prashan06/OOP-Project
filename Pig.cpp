@@ -1,3 +1,4 @@
+#include <random>
 #include "Pig.h"
 
 Pig::Pig() : Barn() {
@@ -20,16 +21,19 @@ void Pig::applyHighYield( Farmer ourFarmer){
 }
 
 void Pig::Event(Farmer ourFarmer){
-    cout << "the demand for pig meat greatly decreased, in order to maintain a healthy flow of pigs " << endl;
-    cout << "coming in and out of the farm, the sell price of all currently owned pigs must be reduced by half." << endl;
-    for (int i = 0; i < ourFarmer.getPigCount(); i++){
-        ourFarmer.getPigArray()[i]->sellPrice == (ourFarmer.getPigArray()[i]->sellPrice) * 0.5;
+    if (ourFarmer.getCowCount() % 10 == 0) {
+        random_device rd; // obtain a random number from hardware
+        mt19937 gen(rd()); // seed the generator, initialise generator
+        uniform_int_distribution<> distr(1, 10); // define the range
+        int randomNumber = distr(gen);
+        if (randomNumber == 1) {
+            cout << "the demand for pig meat greatly decreased, in order to maintain a healthy flow of pigs " << endl;
+            cout << "coming in and out of the farm, the sell price of all currently owned pigs must be reduced by half." << endl;
+            for (int i = 0; i < ourFarmer.getPigCount(); i++){
+                ourFarmer.getPigArray()[i]->sellPrice == (ourFarmer.getPigArray()[i]->sellPrice) * 0.5;
+            }
+        }
     }
-}
-
-Pig* Pig::createNewPig() {
-    Pig* newPig;
-    return newPig;
 }
 
 Pig::~Pig(){}

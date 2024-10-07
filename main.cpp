@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <random>
 
 #include "Farmer.h"
 #include "Farm.h"
@@ -54,6 +55,23 @@ int main(){
         cin >> optionChoice;
         if (optionChoice == "buy") {
             farmer.buyAnimal();
+            if (farmer.getCowCount() % 10 == 0) {
+                random_device rd; // obtain a random number from hardware
+                mt19937 gen(rd()); // seed the generator, initialise generator
+                uniform_int_distribution<> distr(1, 10); // define the range
+                int randomNumber = distr(gen);
+                if (randomNumber == 1) {
+                    farmer.getCowArray()[0]->Event(farmer);
+                }
+            } else if (farmer.getPigCount() % 10 == 0) {
+                random_device rd; // obtain a random number from hardware
+                mt19937 gen(rd()); // seed the generator, initialise generator
+                uniform_int_distribution<> distr(1, 10); // define the range
+                int randomNumber = distr(gen);
+                if (randomNumber == 1) {
+                    farmer.getPigArray()[0]->Event(farmer);
+                }
+            }
         } else if (optionChoice == "sell") {
             farmer.sellAnimal();
         } else if (optionChoice == "upgrade") {
@@ -77,6 +95,7 @@ int main(){
             mainScreen = true;
             barnScreen = false;
         }
+    }
 
     while (fieldScreen == true) {
         cout << "welcome to the Field! what action would you like to take?" << endl;
@@ -88,6 +107,23 @@ int main(){
         cin >> optionChoice;
         if (optionChoice == "buy") {
             farmer.buyCrop();
+            if (farmer.getWheatCount() % 10 == 0) {
+                random_device rd; // obtain a random number from hardware
+                mt19937 gen(rd()); // seed the generator, initialise generator
+                uniform_int_distribution<> distr(1, 10); // define the range
+                int randomNumber = distr(gen);
+                if (randomNumber == 1) {
+                    farmer.getWheatArray()[0]->Event(farmer);
+                }
+            } else if (farmer.getCornCount() % 10 == 0) {
+                random_device rd; // obtain a random number from hardware
+                mt19937 gen(rd()); // seed the generator, initialise generator
+                uniform_int_distribution<> distr(1, 10); // define the range
+                int randomNumber = distr(gen);
+                if (randomNumber == 1) {
+                    farmer.getCornArray()[0]->Event(farmer);
+                }
+            }
         } else if (optionChoice == "sell") {
             farmer.sellCrop();
         } else if (optionChoice == "upgrade") {

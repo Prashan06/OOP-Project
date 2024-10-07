@@ -1,3 +1,4 @@
+#include <random>
 #include "Wheat.h"
 
 Wheat::Wheat() : Field() {
@@ -21,22 +22,30 @@ void Wheat::applyHighYield(Farmer ourFarmer){
 
 
 void Wheat::Event(Farmer ourFarmer){
-    int newWheatCount = 0;
-    if (getPesticideApplied() == true){
-        cout << "A disease has spread throughout the wheat, 1/4 of your wheat have died." << endl;
-        int newWheatCount = ourFarmer.getWheatCount() * 0.25;
-        for (int i = newWheatCount; i < ourFarmer.getWheatCount(); i++){
-        ourFarmer.getWheatArray()[i - newWheatCount] = ourFarmer.getWheatArray()[i];
-        }
-        ourFarmer.setWheatCount(newWheatCount);
-    }
+    if (ourFarmer.getCowCount() % 10 == 0) {
+        random_device rd; // obtain a random number from hardware
+        mt19937 gen(rd()); // seed the generator, initialise generator
+        uniform_int_distribution<> distr(1, 10); // define the range
+        int randomNumber = distr(gen);
+        if (randomNumber == 1) {
+            int newWheatCount = 0;
+            if (getPesticideApplied() == true){
+                cout << "A disease has spread throughout the wheat, 1/4 of your wheat have died." << endl;
+                int newWheatCount = ourFarmer.getWheatCount() * 0.25;
+                for (int i = newWheatCount; i < ourFarmer.getWheatCount(); i++){
+                    ourFarmer.getWheatArray()[i - newWheatCount] = ourFarmer.getWheatArray()[i];
+                }
+                ourFarmer.setWheatCount(newWheatCount);
+            }
 
-    if (getPesticideApplied() == false){
-        cout << "A disease has spread throughout the wheat, half of your wheat have died." << endl;
-        int newWheatCount = ourFarmer.getWheatCount() * 0.5;
-        for (int i = newWheatCount; i < ourFarmer.getWheatCount(); i++){
-            ourFarmer.getWheatArray()[i - newWheatCount] = ourFarmer.getWheatArray()[i];
+            if (getPesticideApplied() == false){
+                cout << "A disease has spread throughout the wheat, half of your wheat have died." << endl;
+                int newWheatCount = ourFarmer.getWheatCount() * 0.5;
+                for (int i = newWheatCount; i < ourFarmer.getWheatCount(); i++){
+                    ourFarmer.getWheatArray()[i - newWheatCount] = ourFarmer.getWheatArray()[i];
+                }
+                ourFarmer.setWheatCount(newWheatCount);
+            }
         }
-        ourFarmer.setWheatCount(newWheatCount);
     }
 }
