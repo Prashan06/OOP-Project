@@ -37,7 +37,7 @@ void Wheat::Event(Farmer ourFarmer){
             int newWheatCount = 0;
             if (getPesticideApplied() == true){
                 cout << "A disease has spread throughout the wheat, 1/4 of your wheat have died." << endl;
-                int newWheatCount = ourFarmer.getWheatCount() * 0.25;
+                newWheatCount = ourFarmer.getWheatCount() * 0.25;
                 for (int i = newWheatCount; i < ourFarmer.getWheatCount(); i++){
                     ourFarmer.getWheatArray()[i - newWheatCount] = ourFarmer.getWheatArray()[i];
                 }
@@ -46,7 +46,7 @@ void Wheat::Event(Farmer ourFarmer){
 
             if (getPesticideApplied() == false){
                 cout << "A disease has spread throughout the wheat, half of your wheat have died." << endl;
-                int newWheatCount = ourFarmer.getWheatCount() * 0.5;
+                newWheatCount = ourFarmer.getWheatCount() * 0.5;
                 for (int i = newWheatCount; i < ourFarmer.getWheatCount(); i++){
                     ourFarmer.getWheatArray()[i - newWheatCount] = ourFarmer.getWheatArray()[i];
                 }

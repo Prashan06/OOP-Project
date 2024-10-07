@@ -56,7 +56,7 @@ void Barn::applySpeedGrowth(Farmer farmer) {
     }
     if (optionChoice == "Y"){
         farmer.setMoneyCount(farmer.getMoneyCount()-speedGrowPrice);
-        for (int i = 0; i < farmer.getCowCount() < i++;) {
+        for (int i = 0; i < (farmer.getCowCount()) < i++;) {
             farmer.getCowArray()[i]->setSellTime(sellTime--);
             farmer.getPigArray()[i]->setSellTime(sellTime--);
         }

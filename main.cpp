@@ -27,7 +27,7 @@ int main(){
 
     farmer.setFarmName();
 
-    while (mainScreen = true){
+    while (mainScreen == true){
 
         cout << "Hello " << farmer.getFarmName() << "!" << endl;
         cout << "What action would you like to take?" << endl;

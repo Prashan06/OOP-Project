@@ -22,7 +22,7 @@ void Corn::Event(Farmer ourFarmer){
             int newCornCount = 0;
             if (getPesticideApplied() == true){
                 cout << "A disease has spread throughout the corn, 1/2 of your corn have died." << endl;
-                int newCornCount = ourFarmer.getCornCount() * 0.5;
+                newCornCount = ourFarmer.getCornCount() * 0.5;
                 for (int i = newCornCount; i < ourFarmer.getCornCount(); i++){
                     ourFarmer.getCornArray()[i - newCornCount] = ourFarmer.getCornArray()[i];
                 }
