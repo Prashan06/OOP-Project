@@ -7,6 +7,8 @@ class Wheat: public Field, public Events{
 
     protected:
 
+    //all are attributes inherited from Field & Events classes
+
     public:
         
         Wheat();

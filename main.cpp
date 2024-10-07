@@ -17,24 +17,27 @@ using namespace std;
 // main file that will define the method for the player to play the game
 
 int main(){
+
     // initialising global variables to be used throughout the course of the game 
-    Farmer farmer;
+
+    Farmer ourfarmer;
     bool mainScreen = true;
     bool barnScreen, fieldScreen = false;
     string optionChoice;
 
-    farmer.setFarmName();
+    ourfarmer.setFarmName();
 
     while (mainScreen = true){
-        cout << "Hello " << farmer.getFarmName() << "!" << endl;
-        cout << "what action would you like to take?" << endl;
+
+        cout << "Hello " << ourfarmer.getFarmName() << "!" << endl;
+        cout << "What action would you like to take?" << endl;
         cout << "" << endl;
         cout << "To view status, enter status" << endl;
         cout << "To visit the Barn, enter barn" << endl;
         cout << "To visit the Field, enter field" << endl;
         cin >> optionChoice;
         if (optionChoice == "status") {
-            farmer.getStatus();
+            ourfarmer.getStatus();
         } else if (optionChoice == "barn") {
             barnScreen = true;
             mainScreen = false;
@@ -46,14 +49,16 @@ int main(){
     }
 
     while (barnScreen == true) {
-        cout << "welcome to the Barn! what action would you like to take?" << endl;
+
+        cout << "Welcome to the Barn! what action would you like to take?" << endl;
         cout << "" << endl;
         cout << "To buy an animal, enter buy" << endl;
         cout << "to purchase an upgrade, enter upgrade" << endl;
         cout << "To sell an animal, enter sell" << endl;
-        cout << "to leave the Barn, enter leave" << endl;
+        cout << "To leave the Barn, enter leave" << endl;
         cin >> optionChoice;
         if (optionChoice == "buy") {
+<<<<<<< HEAD
             farmer.buyAnimal();
             if (farmer.getCowCount() % 10 == 0) {
                 random_device rd; // obtain a random number from hardware
@@ -72,8 +77,11 @@ int main(){
                     farmer.getPigArray()[0]->Event(farmer);
                 }
             }
+=======
+            ourfarmer.buyAnimal();
+>>>>>>> 3bb39ae0c6870ce2a537ed09a366157c398b250e
         } else if (optionChoice == "sell") {
-            farmer.sellAnimal();
+            ourfarmer.sellAnimal();
         } else if (optionChoice == "upgrade") {
             cout << "which upgrade would you like to buy?" << endl;
             cout << "" << endl;
@@ -81,14 +89,14 @@ int main(){
             cout << "To upgrade highYield, enter yield" << endl;
             cin >> optionChoice;
             if (optionChoice == "speed") {
-                farmer.getCowArray()[0]->applySpeedGrowth(farmer);
+                ourfarmer.getCowArray()[0]->applySpeedGrowth(ourfarmer);
             } else if (optionChoice == "yield") {
                 cout << "which animal would you like to apply highYield to, enter cow or pig" << endl;
                 cin >> optionChoice;
                 if (optionChoice == "cow"){
-                    farmer.getCowArray()[0]->applyHighYield(farmer);
+                    ourfarmer.getCowArray()[0]->applyHighYield(ourfarmer);
                 } else if (optionChoice == "pig") {
-                    farmer.getPigArray()[0]->applyHighYield(farmer);
+                    ourfarmer.getPigArray()[0]->applyHighYield(ourfarmer);
                 }
             }
         } else if (optionChoice == "leave") {
@@ -106,6 +114,7 @@ int main(){
         cout << "to leave the Field, enter leave" << endl;
         cin >> optionChoice;
         if (optionChoice == "buy") {
+<<<<<<< HEAD
             farmer.buyCrop();
             if (farmer.getWheatCount() % 10 == 0) {
                 random_device rd; // obtain a random number from hardware
@@ -124,8 +133,11 @@ int main(){
                     farmer.getCornArray()[0]->Event(farmer);
                 }
             }
+=======
+            ourfarmer.buyCrop();
+>>>>>>> 3bb39ae0c6870ce2a537ed09a366157c398b250e
         } else if (optionChoice == "sell") {
-            farmer.sellCrop();
+            ourfarmer.sellCrop();
         } else if (optionChoice == "upgrade") {
             cout << "which upgrade would you like to buy?" << endl;
             cout << "" << endl;
@@ -133,14 +145,14 @@ int main(){
             cout << "To upgrade highYield, enter yield" << endl;
             cin >> optionChoice;
             if (optionChoice == "speed") {
-                farmer.getCornArray()[0]->applySpeedGrowth(farmer);
+                ourfarmer.getCornArray()[0]->applySpeedGrowth(ourfarmer);
             } else if (optionChoice == "yield") {
                 cout << "which crop would you like to apply highYield to, enter corn or wheat" << endl;
                 cin >> optionChoice;
                 if (optionChoice == "corn"){
-                    farmer.getCornArray()[0]->applyHighYield(farmer);
+                    ourfarmer.getCornArray()[0]->applyHighYield(ourfarmer);
                 } else if (optionChoice == "wheat") {
-                    farmer.getWheatArray()[0]->applyHighYield(farmer);
+                    ourfarmer.getWheatArray()[0]->applyHighYield(ourfarmer);
                 }
             }
         } else if (optionChoice == "leave") {
@@ -148,7 +160,6 @@ int main(){
             fieldScreen = false;
         }
     }
-
         return 0;
     }
 

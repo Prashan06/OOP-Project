@@ -7,6 +7,8 @@ class Corn: public Field, public Events{
 
     protected:
 
+    //all attributes inherited from Field
+
     public:
         
         Corn();
