@@ -53,26 +53,20 @@ int main(){
         cout << "to leave the barn, enter leave" << endl;
         cin >> optionChoice;
         if (optionChoice == "buy") {
-            farmer.buyItem();
+            farmer.buyAnimal();
         } else if (optionChoice == "sell") {
-            farmer.sellItem();
+            farmer.sellAnimal();
         } else if (optionChoice == "upgrade") {
-            cout << "would you like to upgrade the cows or pigs?" << endl;
-            cout << "enter cow to upgrade cows, and pig to upgrade pigs" << endl;
+            cout << "which upgrade would you like to buy?" << endl;
+            cout << "" << endl;
+            cout << "To upgrade speedGrowth, enter speed" << endl;
+            cout << "To upgrade highYield, enter yield" << endl;
             cin >> optionChoice;
-            if (optionChoice == "cow"){
-                cout << "which upgrade would you like to buy?" << endl;
-                cout << "" << endl;
-                cout << "To upgrade speedGrowth, enter speed" << endl;
-                cout << "To upgrade highYield, enter yield" << endl;
-                cin >> optionChoice;
-                if (optionChoice == "speed") {
-                    farmer.getCowArray()[1]->applySpeedGrowth(farmer.getMoneyCount());
-                } else if (optionChoice == "yield") {
-                    farmer.getCowArray()[1]->applyHighYield(farmer);
-                }
+            if (optionChoice == "speed") {
+                farmer.getCowArray()[1]->applySpeedGrowth(farmer);
+            } else if (optionChoice == "yield") {
+                farmer.getCowArray()[1]->applyHighYield(farmer);
             }
-
         }
 
     }
@@ -81,6 +75,6 @@ int main(){
 
     }
 
-    return 0;
+        return 0;
+    }
 
-}

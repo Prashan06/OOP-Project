@@ -44,8 +44,10 @@ class Farmer {
         string getFarmName();
         void setFarmName();
         void getStatus();
-        void buyItem();
-        void sellItem();
+        void buyAnimal();
+        void buyCrop();
+        void sellAnimal();
+        void sellCrop();
         int getCowCount();
         int getPigCount();
         int getWheatCount();
