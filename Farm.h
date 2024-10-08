@@ -5,8 +5,6 @@
 #include <ctime>
 #include <chrono>
 #include <string>
-#include "Farmer.h"
-#include "Events.h"
 
 using namespace std;
 

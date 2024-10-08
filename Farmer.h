@@ -25,14 +25,14 @@ class Farmer: public Pig, Corn, Cow, Wheat {
 
         //tracking variables for object creation
         char farmName[21];
-        int cowCount;
-        int pigCount;
-        int wheatCount;
-        int cornCount;
 		int timesWheatPlanted;
         int timesCornPlanted;
         int timesCowsBought;
         int timesPigsBought;
+        int cowCount;
+        int pigCount;
+        int wheatCount;
+        int cornCount;
    
     public:
 
@@ -45,10 +45,6 @@ class Farmer: public Pig, Corn, Cow, Wheat {
         string getFarmName();
         void setFarmName();
         void getStatus();
-        void buyAnimal();
-        void buyCrop();
-        void sellAnimal();
-        void sellCrop();
         int getCowCount();
         int getPigCount();
         int getWheatCount();
@@ -57,6 +53,11 @@ class Farmer: public Pig, Corn, Cow, Wheat {
         void setPigCount(int pigCount);
         void setWheatCount(int wheatCount);
         void setCornCount(int cornCount);
+        void buyAnimal();
+        void buyCrop();
+        void sellAnimal();
+        void sellCrop();
+
 		Cow** getCowArray();
 		Pig** getPigArray();
 		Wheat** getWheatArray();
