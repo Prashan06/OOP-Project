@@ -78,3 +78,13 @@ void Field::setSpeedGrowLevel (int speedGrowLevel) {
 int Field::getSpeedGrowLevel() {
     return speedGrowLevel;
 }
+
+//setter for speedGrowApplied
+void Field::setSpeedGrowApplied(bool speedGrowApplied){
+    this->speedGrowApplied = speedGrowApplied;
+}
+
+//getter for speedGrowApplied
+bool Field::getSpeedGrowApplied(){
+    return speedGrowApplied;
+}
