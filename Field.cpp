@@ -60,11 +60,12 @@ bool Field::getPesticideApplied(){
     return pesticideApplied;
 }
 
-void Field::applyPesticide(){
+void Field::applyPesticide(int* money){
     cout << "Do you want to buy pesticide? Y or N " << endl;
     if (optionChoice == "Y" && pesticideApplied == false){
         // Note for corn and wheat events, if pesticide applied is true, reduce killing of corn and wheat.
         pesticideApplied = true;
+        *money = *money - pesticidePrice;
     }
 }
 
