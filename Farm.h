@@ -18,13 +18,14 @@ class Farm {
         int sellTime;
         time_t timer;
         string optionChoice;
-        bool speedGrowthApplied;
+        bool barnSpeedGrowthApplied;
+        bool fieldSpeedGrowthApplied;
 
     public:
         Farm();
 
-        virtual void applySpeedGrowth(Farmer &farmer);
-        virtual void applyHighYield(Farmer &ourFarmer);
+        virtual void applySpeedGrowth(int &money);
+        virtual void applyHighYield(int );
         void setBuyPrice(int buyPrice);
         int getBuyPrice();
         void setSellPrice(int sellPrice);
