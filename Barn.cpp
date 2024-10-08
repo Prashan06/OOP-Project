@@ -55,7 +55,21 @@ void Barn::applySpeedGrowth(int* money) {
         cin >> optionChoice;
     }
     if (optionChoice == "Y"){
-        barnSpeedGrowthApplied = true;
+        if (*money < speedGrowPrice){
+            cout << "You do not have enough money to buy the speedGrowth update, try again later" << endl;
+        }else{
+        speedGrowApplied = true;
         *money = *money - speedGrowPrice;
+        }
     }
+}
+
+//getter for speedGrowApplied
+bool Barn::getSpeedGrowApplied(){
+    return speedGrowApplied;
+}
+
+//setter for speedGrowApplied
+void Barn::setSpeedGrowApplied(bool speedGrowApplied){
+    this->speedGrowApplied = speedGrowApplied;
 }
