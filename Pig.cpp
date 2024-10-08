@@ -7,7 +7,7 @@ Pig::Pig() : Barn() {
     this -> sellTime = 30;
 }
 
-void Pig::applyHighYield( Farmer ourFarmer){
+void Pig::applyHighYield( Farmer& ourFarmer){
     if (ourFarmer.getMoneyCount() < highYieldPrice){
         cout << "You do not have enough money to buy high yield fertilizer" << endl;
     } else {
@@ -20,7 +20,7 @@ void Pig::applyHighYield( Farmer ourFarmer){
     }
 }
 
-void Pig::Event(Farmer ourFarmer){
+void Pig::Event(Farmer& ourFarmer){
     if (ourFarmer.getCowCount() % 10 == 0) {
         random_device rd; // obtain a random number from hardware
         mt19937 gen(rd()); // seed the generator, initialise generator

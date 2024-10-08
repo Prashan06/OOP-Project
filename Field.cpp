@@ -35,7 +35,7 @@ int Field::getHighYieldPrice(){
     return highYieldPrice;
 }
 
-void Field::applySpeedGrowth(Farmer farmer){
+void Field::applySpeedGrowth(Farmer& farmer){
     cout << "Do you want to buy the SpeedGrowth upgrade? Y or N " << endl;
     cin >> optionChoice;
     while (optionChoice != "Y" && optionChoice != "N") {
