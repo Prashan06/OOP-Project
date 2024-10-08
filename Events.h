@@ -5,7 +5,7 @@
 
 class Events {
     public:
-    virtual void Event(Farmer ourfarmer) = 0;
+    virtual void Event(Farmer& farmer) = 0;
 };
 
 #endif
