@@ -18,8 +18,8 @@ class Farm {
         int sellTime;
         time_t timer;
         string optionChoice;
-        bool barnSpeedGrowthApplied;
-        bool fieldSpeedGrowthApplied;
+        bool barnSpeedGrowthApplied = false;
+        bool fieldSpeedGrowthApplied = false;
 
     public:
         Farm();

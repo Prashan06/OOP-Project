@@ -1,7 +1,7 @@
 #include "Farm.h"
 
 // Constructor
-Farm::Farm() : buyPrice(0), sellPrice(0), sellTime(60), timer(time(0)), optionChoice(""), speedGrowthApplied(false) {}
+Farm::Farm() : buyPrice(0), sellPrice(0), sellTime(60), timer(time(0)), optionChoice("") {}
 
 
 // Sets the buyPrice.
