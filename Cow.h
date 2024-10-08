@@ -3,7 +3,6 @@
 
 #include "Barn.h"
 #include "Events.h"
-#include "Farmer.h"
 
 #include <ctime>
 #include <chrono>

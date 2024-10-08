@@ -2,7 +2,6 @@
 #define BARN_H
 
 #include "Farm.h"
-#include "Farmer.h"
 
 
 

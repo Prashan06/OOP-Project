@@ -1,5 +1,4 @@
 #include "Field.h"
-#include "Farmer.h"
 
 Field::Field():Farm(){
     

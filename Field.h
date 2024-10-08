@@ -2,7 +2,6 @@
 #define FIELD_H
 
 #include "Farm.h"
-#include "Farmer.h"
 
 class Field: public Farm {
 
