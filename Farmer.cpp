@@ -4,7 +4,7 @@ using namespace std;
 
 
 // Constructor 
-Farmer::Farmer() : money(50), pig(new Pig*[pigCount]), cow(new Cow*[cowCount]), wheat(new Wheat*[wheatCount]), corn(new Corn*[cornCount]), farmName(""), pigCount(0), cowCount(0), wheatCount(0), cornCount(0), timesWheatPlanted(0), timesCornPlanted(0), timesCowsBought(0), timesPigsBought(0) {}
+Farmer::Farmer() : money(50), pigCount(0), cowCount(0), wheatCount(0), cornCount(0), pig(new Pig*[pigCount]), cow(new Cow*[cowCount]), wheat(new Wheat*[wheatCount]), corn(new Corn*[cornCount]), farmName(""), timesWheatPlanted(0), timesCornPlanted(0), timesCowsBought(0), timesPigsBought(0) {}
 
 // sets the amount of money the farmer has.
 void Farmer::setMoneyCount(int money){
