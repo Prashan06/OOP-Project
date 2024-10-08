@@ -56,7 +56,11 @@ class unitTestField{
             cout << "Test failed" << endl;
         }
 
-        testField.applyPesticide();
+        int initialMoney = *testFarmer.getMoneyCount();
+        testField.applyPesticide(testFarmer.getMoneyCount());
+        if ((testField.getPesticideApplied() != true) && (*testFarmer.getMoneyCount() != initialMoney - 2)){
+            cout << "Test failed" << endl;
+        }
 
     }
 
