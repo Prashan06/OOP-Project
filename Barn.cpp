@@ -55,7 +55,7 @@ void Barn::applySpeedGrowth(int &money) {
         cin >> optionChoice;
     }
     if (optionChoice == "Y"){
-        speedGrowthApplied = true;
+        barnSpeedGrowthApplied = true;
         money = money - speedGrowPrice;
     }
 }
