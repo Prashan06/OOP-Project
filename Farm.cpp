@@ -44,7 +44,37 @@ bool Farm::getBarnSpeedGrowthApplied(){
 bool Farm::getFieldSpeedGrowthApplied(){
     return fieldSpeedGrowthApplied;
 }
+void Farm::setBarnSpeedGrowthApplied(bool barnSpeedGrowthApplied){
+    this -> barnSpeedGrowthApplied = barnSpeedGrowthApplied;
+}
+void Farm::setFieldSpeedGrowthApplied(bool fieldSpeedGrowthApplied){
+    this -> fieldSpeedGrowthApplied = fieldSpeedGrowthApplied;
+}
+bool Farm::getPigHighYieldApplied(){
+    return pigHighYieldApplied;
+}
+bool Farm::getCowHighYieldApplied(){
+    return cowHighYieldApplied;
+}
+bool Farm::getWheatHighYieldApplied(){
+    return wheatHighYieldApplied;
+}
+bool Farm::getCornHighYieldApplied(){
+    return cornHighYieldApplied;
+}
 
+void Farm::setPigHighYieldApplied(bool pigHighYieldApplied){
+    this -> pigHighYieldApplied = pigHighYieldApplied;
+}
+void Farm::setCowHighYieldApplied(bool cowHighYieldApplied){
+    this -> cowHighYieldApplied = cowHighYieldApplied;
+}
+void Farm::setWheatHighYieldApplied(bool wheatHighYieldApplied){
+    this -> wheatHighYieldApplied = wheatHighYieldApplied;
+}
+void Farm::setCornHighYieldApplied(bool cornHighYieldApplied){
+    this -> cornHighYieldApplied = cornHighYieldApplied;
+}
 // Destructor.
 Farm::~Farm(){}
 
