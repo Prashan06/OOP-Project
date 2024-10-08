@@ -327,7 +327,7 @@ Corn** Farmer::getCornArray() {
 void Farmer::speedGrowthBought() {
     if (barnSpeedGrowthApplied == true) {
 
-    } else if (fieldSpeedGrowthApplied == true) {
+    } else if (getFieldSpeedGrowthApplied() == true) {
         for (int i = 0; i < getCornCount() ; i++) {
             corn[i]->setSellTime(sellTime--);
         }
