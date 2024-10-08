@@ -6,7 +6,6 @@
 #include <iostream>
 #include "Barn.h"
 #include "Events.h"
-#include "Farmer.h"
 
 using namespace std;
 
