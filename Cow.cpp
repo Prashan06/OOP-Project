@@ -1,5 +1,6 @@
 #include <random>
 #include "Cow.h"
+#include "Farmer.h"
 
 Cow::Cow() : Barn() {
     this -> sellPrice = 10;

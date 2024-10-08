@@ -1,5 +1,6 @@
 #include "Barn.h"
 #include <iostream>
+#include "Farmer.h"
 
 using namespace std;
 

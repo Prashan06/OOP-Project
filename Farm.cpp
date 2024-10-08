@@ -1,4 +1,5 @@
 #include "Farm.h"
+#include "Farmer.h"
 
 // Constructor
 Farm::Farm() : buyPrice(0), sellPrice(0), sellTime(60), timer(time(0)), optionChoice("") {}
