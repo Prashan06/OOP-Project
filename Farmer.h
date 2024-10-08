@@ -58,6 +58,7 @@ class Farmer: public Pig, Corn, Cow, Wheat {
         void sellAnimal();
         void sellCrop();
         void speedGrowthBought();
+        void highYieldBought();
 
 		Cow** getCowArray();
 		Pig** getPigArray();

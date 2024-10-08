@@ -48,9 +48,6 @@ void Corn::applyHighYield(int &money, Corn** corn, int cornCount){
         cout << "You do not have enough money to buy high yield fertilizer" << endl;
     } else {
         money = money - this->highYieldPrice;
-        for (int i = 0; i < cornCount ; i++) {
-            corn[i]->setSellPrice(getSellPrice() * getHighYieldFactor());
-        }
         cout << "highYield successfully applied" << endl;
     }
 

@@ -17,9 +17,7 @@ void Wheat::applyHighYield(int &money, int &wheatCount, Wheat** wheat){
         cout << "You do not have enough money to buy high yield fertilizer, try again later" << endl;
     } else {
         money = money - this->highYieldPrice;
-        for (int i = 0; i < wheatCount; i++){
-            wheat[i]->setSellPrice(getSellPrice() * getHighYieldFactor());
-        }
+        wheatHighYieldApplied = true;
         cout << "HighYield successfully applied" << endl;
     }
 

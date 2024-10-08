@@ -12,9 +12,7 @@ void Cow::applyHighYield(int &money, int &cowCount, Cow** cow){
         cout << "You do not have enough money to buy high yield" << endl;
     } else {
         money = money - this-> highYieldPrice;
-        for (int i = 0; i < cowCount ; i++) {
-            cow[i]->setSellPrice(getSellPrice() * getHighYieldFactor());
-        }
+        cowHighYieldApplied = true;
         cout << "highYield successfully applied" << endl;
     }
 }

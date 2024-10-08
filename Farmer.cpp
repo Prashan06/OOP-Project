@@ -325,14 +325,39 @@ Corn** Farmer::getCornArray() {
 }
 
 void Farmer::speedGrowthBought() {
-    if (barnSpeedGrowthApplied == true) {
-
-    } else if (getFieldSpeedGrowthApplied() == true) {
+    if (cow[0]->getBarnSpeedGrowthApplied() == true) {
+        for (int i = 0; i < getCowCount() ; i++) {
+            cow[i]->setSellTime((cow[i]->getSellTime())-1);
+        }
+        for (int i = 0; i < getPigCount() ; i++) {
+            pig[i]->setSellTime((pig[i]->getSellTime())-1);
+        }
+    } else if (corn[0]->getFieldSpeedGrowthApplied() == true) {
         for (int i = 0; i < getCornCount() ; i++) {
-            corn[i]->setSellTime(sellTime--);
+            corn[i]->setSellTime((corn[i]->getSellTime())-1);
         }
         for (int i = 0; i < getWheatCount() ; i++) {
-            wheat[i]->setSellTime(sellTime--);
+            wheat[i]->setSellTime((wheat[i]->getSellTime())-1);
+        }
+    }
+}
+
+void Farmer::highYieldBought() {
+    if (cow[0]->getHighYieldApplied() == true) {
+        for (int i = 0; i < cowCount ; i++) {
+            cow[i]->setSellPrice(cow[i]->getSellPrice() * cow[i]->getHighYieldFactor());
+        }
+    } else if (pig[0]->getHighYieldApplied() == true) {
+        for (int i = 0; i < pigCount ; i++) {
+            pig[i]->setSellPrice(pig[i]->getSellPrice() * pig[i]->getHighYieldFactor());
+        }
+    } else if (wheat[0]->getHighYieldApplied() == true) {
+        for (int i = 0; i < wheatCount; i++){
+            wheat[i]->setSellPrice(wheat[i]->getSellPrice() * wheat[i]->getHighYieldFactor());
+        }
+    } else if (corn[0]->getHighYieldApplied() == true) {
+        for (int i = 0; i < cornCount ; i++) {
+            corn[i]->setSellPrice(corn[i]->getSellPrice() * corn[i]->getHighYieldFactor());
         }
     }
 }

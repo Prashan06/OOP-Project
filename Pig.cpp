@@ -12,9 +12,7 @@ void Pig::applyHighYield( int &money, int &pigCount, Pig** pig){
         cout << "You do not have enough money to buy high yield fertilizer" << endl;
     } else {
         money = money - this-> highYieldPrice;
-        for (int i = 0; i < pigCount ; i++) {
-            pig[i]->setSellPrice(getSellPrice() * getHighYieldFactor());
-        }
+        pigHighYieldApplied = true;
         cout << "highYield successfully applied" << endl;
     }
 }
