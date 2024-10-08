@@ -4,7 +4,7 @@ using namespace std;
 
 
 // Constructor 
-Farmer::Farmer() : money(50), pigCount(0), cowCount(0), wheatCount(0), cornCount(0), pig(new Pig*[pigCount]), cow(new Cow*[cowCount]), wheat(new Wheat*[wheatCount]), corn(new Corn*[cornCount]), farmName(""), timesWheatPlanted(0), timesCornPlanted(0), timesCowsBought(0), timesPigsBought(0) {}
+Farmer::Farmer() : money(50), pig(new Pig*[pigCount]), cow(new Cow*[cowCount]), wheat(new Wheat*[wheatCount]), corn(new Corn*[cornCount]), farmName(""), timesWheatPlanted(0), timesCornPlanted(0), timesCowsBought(0), timesPigsBought(0) {}
 
 // sets the amount of money the farmer has.
 void Farmer::setMoneyCount(int money){
@@ -43,7 +43,7 @@ string Farmer::getFarmName() {
 // returns the farm name and money.
 void Farmer:: getStatus(){
     std::cout << "Hello " << getFarmName() << std::endl;
-    std::cout << "Your bank account holds: " << getMoneyCount() << " Dollars" << std::endl;
+    std::cout << "Your bank account holds: " << *getMoneyCount() << " Dollars" << std::endl;
     std::cout << "You have " << cowCount << " cows" << std::endl;
     std::cout << "You have " << pigCount << " pigs" << std::endl;
     std::cout << "You have " << cornCount << " corns" << std::endl;
@@ -52,7 +52,7 @@ void Farmer:: getStatus(){
 
 Cow* Farmer::createNewCow() {
     Cow* newCow = new Cow;
-    return newCow;
+    return new Cow;
 }
 
 Pig* Farmer::createNewPig() {
@@ -91,8 +91,7 @@ void Farmer::buyAnimal(){
             cin >> amount;
         }
         money = money - amountPaid;
-
-        for (int i = cowCount ; i < cowCount + amount; i++ ) {
+        for (int i = cowCount ; i < (cowCount + amount); i++ ) {
             cow[i] = createNewCow();
             timesCowsBought++;
         }

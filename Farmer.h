@@ -17,6 +17,10 @@ class Farmer: public Pig, public Corn, public Cow, public Wheat {
     protected:
         
         int money;
+        int cowCount = 0;
+        int pigCount = 0;
+        int wheatCount = 0;
+        int cornCount = 0;
         //arrays
         Wheat** wheat;
         Corn** corn;
@@ -29,10 +33,6 @@ class Farmer: public Pig, public Corn, public Cow, public Wheat {
         int timesCornPlanted;
         int timesCowsBought;
         int timesPigsBought;
-        int cowCount;
-        int pigCount;
-        int wheatCount;
-        int cornCount;
    
     public:
 
