@@ -18,8 +18,7 @@ class Farm {
         int sellTime;
         time_t timer;
         string optionChoice;
-        bool highYieldBought;
-        bool speedGrowth;
+        bool speedGrowthApplied;
 
     public:
         Farm();
