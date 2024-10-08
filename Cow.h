@@ -3,6 +3,9 @@
 
 #include "Barn.h"
 #include "Events.h"
+#include "Wheat.h"
+#include "Corn.h"
+#include "Pig.h"
 
 #include <ctime>
 #include <chrono>

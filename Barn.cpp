@@ -4,7 +4,7 @@
 using namespace std;
 
 // constructor
-Barn::Barn() : Farm() ,speedGrowPrice(15), highYieldFactor(1.1), highYieldPrice(25), speedGrowLevel(0) {}
+Barn::Barn() : Farm(), speedGrowPrice(15), highYieldFactor(1.1), highYieldPrice(25), speedGrowLevel(0) {}
 
 // setter for highYieldFactor
 void Barn::setHighYieldFactor(float highYieldFactor) {

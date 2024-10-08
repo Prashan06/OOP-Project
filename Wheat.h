@@ -3,7 +3,9 @@
 
 #include "Field.h"
 #include "Events.h"
-#include "Farmer.h"
+#include "Corn.h"
+#include "Cow.h"
+#include "Pig.h"
 
 class Wheat: public Field, public Events {
 

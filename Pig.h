@@ -6,6 +6,9 @@
 #include <iostream>
 #include "Barn.h"
 #include "Events.h"
+#include "Wheat.h"
+#include "Corn.h"
+#include "Cow.h"
 
 using namespace std;
 

@@ -1,6 +1,5 @@
 #include <random>
 #include "Wheat.h"
-#include "Farmer.h"
 
 Wheat::Wheat():Field(){
 
