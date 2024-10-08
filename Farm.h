@@ -29,7 +29,7 @@ class Farm {
         Farm();
 
         virtual void applySpeedGrowth(int &money);
-        virtual void applyHighYield(int );
+        virtual void applyHighYield(int &money);
         void setBuyPrice(int buyPrice);
         int getBuyPrice();
         void setSellPrice(int sellPrice);

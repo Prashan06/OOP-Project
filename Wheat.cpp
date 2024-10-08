@@ -11,7 +11,7 @@ Wheat::Wheat():Field(){
 
 }
 
-void Wheat::applyHighYield(int &money, int &wheatCount, Wheat** wheat){
+void Wheat::applyHighYield(int &money){
 
     if (money < highYieldPrice){
         cout << "You do not have enough money to buy high yield fertilizer, try again later" << endl;

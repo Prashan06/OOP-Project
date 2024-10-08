@@ -22,7 +22,7 @@ class Cow: public Barn, public Events{
     public:
     Cow();
     ~Cow();
-    void applyHighYield(int &money, int &cowCount, Cow** cow);
+    void applyHighYield(int &money);
     void Event(int &count, Cow** cow, Pig** pig, Corn** corn, Wheat** wheat);
 };
 

@@ -7,7 +7,7 @@ Cow::Cow() : Barn() {
     this -> sellTime = 30;
 }
 
-void Cow::applyHighYield(int &money, int &cowCount, Cow** cow){
+void Cow::applyHighYield(int &money){
     if (money < highYieldPrice){
         cout << "You do not have enough money to buy high yield" << endl;
     } else {

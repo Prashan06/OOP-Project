@@ -42,12 +42,13 @@ void Corn::Event(int &count, Cow** cow, Pig** pig, Corn** corn, Wheat** wheat){
     }
 }
 
-void Corn::applyHighYield(int &money, Corn** corn, int cornCount){
+void Corn::applyHighYield(int &money){
 
     if (money < highYieldPrice){
         cout << "You do not have enough money to buy high yield fertilizer" << endl;
     } else {
         money = money - this->highYieldPrice;
+        cornHighYieldApplied = true;
         cout << "highYield successfully applied" << endl;
     }
 
