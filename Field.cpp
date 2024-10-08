@@ -45,8 +45,7 @@ void Field::applySpeedGrowth(int* money){
     if (optionChoice == "Y"){
         *money = *money - speedGrowPrice;
         speedGrowLevel++;
-        fieldSpeedGrowthApplied = true;
-        speedGrowLevel++;
+        speedGrowApplied = true;
         cout << "speedGrowth successfully applied" << endl;
     }
 }
