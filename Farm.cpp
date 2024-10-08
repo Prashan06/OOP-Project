@@ -38,6 +38,13 @@ int Farm::getTimer() {
     return timer;
 }
 
+bool Farm::getBarnSpeedGrowthApplied(){
+    return barnSpeedGrowthApplied;
+}
+bool Farm::getFieldSpeedGrowthApplied(){
+    return fieldSpeedGrowthApplied;
+}
+
 // Destructor.
 Farm::~Farm(){}
 

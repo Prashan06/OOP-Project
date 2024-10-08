@@ -33,6 +33,8 @@ class Farm {
         void setSellTime(int sellTime);
         int getSellTime();
         int getTimer();
+        bool getBarnSpeedGrowthApplied();
+        bool getFieldSpeedGrowthApplied();
         ~Farm();
 
 };
