@@ -20,6 +20,10 @@ class Farm {
         string optionChoice;
         bool barnSpeedGrowthApplied = false;
         bool fieldSpeedGrowthApplied = false;
+        bool pigHighYieldApplied = false;
+        bool cowHighYieldApplied = false;
+        bool cornHighYieldApplied = false;
+        bool wheatHighYieldApplied = false;
 
     public:
         Farm();
@@ -35,6 +39,18 @@ class Farm {
         int getTimer();
         bool getBarnSpeedGrowthApplied();
         bool getFieldSpeedGrowthApplied();
+        void setBarnSpeedGrowthApplied(bool barnSpeedGrowthApplied);
+        void setFieldSpeedGrowthApplied(bool fieldSpeedGrowthApplied);
+        bool getPigHighYieldApplied();
+        bool getCowHighYieldApplied();
+        bool getWheatHighYieldApplied();
+        bool getCornHighYieldApplied();
+
+        void setPigHighYieldApplied(bool pigHighYieldApplied);
+        void setCowHighYieldApplied(bool cowHighYieldApplied);
+        void setWheatHighYieldApplied(bool wheatHighYieldApplied);
+        void setCornHighYieldApplied(bool cornHighYieldApplied);
+
         ~Farm();
 
 };
