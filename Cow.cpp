@@ -13,7 +13,7 @@ void Cow::applyHighYield(Farmer ourFarmer){
     } else {
         int newMoney = ourFarmer.getMoneyCount() - this->highYieldPrice;
         ourFarmer.setMoneyCount(newMoney);
-        for (int i = 0; i < ourFarmer.getCowCount() < i++;) {
+        for (int i = 0; i < ourFarmer.getCowCount(); i++) {
             ourFarmer.getCowArray()[i]->setSellPrice(sellPrice * getHighYieldFactor());
         }
         cout << "highYield successfully applied" << endl;
