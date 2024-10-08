@@ -16,8 +16,8 @@ class Pig: public Barn, public Events {
     public:
     Pig();
     ~Pig();
-    void applyHighYield(Farmer &farmer);
-    void Event(Farmer &farmer);
+    void applyHighYield(int &money, int &pigCount, Pig** pig);
+    void Event(int &pigCount, Pig** pig);
     Pig* createNewPig();
 };
 

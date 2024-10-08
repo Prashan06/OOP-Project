@@ -20,8 +20,8 @@ class Cow: public Barn, public Events{
     public:
     Cow();
     ~Cow();
-    void applyHighYield(Farmer &farmer);
-    void Event(Farmer &farmer);
+    void applyHighYield(int &money, int &cowCount, Cow** cow);
+    void Event(int &cowCount, Cow** cow);
 };
 
 #endif
