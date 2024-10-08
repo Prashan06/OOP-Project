@@ -10,8 +10,11 @@
 class Wheat: public Field, public Events {
 
     protected:
-         bool wheatEvent = false;
+
+         bool wheatEvent = false; //should this be set in the constructor?
+
     public:
+
         Wheat();
         void Event(int* count);
         void applyHighYield(int *money);
