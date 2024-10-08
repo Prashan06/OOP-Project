@@ -17,8 +17,8 @@ class Corn: public Field, public Events {
         
         Corn();
         ~Corn();
-        void Event(Farmer &ourFarmer);
-        void applyHighYield(Farmer &ourFarmer);
+        void Event(int &cornCount, Corn** corn);
+        void applyHighYield(int &money, Corn** corn, int cornCount);
 
 };
 

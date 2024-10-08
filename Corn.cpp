@@ -13,8 +13,8 @@ Corn::Corn():Field(){
 
 }
 
-void Corn::Event(Farmer &ourFarmer){
-    if (ourFarmer.getCornCount() % 10 == 0) {
+void Corn::Event(int &cornCount, Corn** corn){
+    if (cornCount % 10 == 0) {
         random_device rd; // obtain a random number from hardware
         mt19937 gen(rd()); // seed the generator, initialise generator
         uniform_int_distribution<> distr(1, 10); // define the range
@@ -24,32 +24,32 @@ void Corn::Event(Farmer &ourFarmer){
             int newCornCount = 0;
             if (getPesticideApplied() == true){
                 cout << "A disease has spread throughout the corn, 1/2 of your corn have died." << endl;
-                newCornCount = ourFarmer.getCornCount() * 0.5;
-                for (int i = newCornCount; i < ourFarmer.getCornCount(); i++){
-                    ourFarmer.getCornArray()[i - newCornCount] = ourFarmer.getCornArray()[i];
+                newCornCount = cornCount * 0.5;
+                for (int i = newCornCount; i < cornCount; i++){
+                    corn[i - newCornCount] = corn[i];
                 }
-                ourFarmer.setWheatCount(newCornCount);
+                cornCount = newCornCount;
             }
 
             if (getPesticideApplied() == false){
                 cout << "A disease has spread throughout the corn, half of your corn have died." << endl;
-                int newCornCount = ourFarmer.getCornCount() * 0.5;
-                for (int i = newCornCount; i < ourFarmer.getCornCount(); i++){
-                    ourFarmer.getCornArray()[i - newCornCount] = ourFarmer.getCornArray()[i];
+                int newCornCount = cornCount * 0.5;
+                for (int i = newCornCount; i < cornCount; i++){
+                    corn[i - newCornCount] = corn[i];
                 }
-                ourFarmer.setCornCount(newCornCount);
+                cornCount = newCornCount;
             }
         }
     }
 }
 
-void Corn::applyHighYield(int &money, Corn** corn){
+void Corn::applyHighYield(int &money, Corn** corn, int cornCount){
 
     if (money < highYieldPrice){
         cout << "You do not have enough money to buy high yield fertilizer" << endl;
     } else {
         money = money - this->highYieldPrice;
-        for (int i = 0; i <  ; i++) {
+        for (int i = 0; i < cornCount ; i++) {
             corn[i]->setSellPrice(getSellPrice() * getHighYieldFactor());
         }
         cout << "highYield successfully applied" << endl;

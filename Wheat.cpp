@@ -12,24 +12,22 @@ Wheat::Wheat():Field(){
 
 }
 
-void Wheat::applyHighYield(Farmer &ourFarmer){
+void Wheat::applyHighYield(int &money, int &wheatCount, Wheat** wheat){
 
-    if (ourFarmer.getMoneyCount() < highYieldPrice){
+    if (money < highYieldPrice){
         cout << "You do not have enough money to buy high yield fertilizer, try again later" << endl;
     } else {
-        int newMoney = ourFarmer.getMoneyCount() - this->highYieldPrice;
-        ourFarmer.setMoneyCount(newMoney);
-        for (int i = 0; i < ourFarmer.getCowCount(); i++){
-            ourFarmer.getWheatArray()[i]->setSellPrice(sellPrice*getHighYieldFactor());
+        money = money - this->highYieldPrice;
+        for (int i = 0; i < wheatCount; i++){
+            wheat[i]->setSellPrice(getSellPrice() * getHighYieldFactor());
         }
         cout << "HighYield successfully applied" << endl;
     }
 
 }
 
-
-void Wheat::Event(Farmer &ourFarmer){
-    if (ourFarmer.getCowCount() % 10 == 0) {
+void Wheat::Event(int &wheatCount, Wheat** wheat){
+    if (wheatCount % 10 == 0) {
         random_device rd; // obtain a random number from hardware
         mt19937 gen(rd()); // seed the generator, initialise generator
         uniform_int_distribution<> distr(1, 10); // define the range
@@ -38,20 +36,20 @@ void Wheat::Event(Farmer &ourFarmer){
             int newWheatCount = 0;
             if (getPesticideApplied() == true){
                 cout << "A disease has spread throughout the wheat, 1/4 of your wheat have died." << endl;
-                newWheatCount = ourFarmer.getWheatCount() * 0.25;
-                for (int i = newWheatCount; i < ourFarmer.getWheatCount(); i++){
-                    ourFarmer.getWheatArray()[i - newWheatCount] = ourFarmer.getWheatArray()[i];
+                newWheatCount = wheatCount * 0.25;
+                for (int i = newWheatCount; i < wheatCount; i++){
+                    wheat[i - newWheatCount] = wheat[i];
                 }
-                ourFarmer.setWheatCount(newWheatCount);
+                wheatCount = newWheatCount;
             }
 
             if (getPesticideApplied() == false){
                 cout << "A disease has spread throughout the wheat, half of your wheat have died." << endl;
-                newWheatCount = ourFarmer.getWheatCount() * 0.5;
-                for (int i = newWheatCount; i < ourFarmer.getWheatCount(); i++){
-                    ourFarmer.getWheatArray()[i - newWheatCount] = ourFarmer.getWheatArray()[i];
+                newWheatCount = wheatCount * 0.5;
+                for (int i = newWheatCount; i < wheatCount; i++){
+                    wheat[i - newWheatCount] = wheat[i];
                 }
-                ourFarmer.setWheatCount(newWheatCount);
+                wheatCount = newWheatCount;
             }
         }
     }
