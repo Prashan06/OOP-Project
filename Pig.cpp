@@ -29,9 +29,11 @@ void Pig::Event(int &pigCount, Pig** pig){
         if (randomNumber == 1) {
             cout << "the demand for pig meat greatly decreased, in order to maintain a healthy flow of pigs " << endl;
             cout << "coming in and out of the farm, the sell price of all currently owned pigs must be reduced by half." << endl;
+            int newPigCount = pigCount * 0.5;
             for (int i = 0; i < pigCount; i++){
                 pig[i]->sellPrice == (pig[i]->getSellPrice()) * 0.5;
             }
+            pigCount = newPigCount;
         }
     }
 }
