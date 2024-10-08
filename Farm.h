@@ -18,21 +18,10 @@ class Farm {
         int sellTime;
         time_t timer;
         string optionChoice;
-        int cowCount;
-        int pigCount;
-        int wheatCount;
-        int cornCount;
 
     public:
         Farm();
-        int getCowCount();
-        int getPigCount();
-        int getWheatCount();
-        int getCornCount();
-        void setCowCount(int cowCount);
-        void setPigCount(int pigCount);
-        void setWheatCount(int wheatCount);
-        void setCornCount(int cornCount);
+
         virtual void applySpeedGrowth(Farmer &farmer);
         virtual void applyHighYield(Farmer &ourFarmer);
         void setBuyPrice(int buyPrice);
