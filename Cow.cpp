@@ -18,21 +18,24 @@ void Cow::applyHighYield(int* money){
 }
 
 
-void Cow::Event(int* count, Cow** cow, Pig** pig, Corn** corn, Wheat** wheat){
+void Cow::Event(int* count){
     if (*count % 10 == 0) {
         random_device rd; // obtain a random number from hardware
         mt19937 gen(rd()); // seed the generator, initialise generator
         uniform_int_distribution<> distr(1, 10); // define the range
         int randomNumber = distr(gen);
         if (randomNumber == 1) {
-            cout << "A disease has spread throughout the cows, half of your cows have died." << endl;
-            int newCowCount = (*count) * 0.5;
-            for (int i = newCowCount; i < *count; i++){
-                cow[i - newCowCount] = cow[i];
-            }
-            *count = newCowCount;
+            cowEvent == true;
         }
     }
+}
+
+void Cow::setCowEvent(bool cowEvent) {
+    this -> cowEvent = cowEvent;
+}
+
+bool Cow::getCowEvent() {
+    return cowEvent;
 }
 
 

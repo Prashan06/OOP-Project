@@ -12,7 +12,7 @@ Corn::Corn():Field(){
 
 }
 
-void Corn::Event(int* count, Cow** cow, Pig** pig, Corn** corn, Wheat** wheat){
+void Corn::Event(int* count){
     if (*count % 10 == 0) {
         random_device rd; // obtain a random number from hardware
         mt19937 gen(rd()); // seed the generator, initialise generator
@@ -20,24 +20,7 @@ void Corn::Event(int* count, Cow** cow, Pig** pig, Corn** corn, Wheat** wheat){
         int randomNumber = distr(gen);
 
         if (randomNumber == 1) {
-            int newCornCount = 0;
-            if (getPesticideApplied() == true){
-                cout << "A disease has spread throughout the corn, 1/2 of your corn have died." << endl;
-                newCornCount = (*count) * 0.5;
-                for (int i = newCornCount; i < *count; i++){
-                    corn[i - newCornCount] = corn[i];
-                }
-                *count = newCornCount;
-            }
-
-            if (getPesticideApplied() == false){
-                cout << "A disease has spread throughout the corn, half of your corn have died." << endl;
-                int newCornCount = (*count) * 0.5;
-                for (int i = newCornCount; i < *count; i++){
-                    corn[i - newCornCount] = corn[i];
-                }
-                *count = newCornCount;
-            }
+            cornEvent = true;
         }
     }
 }
@@ -52,4 +35,11 @@ void Corn::applyHighYield(int* money){
         cout << "highYield successfully applied" << endl;
     }
 
+}
+
+void Corn::setCornEvent(bool cornEvent) {
+    this -> cornEvent = cornEvent;
+}
+bool Corn::getCornEvent() {
+    return cornEvent;
 }

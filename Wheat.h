@@ -10,15 +10,14 @@
 class Wheat: public Field, public Events {
 
     protected:
-
-    //all are attributes inherited from Field & Events classes
-
+         bool wheatEvent = false;
     public:
-        
         Wheat();
         ~Wheat();
-        void Event(int* count, Cow** cow, Pig** pig, Corn** corn, Wheat** wheat);
+        void Event(int* count);
         void applyHighYield(int *money);
+        void setWheatEvent(bool wheatEvent);
+        bool getWheatEvent();
 
 };
 

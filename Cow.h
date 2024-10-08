@@ -18,12 +18,14 @@ using namespace std;
 class Cow: public Barn, public Events{
 
     protected:
-
+        bool cowEvent;
     public:
     Cow();
     ~Cow();
     void applyHighYield(int* money);
-    void Event(int* count, Cow** cow, Pig** pig, Corn** corn, Wheat** wheat);
+    void Event(int* count);
+    void setCowEvent(bool cowEvent);
+    bool getCowEvent();
 };
 
 #endif

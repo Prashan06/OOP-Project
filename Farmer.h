@@ -53,6 +53,7 @@ class Farmer: public Pig, Corn, Cow, Wheat {
         void setPigCount(int pigCount);
         void setWheatCount(int wheatCount);
         void setCornCount(int cornCount);
+        void executeEvent();
         void buyAnimal();
         void buyCrop();
         void sellAnimal();

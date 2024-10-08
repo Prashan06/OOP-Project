@@ -59,8 +59,9 @@ int main(){
         cin >> optionChoice;
         if (optionChoice == "buy") {
             farmer.buyAnimal();
-            farmer.getCowArray()[0]->Event(farmer.getCowCount(), farmer.getCowArray(), farmer.getPigArray(), farmer.getCornArray(), farmer.getWheatArray());
-            farmer.getPigArray()[0]->Event(farmer.getPigCount(), farmer.getCowArray(), farmer.getPigArray(), farmer.getCornArray(), farmer.getWheatArray());
+            farmer.getCowArray()[0]->Event(farmer.getCowCount());
+            farmer.getPigArray()[0]->Event(farmer.getPigCount());
+            farmer.executeEvent();
         } else if (optionChoice == "sell") {
             farmer.sellAnimal();
         } else if (optionChoice == "upgrade") {
@@ -71,13 +72,16 @@ int main(){
             cin >> optionChoice;
             if (optionChoice == "speed") {
                 farmer.getCowArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
+                farmer.speedGrowthBought();
             } else if (optionChoice == "yield") {
                 cout << "which animal would you like to apply highYield to, enter cow or pig" << endl;
                 cin >> optionChoice;
                 if (optionChoice == "cow"){
                     farmer.getCowArray()[0]->applyHighYield(farmer.getMoneyCount());
+                    farmer.highYieldBought();
                 } else if (optionChoice == "pig") {
                     farmer.getPigArray()[0]->applyHighYield(farmer.getMoneyCount());
+                    farmer.highYieldBought();
                 }
             }
         } else if (optionChoice == "leave") {
@@ -96,8 +100,9 @@ int main(){
         cin >> optionChoice;
         if (optionChoice == "buy") {
             farmer.buyCrop();
-            farmer.getWheatArray()[0]->Event(farmer.getWheatCount(), farmer.getCowArray(), farmer.getPigArray(), farmer.getCornArray(), farmer.getWheatArray());
-            farmer.getCornArray()[0]->Event(farmer.getCornCount(), farmer.getCowArray(), farmer.getPigArray(), farmer.getCornArray(), farmer.getWheatArray());
+            farmer.getWheatArray()[0]->Event(farmer.getWheatCount());
+            farmer.getCornArray()[0]->Event(farmer.getCornCount());
+            farmer.executeEvent();
         } else if (optionChoice == "sell") {
             farmer.sellCrop();
         } else if (optionChoice == "upgrade") {
@@ -108,13 +113,16 @@ int main(){
             cin >> optionChoice;
             if (optionChoice == "speed") {
                 farmer.getCornArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
+                farmer.speedGrowthBought();
             } else if (optionChoice == "yield") {
                 cout << "which crop would you like to apply highYield to, enter corn or wheat" << endl;
                 cin >> optionChoice;
                 if (optionChoice == "corn"){
                     farmer.getCornArray()[0]->applyHighYield(farmer.getMoneyCount());
+                    farmer.highYieldBought();
                 } else if (optionChoice == "wheat") {
                     farmer.getWheatArray()[0]->applyHighYield(farmer.getMoneyCount());
+                    farmer.highYieldBought();
                 }
             }
         } else if (optionChoice == "leave") {

@@ -369,3 +369,63 @@ void Farmer::highYieldBought() {
         }
     }
 }
+
+void Farmer::executeEvent() {
+    if (getCowEvent() == true) {
+        cout << "A disease has spread throughout the cows, half of your cows have died." << endl;
+            int newCowCount = cowCount * 0.5;
+            for (int i = newCowCount; i < cowCount; i++){
+                cow[i - newCowCount] = cow[i];
+                cow[i]->setCowEvent(false);
+            }
+        cowCount = newCowCount;
+    } else if (getPigEvent() == true) {
+        cout << "the demand for pig meat greatly decreased, in order to maintain a healthy flow of pigs " << endl;
+        cout << "coming in and out of the farm, the sell price of all currently owned pigs must be reduced by half." << endl;
+        int newPigCount = (pigCount) * 0.5;
+        for (int i = 0; i < pigCount; i++){
+            pig[i]->setSellPrice((pig[i]->getSellPrice()) * 0.5);
+            pig[i]->setPigEvent(false);
+        }
+        pigCount = newPigCount;
+    } else if (getWheatEvent() == true) {
+        int newWheatCount = 0;
+            if (wheat[0]->getPesticideApplied() == true){
+                cout << "A disease has spread throughout the wheat, 1/4 of your wheat have died." << endl;
+                newWheatCount = (wheatCount) * 0.25;
+                for (int i = newWheatCount; i < wheatCount; i++){
+                    wheat[i - newWheatCount] = wheat[i];
+                }
+                wheatCount = newWheatCount;
+            }
+
+            if (wheat[0]->getPesticideApplied() == false){
+                cout << "A disease has spread throughout the wheat, half of your wheat have died." << endl;
+                newWheatCount = (wheatCount) * 0.5;
+                for (int i = newWheatCount; i < wheatCount; i++){
+                    wheat[i - newWheatCount] = wheat[i];
+                }
+                wheatCount = newWheatCount;
+            }
+    } else if (getCornEvent() == true) {
+        int newCornCount = 0;
+        if (corn[0]->getPesticideApplied() == true) {
+            cout << "A disease has spread throughout the corn, 1/2 of your corn have died." << endl;
+            newCornCount = cornCount * 0.5;
+            for (int i = newCornCount; i < cornCount; i++){
+                corn[i - newCornCount] = corn[i];
+                corn[i]->setCornEvent(false);
+            }
+            cornCount = newCornCount;
+        }
+        if (corn[0]->getPesticideApplied() == false){
+            cout << "A disease has spread throughout the corn, half of your corn have died." << endl;
+            int newCornCount = cornCount * 0.5;
+            for (int i = newCornCount; i < cornCount; i++){
+                corn[i - newCornCount] = corn[i];
+                corn[i]->setCornEvent(false);
+            }
+            cornCount = newCornCount;
+        }
+    }
+}

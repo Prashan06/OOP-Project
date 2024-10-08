@@ -15,13 +15,15 @@ using namespace std;
 class Pig: public Barn, public Events {
 
     protected:
-    
+        bool pigEvent;
     public:
-    Pig();
-    ~Pig();
-    void applyHighYield(int *money);
-    void Event(int* count, Cow** cow, Pig** pig, Corn** corn, Wheat** wheat);
-    Pig* createNewPig();
+        Pig();
+        ~Pig();
+        void applyHighYield(int *money);
+        void Event(int* count);
+        Pig* createNewPig();
+        void setPigEvent(bool pigEvent);
+        bool getPigEvent();
 };
 
 #endif

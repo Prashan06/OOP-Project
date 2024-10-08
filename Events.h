@@ -8,7 +8,7 @@
 
 class Events {
     public:
-    virtual void Event(int* count, Cow** cow, Pig** pig, Corn** corn, Wheat** wheat) = 0;
+    virtual void Event(int* count) = 0;
 };
 
 #endif

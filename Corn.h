@@ -12,15 +12,15 @@
 class Corn: public Field, public Events {
 
     protected:
-
-    //all attributes inherited from Field
-
+         bool cornEvent;
     public:
         
         Corn();
         ~Corn();
-        void Event(int* count, Cow** cow, Pig** pig, Corn** corn, Wheat** wheat);
+        void Event(int* count);
         void applyHighYield(int* money);
+        void setCornEvent(bool cornEvent);
+        bool getCornEvent();
 
 };
 

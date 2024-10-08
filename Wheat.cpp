@@ -23,31 +23,21 @@ void Wheat::applyHighYield(int *money){
 
 }
 
-void Wheat::Event(int* count, Cow** cow, Pig** pig, Corn** corn, Wheat** wheat){
+void Wheat::Event(int* count){
     if (*count % 10 == 0) {
         random_device rd; // obtain a random number from hardware
         mt19937 gen(rd()); // seed the generator, initialise generator
         uniform_int_distribution<> distr(1, 10); // define the range
         int randomNumber = distr(gen);
         if (randomNumber == 1) {
-            int newWheatCount = 0;
-            if (getPesticideApplied() == true){
-                cout << "A disease has spread throughout the wheat, 1/4 of your wheat have died." << endl;
-                newWheatCount = (*count) * 0.25;
-                for (int i = newWheatCount; i < *count; i++){
-                    wheat[i - newWheatCount] = wheat[i];
-                }
-                *count = newWheatCount;
-            }
-
-            if (getPesticideApplied() == false){
-                cout << "A disease has spread throughout the wheat, half of your wheat have died." << endl;
-                newWheatCount = (*count) * 0.5;
-                for (int i = newWheatCount; i < *count; i++){
-                    wheat[i - newWheatCount] = wheat[i];
-                }
-                *count = newWheatCount;
-            }
+            wheatEvent = true;
         }
     }
+}
+
+void Wheat::setWheatEvent(bool wheatEvent) {
+    this -> wheatEvent = wheatEvent;
+}
+bool Wheat::getWheatEvent() {
+    return wheatEvent;
 }
