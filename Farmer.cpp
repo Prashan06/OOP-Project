@@ -91,11 +91,11 @@ void Farmer::buyAnimal(){
             cin >> amount;
         }
         money = money - amountPaid;
-        for (int i = cowCount ; i < (cowCount + amount); i++ ) {
+        cowCount = cowCount + amount;
+        for (int i = (cowCount - amount) ; i < cowCount; i++ ) {
             cow[i] = createNewCow();
             timesCowsBought++;
         }
-        cowCount = cowCount + amount;
     } else if(product == "pig") {
         Pig tempPig;
         cout << "How many pigs would you like to buy?, you can buy " << money/tempPig.getBuyPrice() << " pigs" << endl;
