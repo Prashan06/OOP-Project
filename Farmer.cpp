@@ -325,14 +325,19 @@ Corn** Farmer::getCornArray() {
 }
 
 void Farmer::speedGrowthBought() {
-    if (barnSpeedGrowthApplied == true) {
-
-    } else if (fieldSpeedGrowthApplied == true) {
+    if (cow[0]->getBarnSpeedGrowthApplied() == true) {
+        for (int i = 0; i < getCowCount() ; i++) {
+            cow[i]->setSellTime((cow[i]->getSellTime())-1);
+        }
+        for (int i = 0; i < getPigCount() ; i++) {
+            pig[i]->setSellTime((pig[i]->getSellTime())-1);
+        }
+    } else if (corn[0]->getFieldSpeedGrowthApplied() == true) {
         for (int i = 0; i < getCornCount() ; i++) {
-            corn[i]->setSellTime(sellTime--);
+            corn[i]->setSellTime((corn[i]->getSellTime())-1);
         }
         for (int i = 0; i < getWheatCount() ; i++) {
-            wheat[i]->setSellTime(sellTime--);
+            wheat[i]->setSellTime((wheat[i]->getSellTime())-1);
         }
     }
 }
