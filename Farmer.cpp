@@ -442,8 +442,8 @@ Farmer::~Farmer() {
     for (int i = 0; i < cornCount; i++){
         delete corn[i];
     }
-    delete cow;
-    delete pig;
-    delete wheat;
-    delete corn;
+    delete[] cow;
+    delete[] pig;
+    delete[] wheat;
+    delete[] corn;
 }
