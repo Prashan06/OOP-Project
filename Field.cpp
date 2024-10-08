@@ -35,7 +35,7 @@ int Field::getHighYieldPrice(){
     return highYieldPrice;
 }
 
-void Field::applySpeedGrowth(int &money){
+void Field::applySpeedGrowth(int* money){
     cout << "Do you want to buy the SpeedGrowth upgrade? Y or N " << endl;
     cin >> optionChoice;
     while (optionChoice != "Y" && optionChoice != "N") {
@@ -43,7 +43,7 @@ void Field::applySpeedGrowth(int &money){
         cin >> optionChoice;
     }
     if (optionChoice == "Y"){
-        money = money - speedGrowPrice;
+        *money = *money - speedGrowPrice;
         speedGrowLevel++;
         fieldSpeedGrowthApplied = true;
         speedGrowLevel++;

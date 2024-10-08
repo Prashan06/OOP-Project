@@ -21,7 +21,7 @@ class Barn: public Farm {
 	int getHighYieldPrice();
     void setSpeedGrowPrice (int speedGrowPrice);
     int getSpeedGrowPrice ();
-    void applySpeedGrowth(int &money);
+    void applySpeedGrowth(int* money);
     void setSpeedGrowLevel (int speedGrowLevel);
 	int getSpeedGrowLevel();
     ~Barn();
