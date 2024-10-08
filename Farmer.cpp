@@ -87,6 +87,8 @@ void Farmer::buyAnimal(){
         int amountPaid = tempCow.getBuyPrice() * amount;
         while (money < amountPaid ) {
             cout << "You do not have enough money to buy " << amount << " cows" << endl;
+            cout << "enter a new amount: ";
+            cin >> amount;
         }
         money = money - amountPaid;
 
@@ -102,6 +104,8 @@ void Farmer::buyAnimal(){
         int amountPaid = tempPig.getBuyPrice() * amount;
         while (money < amountPaid ) {
             cout << "You do not have enough money to buy " << amount << " pigs" << endl;
+            cout << "enter a new amount: ";
+            cin >> amount;
         }
         money = money - amountPaid;
 
@@ -187,6 +191,8 @@ void Farmer::buyCrop() {
         int amountPaid = tempWheat.getBuyPrice() * amount;
         while (money < amountPaid ) {
             cout << "You do not have enough money to buy " << amount << " wheat" << endl;
+            cout << "enter a new amount: ";
+            cin >> amount;
         }
         money = money - amountPaid;
 
@@ -202,6 +208,8 @@ void Farmer::buyCrop() {
         int amountPaid = tempCorn.getBuyPrice() * amount;
         while (money < amountPaid ) {
             cout << "You do not have enough money to buy " << amount << " corn" << endl;
+            cout << "enter a new amount: ";
+            cin >> amount;
         }
         money = money - amountPaid;
 
