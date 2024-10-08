@@ -45,10 +45,10 @@ class Farmer: public Pig, Corn, Cow, Wheat {
         string getFarmName();
         void setFarmName();
         void getStatus();
-        int getCowCount();
-        int getPigCount();
-        int getWheatCount();
-        int getCornCount();
+        int* getCowCount();
+        int* getPigCount();
+        int* getWheatCount();
+        int* getCornCount();
         void setCowCount(int cowCount);
         void setPigCount(int pigCount);
         void setWheatCount(int wheatCount);

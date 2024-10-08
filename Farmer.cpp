@@ -295,20 +295,20 @@ void Farmer::setCornCount(int cornCount){
     this->cornCount = cornCount;
 }
 
-int Farmer::getCowCount(){
-    return cowCount;
+int* Farmer::getCowCount(){
+    return &cowCount;
 }
 
-int Farmer::getPigCount(){
-    return pigCount;
+int* Farmer::getPigCount(){
+    return &pigCount;
 }
 
-int Farmer::getWheatCount(){
-    return wheatCount;
+int* Farmer::getWheatCount(){
+    return &wheatCount;
 }
 
-int Farmer::getCornCount(){
-    return cornCount;
+int* Farmer::getCornCount(){
+    return &cornCount;
 }
 
 Cow** Farmer::getCowArray() {
@@ -326,20 +326,20 @@ Corn** Farmer::getCornArray() {
 
 void Farmer::speedGrowthBought() {
     if (cow[0]->getBarnSpeedGrowthApplied() == true) {
-        for (int i = 0; i < getCowCount() ; i++) {
+        for (int i = 0; i < *getCowCount() ; i++) {
             cow[i]->setSellTime((cow[i]->getSellTime())-1);
             cow[i]->setBarnSpeedGrowthApplied(false);
         }
-        for (int i = 0; i < getPigCount() ; i++) {
+        for (int i = 0; i < *getPigCount() ; i++) {
             pig[i]->setSellTime((pig[i]->getSellTime())-1);
             pig[i]->setBarnSpeedGrowthApplied(false);
         }
     } else if (corn[0]->getFieldSpeedGrowthApplied() == true) {
-        for (int i = 0; i < getCornCount() ; i++) {
+        for (int i = 0; i < *getCornCount() ; i++) {
             corn[i]->setSellTime((corn[i]->getSellTime())-1);
             corn[i]->setBarnSpeedGrowthApplied(false);
         }
-        for (int i = 0; i < getWheatCount() ; i++) {
+        for (int i = 0; i < *getWheatCount() ; i++) {
             wheat[i]->setSellTime((wheat[i]->getSellTime())-1);
             wheat[i]->setBarnSpeedGrowthApplied(false);
         }

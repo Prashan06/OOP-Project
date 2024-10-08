@@ -20,7 +20,7 @@ class Pig: public Barn, public Events {
     Pig();
     ~Pig();
     void applyHighYield(int &money);
-    void Event(int &count, Cow** cow, Pig** pig, Corn** corn, Wheat** wheat);
+    void Event(int* count, Cow** cow, Pig** pig, Corn** corn, Wheat** wheat);
     Pig* createNewPig();
 };
 

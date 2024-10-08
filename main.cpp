@@ -59,7 +59,7 @@ int main(){
         cin >> optionChoice;
         if (optionChoice == "buy") {
             farmer.buyAnimal();
-            farmer.getCowArray()[0]->Event(farmer);
+            farmer.getCowArray()[0]->Event(farmer.getCowCount(), farmer.getCowArray(), farmer.getPigArray(), farmer.getCornArray(), farmer.getWheatArray());
             farmer.getPigArray()[0]->Event(farmer);
         } else if (optionChoice == "sell") {
             farmer.sellAnimal();
