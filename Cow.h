@@ -11,6 +11,8 @@
 
 using namespace std;
 
+
+
 class Cow: public Barn, public Events{
 
     protected:
@@ -18,8 +20,8 @@ class Cow: public Barn, public Events{
     public:
     Cow();
     ~Cow();
-    void applyHighYield(Farmer farmer);
-    void Event(Farmer farmer);
+    void applyHighYield(Farmer &farmer);
+    void Event(Farmer &farmer);
 };
 
 #endif

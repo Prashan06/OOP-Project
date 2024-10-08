@@ -11,7 +11,7 @@ Wheat::Wheat():Field(){
 
 }
 
-void Wheat::applyHighYield(Farmer& ourFarmer){
+void Wheat::applyHighYield(Farmer &ourFarmer){
 
     if (ourFarmer.getMoneyCount() < highYieldPrice){
         cout << "You do not have enough money to buy high yield fertilizer, try again later" << endl;
@@ -27,7 +27,7 @@ void Wheat::applyHighYield(Farmer& ourFarmer){
 }
 
 
-void Wheat::Event(Farmer& ourFarmer){
+void Wheat::Event(Farmer &ourFarmer){
     if (ourFarmer.getCowCount() % 10 == 0) {
         random_device rd; // obtain a random number from hardware
         mt19937 gen(rd()); // seed the generator, initialise generator

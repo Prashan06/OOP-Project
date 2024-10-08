@@ -11,7 +11,7 @@ Corn::Corn():Field(){
 
 }
 
-void Corn::Event(Farmer ourFarmer){
+void Corn::Event(Farmer &ourFarmer){
     if (ourFarmer.getCornCount() % 10 == 0) {
         random_device rd; // obtain a random number from hardware
         mt19937 gen(rd()); // seed the generator, initialise generator
@@ -41,14 +41,14 @@ void Corn::Event(Farmer ourFarmer){
     }
 }
 
-void Corn::applyHighYield(Farmer ourFarmer){
+void Corn::applyHighYield(Farmer& ourFarmer){
 
     if (ourFarmer.getMoneyCount() < highYieldPrice){
         cout << "You do not have enough money to buy high yield fertilizer" << endl;
     } else {
         int newMoney = ourFarmer.getMoneyCount() - this->highYieldPrice;
         ourFarmer.setMoneyCount(newMoney);
-        for (int i = 0; i < ourFarmer.getCowCount(); i++) {
+        for (int i = 0; i < ourFarmer.getCowCount() ; i++) {
             ourFarmer.getCornArray()[i]->setSellPrice(sellPrice * getHighYieldFactor());
         }
         cout << "highYield successfully applied" << endl;

@@ -4,6 +4,8 @@
 #include "Farm.h"
 #include "Farmer.h"
 
+
+
 class Barn: public Farm {
 
     protected:
@@ -20,7 +22,7 @@ class Barn: public Farm {
 	int getHighYieldPrice();
     void setSpeedGrowPrice (int speedGrowPrice);
     int getSpeedGrowPrice ();
-    void applySpeedGrowth(Farmer farmer);
+    void applySpeedGrowth(Farmer &farmer);
     void setSpeedGrowLevel (int speedGrowLevel);
 	int getSpeedGrowLevel();
     ~Barn();

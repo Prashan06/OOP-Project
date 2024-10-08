@@ -5,6 +5,8 @@
 #include "Events.h"
 #include "Farmer.h"
 
+
+
 class Corn: public Field, public Events {
 
     protected:
@@ -15,8 +17,8 @@ class Corn: public Field, public Events {
         
         Corn();
         ~Corn();
-        void Event(Farmer ourFarmer);
-        void applyHighYield(Farmer ourFarmer);
+        void Event(Farmer &ourFarmer);
+        void applyHighYield(Farmer &ourFarmer);
 
 };
 
