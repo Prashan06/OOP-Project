@@ -45,10 +45,7 @@ void Field::applySpeedGrowth(int &money){
     if (optionChoice == "Y"){
         money = money - speedGrowPrice;
         speedGrowLevel++;
-        for (int i = 0; i < (farmer.getCowCount()) ; i++) {
-            farmer.getCornArray()[i]->setSellTime(sellTime--);
-            farmer.getWheatArray()[i]->setSellTime(sellTime--);
-        }
+        fieldSpeedGrowthApplied = true;
         speedGrowLevel++;
         cout << "speedGrowth successfully applied" << endl;
     }

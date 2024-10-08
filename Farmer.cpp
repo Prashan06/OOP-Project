@@ -323,3 +323,16 @@ Wheat** Farmer::getWheatArray() {
 Corn** Farmer::getCornArray() {
     return corn;
 }
+
+void Farmer::speedGrowthBought() {
+    if (barnSpeedGrowthApplied == true) {
+
+    } else if (fieldSpeedGrowthApplied == true) {
+        for (int i = 0; i < getCornCount() ; i++) {
+            corn[i]->setSellTime(sellTime--);
+        }
+        for (int i = 0; i < getWheatCount() ; i++) {
+            wheat[i]->setSellTime(sellTime--);
+        }
+    }
+}
