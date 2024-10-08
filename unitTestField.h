@@ -51,8 +51,9 @@ class unitTestField{
             cout << "Test failed" << endl;
         }
 
-        testField.applySpeedGrowth(testFarmer.getMoneyCount()); //clarification of what apply speed growth actually does is needed
-        if (testField.getSpeedGrowthApplied() != true){
+        int initialMoney = *testFarmer.getMoneyCount();
+        testField.applySpeedGrowth(testFarmer.getMoneyCount()); 
+        if ((testField.getSpeedGrowApplied() != true) && (*testFarmer.getMoneyCount() != initialMoney - 2)){
             cout << "Test failed" << endl;
         }
 
