@@ -273,43 +273,10 @@ void Farmer::sellCrop(){
                 corn[j-cornsReadyToSell] = corn[j];
                 delete corn[j]; 
             }
-            cornCount = cornCount - cornsReadyToSell;
+            setCornCount(getCornCount() - cornsReadyToSell);
             money = money + ((tempCorn.getSellPrice())*cornsReadyToSell);
         }
     }
-}
-
-
-void Farmer::setCowCount(int cowCount){
-    this->cowCount = cowCount;
-}
-
-void Farmer::setPigCount(int pigCount){
-    this->pigCount = pigCount;
-}
-
-void Farmer::setWheatCount(int wheatCount){
-    this->wheatCount = wheatCount;
-}
-
-void Farmer::setCornCount(int cornCount){
-    this->cornCount = cornCount;
-}
-
-int Farmer::getCowCount(){
-    return cowCount;
-}
-
-int Farmer::getPigCount(){
-    return pigCount;
-}
-
-int Farmer::getWheatCount(){
-    return wheatCount;
-}
-
-int Farmer::getCornCount(){
-    return cornCount;
 }
 
 Cow** Farmer::getCowArray() {

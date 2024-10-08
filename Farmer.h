@@ -13,11 +13,10 @@
 #include "Barn.h"
 #include "Field.h"
 
-class Farmer {
+class Farmer: public Pig, Corn, Cow, Wheat {
     protected:
         
         int money;
-
         //arrays
         Wheat** wheat;
         Corn** corn;

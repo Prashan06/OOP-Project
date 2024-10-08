@@ -39,6 +39,38 @@ int Farm::getTimer() {
     return timer;
 }
 
+void Farm::setCowCount(int cowCount){
+    this->cowCount = cowCount;
+}
+
+void Farm::setPigCount(int pigCount){
+    this->pigCount = pigCount;
+}
+
+void Farm::setWheatCount(int wheatCount){
+    this->wheatCount = wheatCount;
+}
+
+void Farm::setCornCount(int cornCount){
+    this->cornCount = cornCount;
+}
+
+int Farm::getCowCount(){
+    return cowCount;
+}
+
+int Farm::getPigCount(){
+    return pigCount;
+}
+
+int Farm::getWheatCount(){
+    return wheatCount;
+}
+
+int Farm::getCornCount(){
+    return cornCount;
+}
+
 // Destructor.
 Farm::~Farm(){}
 

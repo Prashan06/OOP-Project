@@ -43,15 +43,14 @@ void Corn::Event(Farmer &ourFarmer){
     }
 }
 
-void Corn::applyHighYield(Farmer& ourFarmer){
+void Corn::applyHighYield(int &money, Corn** corn){
 
-    if (ourFarmer.getMoneyCount() < highYieldPrice){
+    if (money < highYieldPrice){
         cout << "You do not have enough money to buy high yield fertilizer" << endl;
     } else {
-        int newMoney = ourFarmer.getMoneyCount() - this->highYieldPrice;
-        ourFarmer.setMoneyCount(newMoney);
-        for (int i = 0; i < ourFarmer.getCowCount() ; i++) {
-            ourFarmer.getCornArray()[i]->setSellPrice(sellPrice * getHighYieldFactor());
+        money = money - this->highYieldPrice;
+        for (int i = 0; i <  ; i++) {
+            corn[i]->setSellPrice(getSellPrice() * getHighYieldFactor());
         }
         cout << "highYield successfully applied" << endl;
     }
