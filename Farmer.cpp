@@ -12,8 +12,8 @@ void Farmer::setMoneyCount(int money){
 }
 
 // Returns the amount of money the farmer has.
-int Farmer::getMoneyCount(){
-    return money;
+int* Farmer::getMoneyCount(){
+    return &money;
 }
 
 // sets the farm name.

@@ -40,7 +40,7 @@ class Farmer: public Pig, Corn, Cow, Wheat {
         ~Farmer();
 
         //getters & setters
-        int getMoneyCount();
+        int* getMoneyCount();
         void setMoneyCount(int money);
         string getFarmName();
         void setFarmName();
