@@ -128,7 +128,7 @@ void Farmer:: sellAnimal(){
     }
     if (product == "cow") {
         Cow tempCow;
-        int cowsReadyToSell;
+        int cowsReadyToSell = 0;
         for (int i = 0; i < cowCount; i++){
             if (cow[i]->getTimer() > cow[i]->getSellTime()){
                 cowsReadyToSell++;
@@ -151,7 +151,7 @@ void Farmer:: sellAnimal(){
 
     } else if (product == "pig") {
         Pig tempPig;
-        int pigsReadyToSell;
+        int pigsReadyToSell = 0;
         for (int i = 0; i < pigCount; i++){
             if (pig[i]->getTimer() > pig[i]->getSellTime()){
                 pigsReadyToSell++;
@@ -233,7 +233,7 @@ void Farmer::sellCrop(){
 
     if (product == "wheat"){
         Wheat tempWheat;
-        int wheatsReadyToSell;
+        int wheatsReadyToSell = 0;
         for (int i = 0; i < wheatCount; i++){
             if (wheat[i]->getTimer() > wheat[i]->getSellTime()){
                 wheatsReadyToSell++;
@@ -256,7 +256,7 @@ void Farmer::sellCrop(){
         
     } else if (product == "corn"){
         Corn tempCorn;
-        int cornsReadyToSell;
+        int cornsReadyToSell = 0;
         for (int i = 0; i < cornCount; i++){
             if (corn[i]->getTimer() > corn[i]->getSellTime()){
                 cornsReadyToSell++;
