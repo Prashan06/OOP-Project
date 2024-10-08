@@ -75,7 +75,8 @@ void Farm::setWheatHighYieldApplied(bool wheatHighYieldApplied){
 void Farm::setCornHighYieldApplied(bool cornHighYieldApplied){
     this -> cornHighYieldApplied = cornHighYieldApplied;
 }
-// Destructor.
-Farm::~Farm(){}
+
+void Farm::applySpeedGrowth(int* money) {};
+void Farm::applyHighYield(int* money) {};
 
 

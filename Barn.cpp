@@ -59,9 +59,3 @@ void Barn::applySpeedGrowth(int* money) {
         *money = *money - speedGrowPrice;
     }
 }
-
-
-// destructor
-Barn::~Barn(){
-
-}

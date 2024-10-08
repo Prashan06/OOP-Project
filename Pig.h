@@ -18,7 +18,6 @@ class Pig: public Barn, public Events {
         bool pigEvent;
     public:
         Pig();
-        ~Pig();
         void applyHighYield(int *money);
         void Event(int* count);
         Pig* createNewPig();

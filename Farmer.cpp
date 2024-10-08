@@ -429,3 +429,22 @@ void Farmer::executeEvent() {
         }
     }
 }
+
+Farmer::~Farmer() {
+    for (int i = 0; i < cowCount; i++){
+        delete cow[i];
+    }
+    for (int i = 0; i < pigCount; i++){
+        delete pig[i];
+    }
+    for (int i = 0; i < wheatCount; i++){
+        delete wheat[i];
+    }
+    for (int i = 0; i < cornCount; i++){
+        delete corn[i];
+    }
+    delete cow;
+    delete pig;
+    delete wheat;
+    delete corn;
+}

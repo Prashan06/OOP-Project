@@ -16,7 +16,6 @@ class Corn: public Field, public Events {
     public:
         
         Corn();
-        ~Corn();
         void Event(int* count);
         void applyHighYield(int* money);
         void setCornEvent(bool cornEvent);

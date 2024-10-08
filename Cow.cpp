@@ -37,6 +37,3 @@ void Cow::setCowEvent(bool cowEvent) {
 bool Cow::getCowEvent() {
     return cowEvent;
 }
-
-
-Cow::~Cow(){}

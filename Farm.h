@@ -27,9 +27,8 @@ class Farm {
 
     public:
         Farm();
-
-        virtual void applySpeedGrowth(int &money);
-        virtual void applyHighYield(int &money);
+        virtual void applySpeedGrowth(int* money);
+        virtual void applyHighYield(int* money);
         void setBuyPrice(int buyPrice);
         int getBuyPrice();
         void setSellPrice(int sellPrice);
@@ -50,8 +49,6 @@ class Farm {
         void setCowHighYieldApplied(bool cowHighYieldApplied);
         void setWheatHighYieldApplied(bool wheatHighYieldApplied);
         void setCornHighYieldApplied(bool cornHighYieldApplied);
-
-        ~Farm();
 
 };
 

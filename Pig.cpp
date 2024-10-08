@@ -35,5 +35,3 @@ void Pig::setPigEvent(bool pigEvent) {
 bool Pig::getPigEvent() {
     return pigEvent;
 }
-
-Pig::~Pig(){}

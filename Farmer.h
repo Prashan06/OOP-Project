@@ -13,7 +13,7 @@
 #include "Barn.h"
 #include "Field.h"
 
-class Farmer: public Pig, Corn, Cow, Wheat {
+class Farmer: public Pig, public Corn, public Cow, public Wheat {
     protected:
         
         int money;

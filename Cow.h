@@ -21,7 +21,6 @@ class Cow: public Barn, public Events{
         bool cowEvent;
     public:
     Cow();
-    ~Cow();
     void applyHighYield(int* money);
     void Event(int* count);
     void setCowEvent(bool cowEvent);

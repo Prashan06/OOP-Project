@@ -130,6 +130,7 @@ int main(){
             fieldScreen = false;
         }
     }
+    farmer.~Farmer();
     return 0;
 }
 

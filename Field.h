@@ -31,7 +31,6 @@ class Field: public Farm {
         void applySpeedGrowth(int* money);
         bool getPesticideApplied ();
         void applyPesticide();
-        ~Field();
 };
 
 #endif

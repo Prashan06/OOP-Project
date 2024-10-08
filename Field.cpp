@@ -77,7 +77,3 @@ void Field::setSpeedGrowLevel (int speedGrowLevel) {
 int Field::getSpeedGrowLevel() {
     return speedGrowLevel;
 }
-
-Field::~Field(){
-
-}

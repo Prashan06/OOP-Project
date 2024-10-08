@@ -13,7 +13,6 @@ class Wheat: public Field, public Events {
          bool wheatEvent = false;
     public:
         Wheat();
-        ~Wheat();
         void Event(int* count);
         void applyHighYield(int *money);
         void setWheatEvent(bool wheatEvent);

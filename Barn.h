@@ -24,7 +24,6 @@ class Barn: public Farm {
     void applySpeedGrowth(int* money);
     void setSpeedGrowLevel (int speedGrowLevel);
 	int getSpeedGrowLevel();
-    ~Barn();
 };
 
 #endif
