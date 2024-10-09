@@ -51,9 +51,20 @@ class unitTestField{
             cout << "Test failed" << endl;
         }
 
+       bool speedGrowApplied = true;
+       testField.setspeedGrowApplied(speedGrowApplied);
+       if (testField.getPesticideApplied() != true){
+            cout << "Test failed" << endl;
+       }
+       bool speedGrowApplied = false;
+       testField.setSpeedGrowApplied(speedGrowApplied);
+       if (testField.getSpeedGrowApplied() != false){
+            cout << "Test failed" << endl;
+       }
+
         int initialMoney = *testFarmer.getMoneyCount();
         testField.applySpeedGrowth(testFarmer.getMoneyCount()); 
-        if ((testField.getSpeedGrowApplied() != true) && (*testFarmer.getMoneyCount() != initialMoney - 2)){
+        if ((testField.getSpeedGrowApplied() != true) && (*testFarmer.getMoneyCount() != initialMoney - 2) && (testField.getSpeedGrowLevel() != 11)){
             cout << "Test failed" << endl;
         }
 

@@ -35,11 +35,24 @@ class unitTestBarn{
             cout << "Test failed" << endl;
         }
 
-        testBarn.applySpeedGrowth(testFarmer.getMoneyCount()); //clarification of what apply speed growth actually does is needed
-        if (testBarn.getSpeedGrowthApplied() != true){
+       bool speedGrowApplied = true;
+       testBarn.setspeedGrowApplied(speedGrowApplied);
+       if (testBarn.getPesticideApplied() != true){
+            cout << "Test failed" << endl;
+       }
+
+       bool speedGrowApplied = false;
+       testBarn.setSpeedGrowApplied(speedGrowApplied);
+       if (testBarn.getSpeedGrowApplied() != false){
+            cout << "Test failed" << endl;
+       }
+
+        int initialMoney = *testFarmer.getMoneyCount();
+        testBarn.applySpeedGrowth(testFarmer.getMoneyCount()); 
+        if ((testBarn.getSpeedGrowApplied() != true) && (*testFarmer.getMoneyCount() != initialMoney - 2) && (testBarn.getSpeedGrowLevel() != 11)){
             cout << "Test failed" << endl;
         }
-
+        
     }
 
     public:
