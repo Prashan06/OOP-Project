@@ -36,8 +36,8 @@ class unitTestBarn{
         }
 
        bool speedGrowApplied = true;
-       testBarn.setspeedGrowApplied(speedGrowApplied);
-       if (testBarn.getPesticideApplied() != true){
+       testBarn.setSpeedGrowApplied(speedGrowApplied);
+       if (testBarn.getSpeedGrowApplied() != true){
             cout << "Test failed" << endl;
        }
 

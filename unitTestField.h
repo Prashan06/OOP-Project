@@ -52,7 +52,7 @@ class unitTestField{
         }
 
        bool speedGrowApplied = true;
-       testField.setspeedGrowApplied(speedGrowApplied);
+       testField.setSpeedGrowApplied(speedGrowApplied);
        if (testField.getPesticideApplied() != true){
             cout << "Test failed" << endl;
        }
