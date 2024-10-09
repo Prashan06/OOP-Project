@@ -1,56 +1,62 @@
 #include <iostream>
 #include <string>
-#include <vector>
 
 using namespace std;
 
-class Corn{
+class Corn {
+protected:
+    int cornNumber;
 
-    protected:
-
-        int cornNumber = 1;
-
-    public:
-
-        int getCornNumber(){
-            return cornNumber;
-        }
-        void setCornNumber(int cornNumber){
-            this->cornNumber = cornNumber;
-        }
-
+public:
+    Corn(int cornNumber) : cornNumber(cornNumber) {}
+    
+    void setCornNumber(int cornNumber) {
+        this->cornNumber = cornNumber;
+    }
+    
+    int getCornNumber() {
+        return cornNumber;
+    }
 };
+
+void buyCorn(Corn**& cornArray, int& cornArraySize, int& cornCount) {
+    Corn** newCornArray = new Corn*[cornArraySize + 1];
+    for (int i = 0; i < cornArraySize; ++i) {
+        newCornArray[i] = cornArray[i];
+    }
+
+    Corn* newCorn = new Corn(cornCount++);
+    newCornArray[cornArraySize] = newCorn;
+
+    delete[] cornArray;
+    cornArray = newCornArray;
+    ++cornArraySize;
+}
 
 int main() {
 
-    std::vector<Corn> cornArray;
+    int cornCount = 1;
+    int cornArraySize = 0;
+    Corn** cornArray = new Corn*[cornArraySize];
 
-    Corn c1;
-    Corn c2;
-    Corn c3;
+    buyCorn(cornArray, cornArraySize, cornCount);
+    buyCorn(cornArray, cornArraySize, cornCount);
+    buyCorn(cornArray, cornArraySize, cornCount);
+    buyCorn(cornArray, cornArraySize, cornCount);
+    buyCorn(cornArray, cornArraySize, cornCount);
+    buyCorn(cornArray, cornArraySize, cornCount);
 
-    int cornNumber = 2;
-    c3.setCornNumber(cornNumber);
-
-    cornArray.push_back(c1);
-    cornArray.push_back(c2);
-    cornArray.push_back(c3);
-
-    for (int i = 0; i < cornArray.size(); i++){
-        cout << " " << cornArray[i].getCornNumber() << endl;
+    for (int i = 0; i < cornArraySize; ++i){
+        cout << "Corn number: " << cornArray[i]->getCornNumber() << endl;
     }
 
-    cout << " " << endl;
+    cout << "The size of the corn array is now " << cornArraySize << endl;
 
-     for (int i = 0; i < cornArray.size(); i++){
-        if (cornArray[i].getCornNumber() == 2){
-        cornArray.erase(cornArray.begin() + i);
-        }
+    for (int i = 0; i < cornArraySize; ++i) {
+        delete cornArray[i];
     }
+    delete[] cornArray;
 
-   for (int i = 0; i < cornArray.size(); i++){
-        cout << " " << cornArray[i].getCornNumber() << endl;
-    }
-
-    return 0;
 }
+
+
