@@ -179,7 +179,7 @@ void Farmer:: sellAnimal(){
 }
 
 void Farmer::buyCrop() {
-    string newProduct = "";
+    string newProduct;
     cout << "What crop would you like to buy? enter wheat or corn" << endl;
     cin >> newProduct;
     setProduct(newProduct);
@@ -238,8 +238,8 @@ string Farmer:: getProduct(){
     return product;
 }
 
-void Farmer:: setProduct(string newProduct){
-    this -> product = newProduct;
+void Farmer:: setProduct(string product){
+    this -> product = product;
 }
 
 void Farmer::sellCrop(){

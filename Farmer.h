@@ -74,5 +74,7 @@ class Farmer: public Pig, public Corn, public Cow, public Wheat {
 		Corn* createNewCorn();
         void  setProduct(string newProduct);
         string getProduct();
+        void setProduct( string newProduct);
+        
 };
 #endif
