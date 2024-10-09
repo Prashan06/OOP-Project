@@ -100,8 +100,12 @@ int main(){
         cin >> optionChoice;
         if (optionChoice == "buy") {
             farmer.buyCrop();
+            if(farmer.getProduct() == "corn"){
+                farmer.getCornArray()[0]->Event(farmer.getCornCount());
+            }
+            if (farmer.getProduct() == "Wheat"){
             farmer.getWheatArray()[0]->Event(farmer.getWheatCount());
-            farmer.getCornArray()[0]->Event(farmer.getCornCount());
+            }
             farmer.executeEvent();
         } else if (optionChoice == "sell") {
             farmer.sellCrop();

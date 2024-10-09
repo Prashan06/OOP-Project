@@ -4,7 +4,13 @@ using namespace std;
 
 
 // Constructor 
-Farmer::Farmer() : money(50), pig(new Pig*[pigCount]), cow(new Cow*[cowCount]), wheat(new Wheat*[wheatCount]), corn(new Corn*[cornCount]), farmName(""), timesWheatPlanted(0), timesCornPlanted(0), timesCowsBought(0), timesPigsBought(0) {}
+Farmer::Farmer() : money(50), pig(new Pig*[pigCount]), cow(new Cow*[cowCount]), wheat(new Wheat*[wheatCount]), corn(new Corn*[cornCount]), farmName(""), timesWheatPlanted(0), timesCornPlanted(0), timesCowsBought(0), timesPigsBought(0) {
+    pig[pigCount] = nullptr;
+    cow[cowCount] = nullptr;
+    corn[cornCount] = nullptr;
+    wheat[wheatCount] = nullptr;
+
+}
 
 // sets the amount of money the farmer has.
 void Farmer::setMoneyCount(int money){
@@ -66,8 +72,7 @@ Wheat* Farmer::createNewWheat() {
 }
 
 Corn* Farmer::createNewCorn() {
-    Corn* newCorn = new Corn;
-    return newCorn;
+    return new Corn;
 }
 
 void Farmer::buyAnimal(){
@@ -174,16 +179,17 @@ void Farmer:: sellAnimal(){
 }
 
 void Farmer::buyCrop() {
-    string product;
+    string newProduct = "";
     cout << "What crop would you like to buy? enter wheat or corn" << endl;
-    cin >> product;
-    while (product != "wheat" && product != "corn") {
+    cin >> newProduct;
+    setProduct(newProduct);
+    while (getProduct() != "wheat" && getProduct() != "corn") {
         cout << "invalid input! please enter wheat or corn" << endl;
         cin >> product;
     }
     int amount = 0;
 
-    if (product == "wheat") {
+    if (getProduct() == "wheat") {
         Wheat tempWheat;
         cout << "How many wheat crops would you like to buy?, you can buy " << money/tempWheat.getBuyPrice() << " wheat" << endl;
         cin >> amount;
@@ -200,7 +206,7 @@ void Farmer::buyCrop() {
             timesWheatPlanted++;
         }
         wheatCount = wheatCount + amount;
-    } else if (product == "corn"){
+    } else if (getProduct() == "corn"){
         Corn tempCorn;
         cout << "How many corn crops would you like to buy?, you can buy " << money/tempCorn.getBuyPrice() << " corn" << endl;
         cin >> amount;
@@ -211,13 +217,29 @@ void Farmer::buyCrop() {
             cin >> amount;
         }
         money = money - amountPaid;
-
-        for (int i = cornCount ; i < cornCount + amount; i++ ) {
-            corn[i] = createNewCorn();
-            timesCornPlanted++;
+        Corn** newCornArray = new Corn*[cornCount + amount];
+        
+        for (int i = 0; i < cornCount + amount; i++){
+            newCornArray[i] = nullptr;
         }
+
+        for (int i = cornCount-1; i < cornCount + amount; i++){
+            Corn* newCorn = createNewCorn();
+            newCornArray[cornCount] = newCorn;
+        }
+
+        delete[] corn;
+        corn = newCornArray;
         cornCount = cornCount + amount;
     }
+}
+
+string Farmer:: getProduct(){
+    return product;
+}
+
+void Farmer:: setProduct(string newProduct){
+    this -> product = newProduct;
 }
 
 void Farmer::sellCrop(){

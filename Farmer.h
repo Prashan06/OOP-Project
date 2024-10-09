@@ -13,6 +13,8 @@
 #include "Barn.h"
 #include "Field.h"
 
+using namespace std;
+
 class Farmer: public Pig, public Corn, public Cow, public Wheat {
     protected:
         
@@ -33,6 +35,7 @@ class Farmer: public Pig, public Corn, public Cow, public Wheat {
         int timesCornPlanted;
         int timesCowsBought;
         int timesPigsBought;
+        std::string product;
    
     public:
 
@@ -69,7 +72,7 @@ class Farmer: public Pig, public Corn, public Cow, public Wheat {
 		Pig* createNewPig();
 		Wheat* createNewWheat();
 		Corn* createNewCorn();
-
-
+        void  setProduct(string newProduct);
+        string getProduct();
 };
 #endif
