@@ -103,9 +103,9 @@ int main(){
             if(farmer.getProduct() == "corn"){
                 farmer.getCornArray()[0]->Event(farmer.getCornCount());
             }
-            if (farmer.getProduct() == "Wheat"){
+            if (farmer.getProduct() == "Wheat")
             farmer.getWheatArray()[0]->Event(farmer.getWheatCount());
-            }
+            
             farmer.executeEvent();
         } else if (optionChoice == "sell") {
             farmer.sellCrop();
@@ -137,4 +137,6 @@ int main(){
     farmer.~Farmer();
     return 0;
 }
+
+
 
