@@ -43,11 +43,14 @@ void Field::applySpeedGrowth(int* money){
         cin >> optionChoice;
     }
     if (optionChoice == "Y"){
-        *money = *money - speedGrowPrice;
-        speedGrowLevel++;
-        fieldSpeedGrowthApplied = true;
-        speedGrowLevel++;
-        cout << "speedGrowth successfully applied" << endl;
+        if (*money < speedGrowPrice){
+            cout << "You do not have enough money to buy the SpeedGrowth update, try again later" << endl;
+        }else{
+            *money = *money - speedGrowPrice;
+            speedGrowLevel++;
+            speedGrowApplied = true;
+            cout << "speedGrowth successfully applied" << endl;
+        }
     }
 }
 
@@ -60,11 +63,16 @@ bool Field::getPesticideApplied(){
     return pesticideApplied;
 }
 
-void Field::applyPesticide(){
+void Field::applyPesticide(int* money){
     cout << "Do you want to buy pesticide? Y or N " << endl;
     if (optionChoice == "Y" && pesticideApplied == false){
+        if (*money < pesticidePrice){
+            cout << "You do not have enough money to buy pesticide, try again later" << endl;
+        }else{
         // Note for corn and wheat events, if pesticide applied is true, reduce killing of corn and wheat.
         pesticideApplied = true;
+        *money = *money - pesticidePrice;
+        }
     }
 }
 
@@ -76,4 +84,14 @@ void Field::setSpeedGrowLevel (int speedGrowLevel) {
 // getter speed grow level
 int Field::getSpeedGrowLevel() {
     return speedGrowLevel;
+}
+
+//setter for speedGrowApplied
+void Field::setSpeedGrowApplied(bool speedGrowApplied){
+    this->speedGrowApplied = speedGrowApplied;
+}
+
+//getter for speedGrowApplied
+bool Field::getSpeedGrowApplied(){
+    return speedGrowApplied;
 }

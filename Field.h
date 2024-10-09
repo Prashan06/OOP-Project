@@ -11,6 +11,7 @@ class Field: public Farm {
         int speedGrowPrice;
         int pesticidePrice;
         bool pesticideApplied;
+        bool speedGrowApplied;
         float highYieldFactor;
         int highYieldPrice;
 
@@ -30,7 +31,9 @@ class Field: public Farm {
         int getSpeedGrowLevel();
         void applySpeedGrowth(int* money);
         bool getPesticideApplied ();
-        void applyPesticide();
+        void applyPesticide(int* money);
+        void setSpeedGrowApplied(bool speedGrowApplied);
+        bool getSpeedGrowApplied();
 };
 
 #endif

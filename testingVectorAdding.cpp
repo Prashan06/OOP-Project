@@ -1,35 +1,62 @@
 #include <iostream>
 #include <string>
-#include <vector>
 
 using namespace std;
 
-class Corn{
+class Corn {
+protected:
+    int cornNumber;
 
-    protected:
-
-        int cornNumber = 1;
-
-    public:
-
+public:
+    Corn(int cornNumber) : cornNumber(cornNumber) {}
+    
+    void setCornNumber(int cornNumber) {
+        this->cornNumber = cornNumber;
+    }
+    
+    int getCornNumber() {
+        return cornNumber;
+    }
 };
 
-class Farmer{
+void buyCorn(Corn**& cornArray, int& cornArraySize, int& cornCount) {
+    Corn** newCornArray = new Corn*[cornArraySize + 1];
+    for (int i = 0; i < cornArraySize; ++i) {
+        newCornArray[i] = cornArray[i];
+    }
 
-    protected:
+    Corn* newCorn = new Corn(cornCount++);
+    newCornArray[cornArraySize] = newCorn;
 
-        vector<Corn> cornArray;
+    delete[] cornArray;
+    cornArray = newCornArray;
+    ++cornArraySize;
+}
 
-        int timesCornPlanted;
+int main() {
 
-    public:
+    int cornCount = 1;
+    int cornArraySize = 0;
+    Corn** cornArray = new Corn*[cornArraySize];
 
-        void plantCorn();
+    buyCorn(cornArray, cornArraySize, cornCount);
+    buyCorn(cornArray, cornArraySize, cornCount);
+    buyCorn(cornArray, cornArraySize, cornCount);
+    buyCorn(cornArray, cornArraySize, cornCount);
+    buyCorn(cornArray, cornArraySize, cornCount);
+    buyCorn(cornArray, cornArraySize, cornCount);
 
-};
+    for (int i = 0; i < cornArraySize; ++i){
+        cout << "Corn number: " << cornArray[i]->getCornNumber() << endl;
+    }
 
-int main(){
+    cout << "The size of the corn array is now " << cornArraySize << endl;
 
-    Farmer farmer1
+    for (int i = 0; i < cornArraySize; ++i) {
+        delete cornArray[i];
+    }
+    delete[] cornArray;
 
 }
+
+
