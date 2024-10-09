@@ -13,23 +13,23 @@ class unitTestFarmer {
         // If number does not match the entered one, test has failed.
         f.getFarmName();
         f.setMoneyCount(100);
-        if (f.getMoneyCount() != 100){
+        if (*f.getMoneyCount() != 100){
             cout << "Money count test failed" << endl;
         }
         f.setCornCount(10);
-        if (f.getCornCount() != 10){
+        if (*f.getCornCount() != 10){
             cout << "Corn count test failed" << endl;
         }
         f.setCowCount(5);
-        if (f.getCowCount() != 5){
+        if (*f.getCowCount() != 5){
             cout << "Cow count test failed" << endl;
         }      
         f.setPigCount(2);
-        if (f.getPigCount() != 2){
+        if (*f.getPigCount() != 2){
             cout << "Pig count test failed" << endl;
         }       
         f.setWheatCount(4);
-        if (f.getWheatCount() != 4){
+        if (*f.getWheatCount() != 4){
             cout << "Wheat count test failed" << endl;
         }
         // Observe if details are same as outputted above.
@@ -39,7 +39,7 @@ class unitTestFarmer {
         if (f.getMoneyCount() != 25){
             cout << "Buy Item - Money test failed" << endl;
         }
-        if (f.getCowCount() != 10){
+        if (*f.getCowCount() != 10){
             cout << "Buy Item - cowCount test failed" << endl;
         }
         
@@ -53,7 +53,7 @@ class unitTestFarmer {
 
         // Sell the 6 cows you bought
         f. sellItem();
-        if (f.getMoneyCount() != 75 ){
+        if (*f.getMoneyCount() != 75 ){
             cout << "sellItem - Money test failed" << endl;
         }
 
@@ -61,7 +61,7 @@ class unitTestFarmer {
             cout << "sellItem - cowCount test failed" << endl;
         }
 
-        for (int i = 0; i < f.getCowCount(); i++){
+        for (int i = 0; i < *f.getCowCount(); i++){
             
         }
 
