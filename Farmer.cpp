@@ -91,8 +91,8 @@ void Farmer::buyAnimal(){
             cin >> amount;
         }
         money = money - amountPaid;
-        cowCount = cowCount + amount;
-        for (int i = (cowCount - amount) ; i < cowCount; i++ ) {
+
+        for (int i = cowCount - amount; i < cowCount; i++ ) {
             cow[i] = createNewCow();
             timesCowsBought++;
         }

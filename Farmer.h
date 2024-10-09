@@ -17,7 +17,7 @@ class Farmer: public Pig, public Corn, public Cow, public Wheat {
     protected:
         
         int money;
-        int cowCount = 0;
+        int cowCount = 10;
         int pigCount = 0;
         int wheatCount = 0;
         int cornCount = 0;
