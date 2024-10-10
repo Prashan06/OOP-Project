@@ -63,10 +63,6 @@ bool Farm::getCornHighYieldApplied(){
     return cornHighYieldApplied;
 }
 
-int Farm::getSellReadyTime() {
-    return sellReadyTime;
-}
-
 void Farm::setPigHighYieldApplied(bool pigHighYieldApplied){
     this -> pigHighYieldApplied = pigHighYieldApplied;
 }

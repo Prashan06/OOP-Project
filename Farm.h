@@ -17,7 +17,6 @@ class Farm {
         int sellPrice;
         int sellTime;
         time_t timer;
-        time_t sellReadyTime = difftime(timer, (timer + sellTime));
         string optionChoice;
         bool barnSpeedGrowthApplied = false;
         bool fieldSpeedGrowthApplied = false;
@@ -37,7 +36,6 @@ class Farm {
         void setSellTime(int sellTime);
         int getSellTime();
         int getTimer();
-        int getSellReadyTime();
         bool getBarnSpeedGrowthApplied();
         bool getFieldSpeedGrowthApplied();
         void setBarnSpeedGrowthApplied(bool barnSpeedGrowthApplied);
