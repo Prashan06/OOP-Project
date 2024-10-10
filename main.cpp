@@ -75,9 +75,15 @@ int main(){
                 cout << "To upgrade highYield, enter yield" << endl;
                 cin >> optionChoice;
                 if (optionChoice == "speed") {
+                    if (*farmer.getCowCount() > 0 || *farmer.getPigCount() > 0){
+                        cout << "both animals must be purchased before upgrades can be applied" << endl;
+                    }
                     farmer.getCowArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
                     farmer.speedGrowthBought();
                 } else if (optionChoice == "yield") {
+                    if (*farmer.getCornCount() > 0 || *farmer.getWheatCount() > 0){
+                        cout << "both animals must be purchased before upgrades can be applied" << endl;
+                    }
                     cout << "which animal would you like to apply highYield to, enter cow or pig" << endl;
                     cin >> optionChoice;
                     if (optionChoice == "cow"){

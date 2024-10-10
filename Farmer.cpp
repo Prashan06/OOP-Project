@@ -92,7 +92,7 @@ void Farmer::buyCorn(Corn**& cornArray, int& cornCount, int amount) {
 
 void Farmer::buyAnimal(){
     string newProduct;
-    cout << "What crop would you like to buy? enter pig or cow" << endl;
+    cout << "What animal would you like to buy? enter pig or cow" << endl;
     cin >> newProduct;
     setProduct(newProduct);
     while (getProduct() != "pig" && getProduct() != "cow") {
@@ -125,7 +125,7 @@ void Farmer::buyAnimal(){
 
         delete[] cow;
         cow = newCowArray;
-        cowCount = cowCount + amount;
+        setCowCount(cowCount + amount);
 
     } else if(getProduct() == "pig") {
         Pig tempPig;
@@ -151,7 +151,7 @@ void Farmer::buyAnimal(){
 
         delete[] pig;
         pig = newPigArray;
-        pigCount = pigCount + amount;
+        setPigCount(pigCount + amount);
     }
 }
 
@@ -192,7 +192,7 @@ void Farmer::sellAnimal(){
             }
             money = money + newMoney;
             cow = newCowArray;
-            cowCount - readyToSellCount;
+            setCowCount(cowCount - readyToSellCount);
         }
 
     } else if (product == "pig") {
@@ -225,7 +225,7 @@ void Farmer::sellAnimal(){
             }
             money = money + newMoney;
             pig = newPigArray;
-            pigCount - readyToSellCount;
+            setPigCount(pigCount - readyToSellCount);
         }
     }   
 }
@@ -266,7 +266,7 @@ void Farmer::buyCrop() {
 
         delete[] wheat;
         wheat = newWheatArray;
-        wheatCount = wheatCount + amount;
+        setWheatCount(wheatCount + amount);
 
     } else if (getProduct() == "corn"){
         Corn tempCorn;
@@ -292,7 +292,7 @@ void Farmer::buyCrop() {
 
         delete[] corn;
         corn = newCornArray;
-        cornCount = cornCount + amount;
+        setCornCount(cornCount + amount);
     }
 }
 
@@ -342,7 +342,7 @@ void Farmer::sellCrop(){
             }
             money = money + newMoney;
             wheat = newWheatArray;
-            wheatCount = wheatCount - readyToSellCount;
+            setWheatCount(wheatCount - readyToSellCount);
         }
         
     } else if (getProduct() == "corn") {
@@ -375,7 +375,7 @@ void Farmer::sellCrop(){
             }
             money = money + newMoney;
             corn = newCornArray;
-            cornCount = cornCount - readyToSellCount;
+            setCornCount(cornCount - readyToSellCount);
         }
     }
 }
@@ -426,7 +426,7 @@ Corn** Farmer::getCornArray() {
 }
 
 void Farmer::speedGrowthBought() {
-    string newProduct = "";
+    string newProduct;
     cout << "Do you want to apply speed grow to barn or field : Enter field to apply for field, enter barn to apply for barn. " << endl;
     cin >> newProduct;
     setProduct(newProduct);
