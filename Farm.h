@@ -50,6 +50,14 @@ class Farm {
         void setWheatHighYieldApplied(bool wheatHighYieldApplied);
         void setCornHighYieldApplied(bool cornHighYieldApplied);
 
+        bool isReadyToSell(){
+            if (timer > sellTime){
+                return true;
+            }else if (timer < sellTime){
+                return false;
+            }
+        }
+
 
 };
 

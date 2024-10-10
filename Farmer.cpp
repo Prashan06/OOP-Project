@@ -328,7 +328,7 @@ void Farmer::sellCrop(){
             cout << "NULLL POINTER" << endl;
         }
         for (int i = 0; i < cornCount; ++i) {
-            if (corn[i]->getTimer() > corn[i]->getSellTime()){
+            if (corn[i]->isReadyToSell() == true){
             newMoney = newMoney + corn[i]->getSellPrice();
             readyToSellCount++;
             }
@@ -342,7 +342,7 @@ void Farmer::sellCrop(){
         }
         if (optionChoice == "Y") {
             for (int i = 0; i < cornCount; ++i) {
-                if (corn[i]->getTimer() < corn[i]->getSellTime()){
+                if (corn[i]->isReadyToSell() == false){
                 newCornArray[j++] = corn[i];
                 }
             }
