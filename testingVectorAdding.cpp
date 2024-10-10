@@ -33,8 +33,13 @@ void buyCorn(Corn**& cornArray, int& cornArraySize, int& cornCount) {
     ++cornArraySize;
 }
 
+<<<<<<< HEAD
 void sellCorn(Corn**& cornArray, int& cornCount, int *money) {
     int jo;
+=======
+void sellCorn(Corn**& cornArray, int& cornCount, int& money}
+    int option;
+>>>>>>> f9f71f765b900888cc7a3691324df26333b8aece
     int j = 0;
     int readyToSellCount = 0;
     int newMoney = 0;
@@ -54,7 +59,7 @@ void sellCorn(Corn**& cornArray, int& cornCount, int *money) {
             newCornArray[j++] = cornArray[i];
             }
         }
-        money* = money* + newMoney;
+        money = money + newMoney;
 
         delete[] cornArray;
         cornArray = newCornArray;
