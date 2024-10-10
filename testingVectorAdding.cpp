@@ -33,18 +33,38 @@ void buyCorn(Corn**& cornArray, int& cornArraySize, int& cornCount) {
     ++cornArraySize;
 }
 
-void sellCorn(Corn**& cornArray, int& cornArraySize, int& cornCount, int numRemove) {
+void sellCorn(Corn**& cornArray, int& cornArraySize, int& cornCount, *money) {
     Corn** newCornArray = new Corn*[cornArraySize - 1];
+    int option;
     int j = 0;
-    for (int i = 0; i < cornArraySize; ++i) {
-        if (cornArray[i]->getCornNumber() != numRemove){
-        newCornArray[j++] = cornArray[i];
+    int readyToSellCount = 0;
+     for (int i = 0; i < cornArraySize; ++i) {
+        if (corn[i]->getTimer() >= corn[i]->getSellTime()){
+        newMoney = newMoney + corn[i]->getSellPrice();
+        readyToSellCount++;
         }
     }
+    cout << "you have " << readyToSell << "corn to sell for " << newMoney <<" Press 1 to confirm" << endl;
+    cin >> option;
+    switch(option){
+    case 1:
+        for (int i = 0; i < cornArraySize; ++i) {
+            if (corn[i]->getTimer() < corn[i]->getSellTime()){
+            newCornArray[j++] = cornArray[i];
+            }
+        }
+        money* = money* + newMoney;
 
-    delete[] cornArray;
-    cornArray = newCornArray;
-    --cornArraySize;
+        delete[] cornArray;
+        cornArray = newCornArray;
+        --cornArraySize;
+        break;
+        
+    case 2:
+        break;
+    default:
+        break;
+    }
 }
 
 int main() {
@@ -71,32 +91,45 @@ int main() {
 
  
     while (1){
-        int option;
+        int option = 0;
         cout << "If you want to buy corn press 3, if you want to sell corn press 4" << endl;
         cin >> option;
-        if (option == 3){
+
+        while (option == 3){
+            int option2 = 0;
+            cout << "To confirm buy press 5, to leave press 6" << endl;
+            cin >> option2;
+            if (option2 == 5){
             buyCorn(cornArray, cornArraySize, cornCount);
             for (int i = 0; i < cornArraySize; ++i){
             cout << "Corn number: " << cornArray[i]->getCornNumber() << endl;
             }
-        }else if (option == 4){
-            int cornNumToSell = 0;
-            for (int i = 0; i < cornArraySize; ++i){
-            cout << "Corn number: " << cornArray[i]->getCornNumber() << endl;
+            } else if (option2 == 6){
+                option = 0;
             }
+        }
+
+        while (option == 4){
+            int option3 = 0;
+            cout << "To confirm sell press 7, to leave press 8" << endl;
+            cin >> option3;
+            if (option3 == 7){
+            int cornNumToSell = 0;
             cout << "Enter number of corn you want to sell" << endl;
             cin >> cornNumToSell;
             sellCorn(cornArray, cornArraySize, cornCount, cornNumToSell);
-            
-        }
-    }
 
+            } else if (option3 == 8){
+                option = 0;
+            }
+        }
 
    for (int i = 0; i < cornArraySize; ++i) {
         delete cornArray[i];
     }
     delete[] cornArray;
 
+}
 }
 
 
