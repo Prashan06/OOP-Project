@@ -287,7 +287,6 @@ void Farmer::setProduct(string product){
 }
 
 void Farmer::sellCrop(){
-    string product;
     string yesNo;
     cout << "What crop would you like to sell, wheat or corn? (Enter response in lower case)" << endl;
     cin >> product;
@@ -319,28 +318,38 @@ void Farmer::sellCrop(){
             money = money + ((tempWheat.getSellPrice())*wheatsReadyToSell);
         }
         
-    } else if (product == "corn"){
+    } else if (getProduct() == "corn") {
         Corn tempCorn;
-        int cornsReadyToSell = 0;
-        for (int i = 0; i < cornCount; i++){
-            if (corn[i]->getTimer() > corn[i]->getSellTime()){
-                cornsReadyToSell++;
+        string optionChoice;
+        int j = 0;
+        int readyToSellCount = 0;
+        int newMoney = 0;
+        for (int i = 0; i < cornCount; ++i) {
+            if (corn[i]->getTimer() >= corn[i]->getSellTime()){
+            newMoney = newMoney + corn[i]->getSellPrice();
+            readyToSellCount++;
             }
         }
-        cout << "You have " << cornsReadyToSell << " corn crops ready to sell, would you like to sell these crops (enter yes/no)? " << endl;
-        cin >> yesNo;
-        while (yesNo != "yes" && yesNo != "no") {
-            cout << "invalid input! please enter yes or no" << endl;
-            cin >> yesNo;
+        Corn** newCornArray = new Corn*[cornCount - readyToSellCount];
+        cout << "you have " << readyToSellCount << "corn to sell for " << newMoney <<" Would you like to sell them (enter Y or N)" << endl;
+        cin >> optionChoice;
+        while (optionChoice != "Y" && optionChoice != "N") {
+            cout << "invalid input! please enter Y or N" << endl;
+            cin >> optionChoice;
         }
-        if (yesNo == "yes"){
-            for(int j = cornsReadyToSell; j < cornCount; j++) {
-                corn[j-cornsReadyToSell] = corn[j];
-                delete corn[j]; 
+        if (optionChoice == "Y") {
+            for (int i = 0; i < cornCount; ++i) {
+                if (corn[i]->getTimer() < corn[i]->getSellTime()){
+                newCornArray[j++] = corn[i];
+                }
             }
-            cornCount = cornCount - cornsReadyToSell;
-            money = money + ((tempCorn.getSellPrice())*cornsReadyToSell);
+            money = money + newMoney;
+
+            delete[] corn;
+            corn = newCornArray;
+            cornCount = cornCount - readyToSellCount;
         }
+
     }
 }
 

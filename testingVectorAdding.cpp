@@ -33,18 +33,19 @@ void buyCorn(Corn**& cornArray, int& cornArraySize, int& cornCount) {
     ++cornArraySize;
 }
 
-void sellCorn(Corn**& cornArray, int& cornCount, *money}
-    int option;
+void sellCorn(Corn**& cornArray, int& cornCount, int *money) {
+    int jo;
     int j = 0;
     int readyToSellCount = 0;
-     for (int i = 0; i < cornCount; ++i) {
+    int newMoney = 0;
+    for (int i = 0; i < cornCount; ++i) {
         if (corn[i]->getTimer() >= corn[i]->getSellTime()){
         newMoney = newMoney + corn[i]->getSellPrice();
         readyToSellCount++;
         }
     }
     Corn** newCornArray = new Corn*[cornCount - readyToSellCount];
-    cout << "you have " << readyToSell << "corn to sell for " << newMoney <<" Press 1 to confirm" << endl;
+    cout << "you have " << readyToSellCount << "corn to sell for " << newMoney <<" Press 1 to confirm" << endl;
     cin >> option;
     switch(option){
     case 1:
