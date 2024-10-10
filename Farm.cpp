@@ -34,7 +34,7 @@ int Farm::getSellTime(){
     return sellTime;
 }
 
-int Farm::getTimer() {
+time_t Farm::getTimer() {
     return timer;
 }
 
