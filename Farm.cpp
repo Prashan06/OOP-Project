@@ -78,5 +78,3 @@ void Farm::setCornHighYieldApplied(bool cornHighYieldApplied){
 
 void Farm::applySpeedGrowth(int* money) {};
 void Farm::applyHighYield(int* money) {};
-
-

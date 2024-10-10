@@ -49,6 +49,7 @@ class Farm {
         void setCowHighYieldApplied(bool cowHighYieldApplied);
         void setWheatHighYieldApplied(bool wheatHighYieldApplied);
         void setCornHighYieldApplied(bool cornHighYieldApplied);
+         
 
 
 };

@@ -269,7 +269,7 @@ void Farmer::buyCrop() {
 
         for (int i = cornCount-1; i < cornCount + amount; i++){
             Corn* newCorn = createNewCorn();
-            newCornArray[cornCount] = newCorn;
+            newCornArray[i] = newCorn;
         }
 
         delete[] corn;
@@ -321,17 +321,22 @@ void Farmer::sellCrop(){
     } else if (getProduct() == "corn") {
         Corn tempCorn;
         string optionChoice;
+        time_t currentTime = time(0); 
         int j = 0;
         int readyToSellCount = 0;
         int newMoney = 0;
+        cout << corn[0]->getTimer() << endl;
+        cout << currentTime << endl;
         for (int i = 0; i < cornCount; ++i) {
-            if (corn[i]->getTimer() > corn[i]->getSellTime()){
-                cout << "still going" << endl;
+            if (currentTime - (corn[i]->getTimer()) >= corn[i]->getSellTime()) {
+                cout << "timer" << endl;
                 newMoney = newMoney + corn[i]->getSellPrice();
                 readyToSellCount++;
             }
         }
+        cout << "here" << endl;
         Corn** newCornArray = new Corn*[cornCount - readyToSellCount];
+        cout << "joe" << endl;
         cout << "you have " << readyToSellCount << "corn to sell for " << newMoney <<" Would you like to sell them (enter Y or N)" << endl;
         cin >> optionChoice;
         while (optionChoice != "Y" && optionChoice != "N") {
@@ -340,13 +345,16 @@ void Farmer::sellCrop(){
         }
         if (optionChoice == "Y") {
             for (int i = 0; i < cornCount; ++i) {
-                if (corn[i]->getTimer() < corn[i]->getSellTime()){
-                    newCornArray[j++] = corn[i];
+                if ((currentTime - (corn[i]->getTimer())) < corn[i]->getSellTime()){
+                    newCornArray[j] = corn[i];
+                    j++;
+                } else {
+                    delete corn[i];
                 }
             }
             money = money + newMoney;
-
-            delete[] corn;
+            cout << "yes" << endl;
+            cout << "no" << endl;
             corn = newCornArray;
             cornCount = cornCount - readyToSellCount;
         }
@@ -400,23 +408,39 @@ Corn** Farmer::getCornArray() {
 }
 
 void Farmer::speedGrowthBought() {
-    if (cow[0]->getBarnSpeedGrowthApplied() == true) {
-        for (int i = 0; i < *getCowCount() ; i++) {
-            cow[i]->setSellTime((cow[i]->getSellTime())-1);
-            cow[i]->setBarnSpeedGrowthApplied(false);
+    string newProduct = "";
+    cout << "Do you want to apply speed grow to barn or field : Enter field to apply for field, enter barn to apply for barn. " << endl;
+    cin >> newProduct;
+    setProduct(newProduct);
+    while (getProduct() != "field" || getProduct() != "barn"){
+        cout << "Invalid input, enter field or barn" << endl;
+        cin >> newProduct;
+        setProduct(newProduct);   
+    }
+
+    if (getProduct() == "barn"){
+        if (cow[0]->getBarnSpeedGrowthApplied() == true) {
+            for (int i = 0; i < *getCowCount() ; i++) {
+                cow[i]->setSellTime((cow[i]->getSellTime())-1);
+                cow[i]->setBarnSpeedGrowthApplied(false);
+            }
+            for (int i = 0; i < *getPigCount() ; i++) {
+                pig[i]->setSellTime((pig[i]->getSellTime())-1);
+                pig[i]->setBarnSpeedGrowthApplied(false);
+            }
         }
-        for (int i = 0; i < *getPigCount() ; i++) {
-            pig[i]->setSellTime((pig[i]->getSellTime())-1);
-            pig[i]->setBarnSpeedGrowthApplied(false);
-        }
-    } else if (corn[0]->getFieldSpeedGrowthApplied() == true) {
-        for (int i = 0; i < *getCornCount() ; i++) {
-            corn[i]->setSellTime((corn[i]->getSellTime())-1);
-            corn[i]->setBarnSpeedGrowthApplied(false);
-        }
-        for (int i = 0; i < *getWheatCount() ; i++) {
-            wheat[i]->setSellTime((wheat[i]->getSellTime())-1);
-            wheat[i]->setBarnSpeedGrowthApplied(false);
+    }
+
+    if (getProduct() == "field"){
+        if(corn[0]->getFieldSpeedGrowthApplied() == true) {
+            for (int i = 0; i < *getCornCount() ; i++) {
+                corn[i]->setSellTime((corn[i]->getSellTime())-1);
+                corn[i]->setBarnSpeedGrowthApplied(false);
+            }
+            for (int i = 0; i < *getWheatCount() ; i++) {
+                wheat[i]->setSellTime((wheat[i]->getSellTime())-1);
+                wheat[i]->setBarnSpeedGrowthApplied(false);
+            }
         }
     }
 }
