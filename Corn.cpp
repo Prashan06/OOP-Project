@@ -6,7 +6,7 @@ Corn::Corn():Field(){
     this-> timer = time(0);
     this->buyPrice = 20;
     this->sellPrice = 30;
-    this->sellTime = 2;
+    this->sellTime = 10;
 	this->highYieldFactor = 1.2;
     this->highYieldPrice = 10;
 
