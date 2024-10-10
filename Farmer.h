@@ -4,6 +4,7 @@
 #include <string>
 #include <ctime>
 #include <chrono>
+#include <fstream>
 
 #include "Wheat.h"
 #include "Corn.h"
@@ -34,6 +35,7 @@ class Farmer: public Pig, public Corn, public Cow, public Wheat {
         int timesCowsBought;
         int timesPigsBought;
         string product;
+        fstream file;
    
     public:
 
@@ -74,6 +76,8 @@ class Farmer: public Pig, public Corn, public Cow, public Wheat {
 		Pig* createNewPig();
 		Wheat* createNewWheat();
 		Corn* createNewCorn();
+
+        void fileWriter(string filename, string output, int* money);
 
 
 };

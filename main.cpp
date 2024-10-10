@@ -26,8 +26,8 @@ int main(){
     string optionChoice;
 
     farmer.setFarmName();
-    while (1){
-
+    while (*farmer.getMoneyCount() > 0){
+        farmer.fileWriter("savefile", farmer.getFarmName(), farmer.getMoneyCount());
         while (mainScreen == true){
 
             cout << "Hello " << farmer.getFarmName() << "!" << endl;

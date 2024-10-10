@@ -534,6 +534,12 @@ void Farmer::executeEvent() {
     }
 }
 
+void Farmer::fileWriter(string filename, string output, int* money) {
+    file.open(filename, ios::out);
+    file << output << "'s earnings: " << *money << " dollars" << endl;
+    file.close();
+}
+
 Farmer::~Farmer() {
     for (int i = 0; i < cowCount; i++){
         delete cow[i];
