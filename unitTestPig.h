@@ -16,14 +16,22 @@ class unitTestPig{
         Farmer testFarmer;
         Pig testPig;
 
-        testPig.Event(testFarmer);
-    
-        int modifiedSellPrice = testPig.getSellPrice()*1.1;
-        testPig.applyHighYield(testFarmer);
-        if (testPig.getSellPrice() != modifiedSellPrice){
-            cout << "Test failed" << endl;
+        testFarmer.setMoneyCount(50);
+        testPig.applyHighYield(testFarmer.getMoneyCount());
+
+        if (testPig.getPigHighYieldApplied() != true){
+            cout << "applyHighYield test failed. " << endl;
         }
 
+        if (*testFarmer.getMoneyCount() != 35 ) {
+            cout << "Money - applyHighField failed. " << endl;
+        }
+
+        testFarmer.setPigCount(10);
+        testPig.Event(testFarmer.getPigCount());
+        if (testPig.getPigEvent() != true){
+            cout << "Pig Event - Event failed. " << endl;
+        } 
     }
 
     public:

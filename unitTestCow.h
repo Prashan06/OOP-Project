@@ -7,7 +7,7 @@
  
 using namespace std;
 
-class unitTestCOw{
+class unitTestCow{
 
     protected:
 
@@ -15,15 +15,25 @@ class unitTestCOw{
 
         Farmer testFarmer;
         Cow testCow;
+        
+        testFarmer.setMoneyCount(50);
+        testCow.applyHighYield(testFarmer.getMoneyCount());
 
-        testCow.Event(testFarmer);
-    
-        int modifiedSellPrice = testCow.getSellPrice()*1.1;
-        testCow.applyHighYield(testFarmer);
-        if (testCow.getSellPrice() != modifiedSellPrice){
-            cout << "Test failed" << endl;
+
+        if (testCow.getCowHighYieldApplied() != true){
+            cout << "applyHighYield test failed. " << endl;
         }
 
+
+        if (*testFarmer.getMoneyCount() != 40) {
+            cout << "Money - applyHighField failed. " << endl;
+        }
+
+        testFarmer.setCowCount(10);
+        testCow.Event(testFarmer.getCowCount());
+        if (testCow.getCowEvent() != true){
+            cout << "Cow Event - Event failed. " << endl;
+        } 
     }
 
     public:

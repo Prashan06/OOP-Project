@@ -5,6 +5,7 @@ Pig::Pig() : Barn() {
     this -> sellPrice = 15;
     this -> buyPrice = 12;
     this -> sellTime = 12;
+    this->highYieldPrice = 15;
 }
 
 void Pig::applyHighYield(int *money){

@@ -288,7 +288,6 @@ void Farmer::buyCrop() {
         for (int i = cornCount-1; i < cornCount + amount; i++){
             Corn* newCorn = createNewCorn();
             newCornArray[i] = newCorn;
-            newCornArray[i] = newCorn;
         }
 
         delete[] corn;

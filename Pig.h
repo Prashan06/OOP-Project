@@ -20,7 +20,6 @@ class Pig: public Barn, public Events {
         Pig();
         void applyHighYield(int *money);
         void Event(int* count);
-        Pig* createNewPig();
         void setPigEvent(bool pigEvent);
         bool getPigEvent();
 };
