@@ -17,7 +17,7 @@ class Farmer: public Pig, public Corn, public Cow, public Wheat {
     protected:
         
         int money;
-        int cowCount = 10;
+        int cowCount = 0;
         int pigCount = 0;
         int wheatCount = 0;
         int cornCount = 0;
@@ -33,6 +33,7 @@ class Farmer: public Pig, public Corn, public Cow, public Wheat {
         int timesCornPlanted;
         int timesCowsBought;
         int timesPigsBought;
+        string product;
    
     public:
 
@@ -60,6 +61,9 @@ class Farmer: public Pig, public Corn, public Cow, public Wheat {
         void sellCrop();
         void speedGrowthBought();
         void highYieldBought();
+        void buyCorn(Corn**& cornArray, int& cornCount, int amount);
+        string getProduct();
+        void setProduct(string product);
 
 		Cow** getCowArray();
 		Pig** getPigArray();

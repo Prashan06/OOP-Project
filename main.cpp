@@ -26,111 +26,121 @@ int main(){
     string optionChoice;
 
     farmer.setFarmName();
+    while (1){
 
-    while (mainScreen == true){
+        while (mainScreen == true){
 
-        cout << "Hello " << farmer.getFarmName() << "!" << endl;
-        cout << "What action would you like to take?" << endl;
-        cout << "" << endl;
-        cout << "To view status, enter status" << endl;
-        cout << "To visit the Barn, enter barn" << endl;
-        cout << "To visit the Field, enter field" << endl;
-        cin >> optionChoice;
-        if (optionChoice == "status") {
-            farmer.getStatus();
-        } else if (optionChoice == "barn") {
-            barnScreen = true;
-            mainScreen = false;
-        } else if (optionChoice == "field"){
-            fieldScreen = true;
-            mainScreen = false;
-        }
-        
-    }
-
-    while (barnScreen == true) {
-
-        cout << "Welcome to the Barn! what action would you like to take?" << endl;
-        cout << "" << endl;
-        cout << "To buy an animal, enter buy" << endl;
-        cout << "to purchase an upgrade, enter upgrade" << endl;
-        cout << "To sell an animal, enter sell" << endl;
-        cout << "To leave the Barn, enter leave" << endl;
-        cin >> optionChoice;
-        if (optionChoice == "buy") {
-            farmer.buyAnimal();
-            farmer.getCowArray()[0]->Event(farmer.getCowCount());
-            farmer.getPigArray()[0]->Event(farmer.getPigCount());
-            farmer.executeEvent();
-        } else if (optionChoice == "sell") {
-            farmer.sellAnimal();
-        } else if (optionChoice == "upgrade") {
-            cout << "which upgrade would you like to buy?" << endl;
+            cout << "Hello " << farmer.getFarmName() << "!" << endl;
+            cout << "What action would you like to take?" << endl;
             cout << "" << endl;
-            cout << "To upgrade speedGrowth, enter speed" << endl;
-            cout << "To upgrade highYield, enter yield" << endl;
+            cout << "To view status, enter status" << endl;
+            cout << "To visit the Barn, enter barn" << endl;
+            cout << "To visit the Field, enter field" << endl;
             cin >> optionChoice;
-            if (optionChoice == "speed") {
-                farmer.getCowArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
-                farmer.speedGrowthBought();
-            } else if (optionChoice == "yield") {
-                cout << "which animal would you like to apply highYield to, enter cow or pig" << endl;
-                cin >> optionChoice;
-                if (optionChoice == "cow"){
-                    farmer.getCowArray()[0]->applyHighYield(farmer.getMoneyCount());
-                    farmer.highYieldBought();
-                } else if (optionChoice == "pig") {
-                    farmer.getPigArray()[0]->applyHighYield(farmer.getMoneyCount());
-                    farmer.highYieldBought();
-                }
+            if (optionChoice == "status") {
+                farmer.getStatus();
+            } else if (optionChoice == "barn") {
+                barnScreen = true;
+                mainScreen = false;
+            } else if (optionChoice == "field"){
+                fieldScreen = true;
+                mainScreen = false;
             }
-        } else if (optionChoice == "leave") {
-            mainScreen = true;
-            barnScreen = false;
+            
         }
-    }
 
-    while (fieldScreen == true) {
-        cout << "welcome to the Field! what action would you like to take?" << endl;
-        cout << "" << endl;
-        cout << "To buy a crop, enter buy" << endl;
-        cout << "to purchase an upgrade, enter upgrade" << endl;
-        cout << "To sell a crop, enter sell" << endl;
-        cout << "to leave the Field, enter leave" << endl;
-        cin >> optionChoice;
-        if (optionChoice == "buy") {
-            farmer.buyCrop();
-            farmer.getWheatArray()[0]->Event(farmer.getWheatCount());
-            farmer.getCornArray()[0]->Event(farmer.getCornCount());
-            farmer.executeEvent();
-        } else if (optionChoice == "sell") {
-            farmer.sellCrop();
-        } else if (optionChoice == "upgrade") {
-            cout << "which upgrade would you like to buy?" << endl;
+        while (barnScreen == true) {
+
+            cout << "Welcome to the Barn! what action would you like to take?" << endl;
             cout << "" << endl;
-            cout << "To upgrade speedGrowth, enter speed" << endl;
-            cout << "To upgrade highYield, enter yield" << endl;
+            cout << "To buy an animal, enter buy" << endl;
+            cout << "to purchase an upgrade, enter upgrade" << endl;
+            cout << "To sell an animal, enter sell" << endl;
+            cout << "To leave the Barn, enter leave" << endl;
             cin >> optionChoice;
-            if (optionChoice == "speed") {
-                farmer.getCornArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
-                farmer.speedGrowthBought();
-            } else if (optionChoice == "yield") {
-                cout << "which crop would you like to apply highYield to, enter corn or wheat" << endl;
-                cin >> optionChoice;
-                if (optionChoice == "corn"){
-                    farmer.getCornArray()[0]->applyHighYield(farmer.getMoneyCount());
-                    farmer.highYieldBought();
-                } else if (optionChoice == "wheat") {
-                    farmer.getWheatArray()[0]->applyHighYield(farmer.getMoneyCount());
-                    farmer.highYieldBought();
+            if (optionChoice == "buy") {
+                farmer.buyAnimal();
+                if (farmer.getProduct() == "cow"){
+                    farmer.getCowArray()[0]->Event(farmer.getCowCount());
+                } else if (farmer.getProduct() == "corn"){
+                    farmer.getPigArray()[0]->Event(farmer.getPigCount());
                 }
+                farmer.executeEvent();
+            } else if (optionChoice == "sell") {
+                farmer.sellAnimal();
+            } else if (optionChoice == "upgrade") {
+                cout << "which upgrade would you like to buy?" << endl;
+                cout << "" << endl;
+                cout << "To upgrade speedGrowth, enter speed" << endl;
+                cout << "To upgrade highYield, enter yield" << endl;
+                cin >> optionChoice;
+                if (optionChoice == "speed") {
+                    farmer.getCowArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
+                    farmer.speedGrowthBought();
+                } else if (optionChoice == "yield") {
+                    cout << "which animal would you like to apply highYield to, enter cow or pig" << endl;
+                    cin >> optionChoice;
+                    if (optionChoice == "cow"){
+                        farmer.getCowArray()[0]->applyHighYield(farmer.getMoneyCount());
+                        farmer.highYieldBought();
+                    } else if (optionChoice == "pig") {
+                        farmer.getPigArray()[0]->applyHighYield(farmer.getMoneyCount());
+                        farmer.highYieldBought();
+                    }
+                }
+            } else if (optionChoice == "leave") {
+                mainScreen = true;
+                barnScreen = false;
             }
-        } else if (optionChoice == "leave") {
-            mainScreen = true;
-            fieldScreen = false;
+        }
+
+        while (fieldScreen == true) {
+            cout << "welcome to the Field! what action would you like to take?" << endl;
+            cout << "" << endl;
+            cout << "To buy a crop, enter buy" << endl;
+            cout << "to purchase an upgrade, enter upgrade" << endl;
+            cout << "To sell a crop, enter sell" << endl;
+            cout << "to leave the Field, enter leave" << endl;
+            cin >> optionChoice;
+            if (optionChoice == "buy") {
+                farmer.buyCrop();
+                if (farmer.getProduct() == "corn"){
+                    // farmer.getCornArray()[0]->Event(farmer.getCornCount());
+                }
+                if (farmer.getProduct() == "Wheat") {
+                    //farmer.getWheatArray()[0]->Event(farmer.getWheatCount());
+                }
+                
+                
+                //farmer.executeEvent();
+            } else if (optionChoice == "sell") {
+                farmer.sellCrop();
+            } else if (optionChoice == "upgrade") {
+                cout << "which upgrade would you like to buy?" << endl;
+                cout << "" << endl;
+                cout << "To upgrade speedGrowth, enter speed" << endl;
+                cout << "To upgrade highYield, enter yield" << endl;
+                cin >> optionChoice;
+                if (optionChoice == "speed") {
+                    farmer.getCornArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
+                    farmer.speedGrowthBought();
+                } else if (optionChoice == "yield") {
+                    cout << "which crop would you like to apply highYield to, enter corn or wheat" << endl;
+                    cin >> optionChoice;
+                    if (optionChoice == "corn"){
+                        farmer.getCornArray()[0]->applyHighYield(farmer.getMoneyCount());
+                        farmer.highYieldBought();
+                    } else if (optionChoice == "wheat") {
+                        farmer.getWheatArray()[0]->applyHighYield(farmer.getMoneyCount());
+                        farmer.highYieldBought();
+                    }
+                }
+            } else if (optionChoice == "leave") {
+                mainScreen = true;
+                fieldScreen = false;
+            }
         }
     }
     farmer.~Farmer();
     return 0;
 }
-

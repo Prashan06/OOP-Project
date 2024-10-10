@@ -70,17 +70,38 @@ Corn* Farmer::createNewCorn() {
     return newCorn;
 }
 
+void Farmer::buyCorn(Corn**& cornArray, int& cornCount, int amount) {
+    // Resize logic for the corn array
+    Corn** newCornArray = new Corn*[cornCount + amount];
+
+    // Copy existing corn pointers to the new array
+    for (int i = 0; i < cornCount; ++i) {
+        newCornArray[i] = cornArray[i];
+    }
+
+    // Create new corn objects and add them to the new array
+    for (int j = 0; j < amount; ++j) {
+        newCornArray[cornCount + j] = new Corn(); // Allocate a single Corn object
+    }
+
+    // Delete the old corn array and reassign
+    delete[] cornArray;
+    cornArray = newCornArray; // Update the pointer to the new array
+    cornCount += amount; // Update the total count of corn
+}
+
 void Farmer::buyAnimal(){
-    string product;
-    cout << "What animal would you like to buy? please enter cow or pig" << endl;
-    cin >> product;
-    while (product != "cow" && product != "wheat" && product != "pig" && product != "corn") {
-        cout << "invalid input! please enter cow or pig" << endl;
+    string newProduct;
+    cout << "What crop would you like to buy? enter pig or cow" << endl;
+    cin >> newProduct;
+    setProduct(newProduct);
+    while (getProduct() != "pig" && getProduct() != "cow") {
+        cout << "invalid input! please enter pig or cow" << endl;
         cin >> product;
     }
     int amount = 0;
 
-    if (product == "cow") {
+    if (getProduct() == "cow") {
         Cow tempCow;
         cout << "How many cows would you like to buy?, you can buy " << money/tempCow.getBuyPrice() << " cows" << endl;
         cin >> amount;
@@ -91,12 +112,22 @@ void Farmer::buyAnimal(){
             cin >> amount;
         }
         money = money - amountPaid;
-
-        for (int i = cowCount - amount; i < cowCount; i++ ) {
-            cow[i] = createNewCow();
-            timesCowsBought++;
+        Cow** newCowArray = new Cow*[cowCount + amount];
+        
+        for (int i = 0; i < cowCount + amount; i++){
+            newCowArray[i] = nullptr;
         }
-    } else if(product == "pig") {
+
+        for (int i = cowCount-1; i < cowCount + amount; i++){
+            Cow* newCow = createNewCow();
+            newCowArray[cowCount] = newCow;
+        }
+
+        delete[] cow;
+        cow = newCowArray;
+        cowCount = cowCount + amount;
+
+    } else if(getProduct() == "pig") {
         Pig tempPig;
         cout << "How many pigs would you like to buy?, you can buy " << money/tempPig.getBuyPrice() << " pigs" << endl;
         cin >> amount;
@@ -107,11 +138,19 @@ void Farmer::buyAnimal(){
             cin >> amount;
         }
         money = money - amountPaid;
-
-        for (int i = pigCount ; i < pigCount + amount; i++ ) {
-            pig[i] = createNewPig();
-            timesPigsBought++;
+        Pig** newPigArray = new Pig*[pigCount + amount];
+        
+        for (int i = 0; i < pigCount + amount; i++){
+            newPigArray[i] = nullptr;
         }
+
+        for (int i = pigCount-1; i < pigCount + amount; i++){
+            Pig* newPig = createNewPig();
+            newPigArray[pigCount] = newPig;
+        }
+
+        delete[] pig;
+        pig = newPigArray;
         pigCount = pigCount + amount;
     }
 }
@@ -174,16 +213,17 @@ void Farmer:: sellAnimal(){
 }
 
 void Farmer::buyCrop() {
-    string product;
+    string newProduct;
     cout << "What crop would you like to buy? enter wheat or corn" << endl;
-    cin >> product;
-    while (product != "wheat" && product != "corn") {
+    cin >> newProduct;
+    setProduct(newProduct);
+    while (getProduct() != "wheat" && getProduct() != "corn") {
         cout << "invalid input! please enter wheat or corn" << endl;
         cin >> product;
     }
     int amount = 0;
 
-    if (product == "wheat") {
+    if (getProduct() == "wheat") {
         Wheat tempWheat;
         cout << "How many wheat crops would you like to buy?, you can buy " << money/tempWheat.getBuyPrice() << " wheat" << endl;
         cin >> amount;
@@ -195,12 +235,22 @@ void Farmer::buyCrop() {
         }
         money = money - amountPaid;
 
-        for (int i = wheatCount ; i < wheatCount + amount; i++ ) {
-            wheat[i] = createNewWheat();
-            timesWheatPlanted++;
+        Wheat** newWheatArray = new Wheat*[wheatCount + amount];
+        
+        for (int i = 0; i < wheatCount + amount; i++){
+            newWheatArray[i] = nullptr;
         }
+
+        for (int i = wheatCount-1; i < wheatCount + amount; i++){
+            Wheat* newWheat = createNewWheat();
+            newWheatArray[wheatCount] = newWheat;
+        }
+
+        delete[] wheat;
+        wheat = newWheatArray;
         wheatCount = wheatCount + amount;
-    } else if (product == "corn"){
+
+    } else if (getProduct() == "corn"){
         Corn tempCorn;
         cout << "How many corn crops would you like to buy?, you can buy " << money/tempCorn.getBuyPrice() << " corn" << endl;
         cin >> amount;
@@ -211,13 +261,29 @@ void Farmer::buyCrop() {
             cin >> amount;
         }
         money = money - amountPaid;
-
-        for (int i = cornCount ; i < cornCount + amount; i++ ) {
-            corn[i] = createNewCorn();
-            timesCornPlanted++;
+        Corn** newCornArray = new Corn*[cornCount + amount];
+        
+        for (int i = 0; i < cornCount + amount; i++){
+            newCornArray[i] = nullptr;
         }
+
+        for (int i = cornCount-1; i < cornCount + amount; i++){
+            Corn* newCorn = createNewCorn();
+            newCornArray[cornCount] = newCorn;
+        }
+
+        delete[] corn;
+        corn = newCornArray;
         cornCount = cornCount + amount;
     }
+}
+
+string Farmer::getProduct(){
+    return product;
+}
+
+void Farmer::setProduct(string product){
+    this -> product = product;
 }
 
 void Farmer::sellCrop(){
