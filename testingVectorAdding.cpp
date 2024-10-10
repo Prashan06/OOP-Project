@@ -33,6 +33,20 @@ void buyCorn(Corn**& cornArray, int& cornArraySize, int& cornCount) {
     ++cornArraySize;
 }
 
+void sellCorn(Corn**& cornArray, int& cornArraySize, int& cornCount, int numRemove) {
+    Corn** newCornArray = new Corn*[cornArraySize - 1];
+    int j = 0;
+    for (int i = 0; i < cornArraySize; ++i) {
+        if (cornArray[i]->getCornNumber() != numRemove){
+        newCornArray[j++] = cornArray[i];
+        }
+    }
+
+    delete[] cornArray;
+    cornArray = newCornArray;
+    --cornArraySize;
+}
+
 int main() {
 
     int cornCount = 1;
@@ -45,6 +59,8 @@ int main() {
     buyCorn(cornArray, cornArraySize, cornCount);
     buyCorn(cornArray, cornArraySize, cornCount);
     buyCorn(cornArray, cornArraySize, cornCount);
+
+    sellCorn(cornArray, cornArraySize, cornCount, 3);
 
     for (int i = 0; i < cornArraySize; ++i){
         cout << "Corn number: " << cornArray[i]->getCornNumber() << endl;
