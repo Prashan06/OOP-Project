@@ -79,7 +79,7 @@ int main(){
                         cout << "both animals must be purchased before upgrades can be applied" << endl;
                     }
                     farmer.getCowArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
-                    farmer.speedGrowthBought();
+                    farmer.barnSpeedGrowthBought();
                 } else if (optionChoice == "yield") {
                     if (*farmer.getCornCount() > 0 || *farmer.getWheatCount() > 0){
                         cout << "both animals must be purchased before upgrades can be applied" << endl;
@@ -111,10 +111,10 @@ int main(){
             if (optionChoice == "buy") {
                 farmer.buyCrop();
                 if (farmer.getProduct() == "corn"){
-                    // farmer.getCornArray()[0]->Event(farmer.getCornCount());
+                    farmer.getCornArray()[0]->Event(farmer.getCornCount());
                 }
                 if (farmer.getProduct() == "Wheat") {
-                    //farmer.getWheatArray()[0]->Event(farmer.getWheatCount());
+                    farmer.getWheatArray()[0]->Event(farmer.getWheatCount());
                 }
                 
                 
@@ -129,7 +129,7 @@ int main(){
                 cin >> optionChoice;
                 if (optionChoice == "speed") {
                     farmer.getCornArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
-                    farmer.speedGrowthBought();
+                    farmer.fieldSpeedGrowthBought();
                 } else if (optionChoice == "yield") {
                     cout << "which crop would you like to apply highYield to, enter corn or wheat" << endl;
                     cin >> optionChoice;
