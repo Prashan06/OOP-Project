@@ -36,8 +36,8 @@ class Farm {
         int getSellPrice();
         void setSellTime(int sellTime);
         int getSellTime();
-        time_t getTimer();
-        time_t getSellReadyTime();
+        int getTimer();
+        int getSellReadyTime();
         bool getBarnSpeedGrowthApplied();
         bool getFieldSpeedGrowthApplied();
         void setBarnSpeedGrowthApplied(bool barnSpeedGrowthApplied);

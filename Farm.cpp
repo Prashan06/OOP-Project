@@ -1,7 +1,7 @@
 #include "Farm.h"
 
 // Constructor
-Farm::Farm() : buyPrice(0), sellPrice(0), sellTime(60), timer(time(0)), optionChoice("") {}
+Farm::Farm() : buyPrice(0), sellPrice(0), sellTime(60), timer(time_t(0)), optionChoice("") {}
 
 
 // Sets the buyPrice.
@@ -34,7 +34,7 @@ int Farm::getSellTime(){
     return sellTime;
 }
 
-time_t Farm::getTimer() {
+int Farm::getTimer() {
     return timer;
 }
 
@@ -63,7 +63,7 @@ bool Farm::getCornHighYieldApplied(){
     return cornHighYieldApplied;
 }
 
-time_t Farm::getSellReadyTime() {
+int Farm::getSellReadyTime() {
     return sellReadyTime;
 }
 
