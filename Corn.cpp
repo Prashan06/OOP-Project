@@ -3,7 +3,7 @@
 
 
 Corn::Corn():Field(){
-
+    this-> timer = time(0);
     this->buyPrice = 20;
     this->sellPrice = 30;
     this->sellTime = 40;
