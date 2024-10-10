@@ -4,7 +4,7 @@
 Cow::Cow() : Barn() {
     this -> sellPrice = 10;
     this -> buyPrice = 15;
-    this -> sellTime = 30;
+    this -> sellTime = 15;
 }
 
 void Cow::applyHighYield(int* money){

@@ -8,7 +8,7 @@ Corn::Corn():Field(){
     this->sellPrice = 30;
     this->sellTime = 2;
 	this->highYieldFactor = 1.2;
-    this->highYieldPrice = 2;
+    this->highYieldPrice = 10;
 
 }
 

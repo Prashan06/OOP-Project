@@ -120,7 +120,7 @@ void Farmer::buyAnimal(){
 
         for (int i = cowCount-1; i < cowCount + amount; i++){
             Cow* newCow = createNewCow();
-            newCowArray[cowCount] = newCow;
+            newCowArray[i] = newCow;
         }
 
         delete[] cow;
@@ -146,7 +146,7 @@ void Farmer::buyAnimal(){
 
         for (int i = pigCount-1; i < pigCount + amount; i++){
             Pig* newPig = createNewPig();
-            newPigArray[pigCount] = newPig;
+            newPigArray[i] = newPig;
         }
 
         delete[] pig;
@@ -155,9 +155,7 @@ void Farmer::buyAnimal(){
     }
 }
 
-void Farmer:: sellAnimal(){
-    string product;
-    string yesNo;
+void Farmer::sellAnimal(){
     cout << "What animal would you like to sell, cow or pig? (Enter response in lower case)" << endl;
     cin >> product;
     while (product != "cow" && product != "pig") {
@@ -165,49 +163,69 @@ void Farmer:: sellAnimal(){
         cin >> product;
     }
     if (product == "cow") {
-        Cow tempCow;
-        int cowsReadyToSell = 0;
-        for (int i = 0; i < cowCount; i++){
-            if (cow[i]->getTimer() > cow[i]->getSellTime()){
-                cowsReadyToSell++;
+        string optionChoice;
+        time_t currentTime = time(0); 
+        int j = 0;
+        int readyToSellCount = 0;
+        int newMoney = 0;
+        for (int i = 0; i < cowCount; ++i) {
+            if (currentTime - (cow[i]->getTimer()) >= cow[i]->getSellTime()) {
+                newMoney = newMoney + cow[i]->getSellPrice();
+                readyToSellCount++;
             }
         }
-        cout << "You have " << cowsReadyToSell << " cows ready to sell, would you like to sell these cows (enter yes/no)? " << endl;
-        cin >> yesNo;
-        while (yesNo != "yes" && yesNo != "no") {
-            cout << "invalid input! please enter yes or no" << endl;
-            cin >> yesNo;
+        Cow** newCowArray = new Cow*[cowCount - readyToSellCount];
+        cout << "you have " << readyToSellCount << " cows to sell for " << newMoney <<" Would you like to sell them (enter Y or N)" << endl;
+        cin >> optionChoice;
+        while (optionChoice != "Y" && optionChoice != "N") {
+            cout << "invalid input! please enter Y or N" << endl;
+            cin >> optionChoice;
         }
-        if (yesNo == "yes"){
-            for(int j = cowsReadyToSell; j < cowCount; j++) {
-                cow[j-cowsReadyToSell] = cow[j];
-                delete cow[j]; 
+        if (optionChoice == "Y") {
+            for (int i = 0; i < cowCount; ++i) {
+                if ((currentTime - (cow[i]->getTimer())) < cow[i]->getSellTime()){
+                    newCowArray[j] = cow[i];
+                    j++;
+                } else {
+                    delete cow[i];
+                }
             }
-            cowCount = cowCount - cowsReadyToSell;
-            money = money + ((tempCow.getSellPrice())*cowsReadyToSell);
+            money = money + newMoney;
+            cow = newCowArray;
+            cowCount - readyToSellCount;
         }
 
     } else if (product == "pig") {
-        Pig tempPig;
-        int pigsReadyToSell = 0;
-        for (int i = 0; i < pigCount; i++){
-            if (pig[i]->getTimer() > pig[i]->getSellTime()){
-                pigsReadyToSell++;
+        string optionChoice;
+        time_t currentTime = time(0); 
+        int j = 0;
+        int readyToSellCount = 0;
+        int newMoney = 0;
+        for (int i = 0; i < pigCount; ++i) {
+            if (currentTime - (pig[i]->getTimer()) >= pig[i]->getSellTime()) {
+                newMoney = newMoney + pig[i]->getSellPrice();
+                readyToSellCount++;
             }
         }
-        cout << "You have " << pigsReadyToSell << " pigs ready to sell, would you like to sell these pigs (enter yes/no)? " << endl;
-        cin >> yesNo;
-        while (yesNo != "yes" && yesNo != "no") {
-            cout << "invalid input! please enter yes or no" << endl;
-            cin >> yesNo;
+        Pig** newPigArray = new Pig*[pigCount - readyToSellCount];
+        cout << "you have " << readyToSellCount << " pigs to sell for " << newMoney <<" Would you like to sell them (enter Y or N)" << endl;
+        cin >> optionChoice;
+        while (optionChoice != "Y" && optionChoice != "N") {
+            cout << "invalid input! please enter Y or N" << endl;
+            cin >> optionChoice;
         }
-        if (yesNo == "yes"){
-            for(int j = pigsReadyToSell; j < pigCount; j++) {
-                pig[j-pigsReadyToSell] = pig[j];
-                delete pig[j]; 
+        if (optionChoice == "Y") {
+            for (int i = 0; i < pigCount; ++i) {
+                if ((currentTime - (pig[i]->getTimer())) < pig[i]->getSellTime()){
+                    newPigArray[j] = pig[i];
+                    j++;
+                } else {
+                    delete pig[i];
+                }
             }
-            pigCount = pigCount - pigsReadyToSell;
-            money = money + ((tempPig.getSellPrice())*pigsReadyToSell);
+            money = money + newMoney;
+            pig = newPigArray;
+            pigCount - readyToSellCount;
         }
     }   
 }
@@ -243,7 +261,7 @@ void Farmer::buyCrop() {
 
         for (int i = wheatCount-1; i < wheatCount + amount; i++){
             Wheat* newWheat = createNewWheat();
-            newWheatArray[wheatCount] = newWheat;
+            newWheatArray[i] = newWheat;
         }
 
         delete[] wheat;
@@ -287,7 +305,6 @@ void Farmer::setProduct(string product){
 }
 
 void Farmer::sellCrop(){
-    string yesNo;
     cout << "What crop would you like to sell, wheat or corn? (Enter response in lower case)" << endl;
     cin >> product;
     while (product != "wheat" && product != "corn") {
@@ -296,48 +313,52 @@ void Farmer::sellCrop(){
     }
 
     if (product == "wheat"){
-        Wheat tempWheat;
-        int wheatsReadyToSell = 0;
-        for (int i = 0; i < wheatCount; i++){
-            if (wheat[i]->getTimer() > wheat[i]->getSellTime()){
-                wheatsReadyToSell++;
-            }
-        }
-        cout << "You have " << wheatsReadyToSell << " wheat crops ready to sell, would you like to sell these crops (enter yes/no)? " << endl;
-        cin >> yesNo;
-        while (yesNo != "yes" && yesNo != "no") {
-            cout << "invalid input! please enter yes or no" << endl;
-            cin >> yesNo;
-        }
-        if (yesNo == "yes"){
-            for(int j = wheatsReadyToSell; j < wheatCount; j++) {
-                wheat[j-wheatsReadyToSell] = wheat[j];
-                delete wheat[j]; 
-            }
-            wheatCount = wheatCount - wheatsReadyToSell;
-            money = money + ((tempWheat.getSellPrice())*wheatsReadyToSell);
-        }
-        
-    } else if (getProduct() == "corn") {
-        Corn tempCorn;
         string optionChoice;
         time_t currentTime = time(0); 
         int j = 0;
         int readyToSellCount = 0;
         int newMoney = 0;
-        cout << corn[0]->getTimer() << endl;
-        cout << currentTime << endl;
+        for (int i = 0; i < wheatCount; ++i) {
+            if (currentTime - (wheat[i]->getTimer()) >= wheat[i]->getSellTime()) {
+                newMoney = newMoney + wheat[i]->getSellPrice();
+                readyToSellCount++;
+            }
+        }
+        Wheat** newWheatArray = new Wheat*[wheatCount - readyToSellCount];
+        cout << "you have " << readyToSellCount << " wheat to sell for " << newMoney <<" Would you like to sell them (enter Y or N)" << endl;
+        cin >> optionChoice;
+        while (optionChoice != "Y" && optionChoice != "N") {
+            cout << "invalid input! please enter Y or N" << endl;
+            cin >> optionChoice;
+        }
+        if (optionChoice == "Y") {
+            for (int i = 0; i < wheatCount; ++i) {
+                if ((currentTime - (wheat[i]->getTimer())) < wheat[i]->getSellTime()){
+                    newWheatArray[j] = wheat[i];
+                    j++;
+                } else {
+                    delete wheat[i];
+                }
+            }
+            money = money + newMoney;
+            wheat = newWheatArray;
+            wheatCount = wheatCount - readyToSellCount;
+        }
+        
+    } else if (getProduct() == "corn") {
+        string optionChoice;
+        time_t currentTime = time(0); 
+        int j = 0;
+        int readyToSellCount = 0;
+        int newMoney = 0;
         for (int i = 0; i < cornCount; ++i) {
             if (currentTime - (corn[i]->getTimer()) >= corn[i]->getSellTime()) {
-                cout << "timer" << endl;
                 newMoney = newMoney + corn[i]->getSellPrice();
                 readyToSellCount++;
             }
         }
-        cout << "here" << endl;
         Corn** newCornArray = new Corn*[cornCount - readyToSellCount];
-        cout << "joe" << endl;
-        cout << "you have " << readyToSellCount << "corn to sell for " << newMoney <<" Would you like to sell them (enter Y or N)" << endl;
+        cout << "you have " << readyToSellCount << " corn to sell for " << newMoney <<" Would you like to sell them (enter Y or N)" << endl;
         cin >> optionChoice;
         while (optionChoice != "Y" && optionChoice != "N") {
             cout << "invalid input! please enter Y or N" << endl;
@@ -353,12 +374,9 @@ void Farmer::sellCrop(){
                 }
             }
             money = money + newMoney;
-            cout << "yes" << endl;
-            cout << "no" << endl;
             corn = newCornArray;
             cornCount = cornCount - readyToSellCount;
         }
-
     }
 }
 

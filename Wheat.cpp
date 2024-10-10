@@ -5,7 +5,7 @@ Wheat::Wheat():Field(){
 
     this->sellPrice = 20;
     this->buyPrice = 10;
-    this->sellTime = 30;
+    this->sellTime = 8;
 	this->highYieldFactor = 1.1;
     this->highYieldPrice = 1;
 
