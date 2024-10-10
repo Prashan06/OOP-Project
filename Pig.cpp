@@ -2,8 +2,8 @@
 #include "Pig.h"
 
 Pig::Pig() : Barn() {
-    this -> sellPrice = 10;
-    this -> buyPrice = 15;
+    this -> sellPrice = 15;
+    this -> buyPrice = 12;
     this -> sellTime = 12;
 }
 

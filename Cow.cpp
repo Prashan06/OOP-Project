@@ -2,7 +2,7 @@
 #include "Cow.h"
 
 Cow::Cow() : Barn() {
-    this -> sellPrice = 10;
+    this -> sellPrice = 18;
     this -> buyPrice = 15;
     this -> sellTime = 15;
 }
