@@ -325,9 +325,10 @@ void Farmer::sellCrop(){
         int readyToSellCount = 0;
         int newMoney = 0;
         for (int i = 0; i < cornCount; ++i) {
-            if (corn[i]->getTimer() >= corn[i]->getSellTime()){
-            newMoney = newMoney + corn[i]->getSellPrice();
-            readyToSellCount++;
+            if (corn[i]->getTimer() > corn[i]->getSellTime()){
+                cout << "still going" << endl;
+                newMoney = newMoney + corn[i]->getSellPrice();
+                readyToSellCount++;
             }
         }
         Corn** newCornArray = new Corn*[cornCount - readyToSellCount];
@@ -340,7 +341,7 @@ void Farmer::sellCrop(){
         if (optionChoice == "Y") {
             for (int i = 0; i < cornCount; ++i) {
                 if (corn[i]->getTimer() < corn[i]->getSellTime()){
-                newCornArray[j++] = corn[i];
+                    newCornArray[j++] = corn[i];
                 }
             }
             money = money + newMoney;
