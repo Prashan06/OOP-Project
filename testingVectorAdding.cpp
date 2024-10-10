@@ -61,6 +61,7 @@ int main() {
     buyCorn(cornArray, cornArraySize, cornCount);
 
     sellCorn(cornArray, cornArraySize, cornCount, 3);
+    sellCorn(cornArray, cornArraySize, cornCount, 1);
 
     for (int i = 0; i < cornArraySize; ++i){
         cout << "Corn number: " << cornArray[i]->getCornNumber() << endl;
