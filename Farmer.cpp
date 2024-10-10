@@ -325,7 +325,7 @@ void Farmer::sellCrop(){
         int readyToSellCount = 0;
         int newMoney = 0;
         for (int i = 0; i < cornCount; ++i) {
-            if (corn[i]->getTimer() >= corn[i]->getSellTime()){
+            if (corn[i]->getTimer() >= corn[i]->getSellReadyTime()){
             newMoney = newMoney + corn[i]->getSellPrice();
             readyToSellCount++;
             }
