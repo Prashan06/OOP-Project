@@ -103,7 +103,7 @@ int main(){
                         farmer.getPigArray()[0]->applyHighYield(farmer.getMoneyCount());
                         farmer.highYieldBought();
                     }*/
-                   farmer.applyHighYield();
+                   farmer.applyHighYieldAll(farmer.getMoneyCount());
                 }
             } else if (optionChoice == "leave") {
                 mainScreen = true;
