@@ -2,7 +2,9 @@
 #define COW_H
 
 #include "Barn.h"
+#include "Events.h"
 
+// This class manages the cows in the farm. This class inherits from Barn and Events.
 class Cow: public Barn, public Events{
 
     protected:

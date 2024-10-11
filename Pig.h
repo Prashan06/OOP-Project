@@ -2,7 +2,9 @@
 #define PIG_H
 
 #include "Barn.h"
+#include "Events.h"
 
+// This class has attributed and functions that manage the pigs in the farm. This class inherits from Barn and Events class.
 class Pig: public Barn, public Events{
 
     protected:

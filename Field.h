@@ -3,6 +3,7 @@
 
 #include "Farm.h"
 
+// This class has attributed and functions that manage the field. This class inherits from Farm and is inherited by Corn and Wheat.
 class Field: public Farm {
 
     protected:

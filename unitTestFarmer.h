@@ -7,8 +7,10 @@ using namespace std;
 class unitTestFarmer {
     protected:
     void testFarmer(){
-        Farmer f;
-        // Enter a extremely long word to test input validation. Then enter name less than 20 characters
+    }
+    public:
+        void SetGetCountStatus(){
+                    // Enter a extremely long word to test input validation. Then enter name less than 20 characters
         f.setFarmName();
         // If number does not match the entered one, test has failed.
         f.getFarmName();
@@ -34,43 +36,62 @@ class unitTestFarmer {
         }
         // Observe if details are same as outputted above.
         f.getStatus();
-        // Buy 5 cows.
-        f.buyAnimal();
-        if (*f.getMoneyCount() != 25){
-            cout << "Buy Item - Money test failed" << endl;
-        }
-        if (*f.getCowCount() != 5){
-            cout << "Buy Item - cowCount test failed" << endl;
-        }
-        
-        // enter a large amount of objects you want to buy. Should be more than you can afford.
-        // Once error message appears buy 1 cow.
-        f.buyItem();
-
-        int blocker = 0;
-        cout << "Wait 1 min and then enter a number " << endl;
-        cin >> blocker;
-
-        // Sell the 6 cows you bought
-        f. sellItem();
-        if (*f.getMoneyCount() != 75 ){
-            cout << "sellItem - Money test failed" << endl;
         }
 
-        if (f.getCowCount() != 0){
-            cout << "sellItem - cowCount test failed" << endl;
+        void buyAnimal(){
+            Farmer f;
+            f.setMoneyCount(100);
+            // Buy 5 cows
+            if (*f.getMoneyCount() != 25){
+                cout << "Buy Item - Money test failed" << endl;
+            }
+            if (*f.getCowCount() != 5){
+                cout << "Buy Item - cowCount test failed" << endl;
+            }
         }
 
-        for (int i = 0; i < *f.getCowCount(); i++){
-            
+        void sellAnimal(){
+            Farmer f;
+            // Buy 5 cows.
+            f.buyAnimal();
+            // Wait 30 seconds and sell the cows.
+            f.sellAnimal();
+            if (f.getCowCount() != 0){
+                cout << "Sell Animal failed" << endl;
+            }
         }
 
-    }
-    public:
-    void runTests () {
-        testFarmer();
-    }
+        void buyCrop(){
+            Farmer f;
+            f.setMoneyCount(100);
+            if (*f.getMoneyCount() != 25){
+                cout << "Buy Item - Money test failed" << endl;
+            }
+            if (*f.getCornCount() != 5){
+                cout << "Buy Item - cornCount test failed" << endl;
+            }
+        }
 
+        void sellCrop(){
+            Farmer f;
+            // Buy 5 corn.
+            f.buyCrop();
+            // Wait 30 seconds and sell the corn.
+            f.sellCrop();
+            if (f.getCornCount() != 0){
+                cout << "Sell Crop failed" << endl;
+            }
+        }
+
+        void testFieldSpeedGrow(){
+            Farmer f;
+            f.setMoneyCount(100);
+            f.buyCrop();
+            f.fieldSpeedGrowthBought();
+            for (int i = 0; i < *f.getCornCount(); i++){
+                if ()
+            }
+        }
 };
 
 

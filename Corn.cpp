@@ -1,8 +1,7 @@
 #include <random>
 #include "Corn.h"
 
-Corn::Corn():Field(){ //constructor
-
+ //constructor
 Corn::Corn():Field(){
     this->buyPrice = 13;
     this->sellPrice = 15;
@@ -34,7 +33,7 @@ void Corn::applyHighYield(int* money){
         cout << "You do not have enough money to buy high yield fertilizer" << endl; //checks whether the player has enough money to execute the function
 
     } else{
-
+        // Decreases tghe money and sets cornHighYieldApplied to true.
         *money = (*money) - this->highYieldPrice;
         cornHighYieldApplied = true;
         cout << "highYield successfully applied" << endl;

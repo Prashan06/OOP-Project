@@ -12,6 +12,7 @@ void Pig::applyHighYield(int *money){
     if (*money < highYieldPrice){
         cout << "You do not have enough money to buy high yield fertilizer" << endl; //checks if the player has enough money to execute the function
     } else{
+         // Decreases the money and sets cowHighYieldApplied to true.
         *money = *money - this-> highYieldPrice;
         pigHighYieldApplied = true;
         cout << "highYield successfully applied" << endl;

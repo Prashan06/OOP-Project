@@ -16,7 +16,7 @@ void Cow::applyHighYield(int* money){
         cout << "You do not have enough money to buy high yield" << endl; // checks whether the player has enough money to execute the function
 
     } else{
-
+        // Decreases the money and sets cowHighYieldApplied to true.
         *money = (*money) - this-> highYieldPrice;
         cowHighYieldApplied = true;
         cout << "highYield successfully applied" << endl;

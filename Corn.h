@@ -2,7 +2,9 @@
 #define CORN_H
 
 #include "Field.h"
+#include "Events.h"
 
+// This class has functions for the corns in the farm. This class inherits from Field and Events.
 class Corn: public Field, public Events{
 
     protected:
