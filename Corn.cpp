@@ -3,8 +3,9 @@
 
 Corn::Corn():Field(){ //constructor
 
-    this->buyPrice = 20;
-    this->sellPrice = 30;
+Corn::Corn():Field(){
+    this->buyPrice = 13;
+    this->sellPrice = 15;
     this->sellTime = 5;
     this->highYieldPrice = 10;
 

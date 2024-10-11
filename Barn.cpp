@@ -12,7 +12,7 @@ void Barn::setHighYieldFactor(float highYieldFactor) {
 }
 
 // getter for highYieldFactor
-int Barn::getHighYieldFactor() {
+float Barn::getHighYieldFactor() {
     return highYieldFactor;
 }
 

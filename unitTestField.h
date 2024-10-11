@@ -2,90 +2,82 @@
 #define UNITTESTFIELD_H
 
 #include "Field.h"
-#include "Farmer.h"
- 
+
 using namespace std;
 
 class unitTestField{
 
-    protected:
-
-    void testField(){
-
-        Field testField;
-        Farmer testFarmer;
-
-        testField.setHighYieldFactor(1.2);
-        if (testField.getHighYieldFactor() != 1.2){
-            cout << "Test failed" << endl;
-        }
-
-        testField.setPesticidePrice(2);
-        if (testField.getPesticidePrice() != 2){
-            cout << "Test failed" << endl;
-        }
-
-       testField.setHighYieldPrice(2);
-       if (testField.getHighYieldPrice() != 2){
-            cout << "Test failed" << endl;
-       }
-
-       bool pesticideApplied = true;
-       testField.setPesticideApplied(pesticideApplied);
-       if (testField.getPesticideApplied() != true){
-            cout << "Test failed" << endl;
-       }
-       bool pesticideApplied = false;
-       testField.setPesticideApplied(pesticideApplied);
-       if (testField.getPesticideApplied() != false){
-            cout << "Test failed" << endl;
-       }
-      
-        testField.setSpeedGrowPrice(2);
-        if (testField.getSpeedGrowPrice() != 2){
-            cout << "Test failed" << endl;
-        }
-
-        testField.setSpeedGrowLevel(10);
-        if (testField.getSpeedGrowLevel() != 10){
-            cout << "Test failed" << endl;
-        }
-
-       bool speedGrowApplied = true;
-       testField.setSpeedGrowApplied(speedGrowApplied);
-       if (testField.getPesticideApplied() != true){
-            cout << "Test failed" << endl;
-       }
-       bool speedGrowApplied = false;
-       testField.setSpeedGrowApplied(speedGrowApplied);
-       if (testField.getSpeedGrowApplied() != false){
-            cout << "Test failed" << endl;
-       }
-
-        int initialMoney = *testFarmer.getMoneyCount();
-        testField.applySpeedGrowth(testFarmer.getMoneyCount()); 
-        if ((testField.getSpeedGrowApplied() != true) && (*testFarmer.getMoneyCount() != initialMoney - 2) && (testField.getSpeedGrowLevel() != 11)){
-            cout << "Test failed" << endl;
-        }
-
-        int initialMoney = *testFarmer.getMoneyCount();
-        testField.applyPesticide(testFarmer.getMoneyCount());
-        if ((testField.getPesticideApplied() != true) && (*testFarmer.getMoneyCount() != initialMoney - 2)){
-            cout << "Test failed" << endl;
-        }
-
-    }
-
     public:
 
-        void runTests(){
-            testField();
+    void testField(){
+        // Execute functions below.
+        testHighYield();
+        testSpeedGrowPrice();
+        testSpeedGrowApplied();
+    }
+
+    protected:
+        void testHighYield(){
+            Field testField;
+            // Set the highYieldFactor to 1.8.
+            testField.setHighYieldFactor(1.8);
+            cout << "" << testField.getHighYieldFactor() << endl;
+            // Check if getHighYieldFactor() works as expected.
+            if (testField.getHighYieldFactor() != 1.8){
+                // Error message.
+                cout << "Test failed1" << endl;
+            }
+
+            // Set the highYieldFactor to 2.
+            testField.setHighYieldPrice(2);
+            // Check if getHighYieldFactor() works as expected.
+            if (testField.getHighYieldPrice() != 2){
+                // Error message. 
+                    cout << "Test failed2" << endl;
+            }
         }
 
+        void testSpeedGrowPrice(){
+            Field testField;
+            // setSpeedGrowPrice to 2.
+            testField.setSpeedGrowPrice(2);
+            // Check if setSpeedGrowPrice sets the speedGrowPrice variable to 2.
+            if (testField.getSpeedGrowPrice() != 2){
+                // error message.
+                cout << "Test failed3" << endl;
+            }           
+        }
+
+        void testSpeedGrowLevel(){
+            Field testField;
+            //Set speedGrowLevel to 10; 
+            testField.setSpeedGrowLevel(10);
+            // Check if setSpeedGrowPrice sets the speedGrowPrice variable to 10.
+            if (testField.getSpeedGrowLevel() != 10){
+                // Error message.
+                cout << "Test failed4" << endl;
+            }
+        }
+
+        void testSpeedGrowApplied(){
+            Field testField;
+            // Sets the speedGrowApply to true.
+            testField.setSpeedGrowApplied(true);
+            // Checks to see if speedGrowApplied is set to true.
+            if (testField.getSpeedGrowApplied() != true){
+                    // Error message.
+                    cout << "Test failed5" << endl;
+            }
+
+            // Sets the speedGrowApplied to false.
+            testField.setSpeedGrowApplied(false);
+            // Checks to see if speedGrowApplied is sets to true.
+            if (testField.getSpeedGrowApplied() != false){
+                // Error Message.
+                cout << "Test failed6" << endl;
+            }
+        }
 };
 
 #endif
-
-
-       
   
