@@ -502,6 +502,7 @@ void Farmer::applyHighYieldAnimals(){
                     break;
                 }
             }
+        }
 
     }else if (product == "cow"){
 
@@ -533,6 +534,8 @@ void Farmer::applyHighYieldAnimals(){
                     break;
                 }
             }
+        }
+    }
 
 } 
 }
@@ -641,6 +644,8 @@ void Farmer::applyHighYieldCrops(){
                     break;
                 }
             }
+        }
+    }
 
 } 
 
