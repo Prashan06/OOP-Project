@@ -563,7 +563,7 @@ void Farmer::highYieldBought() {
 
 */
 
-void Farmer::applyCropHighYield(){
+void Farmer::applyHighYieldCrops(){
 
     string product;
 
@@ -641,7 +641,6 @@ void Farmer::applyCropHighYield(){
             }
 
 } 
-}
 
 void Farmer::executeEvent() {
     if (getCowEvent() == true) {

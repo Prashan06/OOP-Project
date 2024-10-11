@@ -67,7 +67,8 @@ class Farmer: public Pig, public Corn, public Cow, public Wheat {
         void fieldSpeedGrowthBought();
         void barnSpeedGrowthBought();
         //void highYieldBought();
-        void applyHighYieldAll();
+        void applyHighYieldAnimals();
+        void applyHighYieldCrops();
         string getProduct();
         void setProduct(string product);
 
