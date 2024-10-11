@@ -10,7 +10,9 @@
 
 using namespace std;
 
-
+// This class contains functions and attributes that manage the whole farm. 
+// This class has functions that are inherited by Barn and Field. As Cow,Pig inherit from Barn and 
+// as Wheat and Corn inherit from Field, Cow,Pig,Wheat,and Corn inherit from Farm in three level inheritance.
 class Farm {
 
     protected:
