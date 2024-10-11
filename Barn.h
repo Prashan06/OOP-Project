@@ -19,7 +19,7 @@ class Barn: public Farm {
 
         Barn();
         void setHighYieldFactor(float highYieldFactor);
-        int getHighYieldFactor();
+        float getHighYieldFactor();
         void setHighYieldPrice(int highYieldPrice);
         int getHighYieldPrice();
         void setSpeedGrowPrice (int speedGrowPrice);

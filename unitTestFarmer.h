@@ -35,11 +35,11 @@ class unitTestFarmer {
         // Observe if details are same as outputted above.
         f.getStatus();
         // Buy 5 cows.
-        f.buyItem();
-        if (f.getMoneyCount() != 25){
+        f.buyAnimal();
+        if (*f.getMoneyCount() != 25){
             cout << "Buy Item - Money test failed" << endl;
         }
-        if (*f.getCowCount() != 10){
+        if (*f.getCowCount() != 5){
             cout << "Buy Item - cowCount test failed" << endl;
         }
         

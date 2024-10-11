@@ -2,22 +2,20 @@
 #define WHEAT_H
 
 #include "Field.h"
-#include "Events.h"
-#include "Corn.h"
-#include "Cow.h"
-#include "Pig.h"
 
-class Wheat: public Field, public Events {
+class Wheat: public Field, public Events{
 
     protected:
 
-         bool wheatEvent = false; //should this be set in the constructor?
+        bool wheatEvent; 
 
     public:
 
-        Wheat();
+        Wheat(); //constructor
         void Event(int* count);
-        void applyHighYield(int *money);
+        void applyHighYield(int *money); //modifies sellPrice & money(from farmer)
+
+        //getter & setter for wheatEvent
         void setWheatEvent(bool wheatEvent);
         bool getWheatEvent();
 

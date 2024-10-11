@@ -25,7 +25,7 @@ int Field::getPesticidePrice (){
 void Field::setHighYieldFactor(float highYieldFactor){
     this -> highYieldFactor = highYieldFactor;
 }
-int Field::getHighYieldFactor(){
+float Field::getHighYieldFactor(){
     return highYieldFactor;
 }
 void Field::setHighYieldPrice(int highYieldPrice){

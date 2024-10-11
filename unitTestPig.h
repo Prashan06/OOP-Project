@@ -2,44 +2,59 @@
 #define UNITTESTPIG_H
 
 #include "Pig.h"
-#include "Farmer.h"
 #include "Events.h"
  
 using namespace std;
 
 class unitTestPig{
 
-    protected:
-
-    void testPig(){
-
-        Farmer testFarmer;
-        Pig testPig;
-
-        testFarmer.setMoneyCount(50);
-        testPig.applyHighYield(testFarmer.getMoneyCount());
-
-        if (testPig.getPigHighYieldApplied() != true){
-            cout << "applyHighYield test failed. " << endl;
-        }
-
-        if (*testFarmer.getMoneyCount() != 35 ) {
-            cout << "Money - applyHighField failed. " << endl;
-        }
-
-        testFarmer.setPigCount(10);
-        testPig.Event(testFarmer.getPigCount());
-        if (testPig.getPigEvent() != true){
-            cout << "Pig Event - Event failed. " << endl;
-        } 
-    }
-
     public:
 
-        void runTests(){
-            testPig();
+    void testPig(){
+        // execute functions below.
+        testConstructor();
+        testApplyHighYield();
+        testEvent();
+    }
+
+    protected:
+        void testConstructor(){
+            Pig pig;
+            // Call the constructor and verify that the values are constructed to the correct setting.
+            if (pig.getSellPrice() != 15 && pig.getBuyPrice() != 12 && pig.getSellTime() == 12 && pig.getHighYieldPrice() == 15){
+                cout << "Constructor test failed" << endl;
+            }
         }
 
+        void testApplyHighYield(){
+            Pig pig;
+            // Set money to 20.
+            int Money = 20;
+            int* MoneyCountPtr = &Money;
+             // Take money as a parameter and execute applyHighYieldFunction.
+            pig.applyHighYield(MoneyCountPtr);
+            // If statement to check if pigHighYieldApplied is true and money has decreased. 
+            if (pig.getPigHighYieldApplied() != true && Money != 5){
+            cout << "applyHighYield test failed. " << endl;
+            }
+        }
+
+        void testEvent(){
+            Pig pig;
+            // Set the number of pigs to 10.
+            int pigCount = 10;
+            int* pigCountPtr = &pigCount;
+            // Set the pigEvent variable to false.
+            pig.setPigEvent(false);
+            // Execute the event function with wheatCount taken as a variable.
+            pig.Event(pigCountPtr);
+            cout << " "  << pig.getPigEvent() << endl;
+            // if statement to check if function worked as expected. 
+            // Note that when random num gen taken out, below works. Otherwise, pig event is true at random times which is correct.
+            if (pig.getPigEvent() != true){
+                cout << "Pig Event - Event failed. " << endl;
+            } 
+        }
 };
 
 #endif

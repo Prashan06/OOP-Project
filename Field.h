@@ -23,7 +23,7 @@ class Field: public Farm {
         void setPesticidePrice (int pesticidePrice);
         int getPesticidePrice ();
         void setHighYieldFactor(float highYieldFactor);
-        int getHighYieldFactor();
+        float getHighYieldFactor();
         void setHighYieldPrice(int highYieldPrice);
         int getHighYieldPrice();
         void setPesticideApplied (bool pesticideApplied);
