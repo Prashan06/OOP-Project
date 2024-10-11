@@ -70,6 +70,26 @@ Corn* Farmer::createNewCorn() {
     return newCorn;
 }
 
+void Farmer::buyCorn(Corn**& cornArray, int& cornCount, int amount) {
+    // Resize logic for the corn array
+    Corn** newCornArray = new Corn*[cornCount + amount];
+
+    // Copy existing corn pointers to the new array
+    for (int i = 0; i < cornCount; ++i) {
+        newCornArray[i] = cornArray[i];
+    }
+
+    // Create new corn objects and add them to the new array
+    for (int j = 0; j < amount; ++j) {
+        newCornArray[cornCount + j] = new Corn(); // Allocate a single Corn object
+    }
+
+    // Delete the old corn array and reassign
+    delete[] cornArray;
+    cornArray = newCornArray; // Update the pointer to the new array
+    cornCount += amount; // Update the total count of corn
+}
+
 void Farmer::buyAnimal(){
     string newProduct;
     cout << "What animal would you like to buy? enter pig or cow" << endl;
@@ -432,17 +452,20 @@ void Farmer:: barnSpeedGrowthBought(){
 
 
 
-void Farmer::upgradeCrop(){
+void Farmer::applyHighYieldAll(){
 
     string product;
 
     Wheat functionWheat;
+    Corn functionCorn;
+    Pig functionPig;
+    Cow functionCow;
 
-    cout << "What crop would you like to upgrade? wheat or corn? (Enter response in lower case)" << endl;
+    cout << "What crop would you like to upgrade? wheat,corn,cow or pig? (Enter response in lower case)" << endl;
     cin >> product;
 
-    while (product != "wheat" && product != "corn"){
-        cout << "invalid input! please enter wheat or corn" << endl;
+    while (product != "wheat" || product != "corn" || product != "pig" || product != "cow"){
+        cout << "invalid input! please enter wheat,corn,cow or pig" << endl;
         cin >> product;
     }
 
@@ -452,28 +475,25 @@ void Farmer::upgradeCrop(){
         int newMoney = 0;
         int highYieldNotAppliedCount;
 
-        for (int i = 0; i < wheatCount; ++i){
-            if ((wheat[i]->getIsHighYieldApplied()) == false){
-                newMoney = newMoney + wheat[i]->getHighYieldPrice();
-                highYieldNotAppliedCount++;
-            }
+        int numberCanUpgrade = money/functionWheat.getHighYieldPrice();
+
+        if (numberCanUpgrade > wheatCount){
+            numberCanUpgrade = wheatCount;
         }
 
-        int numberCanUpgrade = *money/functionWheat->getHighYieldPrice;
-
-        cout << "You have " << highYieldNotAppliedCunt << " wheat that are not upgraded " << endl;
-        cout << "You can upgrade" << numberCanUpgrade << "of them, enter the number that you would like to upgrade or 0 to exit" << endl;
+        cout << "You can upgrade " << numberCanUpgrade << " wheat" << endl;
+        cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
+        int optionChoice = 0;
         cin >> optionChoice;
-        while (optionChoice != 0 || optionChoice != 0:optionChoice) {
+        while (optionChoice < 0 || optionChoice > numberCanUpgrade){
             cout << "invalid input! please enter a valid number" << endl;
-            cin >> optionChoice;
         }
-        if (optionChoice == 1:optionChoice) {
+        if (optionChoice != 0) {
+            int j = 0;
             for (int i = 0; i < wheatCount; ++i) {
                 if (j < optionChoice){
-                    wheat[i].applyHighYield();
+                    wheat[i]->applyHighYield(&money);
                     j++;
-                    money = money - wheat[i]->getHighYieldPrice();
                 } else {
                     break;
                 }
@@ -481,38 +501,97 @@ void Farmer::upgradeCrop(){
 
     }else if (product == "corn"){
 
-        int option;
+                int option;
         int newMoney = 0;
         int highYieldNotAppliedCount;
 
-        for (int i = 0; i < wheatCount; ++i){
-            if ((wheat[i]->getIsHighYieldApplied()) == false){
-                newMoney = newMoney + wheat[i]->getHighYieldPrice();
-                highYieldNotAppliedCount++;
-            }
+        int numberCanUpgrade = money/functionCorn.getHighYieldPrice();
+
+        if (numberCanUpgrade > cornCount){
+            numberCanUpgrade = cornCount;
         }
 
-        int numberCanUpgrade = *money/functionWheat->getHighYieldPrice;
-
-        cout << "You have " << highYieldNotAppliedCunt << " wheat that are not upgraded " << endl;
-        cout << "You can upgrade" << numberCanUpgrade << "of them, enter the number that you would like to upgrade or 0 to exit" << endl;
+        cout << "You can upgrade " << numberCanUpgrade << " wheat" << endl;
+        cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
+        int optionChoice = 0;
         cin >> optionChoice;
-        while (optionChoice != 0 || optionChoice != 0:optionChoice) {
+        while (optionChoice < 0 || optionChoice > numberCanUpgrade){
             cout << "invalid input! please enter a valid number" << endl;
-            cin >> optionChoice;
         }
-        if (optionChoice == 1:optionChoice) {
+        if (optionChoice != 0) {
+            int j = 0;
             for (int i = 0; i < wheatCount; ++i) {
                 if (j < optionChoice){
-                    wheat[i].applyHighYield();
+                    wheat[i]->applyHighYield(&money);
                     j++;
-                    money = money - wheat[i]->getHighYieldPrice();
                 } else {
                     break;
                 }
             }
+    }else if (product == "pig"){
+
+        
+        int option;
+        int newMoney = 0;
+        int highYieldNotAppliedCount;
+
+        int numberCanUpgrade = money/functionWheat.getHighYieldPrice();
+
+        if (numberCanUpgrade > wheatCount){
+            numberCanUpgrade = wheatCount;
         }
+
+        cout << "You can upgrade " << numberCanUpgrade << " wheat" << endl;
+        cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
+        int optionChoice = 0;
+        cin >> optionChoice;
+        while (optionChoice < 0 || optionChoice > numberCanUpgrade){
+            cout << "invalid input! please enter a valid number" << endl;
+        }
+        if (optionChoice != 0) {
+            int j = 0;
+            for (int i = 0; i < wheatCount; ++i) {
+                if (j < optionChoice){
+                    wheat[i]->applyHighYield(&money);
+                    j++;
+                } else {
+                    break;
+                }
+            }
+
+    }else if (product == "cow"){
+
+        
+        int option;
+        int newMoney = 0;
+        int highYieldNotAppliedCount;
+
+        int numberCanUpgrade = money/functionWheat.getHighYieldPrice();
+
+        if (numberCanUpgrade > wheatCount){
+            numberCanUpgrade = wheatCount;
+        }
+
+        cout << "You can upgrade " << numberCanUpgrade << " wheat" << endl;
+        cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
+        int optionChoice = 0;
+        cin >> optionChoice;
+        while (optionChoice < 0 || optionChoice > numberCanUpgrade){
+            cout << "invalid input! please enter a valid number" << endl;
+        }
+        if (optionChoice != 0) {
+            int j = 0;
+            for (int i = 0; i < wheatCount; ++i) {
+                if (j < optionChoice){
+                    wheat[i]->applyHighYield(&money);
+                    j++;
+                } else {
+                    break;
+                }
+            }
+
 } 
+}
 
 /*
 
