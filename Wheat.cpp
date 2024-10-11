@@ -1,6 +1,7 @@
 #include <random>
 #include "Wheat.h"
 
+// Constructor 
 Wheat::Wheat():Field(){
 
     this->sellPrice = 15;
@@ -10,11 +11,13 @@ Wheat::Wheat():Field(){
 
 }
 
+
 void Wheat::applyHighYield(int *money){
 
     if (*money < highYieldPrice){
-        cout << "You do not have enough money to buy high yield fertilizer, try again later" << endl;
+        cout << "You do not have enough money to buy high yield fertilizer, try again later" << endl; // checks whether the player has enough money to execute the function
     } else {
+        // Decreases the money and sets cowHighYieldApplied to true.
         *money = *money - this->highYieldPrice;
         wheatHighYieldApplied = true;
         cout << "HighYield successfully applied" << endl;
@@ -22,7 +25,7 @@ void Wheat::applyHighYield(int *money){
 
 }
 
-void Wheat::Event(int* count){
+void Wheat::Event(int* count){ 
     if (*count % 10 == 0) {
         random_device rd; // obtain a random number from hardware
         mt19937 gen(rd()); // seed the generator, initialise generator
@@ -34,9 +37,9 @@ void Wheat::Event(int* count){
     }
 }
 
-void Wheat::setWheatEvent(bool wheatEvent) {
+void Wheat::setWheatEvent(bool wheatEvent) { // setter for wheatEvent
     this -> wheatEvent = wheatEvent;
 }
-bool Wheat::getWheatEvent() {
+bool Wheat::getWheatEvent() {// getter for wheatEvent.
     return wheatEvent;
 }

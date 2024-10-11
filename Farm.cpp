@@ -76,7 +76,7 @@ void Farm::setCornHighYieldApplied(bool cornHighYieldApplied){
     this -> cornHighYieldApplied = cornHighYieldApplied;
 }
 
-bool isReadyToSell (){
+bool Farm:: isReadyToSell (){
     int getDuration = time(NULL) - timer;
     if (getDuration > getSellTime()){
         return true;
