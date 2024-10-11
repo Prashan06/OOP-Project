@@ -1,4 +1,5 @@
 #include "Farmer.h"
+#include <iostream>
 
 using namespace std;
 
@@ -70,7 +71,7 @@ Corn* Farmer::createNewCorn() {
     return newCorn;
 }
 
-void Farmer::buyCorn(Corn**& cornArray, int& cornCount, int amount) {
+/*void Farmer::buyCorn(Corn**& cornArray, int& cornCount, int amount) {
     // Resize logic for the corn array
     Corn** newCornArray = new Corn*[cornCount + amount];
 
@@ -89,6 +90,7 @@ void Farmer::buyCorn(Corn**& cornArray, int& cornCount, int amount) {
     cornArray = newCornArray; // Update the pointer to the new array
     cornCount += amount; // Update the total count of corn
 }
+*/
 
 void Farmer::buyAnimal(){
     string newProduct;
@@ -470,7 +472,7 @@ void Farmer::applyHighYieldAnimals(){
     }
 
 
-    }else if (product == "pig"){
+    if (product == "pig"){
 
         
         int option;

@@ -103,7 +103,7 @@ int main(){
                         farmer.getPigArray()[0]->applyHighYield(farmer.getMoneyCount());
                         farmer.highYieldBought();
                     }*/
-                   farmer.applyHighYieldAll();
+                   farmer.applyHighYieldAnimals();
                 }
             } else if (optionChoice == "leave") {
                 mainScreen = true;
@@ -142,7 +142,7 @@ int main(){
                     farmer.getCornArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
                     farmer.fieldSpeedGrowthBought();
                 } else if (optionChoice == "yield") {
-                    cout << "which crop would you like to apply highYield to, enter corn or wheat" << endl;
+                    /*cout << "which crop would you like to apply highYield to, enter corn or wheat" << endl;
                     cin >> optionChoice;
                     if (optionChoice == "corn"){
                         farmer.getCornArray()[0]->applyHighYield(farmer.getMoneyCount());
@@ -150,7 +150,8 @@ int main(){
                     } else if (optionChoice == "wheat") {
                         farmer.getWheatArray()[0]->applyHighYield(farmer.getMoneyCount());
                         farmer.highYieldBought();
-                    }
+                    }*/
+                   farmer.applyHighYieldCrops();
                 }
             } else if (optionChoice == "leave") {
                 mainScreen = true;
