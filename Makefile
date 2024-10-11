@@ -31,5 +31,6 @@ Farmer.o: Farmer.cpp Farmer.h
 main.o: main.cpp
 	g++ -c main.cpp
 
+# Remove the objects files and executable.
 Clean: 
 	rm -f Cow.o Corn.o Wheat.o Pig.o Field.o Barn.o Farm.o Farmer.o main.o FarmSim
