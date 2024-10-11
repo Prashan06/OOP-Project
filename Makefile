@@ -1,6 +1,9 @@
+# All object files are to be linked to the final exceutable.
 all: Cow.o Corn.o Wheat.o Pig.o Field.o Barn.o Farm.o Farmer.o main.o
 	g++ main.o Farmer.o Farm.o Barn.o Field.o Pig.o Wheat.o Corn.o Cow.o -o FarmSim
 
+# compile source files into object files.
+# As most of the source files do not have a main file, -c is used to compile them into object files. 
 Cow.o: Cow.cpp Cow.h
 	g++ -c Cow.cpp
 
