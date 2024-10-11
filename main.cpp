@@ -91,7 +91,7 @@ int main(){
                     farmer.getCowArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
                     farmer.barnSpeedGrowthBought();
                 } else if (optionChoice == "yield") {
-                    if (*farmer.getCornCount() > 0 || *farmer.getWheatCount() > 0){
+                    /*if (*farmer.getCornCount() > 0 || *farmer.getWheatCount() > 0){
                         cout << "both animals must be purchased before upgrades can be applied" << endl;
                     }
                     cout << "which animal would you like to apply highYield to, enter cow or pig" << endl;
@@ -102,7 +102,8 @@ int main(){
                     } else if (optionChoice == "pig") {
                         farmer.getPigArray()[0]->applyHighYield(farmer.getMoneyCount());
                         farmer.highYieldBought();
-                    }
+                    }*/
+                   farmer.applyHighYield();
                 }
             } else if (optionChoice == "leave") {
                 mainScreen = true;
