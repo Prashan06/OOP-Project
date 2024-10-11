@@ -14,6 +14,8 @@
 #include "Barn.h"
 #include "Field.h"
 
+using namespace std;
+
 class Farmer: public Pig, public Corn, public Cow, public Wheat {
     protected:
         
@@ -35,7 +37,8 @@ class Farmer: public Pig, public Corn, public Cow, public Wheat {
         int timesCowsBought;
         int timesPigsBought;
         string product;
-        fstream file;
+        fstream outputFile;
+        fstream inputFile;
    
     public:
 
@@ -77,7 +80,8 @@ class Farmer: public Pig, public Corn, public Cow, public Wheat {
 		Wheat* createNewWheat();
 		Corn* createNewCorn();
 
-        void fileWriter(string filename, string output, int* money);
+        void fileWriter(string filename, int* money);
+        void fileReader(string filename);
 
 
 };

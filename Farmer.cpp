@@ -534,10 +534,21 @@ void Farmer::executeEvent() {
     }
 }
 
-void Farmer::fileWriter(string filename, string output, int* money) {
-    file.open(filename, ios::out);
-    file << output << "'s earnings: " << *money << " dollars" << endl;
-    file.close();
+// the read and write files were written using information from the week 5 lecture video and https://stackoverflow.com/questions/132358/how-to-read-file-content-into-istringstream
+void Farmer::fileReader(string filename) {
+    inputFile.open(filename, ios::in);
+    int newMoney;
+    inputFile >> newMoney;
+    inputFile.close();
+    setMoneyCount(newMoney);
+
+}
+
+void Farmer::fileWriter(string filename, int* money) {
+
+    outputFile.open(filename, ios::out);
+    outputFile << *money << endl;
+    outputFile.close();
 }
 
 Farmer::~Farmer() {

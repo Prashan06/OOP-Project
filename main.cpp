@@ -27,7 +27,17 @@ int main(){
 
     farmer.setFarmName();
     while (*farmer.getMoneyCount() > 0){
-        farmer.fileWriter("savefile", farmer.getFarmName(), farmer.getMoneyCount());
+        cout << "Would you like to read in a savefile? enter Y or N" << endl;
+        cin >> optionChoice;
+        while (optionChoice != "Y" && optionChoice != "N") {
+            cout << "invalid input! please enter Y or N" << endl;
+            cin >> optionChoice;
+        }
+        if(optionChoice == "Y") {
+            farmer.fileReader("savefile");
+            cout << "starting bank balance is now" << *farmer.getMoneyCount() << endl;
+        }
+
         while (mainScreen == true){
 
             cout << "Hello " << farmer.getFarmName() << "!" << endl;
@@ -147,6 +157,7 @@ int main(){
             }
         }
     }
+    farmer.fileWriter("savefile", farmer.getMoneyCount());
     farmer.~Farmer();
     return 0;
 }
