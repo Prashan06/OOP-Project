@@ -67,27 +67,6 @@ Corn* Farmer::createNewCorn() {
     return newCorn;
 }
 
-/*void Farmer::buyCorn(Corn**& cornArray, int& cornCount, int amount) {
-    // Resize logic for the corn array
-    Corn** newCornArray = new Corn*[cornCount + amount];
-
-    // Copy existing corn pointers to the new array
-    for (int i = 0; i < cornCount; ++i) {
-        newCornArray[i] = cornArray[i];
-    }
-
-    // Create new corn objects and add them to the new array
-    for (int j = 0; j < amount; ++j) {
-        newCornArray[cornCount + j] = new Corn(); // Allocate a single Corn object
-    }
-
-    // Delete the old corn array and reassign
-    delete[] cornArray;
-    cornArray = newCornArray; // Update the pointer to the new array
-    cornCount += amount; // Update the total count of corn
-}
-*/
-
 void Farmer::buyAnimal(){
     string newProduct;
     cout << "What animal would you like to buy? enter pig or cow" << endl;
