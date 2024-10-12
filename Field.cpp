@@ -4,7 +4,7 @@
 Field::Field():Farm(){
     
 this->speedGrowLevel = 0;
-this->speedGrowPrice = 10; 
+this->speedGrowPrice = 30; 
 this->pesticidePrice = 10;
 this->highYieldFactor = 1.1;
 this->highYieldPrice = 25;

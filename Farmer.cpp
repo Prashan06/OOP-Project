@@ -1,6 +1,5 @@
 #include "Farmer.h"
 
-luytrertyuytrewertytrewertyuytrertyuytrertytrertytre
 // Constructor 
 Farmer::Farmer() : money(50), pig(new Pig*[pigCount]), cow(new Cow*[cowCount]), wheat(new Wheat*[wheatCount]), corn(new Corn*[cornCount]), farmName(""), timesWheatPlanted(0), timesCornPlanted(0), timesCowsBought(0), timesPigsBought(0) {}
 

@@ -81,8 +81,8 @@ int main(){
             } else if (optionChoice == "upgrade") {
                 cout << "which upgrade would you like to buy?" << endl;
                 cout << "" << endl;
-                cout << "To upgrade speedGrowth, enter speed" << endl;
-                cout << "To upgrade highYield, enter yield" << endl;
+                cout << "To upgrade speedGrowth for $30, enter speed" << endl;
+                cout << "To upgrade highYield for $25, enter yield" << endl;
                 cin >> optionChoice;
                 if (optionChoice == "speed") {
                     if (*farmer.getCowCount() > 0 || *farmer.getPigCount() > 0){
@@ -91,7 +91,7 @@ int main(){
                     farmer.getCowArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
                     farmer.barnSpeedGrowthBought();
                 } else if (optionChoice == "yield") {
-                    /*if (*farmer.getCornCount() > 0 || *farmer.getWheatCount() > 0){
+                    if (*farmer.getCornCount() > 0 || *farmer.getWheatCount() > 0){
                         cout << "both animals must be purchased before upgrades can be applied" << endl;
                     }
                     cout << "which animal would you like to apply highYield to, enter cow or pig" << endl;
@@ -102,8 +102,7 @@ int main(){
                     } else if (optionChoice == "pig") {
                         farmer.getPigArray()[0]->applyHighYield(farmer.getMoneyCount());
                         farmer.highYieldBought();
-                    }*/
-                   farmer.applyHighYieldAnimals();
+                    }
                 }
             } else if (optionChoice == "leave") {
                 mainScreen = true;
@@ -142,7 +141,7 @@ int main(){
                     farmer.getCornArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
                     farmer.fieldSpeedGrowthBought();
                 } else if (optionChoice == "yield") {
-                    /*cout << "which crop would you like to apply highYield to, enter corn or wheat" << endl;
+                    cout << "which crop would you like to apply highYield to, enter corn or wheat" << endl;
                     cin >> optionChoice;
                     if (optionChoice == "corn"){
                         farmer.getCornArray()[0]->applyHighYield(farmer.getMoneyCount());
@@ -150,8 +149,7 @@ int main(){
                     } else if (optionChoice == "wheat") {
                         farmer.getWheatArray()[0]->applyHighYield(farmer.getMoneyCount());
                         farmer.highYieldBought();
-                    }*/
-                   farmer.applyHighYieldCrops();
+                    }
                 }
             } else if (optionChoice == "leave") {
                 mainScreen = true;
