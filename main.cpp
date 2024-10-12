@@ -71,11 +71,11 @@ int main(){
             if (optionChoice == "buy") {
                 farmer.buyAnimal();
                 if (farmer.getProduct() == "cow"){
-                  //  farmer.getCowArray()[0]->Event(farmer.getCowCount());
+                  farmer.getCowArray()[0]->Event(farmer.getCowCount());
                 } else if (farmer.getProduct() == "corn"){
-                   // farmer.getPigArray()[0]->Event(farmer.getPigCount());
+                   farmer.getPigArray()[0]->Event(farmer.getPigCount());
                 }
-                // farmer.executeEvent();
+                farmer.executeEvent();
             } else if (optionChoice == "sell") {
                 farmer.sellAnimal();
             } else if (optionChoice == "upgrade") {

@@ -1,5 +1,5 @@
 #include "Farmer.h"
-
+#include <iostream>
 // Constructor 
 Farmer::Farmer() : money(50), pig(new Pig*[pigCount]), cow(new Cow*[cowCount]), wheat(new Wheat*[wheatCount]), corn(new Corn*[cornCount]), farmName(""), timesWheatPlanted(0), timesCornPlanted(0), timesCowsBought(0), timesPigsBought(0) {}
 
@@ -95,7 +95,11 @@ void Farmer::buyAnimal(){
             newCowArray[i] = nullptr;
         }
 
-        for (int i = cowCount-1; i < cowCount + amount; i++){
+        for (int i = 0; i < cowCount; i++){
+            newCowArray[i] = cow[i];
+        }
+
+        for (int i = cowCount; i < cowCount + amount; i++){
             Cow* newCow = createNewCow();
             newCowArray[i] = newCow;
         }
@@ -121,7 +125,11 @@ void Farmer::buyAnimal(){
             newPigArray[i] = nullptr;
         }
 
-        for (int i = pigCount-1; i < pigCount + amount; i++){
+        for (int i = 0; i < pigCount; i++){
+            newPigArray[i] = pig[i];
+        }
+
+        for (int i = pigCount; i < pigCount + amount; i++){
             Pig* newPig = createNewPig();
             newPigArray[i] = newPig;
         }
@@ -236,7 +244,11 @@ void Farmer::buyCrop() {
             newWheatArray[i] = nullptr;
         }
 
-        for (int i = wheatCount-1; i < wheatCount + amount; i++){
+        for (int i = 0; i < wheatCount; i++){
+            newWheatArray[i] = wheat[i];
+        }
+
+        for (int i = wheatCount; i < wheatCount + amount; i++){
             Wheat* newWheat = createNewWheat();
             newWheatArray[i] = newWheat;
         }
@@ -262,7 +274,11 @@ void Farmer::buyCrop() {
             newCornArray[i] = nullptr;
         }
 
-        for (int i = cornCount-1; i < cornCount + amount; i++){
+        for (int i = 0; i < cornCount; i++){
+            newCornArray[i] = corn[i];
+        }
+
+        for (int i = cornCount; i < cornCount + amount; i++){
             Corn* newCorn = createNewCorn();
             newCornArray[i] = newCorn;
         }
@@ -329,7 +345,6 @@ void Farmer::sellCrop(){
         int readyToSellCount = 0;
         int newMoney = 0;
         for (int i = 0; i < cornCount; ++i) {
-            cout << "Yo" << endl;
             if (corn[i]->isReadyToSell() == true){
             newMoney = newMoney + corn[i]->getSellPrice();
             readyToSellCount++;
@@ -343,11 +358,14 @@ void Farmer::sellCrop(){
             cin >> optionChoice;
         }
         if (optionChoice == "Y") {
-            for (int i = 0; i < cornCount-1; ++i) {
-                if (corn[i]->isReadyToSell() == false){
-                newCornArray[j++] = corn[i];
+            for (int i = 0; i < wheatCount; ++i) {
+                if ((currentTime - (corn[i]->getTimer())) < corn[i]->getSellTime()){
+                    newCornArray[j] = corn[i];
+                    j++;
+                } else {
+                    delete corn[i];
                 }
-            }
+        }
             money = money + newMoney;
             corn = newCornArray;
             setCornCount(cornCount - readyToSellCount);
@@ -548,3 +566,5 @@ Farmer::~Farmer() {
     delete[] wheat;
     delete[] corn;
 }
+
+
