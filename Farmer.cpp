@@ -97,7 +97,7 @@ void Farmer::buyAnimal(){
 
         for (int i = 0; i < cowCount; i++){
             newCowArray[i] = cow[i];
-        }SDFG
+        }
 
         for (int i = cowCount; i < cowCount + amount; i++){
             Cow* newCow = createNewCow();
