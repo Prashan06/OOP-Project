@@ -214,7 +214,7 @@ int main(){
             cout << "To visit the Field, enter field" << endl;
             cin >> optionChoice;
 
-            while (optionChoice != "barn" || optionChoice != "field" || optionChoice != "status"){
+            while (optionChoice != "barn" && optionChoice != "field" && optionChoice != "status"){
                 cout << "Invalid input, reenter your choice of action. Choose, barn, field, or status." << endl;
                 cin >> optionChoice;
             }
@@ -239,7 +239,7 @@ int main(){
             cout << "To sell an animal, enter sell" << endl;
             cout << "To leave the Barn, enter leave" << endl;
             cin >> optionChoice;
-            while (optionChoice != "buy" || optionChoice != "upgrade" || optionChoice != "sell" || optionChoice != "leave"){
+            while (optionChoice != "buy" && optionChoice != "upgrade" && optionChoice != "sell" && optionChoice != "leave"){
                 cout << "Invalid input, reenter your choice of action. Choose, buy, upgrade, sell, or leave ." << endl;
                 cin >> optionChoice;
             }
@@ -299,7 +299,7 @@ int main(){
             cout << "To sell a crop, enter sell" << endl;
             cout << "to leave the Field, enter leave" << endl;
             cin >> optionChoice;
-            while (optionChoice != "buy" || optionChoice != "upgrade" || optionChoice != "sell" || optionChoice != "pesticide" || optionChoice != "leave"){
+            while (optionChoice != "buy" && optionChoice != "upgrade" && optionChoice != "sell" && optionChoice != "pesticide" && optionChoice != "leave"){
                 cout << "Invalid input, reenter your choice of action. Choose, buy, upgrade, sell, pesticide, or leave ." << endl;
                 cin >> optionChoice;
             }
@@ -328,6 +328,10 @@ int main(){
                 cout << "To upgrade speedGrowth, enter speed" << endl;
                 cout << "To upgrade highYield, enter yield" << endl;
                 cin >> optionChoice;
+                while (optionChoice != "speed" && optionChoice != "yield" ){
+                    cout << "Invalid input, reenter your choice of action,  choose speed or yield." << endl;
+                    cin >> optionChoice;
+                }
                 if (optionChoice == "speed") {
                     farmer.getCornArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
                     farmer.fieldSpeedGrowthBought();
@@ -343,7 +347,7 @@ int main(){
                     }*/
                    farmer.applyHighYieldCrops();
                 } else if (optionChoice == "pesticide"){
-
+                    
                 }
             } else if (optionChoice == "leave") {
                 mainScreen = true;
