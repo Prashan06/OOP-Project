@@ -1164,7 +1164,7 @@ void Farmer::applyHighYieldAnimals(){
     std::cout << "What crop would you like to upgrade? cow or pig? (Enter response in lower case)" << endl;
     std::cin >> product;
 
-    while (product != "pig" || product != "cow"){
+    while (product != "pig" && product != "cow"){
         std::cout << "invalid input! please enter cow or pig" << endl;
         std::cin >> product;
     }
@@ -1277,7 +1277,7 @@ void Farmer::applyHighYieldCrops(){
     cout << "What crop would you like to upgrade? Wheat or Corn? (Enter response in lower case)" << endl;
     cin >> product;
 
-    while (product != "wheat" || product != "corn"){
+    while (product != "wheat" && product != "corn"){
         cout << "invalid input! please enter wheat or corn" << endl;
         cin >> product;
     }
