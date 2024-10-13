@@ -167,7 +167,7 @@ void Farmer::buyAnimal(){
         pig = newPigArray;
         //sets the pigCount.
         setPigCount(pigCount + amount);
-        for (int i = 0; i < cowCount; i++){
+        for (int i = 0; i < pigCount; i++){
             pig[i]->Event(getPigCount());
         }
     }
@@ -826,7 +826,7 @@ void Farmer::applyHighYieldCrops(){
 
         int numberCanUpgrade = money/functionWheat.getHighYieldPrice();
 
-        if (numberCanUpgrade > wheatCount){sdfghjhgfd
+        if (numberCanUpgrade > wheatCount){
             numberCanUpgrade = wheatCount;
         }
 
