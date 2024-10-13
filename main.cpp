@@ -249,16 +249,17 @@ int main(){
             }
             if (optionChoice == "buy") {
                 farmer.buyAnimal();
-                if (farmer.getProduct() == "cow"){
+                if (farmer.getProduct() == "cow" && *farmer.getCowCount() > 9){
                     for (int i = 0; i < *farmer.getCowCount(); i++){
                         farmer.getCowArray()[i]->Event(farmer.getCowCount());
                     }
-                } else if (farmer.getProduct() == "pig"){
+                    farmer.executeEvent();
+                } else if (farmer.getProduct() == "pig" && *farmer.getPigCount() > 9){
                     for (int i = 0; i < *farmer.getPigCount(); i++){
                         farmer.getPigArray()[i]-> Event(farmer.getPigCount());
                     }
+                    farmer.executeEvent();
                 }
-                  farmer.executeEvent();
             } else if (optionChoice == "sell") {
                 farmer.sellAnimal();
             } else if (optionChoice == "upgrade") {
@@ -312,21 +313,22 @@ int main(){
             }
             if (optionChoice == "buy") {
                 farmer.buyCrop();
-                if (farmer.getProduct() == "corn"){
+                if (farmer.getProduct() == "corn" && *farmer.getCornCount() > 9){
                     for (int i = 0; i < *farmer.getCornCount(); i++){
                         farmer.getCornArray()[i]->Event(farmer.getCornCount());
                         //line below is for debugging, needs to be taken out.
                         cout << "" << i << " " << farmer.getCornArray()[i]->getCornEvent() << endl;
                     }
+                    farmer.executeEvent();
                 }
-                if (farmer.getProduct() == "Wheat") {
+                if (farmer.getProduct() == "Wheat" && *farmer.getWheatCount() > 9) {
                     for (int i = 0; i < *farmer.getWheatCount(); i++){
                         farmer.getWheatArray()[i]->Event(farmer.getWheatCount());
                         //line below is for debugging, needs to be taken out.
                         cout << "" << i << " " << farmer.getWheatArray()[i]->getWheatEvent() << endl;
                     }
+                    farmer.executeEvent();
                 }
-                farmer.executeEvent();
             } else if (optionChoice == "sell") {
                 farmer.sellCrop();
             } else if (optionChoice == "upgrade") {
