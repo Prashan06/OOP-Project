@@ -334,8 +334,9 @@ int main(){
                     cin >> optionChoice;
                 }
                 if (optionChoice == "speed") {
-                    farmer.getCornArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
-                    farmer.fieldSpeedGrowthBought();
+                   /* farmer.getCornArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
+                    farmer.fieldSpeedGrowthBought();*/
+                    farmer.applyHighYieldCrops();
                 } else if (optionChoice == "yield") {
                     /*cout << "which crop would you like to apply highYield to, enter corn or wheat" << endl;
                     cin >> optionChoice;
