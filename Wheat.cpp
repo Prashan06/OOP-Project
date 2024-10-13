@@ -11,20 +11,22 @@ Wheat::Wheat():Field(){
 
 }
 
-
+// This functions sets the wheatHighYieldApplied to true. The code to increase the price of wheat objects is in Farmer
 void Wheat::applyHighYield(int *money){
-
+    // if the user does not have enough money notify them that they cannot buy highYield
     if (*money < highYieldPrice){
         cout << "You do not have enough money to buy high yield fertilizer, try again later" << endl; // checks whether the player has enough money to execute the function
     } else {
         // Decreases the money and sets cowHighYieldApplied to true.
         *money = *money - this->highYieldPrice;
+        //sets wheatHighYieldApplied to true/
         wheatHighYieldApplied = true;
         cout << "HighYield successfully applied" << endl;
     }
 
 }
 
+// This functions sets wheatEvent to true depending on the value of wheatCount. The code to affect the wheat is in Farmer
 void Wheat::Event(int* count){ 
     if (*count % 10 == 0) {
         random_device rd; // obtain a random number from hardware

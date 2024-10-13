@@ -18,6 +18,7 @@ class unitTestPig{
     }
 
     protected:
+    // Test the constructor.
         void testConstructor(){
             Pig pig;
             // Call the constructor and verify that the values are constructed to the correct setting.
@@ -26,6 +27,7 @@ class unitTestPig{
             }
         }
 
+        // Test the applyHighYield
         void testApplyHighYield(){
             Pig pig;
             // Set money to 20.
@@ -39,6 +41,7 @@ class unitTestPig{
             }
         }
 
+        // Test the event function
         void testEvent(){
             Pig pig;
             // Set the number of pigs to 10.

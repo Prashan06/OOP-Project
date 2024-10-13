@@ -19,6 +19,7 @@ class unitTestCorn{
     }
 
     protected:
+        // Test the constructor.
         void testConstructor(){
             Corn corn;
             // Call the constructor and verify that the values are constructed to the correct setting.
@@ -27,7 +28,8 @@ class unitTestCorn{
                 cout << "Constructor test failed" << endl;
             }
         }
-
+        
+        // Test the applyHighYield
         void testApplyHighYield(){
             Corn corn;
             // Set money to 20.
@@ -42,6 +44,7 @@ class unitTestCorn{
             }
         }
 
+        // Test the event function
         void testEvent(){
             Corn corn;
             // Set the number of corn to 10.

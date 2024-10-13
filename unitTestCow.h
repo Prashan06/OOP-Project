@@ -19,6 +19,7 @@ class unitTestCow{
     }
 
     protected:
+     // Test the constructor.
         void testConstructor(){
             Cow cow;
             // Call the constructor and verify that the values are constructed to the correct setting.
@@ -28,6 +29,7 @@ class unitTestCow{
             }
         }
 
+    // Test the applyHighYield
         void testApplyHighYield(){
             Cow cow;
             Farmer farmer;
@@ -42,6 +44,7 @@ class unitTestCow{
             }
         }
 
+    // Test the event function
         void testEvent(){
             Cow cow;
             // Set number of cows to 10

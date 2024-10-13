@@ -19,6 +19,7 @@ class unitTestWheat{
     }
 
     protected:
+    // Test the constructor.
         void testConstructor(){
             Wheat wheat;
             // Call the constructor and verify that the values are constructed to the correct setting.
@@ -28,6 +29,7 @@ class unitTestWheat{
             }
         }
 
+        // Test the applyHighYield
         void testApplyHighYield(){
             Wheat wheat;
             // Set money to 20.
@@ -42,6 +44,7 @@ class unitTestWheat{
             }
         }
 
+        // Test the event function
         void testEvent(){
             Wheat wheat;
             // Set the number of wheats to 10.
