@@ -30,17 +30,16 @@ void Cow::applyHighYield(int* money){
 // This functions sets cowEvent to true depending on the value of cowCount. The code to affect the cow is in Farmer.
 void Cow::Event(int* count){
 
-    if (*count % 10 == 0){
+    //if (*count > 9){
         
-        random_device rd; // obtain a random number from hardware
+        /* random_device rd; // obtain a random number from hardware
         mt19937 gen(rd()); // seed the generator, initialise generator
         uniform_int_distribution<> distr(1, 10); // define the range
         int randomNumber = distr(gen);
-
-        if (randomNumber == 1) {
-        this -> cowEvent == true;
-        }
-    }
+        */
+        this -> cowEvent = true;
+        setCowEvent(cowEvent);
+   // }
 
 }
 

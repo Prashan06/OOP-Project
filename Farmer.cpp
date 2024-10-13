@@ -1,7 +1,7 @@
-/*#include "Farmer.h"
+#include "Farmer.h"
 #include <iostream>
 // Constructor 
-Farmer::Farmer() : money(50), pig(new Pig*[pigCount]), cow(new Cow*[cowCount]), wheat(new Wheat*[wheatCount]), corn(new Corn*[cornCount]), farmName(""), timesWheatPlanted(0), timesCornPlanted(0), timesCowsBought(0), timesPigsBought(0) {}
+/* Farmer::Farmer() : money(50), pig(new Pig*[pigCount]), cow(new Cow*[cowCount]), wheat(new Wheat*[wheatCount]), corn(new Corn*[cornCount]), farmName(""), timesWheatPlanted(0), timesCornPlanted(0), timesCowsBought(0), timesPigsBought(0) {}
 
 // sets the amount of money the farmer has.
 void Farmer::setMoneyCount(int money){
@@ -74,6 +74,8 @@ Corn* Farmer::createNewCorn() {
     return newCorn;
 }
 
+*/
+
 // This function is used to buy pig and cow objects and put them into the pig or cow array.
 void Farmer::buyAnimal(){
     // Asks user what animal they would like to buy and puts their response into the product variables.
@@ -125,6 +127,9 @@ void Farmer::buyAnimal(){
         cow = newCowArray;
         //sets cowCount.
         setCowCount(cowCount + amount);
+        for (int i = 0; i < cowCount; i++){
+            cow[i]->Event(getCowCount());
+        }
     // if the user enters pig, the code for buying pigs runs
     } else if(getProduct() == "pig") {
         Pig tempPig;
@@ -474,6 +479,7 @@ void Farmer::sellCrop(){
     }
 }
 
+/*
 // setter for cowCount
 void Farmer::setCowCount(int cowCount){
     this->cowCount = cowCount;
@@ -769,28 +775,7 @@ Corn* Farmer::createNewCorn() {
     return newCorn;
 }
 
-/*void Farmer::buyCorn(Corn**& cornArray, int& cornCount, int amount) {
-    // Resize logic for the corn array
-    Corn** newCornArray = new Corn*[cornCount + amount];
-
-    // Copy existing corn pointers to the new array
-    for (int i = 0; i < cornCount; ++i) {
-        newCornArray[i] = cornArray[i];
-    }
-
-    // Create new corn objects and add them to the new array
-    for (int j = 0; j < amount; ++j) {
-        newCornArray[cornCount + j] = new Corn(); // Allocate a single Corn object
-    }
-
-    // Delete the old corn array and reassign
-    delete[] cornArray;
-    cornArray = newCornArray; // Update the pointer to the new array
-    cornCount += amount; // Update the total count of corn
-}
-*/
-
-void Farmer::buyAnimal(){
+/* void Farmer::buyAnimal(){
     string newProduct;
     std::cout << "What animal would you like to buy? enter pig or cow" << endl;
     std::cin >> newProduct;
@@ -854,6 +839,7 @@ void Farmer::buyAnimal(){
         setPigCount(pigCount + amount);
     }
 }
+
 
 void Farmer::sellAnimal(){
     std::cout << "What animal would you like to sell, cow or pig? (Enter response in lower case)" << endl;
@@ -1077,6 +1063,8 @@ void Farmer::sellCrop(){
         }
     }
 }
+
+*/
 
 void Farmer::setCowCount(int cowCount){
     this->cowCount = cowCount;
@@ -1348,7 +1336,8 @@ void Farmer::applyHighYieldCrops(){
 }
 
 void Farmer::executeEvent() {
-    if (getCowEvent() == true) {
+    cout << "" << cow[9]->getCowEvent() << endl;
+    if (cow[9]->getCowEvent() == true) {
         cout << "A disease has spread throughout the cows, half of your cows have died." << endl;
             int newCowCount = cowCount * 0.5;
             for (int i = newCowCount; i < cowCount; i++){

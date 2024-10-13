@@ -192,8 +192,8 @@ int main(){
     string optionChoice;
 
     farmer.setFarmName();
+    cout << "Would you like to read in a savefile? enter Y or N" << endl;
     while (*farmer.getMoneyCount() > 0){
-        cout << "Would you like to read in a savefile? enter Y or N" << endl;
         cin >> optionChoice;
         while (optionChoice != "Y" && optionChoice != "N") {
             cout << "invalid input! please enter Y or N" << endl;
@@ -236,12 +236,15 @@ int main(){
             cin >> optionChoice;
             if (optionChoice == "buy") {
                 farmer.buyAnimal();
-                if (farmer.getProduct() == "cow"){
-                  //  farmer.getCowArray()[0]->Event(farmer.getCowCount());
+                if (farmer.getProduct() == "cow" ){
+                    for (int i = 0; i < *farmer.getCowCount(); i++){
+                        farmer.getCowArray()[i]->Event(farmer.getCowCount());
+                        cout << "" << i << " " << farmer.getCowArray()[i]->getCowEvent() << endl;
+                    }
                 } else if (farmer.getProduct() == "corn"){
                    // farmer.getPigArray()[0]->Event(farmer.getPigCount());
                 }
-                // farmer.executeEvent();
+                  farmer.executeEvent();
             } else if (optionChoice == "sell") {
                 farmer.sellAnimal();
             } else if (optionChoice == "upgrade") {
