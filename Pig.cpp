@@ -8,6 +8,7 @@ Pig::Pig() : Barn(){ //constructor
     this->highYieldPrice = 15;
 }
 
+// This functions sets the pigHighYieldApplied to true. The code to increase the price of pig objects is in Farmer
 void Pig::applyHighYield(int *money){
     if (*money < highYieldPrice){
         cout << "You do not have enough money to buy high yield fertilizer" << endl; //checks if the player has enough money to execute the function
@@ -19,6 +20,7 @@ void Pig::applyHighYield(int *money){
     }
 }
 
+// This functions sets pigEvent to true depending on the value of pigCount. The code to affect the pig is in Farmer
 void Pig::Event(int* count){
     if (*count % 10 == 0){
         random_device rd; // obtain a random number from hardware

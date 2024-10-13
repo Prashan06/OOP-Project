@@ -10,6 +10,7 @@ Corn::Corn():Field(){
 
 }
 
+// This functions sets cornEvent to true depending on the value of cornCount. The code to affect the corn is in Farmer
 void Corn::Event(int* count){
 
     if (*count % 10 == 0){
@@ -26,6 +27,7 @@ void Corn::Event(int* count){
     }
 }
 
+// This functions sets the cornHighYieldApplied to true. The code to increase the price of corn objects is in Farmer.
 void Corn::applyHighYield(int* money){
 
     if (*money < highYieldPrice){

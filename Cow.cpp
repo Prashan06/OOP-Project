@@ -9,6 +9,7 @@ Cow::Cow() : Barn(){ //constructor
 
 }
 
+// This functions sets the cowHighYieldApplied to true. The code to increase the price of cow objects is in Farmer
 void Cow::applyHighYield(int* money){
 
     if (*money < highYieldPrice){
@@ -26,6 +27,7 @@ void Cow::applyHighYield(int* money){
 }
 
 
+// This functions sets cowEvent to true depending on the value of cowCount. The code to affect the cow is in Farmer.
 void Cow::Event(int* count){
 
     if (*count % 10 == 0){
