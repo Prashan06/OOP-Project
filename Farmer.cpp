@@ -667,15 +667,15 @@ void Farmer::applyHighYieldAnimals(){
 
         std::cout << "You can upgrade " << numberCanUpgrade << " pigs" << endl;
         std::cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
-        int optionChoice = 0;
-        std::cin >> optionChoice;
-        while (optionChoice < 0 || optionChoice > numberCanUpgrade){
+        int numberUpgraded = 0;
+        std::cin >> numberUpgraded;
+        while (numberUpgraded < 0 || numberUpgraded > numberCanUpgrade){
             std::cout << "invalid input! please enter a valid number" << endl;
         }
-        if (optionChoice != 0) {
+        if (numberUpgraded != 0) {
             int j = 0;
             for (int i = 0; i < pigCount; ++i) {
-                if (j < optionChoice){
+                if (j < numberUpgraded){
                     pig[i]->applyHighYield(&money);
                     j++;
                 } else {
@@ -699,15 +699,15 @@ void Farmer::applyHighYieldAnimals(){
 
         std::cout << "You can upgrade " << numberCanUpgrade << " cows" << endl;
         std::cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
-        int optionChoice = 0;
-        std::cin >> optionChoice;
-        while (optionChoice < 0 || optionChoice > numberCanUpgrade){
+        int numberUpgraded = 0;
+        std::cin >> numberUpgraded;
+        while (numberUpgraded < 0 || numberUpgraded > numberCanUpgrade){
             std::cout << "invalid input! please enter a valid number" << endl;
         }
-        if (optionChoice != 0) {
+        if (numberUpgraded != 0) {
             int j = 0;
             for (int i = 0; i < cowCount; ++i) {
-                if (j < optionChoice){
+                if (j < numberUpgraded){
                     cow[i]->applyHighYield(&money);
                     j++;
                 } else {

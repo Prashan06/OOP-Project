@@ -193,19 +193,23 @@ int main(){
 
     farmer.setFarmName();
     cout << "Would you like to read in a savefile? enter Y or N" << endl;
-    while (*farmer.getMoneyCount() > 0){
-        cin >> optionChoice;
+    cin >> optionChoice;
         while (optionChoice != "Y" && optionChoice != "N") {
             cout << "invalid input! please enter Y or N" << endl;
             cin >> optionChoice;
         }
         if(optionChoice == "Y") {
             farmer.fileReader("savefile");
-            cout << "starting bank balance is now" << *farmer.getMoneyCount() << endl;
+            cout << "starting bank balance is now " << *farmer.getMoneyCount() << endl;
         }
 
+        if (optionChoice == "N"){
+            cout << "Bank Balance is: " << *farmer.getMoneyCount() << endl;
+        }
+    while (*farmer.getMoneyCount() > 0){
+        
         while (mainScreen == true){
-
+            optionChoice = "";
             cout << "Hello " << farmer.getFarmName() << "!" << endl;
             cout << "What action would you like to take?" << endl;
             cout << "" << endl;
@@ -269,6 +273,7 @@ int main(){
                     //}
                     //farmer.getCowArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
                     //farmer.barnSpeedGrowthBought();
+                    farmer.applySpeedGrowAnimals();
                 } else if (optionChoice == "yield") {
                     /*if (*farmer.getCornCount() > 0 || *farmer.getWheatCount() > 0){
                         cout << "both animals must be purchased before upgrades can be applied" << endl;
@@ -285,8 +290,10 @@ int main(){
                    farmer.applyHighYieldAnimals();
                 }
             } else if (optionChoice == "leave") {
-                mainScreen = true;
+                cout << "Leaving the Barn..." << endl;  // Debug statement
                 barnScreen = false;
+                mainScreen = true;
+                cout << "mainScreen: " << mainScreen << ", barnScreen: " << barnScreen << endl; // Debug statement
             }
         }
 
@@ -335,6 +342,7 @@ int main(){
                 if (optionChoice == "speed") {
                     //farmer.getCornArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
                     //farmer.fieldSpeedGrowthBought();
+                    farmer.applySpeedGrowCrops();
                 } else if (optionChoice == "yield") {
                     /*cout << "which crop would you like to apply highYield to, enter corn or wheat" << endl;
                     cin >> optionChoice;
