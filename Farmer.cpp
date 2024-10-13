@@ -1192,7 +1192,7 @@ void Farmer::applySpeedGrowAnimals(){
             int j = 0;
             for (int i = 0; i < pigCount; ++i) {
                 if (j < optionChoice){
-                    pig[i]->applySpeedGrow(&money);
+                    pig[i]->applySpeedGrowth(&money);
                     j++;
                 } else {
                     break;
@@ -1224,7 +1224,7 @@ void Farmer::applySpeedGrowAnimals(){
             int j = 0;
             for (int i = 0; i < cowCount; ++i) {
                 if (j < optionChoice){
-                    cow[i]->applySpeedGrow(&money);
+                    cow[i]->applySpeedGrowth(&money);
                     j++;
                 } else {
                     break;
@@ -1388,7 +1388,7 @@ void Farmer::applySpeedGrowCrops(){
             int j = 0;
             for (int i = 0; i < wheatCount; ++i) {
                 if (j < optionChoice){
-                    wheat[i]->applySpeedGrow(&money);
+                    wheat[i]->applySpeedGrowth(&money);
                     j++;
                 } else {
                     break;
@@ -1418,7 +1418,7 @@ void Farmer::applySpeedGrowCrops(){
             int j = 0;
             for (int i = 0; i < cornCount; ++i) {
                 if (j < optionChoice){
-                    corn[i]->applySpeedGrow(&money);
+                    corn[i]->applySpeedGrowth(&money);
                     j++;
                 } else {
                     break;
