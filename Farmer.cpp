@@ -826,7 +826,7 @@ void Farmer::applyHighYieldCrops(){
 
         int numberCanUpgrade = money/functionWheat.getHighYieldPrice();
 
-        if (numberCanUpgrade > wheatCount){
+        if (numberCanUpgrade > wheatCount){sdfghjhgfd
             numberCanUpgrade = wheatCount;
         }
 
@@ -941,6 +941,10 @@ void Farmer::executeEvent() {
                 cornCount = newCornCount;
         }
     }
+}
+
+void Farmer::appliedPesticide(){
+    
 }
 
 // the read and write files were written using information from the week 5 lecture video and https://stackoverflow.com/questions/132358/how-to-read-file-content-into-istringstream

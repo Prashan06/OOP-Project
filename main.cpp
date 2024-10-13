@@ -358,7 +358,7 @@ int main(){
                     
                 }
             } else if (optionChoice == "leave") {
-                mainScreen = true;
+                mainScreen = true;asdfds
                 fieldScreen = false;
             }
         }
