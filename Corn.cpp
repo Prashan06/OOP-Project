@@ -13,18 +13,19 @@ Corn::Corn():Field(){
 // This functions sets cornEvent to true depending on the value of cornCount. The code to affect the corn is in Farmer
 void Corn::Event(int* count){
 
-    if (*count % 10 == 0){
+    /*if (*count % 10 == 0){
 
         random_device rd; // obtain a random number from hardware
         mt19937 gen(rd()); // seed the generator, initialise generator
         uniform_int_distribution<> distr(1, 10); // define the range
         int randomNumber = distr(gen);
 
-        if (randomNumber == 1) {
-            cornEvent = true;
-        }
+        if (randomNumber == 1) { */
+           this -> cornEvent = true;
+           setCornEvent(cornEvent);
+        //}
 
-    }
+   // }
 }
 
 // This functions sets the cornHighYieldApplied to true. The code to increase the price of corn objects is in Farmer.

@@ -236,18 +236,14 @@ int main(){
             cin >> optionChoice;
             if (optionChoice == "buy") {
                 farmer.buyAnimal();
-                if (farmer.getProduct() == "cow" ){
+                if (farmer.getProduct() == "cow"){
                     for (int i = 0; i < *farmer.getCowCount(); i++){
-                        cout << "Cow" << endl;
                         farmer.getCowArray()[i]->Event(farmer.getCowCount());
-                        cout << "" << i << " " << farmer.getCowArray()[i]->getCowEvent() << endl;
                     }
                 } else if (farmer.getProduct() == "pig"){
-                    cout << "Pig" << endl;
                     for (int i = 0; i < *farmer.getPigCount(); i++){
                         farmer.getPigArray()[i]-> Event(farmer.getPigCount());
-                        cout << "" << i << " " << farmer.getPigArray()[i]->getPigEvent() << endl;
-                    }sss
+                    }
                 }
                   farmer.executeEvent();
             } else if (optionChoice == "sell") {
@@ -296,14 +292,16 @@ int main(){
             if (optionChoice == "buy") {
                 farmer.buyCrop();
                 if (farmer.getProduct() == "corn"){
-                    farmer.getCornArray()[0]->Event(farmer.getCornCount());
+                    for (int i = 0; i < *farmer.getCornCount(); i++){
+                    farmer.getCornArray()[i]->Event(farmer.getCornCount());
+                    //line below is for debugging, needs to be taken out.
+                    cout << "" << i << " " << farmer.getCornArray()[i]->getCornEvent() << endl;
+                    }
                 }
                 if (farmer.getProduct() == "Wheat") {
                     farmer.getWheatArray()[0]->Event(farmer.getWheatCount());
                 }
-                
-                
-                //farmer.executeEvent();
+                farmer.executeEvent();
             } else if (optionChoice == "sell") {
                 farmer.sellCrop();
             } else if (optionChoice == "upgrade") {
