@@ -1175,7 +1175,7 @@ void Farmer::applySpeedGrowAnimals(){
         int newMoney = 0;
         int highYieldNotAppliedCount;
 
-        int numberCanUpgrade = money/functionPig.getHighYieldPrice();
+        int numberCanUpgrade = money/functionPig.getSpeedGrowPrice();
 
         if (numberCanUpgrade > pigCount){
             numberCanUpgrade = pigCount;
@@ -1192,7 +1192,7 @@ void Farmer::applySpeedGrowAnimals(){
             int j = 0;
             for (int i = 0; i < pigCount; ++i) {
                 if (j < optionChoice){
-                    pig[i]->applyHighYield(&money);
+                    pig[i]->applySpeedGrow(&money);
                     j++;
                 } else {
                     break;
@@ -1207,7 +1207,7 @@ void Farmer::applySpeedGrowAnimals(){
         int newMoney = 0;
         int highYieldNotAppliedCount;
 
-        int numberCanUpgrade = money/functionCow.getHighYieldPrice();
+        int numberCanUpgrade = money/functionCow.getSpeedGrowPrice();
 
         if (numberCanUpgrade > cowCount){
             numberCanUpgrade = cowCount;
@@ -1224,7 +1224,7 @@ void Farmer::applySpeedGrowAnimals(){
             int j = 0;
             for (int i = 0; i < cowCount; ++i) {
                 if (j < optionChoice){
-                    cow[i]->applyHighYield(&money);
+                    cow[i]->applySpeedGrow(&money);
                     j++;
                 } else {
                     break;
