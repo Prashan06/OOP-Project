@@ -95,7 +95,6 @@ class Farmer: public Pig, public Corn, public Cow, public Wheat {
 #include <ctime>
 #include <chrono>
 #include <fstream>
-#include <iostream>
 
 #include "Wheat.h"
 #include "Corn.h"
