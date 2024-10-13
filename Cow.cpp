@@ -36,7 +36,7 @@ void Cow::Event(int* count){
         mt19937 gen(rd()); // seed the generator, initialise generator
         uniform_int_distribution<> distr(1, 10); // define the range
         int randomNumber = distr(gen);
-        */
+        if (randomNumber == 1){*/
         this -> cowEvent = true;
         setCowEvent(cowEvent);
    // }

@@ -238,11 +238,16 @@ int main(){
                 farmer.buyAnimal();
                 if (farmer.getProduct() == "cow" ){
                     for (int i = 0; i < *farmer.getCowCount(); i++){
+                        cout << "Cow" << endl;
                         farmer.getCowArray()[i]->Event(farmer.getCowCount());
                         cout << "" << i << " " << farmer.getCowArray()[i]->getCowEvent() << endl;
                     }
-                } else if (farmer.getProduct() == "corn"){
-                   // farmer.getPigArray()[0]->Event(farmer.getPigCount());
+                } else if (farmer.getProduct() == "pig"){
+                    cout << "Pig" << endl;
+                    for (int i = 0; i < *farmer.getPigCount(); i++){
+                        farmer.getPigArray()[i]-> Event(farmer.getPigCount());
+                        cout << "" << i << " " << farmer.getPigArray()[i]->getPigEvent() << endl;
+                    }
                 }
                   farmer.executeEvent();
             } else if (optionChoice == "sell") {

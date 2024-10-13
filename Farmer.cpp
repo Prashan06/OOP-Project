@@ -1336,8 +1336,7 @@ void Farmer::applyHighYieldCrops(){
 }
 
 void Farmer::executeEvent() {
-    cout << "" << cow[9]->getCowEvent() << endl;
-    if (cow[9]->getCowEvent() == true) {
+    if (cow[9]->getCowEvent() == true && *getCowCount() > 9) {
         cout << "A disease has spread throughout the cows, half of your cows have died." << endl;
             int newCowCount = cowCount * 0.5;
             for (int i = newCowCount; i < cowCount; i++){
@@ -1345,15 +1344,13 @@ void Farmer::executeEvent() {
                 cow[i]->setCowEvent(false);
             }
         cowCount = newCowCount;
-    } else if (getPigEvent() == true) {
+    } else if (pig[9]->getPigEvent() == true && *getPigCount() > 9) {
         cout << "the demand for pig meat greatly decreased, in order to maintain a healthy flow of pigs " << endl;
         cout << "coming in and out of the farm, the sell price of all currently owned pigs must be reduced by half." << endl;
-        int newPigCount = (pigCount) * 0.5;
         for (int i = 0; i < pigCount; i++){
             pig[i]->setSellPrice((pig[i]->getSellPrice()) * 0.5);
             pig[i]->setPigEvent(false);
         }
-        pigCount = newPigCount;
     } else if (getWheatEvent() == true) {
         int newWheatCount = 0;
             if (wheat[0]->getPesticideApplied() == true){
