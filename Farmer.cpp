@@ -698,9 +698,9 @@ Farmer::~Farmer() {
 
 
 #include "Farmer.h"
-#include <iostream>
+//#include <iostream>
 
-using namespace std;
+//using namespace std;
 
 
 // Constructor 
