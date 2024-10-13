@@ -1345,6 +1345,7 @@ void Farmer::applyHighYieldCrops(){
     }
 
 } 
+}
 
 void Farmer::executeEvent() {
     if (getCowEvent() == true) {
