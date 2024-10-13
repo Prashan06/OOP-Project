@@ -25,7 +25,8 @@ int main(){
     bool barnScreen, fieldScreen = false;
     string optionChoice;
 
-    farmer.setFarmName();
+    farmer.setFarmName(); 
+
     while (*farmer.getMoneyCount() > 0){
         cout << "Would you like to read in a savefile? enter Y or N" << endl;
         cin >> optionChoice;
@@ -81,8 +82,8 @@ int main(){
             } else if (optionChoice == "upgrade") {
                 cout << "which upgrade would you like to buy?" << endl;
                 cout << "" << endl;
-                cout << "To upgrade speedGrowth for $30, enter speed" << endl;
-                cout << "To upgrade highYield for $25, enter yield" << endl;
+                cout << "To use the speedGrowth update, enter speed" << endl;
+                cout << "To use the highYield upgrade, enter yield" << endl;
                 cin >> optionChoice;
                 if (optionChoice == "speed") {
                     if (*farmer.getCowCount() > 0 || *farmer.getPigCount() > 0){
@@ -134,8 +135,8 @@ int main(){
             } else if (optionChoice == "upgrade") {
                 cout << "which upgrade would you like to buy?" << endl;
                 cout << "" << endl;
-                cout << "To upgrade speedGrowth, enter speed" << endl;
-                cout << "To upgrade highYield, enter yield" << endl;
+                cout << "To use the speedGrowth upgrade, enter speed" << endl;
+                cout << "To use the highYield upgrade, enter yield" << endl;
                 cin >> optionChoice;
                 if (optionChoice == "speed") {
                     farmer.getCornArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
