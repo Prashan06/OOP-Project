@@ -247,7 +247,7 @@ int main(){
                     for (int i = 0; i < *farmer.getPigCount(); i++){
                         farmer.getPigArray()[i]-> Event(farmer.getPigCount());
                         cout << "" << i << " " << farmer.getPigArray()[i]->getPigEvent() << endl;
-                    }
+                    }sss
                 }
                   farmer.executeEvent();
             } else if (optionChoice == "sell") {
