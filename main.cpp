@@ -213,6 +213,11 @@ int main(){
             cout << "To visit the Barn, enter barn" << endl;
             cout << "To visit the Field, enter field" << endl;
             cin >> optionChoice;
+
+            while (optionChoice != "barn" || optionChoice != "field" || optionChoice != "status"){
+                cout << "Invalid input, reenter your choice of action. Choose, barn, field, or status." << endl;
+                cin >> optionChoice;
+            }
             if (optionChoice == "status") {
                 farmer.getStatus();
             } else if (optionChoice == "barn") {
@@ -234,6 +239,10 @@ int main(){
             cout << "To sell an animal, enter sell" << endl;
             cout << "To leave the Barn, enter leave" << endl;
             cin >> optionChoice;
+            while (optionChoice != "buy" || optionChoice != "upgrade" || optionChoice != "sell" || optionChoice != "leave"){
+                cout << "Invalid input, reenter your choice of action. Choose, buy, upgrade, sell, or leave ." << endl;
+                cin >> optionChoice;
+            }
             if (optionChoice == "buy") {
                 farmer.buyAnimal();
                 if (farmer.getProduct() == "cow"){
@@ -286,20 +295,29 @@ int main(){
             cout << "" << endl;
             cout << "To buy a crop, enter buy" << endl;
             cout << "to purchase an upgrade, enter upgrade" << endl;
+            cout << "To purchase pesticide, enter pesticide" << endl;
             cout << "To sell a crop, enter sell" << endl;
             cout << "to leave the Field, enter leave" << endl;
             cin >> optionChoice;
+            while (optionChoice != "buy" || optionChoice != "upgrade" || optionChoice != "sell" || optionChoice != "pesticide" || optionChoice != "leave"){
+                cout << "Invalid input, reenter your choice of action. Choose, buy, upgrade, sell, pesticide, or leave ." << endl;
+                cin >> optionChoice;
+            }
             if (optionChoice == "buy") {
                 farmer.buyCrop();
                 if (farmer.getProduct() == "corn"){
                     for (int i = 0; i < *farmer.getCornCount(); i++){
-                    farmer.getCornArray()[i]->Event(farmer.getCornCount());
-                    //line below is for debugging, needs to be taken out.
-                    cout << "" << i << " " << farmer.getCornArray()[i]->getCornEvent() << endl;
+                        farmer.getCornArray()[i]->Event(farmer.getCornCount());
+                        //line below is for debugging, needs to be taken out.
+                        cout << "" << i << " " << farmer.getCornArray()[i]->getCornEvent() << endl;
                     }
                 }
                 if (farmer.getProduct() == "Wheat") {
-                    farmer.getWheatArray()[0]->Event(farmer.getWheatCount());
+                    for (int i = 0; i < *farmer.getWheatCount(); i++){
+                        farmer.getWheatArray()[i]->Event(farmer.getWheatCount());
+                        //line below is for debugging, needs to be taken out.
+                        cout << "" << i << " " << farmer.getWheatArray()[i]->getWheatEvent() << endl;
+                    }
                 }
                 farmer.executeEvent();
             } else if (optionChoice == "sell") {
@@ -324,6 +342,8 @@ int main(){
                         farmer.highYieldBought();
                     }*/
                    farmer.applyHighYieldCrops();
+                } else if (optionChoice == "pesticide"){
+
                 }
             } else if (optionChoice == "leave") {
                 mainScreen = true;
