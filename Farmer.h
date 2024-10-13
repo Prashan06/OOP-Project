@@ -154,8 +154,10 @@ class Farmer: public Pig, public Corn, public Cow, public Wheat {
         void buyCrop();
         void sellAnimal();
         void sellCrop();
-        void fieldSpeedGrowthBought();
-        void barnSpeedGrowthBought();
+        //void fieldSpeedGrowthBought();
+        void applySpeedGrowCrops();
+        //void barnSpeedGrowthBought();
+        void applySpeedGrowAnimals();
         //void highYieldBought();
         void applyHighYieldAnimals();
         void applyHighYieldCrops();
