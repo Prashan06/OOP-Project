@@ -826,7 +826,7 @@ void Farmer::applyHighYieldCrops(){
 
         int numberCanUpgrade = money/functionWheat.getHighYieldPrice();
 
-        if (numberCanUpgrade > wheatCount){sdfghjhgfd
+        if (numberCanUpgrade > wheatCount){
             numberCanUpgrade = wheatCount;
         }
 

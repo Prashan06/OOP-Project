@@ -163,7 +163,7 @@ class Farmer: public Pig, public Corn, public Cow, public Wheat {
         void applyHighYieldCrops();
         string getProduct();
         void setProduct(string product);
-        void appliedPesticide();asdf
+        void appliedPesticide();
 
 		Cow** getCowArray();
 		Pig** getPigArray();
