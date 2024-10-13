@@ -720,14 +720,14 @@ void Farmer::setFarmName() {
     bool validName = true;
     // if the name entered is valid, the program will continue. Otherwise the user is prompted for another entry.
     while (validName){
-        cout << "What would you like to call your farm? (max 20 characters): " << endl;
-        cin >> farmName;
+        std::cout << "What would you like to call your farm? (max 20 characters): " << endl;
+        std::cin >> farmName;
         int i = 0;
         while (farmName[i] != '\0'){
             i++;
         }
         if (i > 20){
-            cout << "Farm name is too long, please enter a shorter one." << endl;
+            std::cout << "Farm name is too long, please enter a shorter one." << endl;
         } else {
             validName = false;
         }
@@ -792,24 +792,24 @@ Corn* Farmer::createNewCorn() {
 
 void Farmer::buyAnimal(){
     string newProduct;
-    cout << "What animal would you like to buy? enter pig or cow" << endl;
-    cin >> newProduct;
+    std::cout << "What animal would you like to buy? enter pig or cow" << endl;
+    std::cin >> newProduct;
     setProduct(newProduct);
     while (getProduct() != "pig" && getProduct() != "cow") {
-        cout << "invalid input! please enter pig or cow" << endl;
-        cin >> product;
+        std::cout << "invalid input! please enter pig or cow" << endl;
+        std::cin >> product;
     }
     int amount = 0;
 
     if (getProduct() == "cow") {
         Cow tempCow;
-        cout << "How many cows would you like to buy?, you can buy " << money/tempCow.getBuyPrice() << " cows" << endl;
-        cin >> amount;
+        std::cout << "How many cows would you like to buy?, you can buy " << money/tempCow.getBuyPrice() << " cows" << endl;
+        std::cin >> amount;
         int amountPaid = tempCow.getBuyPrice() * amount;
         while (money < amountPaid ) {
-            cout << "You do not have enough money to buy " << amount << " cows" << endl;
-            cout << "enter a new amount: ";
-            cin >> amount;
+            std::cout << "You do not have enough money to buy " << amount << " cows" << endl;
+            std::cout << "enter a new amount: ";
+            std::cin >> amount;
         }
         money = money - amountPaid;
         Cow** newCowArray = new Cow*[cowCount + amount];
@@ -829,13 +829,13 @@ void Farmer::buyAnimal(){
 
     } else if(getProduct() == "pig") {
         Pig tempPig;
-        cout << "How many pigs would you like to buy?, you can buy " << money/tempPig.getBuyPrice() << " pigs" << endl;
-        cin >> amount;
+        std::cout << "How many pigs would you like to buy?, you can buy " << money/tempPig.getBuyPrice() << " pigs" << endl;
+        std::cin >> amount;
         int amountPaid = tempPig.getBuyPrice() * amount;
         while (money < amountPaid ) {
-            cout << "You do not have enough money to buy " << amount << " pigs" << endl;
-            cout << "enter a new amount: ";
-            cin >> amount;
+            std::cout << "You do not have enough money to buy " << amount << " pigs" << endl;
+            std::cout << "enter a new amount: ";
+            std::cin >> amount;
         }
         money = money - amountPaid;
         Pig** newPigArray = new Pig*[pigCount + amount];
@@ -856,11 +856,11 @@ void Farmer::buyAnimal(){
 }
 
 void Farmer::sellAnimal(){
-    cout << "What animal would you like to sell, cow or pig? (Enter response in lower case)" << endl;
-    cin >> product;
+    std::cout << "What animal would you like to sell, cow or pig? (Enter response in lower case)" << endl;
+    std::cin >> product;
     while (product != "cow" && product != "pig") {
-        cout << "invalid input! please enter cow or pig" << endl;
-        cin >> product;
+        std::cout << "invalid input! please enter cow or pig" << endl;
+        std::cin >> product;
     }
     if (product == "cow") {
         string optionChoice;
@@ -875,11 +875,11 @@ void Farmer::sellAnimal(){
             }
         }
         Cow** newCowArray = new Cow*[cowCount - readyToSellCount];
-        cout << "you have " << readyToSellCount << " cows to sell for " << newMoney <<" Would you like to sell them (enter Y or N)" << endl;
-        cin >> optionChoice;
+        std::cout << "you have " << readyToSellCount << " cows to sell for " << newMoney <<" Would you like to sell them (enter Y or N)" << endl;
+        std::cin >> optionChoice;
         while (optionChoice != "Y" && optionChoice != "N") {
-            cout << "invalid input! please enter Y or N" << endl;
-            cin >> optionChoice;
+            std::cout << "invalid input! please enter Y or N" << endl;
+            std::cin >> optionChoice;
         }
         if (optionChoice == "Y") {
             for (int i = 0; i < cowCount; ++i) {
@@ -908,11 +908,11 @@ void Farmer::sellAnimal(){
             }
         }
         Pig** newPigArray = new Pig*[pigCount - readyToSellCount];
-        cout << "you have " << readyToSellCount << " pigs to sell for " << newMoney <<" Would you like to sell them (enter Y or N)" << endl;
-        cin >> optionChoice;
+        std::cout << "you have " << readyToSellCount << " pigs to sell for " << newMoney <<" Would you like to sell them (enter Y or N)" << endl;
+        std::cin >> optionChoice;
         while (optionChoice != "Y" && optionChoice != "N") {
-            cout << "invalid input! please enter Y or N" << endl;
-            cin >> optionChoice;
+            std::cout << "invalid input! please enter Y or N" << endl;
+            std::cin >> optionChoice;
         }
         if (optionChoice == "Y") {
             for (int i = 0; i < pigCount; ++i) {
@@ -932,24 +932,24 @@ void Farmer::sellAnimal(){
 
 void Farmer::buyCrop() {
     string newProduct;
-    cout << "What crop would you like to buy? enter wheat or corn" << endl;
-    cin >> newProduct;
+    std::cout << "What crop would you like to buy? enter wheat or corn" << endl;
+    std::cin >> newProduct;
     setProduct(newProduct);
     while (getProduct() != "wheat" && getProduct() != "corn") {
-        cout << "invalid input! please enter wheat or corn" << endl;
-        cin >> product;
+        std::cout << "invalid input! please enter wheat or corn" << endl;
+        std::cin >> product;
     }
     int amount = 0;
 
     if (getProduct() == "wheat") {
         Wheat tempWheat;
-        cout << "How many wheat crops would you like to buy?, you can buy " << money/tempWheat.getBuyPrice() << " wheat" << endl;
-        cin >> amount;
+        std::cout << "How many wheat crops would you like to buy?, you can buy " << money/tempWheat.getBuyPrice() << " wheat" << endl;
+        std::cin >> amount;
         int amountPaid = tempWheat.getBuyPrice() * amount;
         while (money < amountPaid ) {
-            cout << "You do not have enough money to buy " << amount << " wheat" << endl;
-            cout << "enter a new amount: ";
-            cin >> amount;
+            std::cout << "You do not have enough money to buy " << amount << " wheat" << endl;
+            std::cout << "enter a new amount: ";
+            std::cin >> amount;
         }
         money = money - amountPaid;
 
@@ -970,13 +970,13 @@ void Farmer::buyCrop() {
 
     } else if (getProduct() == "corn"){
         Corn tempCorn;
-        cout << "How many corn crops would you like to buy?, you can buy " << money/tempCorn.getBuyPrice() << " corn" << endl;
-        cin >> amount;
+        std::cout << "How many corn crops would you like to buy?, you can buy " << money/tempCorn.getBuyPrice() << " corn" << endl;
+        std::cin >> amount;
         int amountPaid = tempCorn.getBuyPrice() * amount;
         while (money < amountPaid ) {
-            cout << "You do not have enough money to buy " << amount << " corn" << endl;
-            cout << "enter a new amount: ";
-            cin >> amount;
+            std::cout << "You do not have enough money to buy " << amount << " corn" << endl;
+            std::cout << "enter a new amount: ";
+            std::cin >> amount;
         }
         money = money - amountPaid;
         Corn** newCornArray = new Corn*[cornCount + amount];
@@ -1005,11 +1005,11 @@ void Farmer::setProduct(string product){
 }
 
 void Farmer::sellCrop(){
-    cout << "What crop would you like to sell, wheat or corn? (Enter response in lower case)" << endl;
-    cin >> product;
+    std::cout << "What crop would you like to sell, wheat or corn? (Enter response in lower case)" << endl;
+    std::cin >> product;
     while (product != "wheat" && product != "corn") {
-        cout << "invalid input! please enter wheat or corn" << endl;
-        cin >> product;
+        std::cout << "invalid input! please enter wheat or corn" << endl;
+        std::cin >> product;
     }
 
     if (product == "wheat"){
@@ -1025,11 +1025,11 @@ void Farmer::sellCrop(){
             }
         }
         Wheat** newWheatArray = new Wheat*[wheatCount - readyToSellCount];
-        cout << "you have " << readyToSellCount << " wheat to sell for " << newMoney <<" Would you like to sell them (enter Y or N)" << endl;
-        cin >> optionChoice;
+        std::cout << "you have " << readyToSellCount << " wheat to sell for " << newMoney <<" Would you like to sell them (enter Y or N)" << endl;
+        std::cin >> optionChoice;
         while (optionChoice != "Y" && optionChoice != "N") {
-            cout << "invalid input! please enter Y or N" << endl;
-            cin >> optionChoice;
+            std::cout << "invalid input! please enter Y or N" << endl;
+            std::cin >> optionChoice;
         }
         if (optionChoice == "Y") {
             for (int i = 0; i < wheatCount; ++i) {
@@ -1052,18 +1052,18 @@ void Farmer::sellCrop(){
         int readyToSellCount = 0;
         int newMoney = 0;
         for (int i = 0; i < cornCount; ++i) {
-            cout << "Yo" << endl;
+            std::cout << "Yo" << endl;
             if (corn[i]->isReadyToSell() == true){
             newMoney = newMoney + corn[i]->getSellPrice();
             readyToSellCount++;
             }
         }
         Corn** newCornArray = new Corn*[cornCount - readyToSellCount];
-        cout << "you have " << readyToSellCount << " corn to sell for " << newMoney <<" Would you like to sell them (enter Y or N)" << endl;
-        cin >> optionChoice;
+        std::cout << "you have " << readyToSellCount << " corn to sell for " << newMoney <<" Would you like to sell them (enter Y or N)" << endl;
+        std::cin >> optionChoice;
         while (optionChoice != "Y" && optionChoice != "N") {
-            cout << "invalid input! please enter Y or N" << endl;
-            cin >> optionChoice;
+            std::cout << "invalid input! please enter Y or N" << endl;
+            std::cin >> optionChoice;
         }
         if (optionChoice == "Y") {
             for (int i = 0; i < cornCount-1; ++i) {
@@ -1161,12 +1161,12 @@ void Farmer::applyHighYieldAnimals(){
     Pig functionPig;
     Cow functionCow;
 
-    cout << "What crop would you like to upgrade? cow or pig? (Enter response in lower case)" << endl;
-    cin >> product;
+    std::cout << "What crop would you like to upgrade? cow or pig? (Enter response in lower case)" << endl;
+    std::cin >> product;
 
     while (product != "pig" || product != "cow"){
-        cout << "invalid input! please enter cow or pig" << endl;
-        cin >> product;
+        std::cout << "invalid input! please enter cow or pig" << endl;
+        std::cin >> product;
     }
 
 
@@ -1183,12 +1183,12 @@ void Farmer::applyHighYieldAnimals(){
             numberCanUpgrade = pigCount;
         }
 
-        cout << "You can upgrade " << numberCanUpgrade << " pigs" << endl;
-        cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
+        std::cout << "You can upgrade " << numberCanUpgrade << " pigs" << endl;
+        std::cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         int optionChoice = 0;
-        cin >> optionChoice;
+        std::cin >> optionChoice;
         while (optionChoice < 0 || optionChoice > numberCanUpgrade){
-            cout << "invalid input! please enter a valid number" << endl;
+            std::cout << "invalid input! please enter a valid number" << endl;
         }
         if (optionChoice != 0) {
             int j = 0;
@@ -1215,12 +1215,12 @@ void Farmer::applyHighYieldAnimals(){
             numberCanUpgrade = cowCount;
         }
 
-        cout << "You can upgrade " << numberCanUpgrade << " cows" << endl;
-        cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
+        std::cout << "You can upgrade " << numberCanUpgrade << " cows" << endl;
+        std::cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         int optionChoice = 0;
-        cin >> optionChoice;
+        std::cin >> optionChoice;
         while (optionChoice < 0 || optionChoice > numberCanUpgrade){
-            cout << "invalid input! please enter a valid number" << endl;
+            std::cout << "invalid input! please enter a valid number" << endl;
         }
         if (optionChoice != 0) {
             int j = 0;
@@ -1236,7 +1236,6 @@ void Farmer::applyHighYieldAnimals(){
     }
 
 } 
-}
 
 /*
 
@@ -1295,10 +1294,10 @@ void Farmer::applyHighYieldCrops(){
             numberCanUpgrade = wheatCount;
         }
 
-        cout << "You can upgrade " << numberCanUpgrade << " wheat" << endl;
-        cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
+        std::cout << "You can upgrade " << numberCanUpgrade << " wheat" << endl;
+        std::cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         int optionChoice = 0;
-        cin >> optionChoice;
+        std::cin >> optionChoice;
         while (optionChoice < 0 || optionChoice > numberCanUpgrade){
             cout << "invalid input! please enter a valid number" << endl;
         }
