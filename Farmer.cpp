@@ -48,6 +48,18 @@ void Farmer:: getStatus(){
     std::cout << "You have " << pigCount << " pigs" << std::endl;
     std::cout << "You have " << cornCount << " corns" << std::endl;
     std::cout << "You have " << wheatCount << " wheat" << std::endl;
+    if (cowCount > 0) {
+        cout << "Cow sell time: " << cow[0]->getSellTime() << " seconds" << endl;
+    }
+    if (pigCount > 0) {
+        cout << "Pig sell time: " << pig[0]->getSellTime() << " seconds" <<endl;
+    }
+    if (wheatCount > 0) {
+        cout << "Wheat sell time: " << wheat[0]->getSellTime() << " seconds" << endl;
+    }
+    if (cornCount > 0) {
+        cout << "Corn sell time: " << corn[0]->getSellTime() << " seconds" <<endl;
+    }
 }
 
 // creates a cow object

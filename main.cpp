@@ -220,7 +220,7 @@ int main(){
             cin >> optionChoice;
 
             while (optionChoice != "barn" && optionChoice != "field" && optionChoice != "status" && optionChoice != "quit"){
-                cout << "Invalid input, reenter your choice of action. Choose, barn, field, or status." << endl;
+                cout << "Invalid input, re-enter your choice of action. Choose, barn, field, or status." << endl;
                 cin >> optionChoice;
             }
             if (optionChoice == "status") {
@@ -249,7 +249,7 @@ int main(){
             cout << "To leave the Barn, enter leave" << endl;
             cin >> optionChoice;
             while (optionChoice != "buy" && optionChoice != "upgrade" && optionChoice != "sell" && optionChoice != "leave"){
-                cout << "Invalid input, reenter your choice of action. Choose, buy, upgrade, sell, or leave ." << endl;
+                cout << "Invalid input, re-enter your choice of action. Choose, buy, upgrade, sell, or leave ." << endl;
                 cin >> optionChoice;
             }
             if (optionChoice == "buy") {
@@ -294,7 +294,7 @@ int main(){
             cout << "to leave the Field, enter leave" << endl;
             cin >> optionChoice;
             while (optionChoice != "buy" && optionChoice != "upgrade" && optionChoice != "sell" && optionChoice != "pesticide" && optionChoice != "leave"){
-                cout << "Invalid input, reenter your choice of action. Choose, buy, upgrade, sell, pesticide, or leave ." << endl;
+                cout << "Invalid input, re-enter your choice of action. Choose, buy, upgrade, sell, pesticide, or leave ." << endl;
                 cin >> optionChoice;
             }
             if (optionChoice == "buy") {
@@ -320,7 +320,7 @@ int main(){
                 cout << "To upgrade highYield, enter yield" << endl;
                 cin >> optionChoice;
                 while (optionChoice != "speed" && optionChoice != "yield" ){
-                    cout << "Invalid input, reenter your choice of action,  choose speed or yield." << endl;
+                    cout << "Invalid input, re-enter your choice of action,  choose speed or yield." << endl;
                     cin >> optionChoice;
                 }
                 if (optionChoice == "speed") {
