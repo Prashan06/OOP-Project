@@ -604,7 +604,7 @@ void Farmer::applySpeedGrowAnimals(){
         std::cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         int optionChoice = 0;
         std::cin >> optionChoice;
-        while (optionChoice < 0 && optionChoice > numberCanUpgrade){
+        while (optionChoice < 0 || optionChoice > numberCanUpgrade){
             std::cout << "invalid input! please enter a valid number" << endl;
             std::cin >> optionChoice;
         }
@@ -637,7 +637,7 @@ void Farmer::applySpeedGrowAnimals(){
         std::cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         int optionChoice = 0;
         std::cin >> optionChoice;
-        while (optionChoice < 0 && optionChoice > numberCanUpgrade){
+        while (optionChoice < 0 || optionChoice > numberCanUpgrade){
             std::cout << "invalid input! please enter a valid number" << endl;
             std::cin >> optionChoice;
         }
@@ -691,7 +691,7 @@ void Farmer::applyHighYieldAnimals(){
         std::cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         int numberUpgraded = 0;
         std::cin >> numberUpgraded;
-        while (numberUpgraded < 0 && numberUpgraded > numberCanUpgrade){
+        while (numberUpgraded < 0 || numberUpgraded > numberCanUpgrade){
             std::cout << "invalid input! please enter a valid number" << endl;
             std::cin >> numberUpgraded;
         }
@@ -724,7 +724,7 @@ void Farmer::applyHighYieldAnimals(){
         std::cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         int numberUpgraded = 0;
         std::cin >> numberUpgraded;
-        while (numberUpgraded < 0 && numberUpgraded > numberCanUpgrade){
+        while (numberUpgraded < 0 || numberUpgraded > numberCanUpgrade){
             std::cout << "invalid input! please enter a valid number" << endl;
             std::cin >> numberUpgraded;
         }
@@ -776,7 +776,7 @@ void Farmer::applySpeedGrowCrops(){
         std::cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         int optionChoice = 0;
         std::cin >> optionChoice;
-        while (optionChoice < 0 && optionChoice > numberCanUpgrade){
+        while (optionChoice < 0 || optionChoice > numberCanUpgrade){
             cout << "invalid input! please enter a valid number" << endl;
             cin >> optionChoice;
         }
@@ -807,7 +807,7 @@ void Farmer::applySpeedGrowCrops(){
         cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         int optionChoice = 0;
         cin >> optionChoice;
-        while (optionChoice < 0 && optionChoice > numberCanUpgrade){
+        while (optionChoice < 0 || optionChoice > numberCanUpgrade){
             cout << "invalid input! please enter a valid number" << endl;
             cin >> optionChoice;
         }
@@ -860,7 +860,7 @@ void Farmer::applyHighYieldCrops(){
         std::cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         int optionChoice = 0;
         std::cin >> optionChoice;
-        while (optionChoice < 0 && optionChoice > numberCanUpgrade){
+        while (optionChoice < 0 || optionChoice > numberCanUpgrade){
             cout << "invalid input! please enter a valid number" << endl;
             cin >> optionChoice;
         }
@@ -891,7 +891,7 @@ void Farmer::applyHighYieldCrops(){
         cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         int optionChoice = 0;
         cin >> optionChoice;
-        while (optionChoice < 0 && optionChoice > numberCanUpgrade){
+        while (optionChoice < 0 || optionChoice > numberCanUpgrade){
             cout << "invalid input! please enter a valid number" << endl;
             cin >> optionChoice;
         }
