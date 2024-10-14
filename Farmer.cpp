@@ -895,8 +895,10 @@ void Farmer::applyHighYieldCrops(){
         cout << "You can upgrade " << numberCanUpgrade << " wheat" << endl;
         cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         cin >> optionChoice;
-        while (optionChoice < 0 || optionChoice > numberCanUpgrade){
+        while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){
             cout << "invalid input! please enter a valid number" << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cin >> optionChoice;
 
         }
@@ -927,8 +929,10 @@ void Farmer::applyHighYieldCrops(){
         cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         int optionChoice = 0;
         cin >> optionChoice;
-        while (optionChoice < 0 || optionChoice > numberCanUpgrade){
+        while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){
             cout << "invalid input! please enter a valid number" << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
         if (optionChoice != 0) {
             int j = 0;
