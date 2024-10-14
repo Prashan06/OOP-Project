@@ -280,6 +280,10 @@ int main(){
                 cout << "To upgrade speedGrowth, enter speed" << endl;
                 cout << "To upgrade highYield, enter yield" << endl;
                 cin >> optionChoice;
+                while (optionChoice != "yield" && optionChoice != "speed"){
+                    cout << "invalid input, enter yield or speed." << endl;
+                    cin >> optionChoice;
+                }
                 if (optionChoice == "speed") {
                     //if (*farmer.getCowCount() > 0 || *farmer.getPigCount() > 0){
                         //cout << "both animals must be purchased before upgrades can be applied" << endl;

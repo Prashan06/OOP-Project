@@ -586,6 +586,17 @@ void Farmer::applySpeedGrowAnimals(){
         std::cin >> product;
     }
 
+    if (*getCowCount() == 0){
+        cout << "You have no cow"<<endl;
+        return;
+    }
+
+    if (*getPigCount() == 0){
+        cout << "You have no pig"<<endl;
+        return;
+    }
+
+
 
     if (product == "pig"){
 
@@ -604,11 +615,8 @@ void Farmer::applySpeedGrowAnimals(){
         std::cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         int optionChoice = 0;
         std::cin >> optionChoice;
-        while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){
+        while (optionChoice < 0 || optionChoice > numberCanUpgrade){
             std::cout << "invalid input! please enter a valid number" << endl;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            std::cin >> optionChoice;
         }
         if (optionChoice != 0) {
             int j = 0;
@@ -641,7 +649,6 @@ void Farmer::applySpeedGrowAnimals(){
         std::cin >> optionChoice;
         while (optionChoice < 0 || optionChoice > numberCanUpgrade){
             std::cout << "invalid input! please enter a valid number" << endl;
-            std::cin >> optionChoice;
         }
         if (optionChoice != 0) {
             int j = 0;
@@ -675,6 +682,16 @@ void Farmer::applyHighYieldAnimals(){
         std::cin >> product;
     }
 
+    if (*getCowCount() == 0){
+        cout << "You have no cow"<<endl;
+        return;
+    }
+
+    if (*getPigCount() == 0){
+        cout << "You have no pig"<<endl;
+        return;
+    }
+
 
     if (product == "pig"){
 
@@ -695,7 +712,6 @@ void Farmer::applyHighYieldAnimals(){
         std::cin >> numberUpgraded;
         while (numberUpgraded < 0 || numberUpgraded > numberCanUpgrade){
             std::cout << "invalid input! please enter a valid number" << endl;
-            std::cin >> numberUpgraded;
         }
         if (numberUpgraded != 0) {
             int j = 0;
@@ -728,7 +744,6 @@ void Farmer::applyHighYieldAnimals(){
         std::cin >> numberUpgraded;
         while (numberUpgraded < 0 || numberUpgraded > numberCanUpgrade){
             std::cout << "invalid input! please enter a valid number" << endl;
-            std::cin >> numberUpgraded;
         }
         if (numberUpgraded != 0) {
             int j = 0;
@@ -762,6 +777,16 @@ void Farmer::applySpeedGrowCrops(){
         cin >> product;
     }
 
+    if (*getCornCount() == 0){
+        cout << "You have no corn"<<endl;
+        return;
+    }
+
+    if (*getWheatCount() == 0){
+        cout << "You have no wheat"<<endl;
+        return;
+    }
+
     if (product == "wheat"){
 
         int option;
@@ -780,7 +805,6 @@ void Farmer::applySpeedGrowCrops(){
         std::cin >> optionChoice;
         while (optionChoice < 0 || optionChoice > numberCanUpgrade){
             cout << "invalid input! please enter a valid number" << endl;
-            cin >> optionChoice;
         }
         if (optionChoice != 0) {
             int j = 0;
@@ -811,7 +835,6 @@ void Farmer::applySpeedGrowCrops(){
         cin >> optionChoice;
         while (optionChoice < 0 || optionChoice > numberCanUpgrade){
             cout << "invalid input! please enter a valid number" << endl;
-            cin >> optionChoice;
         }
         if (optionChoice != 0) {
             int j = 0;
@@ -838,12 +861,22 @@ void Farmer::applyHighYieldCrops(){
     Pig functionPig;
     Cow functionCow;
 
-    cout << "What crop would you like to upgrade? Wheat or Corn? (Enter response in lower case)" << endl;
+    cout << "What crop would you like to upgrade? wheat or corn? (Enter response in lower case)" << endl;
     cin >> product;
 
     while (product != "wheat" && product != "corn"){
         cout << "invalid input! please enter wheat or corn" << endl;
         cin >> product;
+    }
+
+    if (*getCornCount() == 0){
+        cout << "You have no corn"<<endl;
+        return;
+    }
+
+    if (*getWheatCount() == 0){
+        cout << "You have no wheat"<<endl;
+        return;
     }
 
     if (product == "wheat"){
@@ -858,13 +891,14 @@ void Farmer::applyHighYieldCrops(){
             numberCanUpgrade = wheatCount;
         }
 
-        std::cout << "You can upgrade " << numberCanUpgrade << " wheat" << endl;
-        std::cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         int optionChoice = 0;
-        std::cin >> optionChoice;
+        cout << "You can upgrade " << numberCanUpgrade << " wheat" << endl;
+        cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
+        cin >> optionChoice;
         while (optionChoice < 0 || optionChoice > numberCanUpgrade){
             cout << "invalid input! please enter a valid number" << endl;
             cin >> optionChoice;
+
         }
         if (optionChoice != 0) {
             int j = 0;
@@ -895,7 +929,6 @@ void Farmer::applyHighYieldCrops(){
         cin >> optionChoice;
         while (optionChoice < 0 || optionChoice > numberCanUpgrade){
             cout << "invalid input! please enter a valid number" << endl;
-            cin >> optionChoice;
         }
         if (optionChoice != 0) {
             int j = 0;
@@ -1083,52 +1116,6 @@ void Farmer::appliedPesticide(){
     }
 }
 
-/*string optionChoice;
- // Ask user if they want to apply pesticide and put their response into optionChoice.
-    cout << "Do you want to buy pesticide? Y or N " << endl;
-    cin >> optionChoice;
-    while (optionChoice != "Y" && optionChoice != "N"){
-        cout << "Invalid input, enter either Y or N" << endl;
-    }
-    if (optionChoice == "Y"){
-        if (*getCornCount() > 0){
-            if (corn[0]->getPesticideApplied() == false){
-                // Check to see if the user has enough money to buy pesticide.
-                if (*getMoneyCount() < corn[0]->getPesticidePrice()){
-                    cout << "You do not have enough money to buy pesticide, try again later" << endl;
-                }else{
-                    corn[0] -> applyPesticide(getMoneyCount());
-                    for (int i = 1; i < *getCornCount(); i++){
-                        corn[i] -> setPesticideApplied(true);
-                    }
-                }
-                cout << "Pesticide applied to all corn.";
-            } else {
-                cout << "You have already applied pesticide to corn" << endl;
-            }
-        }
-
-        if (*getWheatCount() > 0){
-            if (wheat[0]->getPesticideApplied() == false){
-                // Check to see if the user has enough money to buy pesticide.
-                if (*getMoneyCount() < wheat[0]->getPesticidePrice()){
-                    cout << "You do not have enough money to buy pesticide, try again later" << endl;
-                }else{
-                    wheat[0] ->applyPesticide(getMoneyCount());
-                    for (int i = 1; i < *getWheatCount(); i++){
-                        wheat[i] -> setPesticideApplied(true);
-                    }
-                }
-                cout << "Pesticide applied to all wheat.";
-            } else {
-                cout << "You have already applied pesticide to wheat" << endl;
-            }
-        }
-    }
-}
-*/
-
-
 // the read and write files were written using information from the week 5 lecture video and https://stackoverflow.com/questions/132358/how-to-read-file-content-into-istringstream
 void Farmer::fileReader(string filename) {
     inputFile.open(filename, ios::in);
@@ -1147,20 +1134,28 @@ void Farmer::fileWriter(string filename, int* money) {
 }
 
 Farmer::~Farmer() {
-    for (int i = 0; i < cowCount; i++){
-        cow[i] = nullptr;
+if (*getCowCount() > 0){
+        for (int i = 0; i < cowCount; i++){
+            cow[i] = nullptr;
+        }
+        delete[] cow;
     }
-    for (int i = 0; i < pigCount; i++){
-        pig[i] = nullptr;
+    if (*getPigCount() > 0){
+        for (int i = 0; i < pigCount; i++){
+            pig[i] = nullptr;
+        }
+        delete[] pig;
     }
-    for (int i = 0; i < wheatCount; i++){
-        wheat[i] = nullptr;
+    if (*getWheatCount() > 0){
+        for (int i = 0; i < wheatCount; i++){
+            wheat[i] = nullptr;
+        }
+        delete[] wheat;
     }
-    for (int i = 0; i < cornCount; i++){
-        corn[i] = nullptr;
+    if (*getCornCount() > 0){
+        for (int i = 0; i < cornCount; i++){
+            corn[i] = nullptr;
+        }
+        delete[] corn;
     }
-    delete[] cow;
-    delete[] pig;
-    delete[] wheat;
-    delete[] corn;
 }
