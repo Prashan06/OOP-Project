@@ -233,9 +233,9 @@ int main(){
                 mainScreen = false;
             } else if (optionChoice == "quit"){
                 farmer.fileWriter("savefile", farmer.getMoneyCount()); //saving progress/money, writing onto file
+                *farmer.getMoneyCount() = 0;
                 farmer.~Farmer(); //calling destructor for farmer
                 mainScreen = false;
-                *farmer.getMoneyCount() = 0;
             }
             
         }
