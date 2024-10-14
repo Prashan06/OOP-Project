@@ -1,4 +1,6 @@
-/*#include <iostream>
+/*
+
+#include <iostream>
 #include <string>
 #include <random>
 
@@ -162,6 +164,7 @@ int main(){
     farmer.~Farmer();
     return 0;
 }
+
 */
 
 #include <iostream>
@@ -186,13 +189,16 @@ int main(){
 
     // initialising global variables to be used throughout the course of the game 
 
-    Farmer farmer;
+    Farmer farmer; // creating farmer object 
     bool mainScreen = true;
     bool barnScreen, fieldScreen = false;
     string optionChoice;
 
-    farmer.setFarmName();
-    cout << "Would you like to read in a savefile? enter Y or N" << endl;
+    farmer.setFarmName(); 
+
+    // logic to request for user input on whether to read input file & if so, reading it.
+
+    cout << "Would you like to read in a savefile? enter Y or N" << endl; 
     cin >> optionChoice;
         while (optionChoice != "Y" && optionChoice != "N") {
             cout << "invalid input! please enter Y or N" << endl;
@@ -206,6 +212,7 @@ int main(){
         if (optionChoice == "N"){
             cout << "Bank Balance is: " << *farmer.getMoneyCount() << endl;
         }
+
     while (*farmer.getMoneyCount() > 0){
         
         while (mainScreen == true){
@@ -220,7 +227,7 @@ int main(){
             cin >> optionChoice;
 
             while (optionChoice != "barn" && optionChoice != "field" && optionChoice != "status" && optionChoice != "quit"){
-                cout << "Invalid input, re-enter your choice of action. Choose, barn, field, or status." << endl;
+                cout << "Invalid input, reenter your choice of action. Choose, barn, field, or status." << endl;
                 cin >> optionChoice;
             }
             if (optionChoice == "status") {
@@ -233,7 +240,7 @@ int main(){
                 mainScreen = false;
             } else if (optionChoice == "quit"){
                 farmer.fileWriter("savefile", farmer.getMoneyCount()); //saving progress/money, writing onto file
-                *farmer.getMoneyCount() = 0;
+                //*farmer.getMoneyCount() = 0;
                 mainScreen = false;
             }
             
@@ -249,7 +256,7 @@ int main(){
             cout << "To leave the Barn, enter leave" << endl;
             cin >> optionChoice;
             while (optionChoice != "buy" && optionChoice != "upgrade" && optionChoice != "sell" && optionChoice != "leave"){
-                cout << "Invalid input, re-enter your choice of action. Choose, buy, upgrade, sell, or leave ." << endl;
+                cout << "Invalid input, reenter your choice of action. Choose, buy, upgrade, sell, or leave ." << endl;
                 cin >> optionChoice;
             }
             if (optionChoice == "buy") {
@@ -274,13 +281,32 @@ int main(){
                 cout << "To upgrade highYield, enter yield" << endl;
                 cin >> optionChoice;
                 if (optionChoice == "speed") {
+                    //if (*farmer.getCowCount() > 0 || *farmer.getPigCount() > 0){
+                        //cout << "both animals must be purchased before upgrades can be applied" << endl;
+                    //}
+                    //farmer.getCowArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
+                    //farmer.barnSpeedGrowthBought();
                     farmer.applySpeedGrowAnimals();
                 } else if (optionChoice == "yield") {
+                    /*if (*farmer.getCornCount() > 0 || *farmer.getWheatCount() > 0){
+                        cout << "both animals must be purchased before upgrades can be applied" << endl;
+                    }
+                    cout << "which animal would you like to apply highYield to, enter cow or pig" << endl;
+                    cin >> optionChoice;
+                    if (optionChoice == "cow"){
+                        farmer.getCowArray()[0]->applyHighYield(farmer.getMoneyCount());
+                        farmer.highYieldBought();
+                    } else if (optionChoice == "pig") {
+                        farmer.getPigArray()[0]->applyHighYield(farmer.getMoneyCount());
+                        farmer.highYieldBought();
+                    }*/
                    farmer.applyHighYieldAnimals();
                 }
             } else if (optionChoice == "leave") {
+                cout << "Leaving the Barn..." << endl;  // Debug statement
                 barnScreen = false;
                 mainScreen = true;
+                cout << "mainScreen: " << mainScreen << ", barnScreen: " << barnScreen << endl; // Debug statement
             }
         }
 
@@ -294,7 +320,7 @@ int main(){
             cout << "to leave the Field, enter leave" << endl;
             cin >> optionChoice;
             while (optionChoice != "buy" && optionChoice != "upgrade" && optionChoice != "sell" && optionChoice != "pesticide" && optionChoice != "leave"){
-                cout << "Invalid input, re-enter your choice of action. Choose, buy, upgrade, sell, pesticide, or leave ." << endl;
+                cout << "Invalid input, reenter your choice of action. Choose, buy, upgrade, sell, pesticide, or leave ." << endl;
                 cin >> optionChoice;
             }
             if (optionChoice == "buy") {
@@ -302,12 +328,16 @@ int main(){
                 if (farmer.getProduct() == "corn" && *farmer.getCornCount() > 9){
                     for (int i = 0; i < *farmer.getCornCount(); i++){
                         farmer.getCornArray()[i]->Event(farmer.getCornCount());
+                        //line below is for debugging, needs to be taken out.
+                        cout << "" << i << " " << farmer.getCornArray()[i]->getCornEvent() << endl;
                     }
                     farmer.executeEvent();
                 }
                 if (farmer.getProduct() == "Wheat" && *farmer.getWheatCount() > 9) {
                     for (int i = 0; i < *farmer.getWheatCount(); i++){
                         farmer.getWheatArray()[i]->Event(farmer.getWheatCount());
+                        //line below is for debugging, needs to be taken out.
+                        cout << "" << i << " " << farmer.getWheatArray()[i]->getWheatEvent() << endl;
                     }
                     farmer.executeEvent();
                 }
@@ -320,22 +350,35 @@ int main(){
                 cout << "To upgrade highYield, enter yield" << endl;
                 cin >> optionChoice;
                 while (optionChoice != "speed" && optionChoice != "yield" ){
-                    cout << "Invalid input, re-enter your choice of action,  choose speed or yield." << endl;
+                    cout << "Invalid input, reenter your choice of action,  choose speed or yield." << endl;
                     cin >> optionChoice;
                 }
                 if (optionChoice == "speed") {
+                    //farmer.getCornArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
+                    //farmer.fieldSpeedGrowthBought();
                     farmer.applySpeedGrowCrops();
                 } else if (optionChoice == "yield") {
+                    /*cout << "which crop would you like to apply highYield to, enter corn or wheat" << endl;
+                    cin >> optionChoice;
+                    if (optionChoice == "corn"){
+                        farmer.getCornArray()[0]->applyHighYield(farmer.getMoneyCount());
+                        farmer.highYieldBought();
+                    } else if (optionChoice == "wheat") {
+                        farmer.getWheatArray()[0]->applyHighYield(farmer.getMoneyCount());
+                        farmer.highYieldBought();
+                    }*/
                    farmer.applyHighYieldCrops();
-                } 
-            }else if (optionChoice == "pesticide"){
-                    farmer.appliedPesticide();
-            }else if (optionChoice == "leave") {
+                } else if (optionChoice == "pesticide"){
+                    
+                }
+            } else if (optionChoice == "leave") {
                 mainScreen = true;
                 fieldScreen = false;
             }
         }
+        *farmer.getMoneyCount() = 0;
     }
+    cout << "reached here" << endl;
     farmer.~Farmer(); //calling destructor for farmer
     return 0;
 }

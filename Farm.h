@@ -10,9 +10,7 @@
 
 using namespace std;
 
-// This class contains functions and attributes that manage the whole farm. 
-// This class has functions that are inherited by Barn and Field. As Cow,Pig inherit from Barn and 
-// as Wheat and Corn inherit from Field, Cow,Pig,Wheat,and Corn inherit from Farm in three level inheritance.
+
 class Farm {
 
     protected:
@@ -24,6 +22,7 @@ class Farm {
         string optionChoice;
         bool barnSpeedGrowthApplied = false;
         bool fieldSpeedGrowthApplied = false;
+
         bool pigHighYieldApplied = false;
         bool cowHighYieldApplied = false;
         bool cornHighYieldApplied = false;
@@ -53,7 +52,17 @@ class Farm {
         void setCowHighYieldApplied(bool cowHighYieldApplied);
         void setWheatHighYieldApplied(bool wheatHighYieldApplied);
         void setCornHighYieldApplied(bool cornHighYieldApplied);
-        bool isReadyToSell ();
+        
+        bool isReadyToSell (){
+            int getDuration = time(NULL) - timer;
+            if (getDuration > getSellTime()){
+                return true;
+            }else {
+                return false;
+            }
+        }
+
+
 };
 
 #endif

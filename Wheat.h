@@ -2,9 +2,7 @@
 #define WHEAT_H
 
 #include "Field.h"
-#include "Events.h"
 
-// This class has functions and attributes that manage the wheat in the farm. This class inherits from Field and events
 class Wheat: public Field, public Events{
 
     protected:

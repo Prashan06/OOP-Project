@@ -604,8 +604,10 @@ void Farmer::applySpeedGrowAnimals(){
         std::cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         int optionChoice = 0;
         std::cin >> optionChoice;
-        while (optionChoice < 0 || optionChoice > numberCanUpgrade){
+        while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){
             std::cout << "invalid input! please enter a valid number" << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             std::cin >> optionChoice;
         }
         if (optionChoice != 0) {
