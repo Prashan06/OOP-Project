@@ -5,7 +5,7 @@ Field::Field():Farm(){
     
 this->speedGrowLevel = 0;
 this->speedGrowPrice = 30; 
-this->pesticidePrice = 10;
+this->pesticidePrice = 5;
 this->highYieldFactor = 1.1;
 this->highYieldPrice = 25;
 
@@ -84,22 +84,6 @@ void Field::setPesticideApplied (bool pesticideApplied) {
 // getter for pesticideApplied.
 bool Field::getPesticideApplied(){
     return pesticideApplied;
-}
-
-void Field::applyPesticide(int* money){
-    // Ask user if they want to apply pesticide and put their response into optionChoice.
-    cout << "Do you want to buy pesticide? Y or N " << endl;
-    if (optionChoice == "Y" && pesticideApplied == false){
-        // Check to see if the user has enough money to buy pesticide.
-        if (*money < pesticidePrice){
-            cout << "You do not have enough money to buy pesticide, try again later" << endl;
-        }else{
-        // Note for corn and wheat events, if pesticide applied is true, reduce killing of corn and wheat.
-        // sets pesticideApplied to true and decreases money.
-        pesticideApplied = true;
-        *money = *money - pesticidePrice;
-        }
-    }
 }
 
 // setter for speed grow level

@@ -923,9 +923,11 @@ void Farmer::executeEvent() {
             if (wheat[9]->getPesticideApplied() == true){
                 cout << "A disease has spread throughout the wheat, 1/4 of your wheat have died." << endl;
                 newWheatCount = (wheatCount) * 0.25;
+                cout << "Your pesticide has been used" << endl;
                 for (int i = newWheatCount; i < wheatCount; i++){
                     wheat[i - newWheatCount] = wheat[i];
                     wheat[i]->setWheatEvent(false);
+                    wheat[i] -> setPesticideApplied(false);
                 }
                 wheatCount = newWheatCount;
             }
@@ -943,21 +945,120 @@ void Farmer::executeEvent() {
      }
      if (getProduct() == "corn"){
         if (corn[9]->getCornEvent() == true && *getCornCount() > 9) {
-            int newCornCount = 0;
+            if (corn[9]->getPesticideApplied() == true){
                 cout << "A disease has spread throughout the corn, 1/4 of your corn have died." << endl;
-                newCornCount = cornCount * 0.25;
+                int newCornCount = (cornCount) * 0.25;
+                cout << "Your Pesticide has been used" << endl;
+                for (int i = newCornCount; i < cornCount; i++){
+                    corn[i - newCornCount] = corn[i];
+                    corn[i]->setCornEvent(false);
+                    corn[i]->setPesticideApplied(false);
+                }
+                cornCount = newCornCount;
+            }
+
+            if (corn[9]->getPesticideApplied() == false){
+                cout << "A disease has spread throughout the wheat, half of your wheat have died." << endl;
+                int newCornCount = (cornCount) * 0.5;
                 for (int i = newCornCount; i < cornCount; i++){
                     corn[i - newCornCount] = corn[i];
                     corn[i]->setCornEvent(false);
                 }
                 cornCount = newCornCount;
+            }
         }
     }
 }
 
 void Farmer::appliedPesticide(){
-    
+    Corn tempCorn;
+    Wheat tempWheat;
+    string optionChoice = "";
+    cout << "Do you want to buy pesticide Y or N" << endl;
+    cin >> optionChoice;
+    while (optionChoice != "Y" && optionChoice != "N"){
+        cout << "Invalid input, enter either Y or N" << endl;
+        cin >> optionChoice;
+    }
+
+    if (optionChoice == "Y"){
+        if (*getCornCount() > 0){
+            int numCornPesticideApplied = 0;
+            for (int i = 0; i < *getCornCount(); i++){
+                if (corn[i]->getPesticideApplied() == false){
+                    numCornPesticideApplied++;
+                }
+            }
+
+            cout << "You have " << numCornPesticideApplied << "corn with no pesticide applied it will cost " << numCornPesticideApplied*tempCorn.getPesticidePrice();
+            cout << " do you want to buy pesticide, enter Y or N" << endl;
+            cin >> optionChoice;
+            while (optionChoice != "Y" && optionChoice != "N"){
+                cout << "Invalid input, enter either Y or N" << endl;
+                cin >> optionChoice;
+            }
+
+
+            if (optionChoice == "Y"){                
+                for (int i = 0; i < *getCornCount(); i++){
+                    if (*getMoneyCount() < numCornPesticideApplied*tempCorn.getPesticidePrice()){
+                        cout << "You do not have enough money, try again later" << endl;
+                        break;
+                    }
+                    if (corn[i]->getPesticideApplied() == false){
+                        corn[i] -> setPesticideApplied(true);
+                    }
+                }
+            }
+        }
+    } 
 }
+
+/*string optionChoice;
+ // Ask user if they want to apply pesticide and put their response into optionChoice.
+    cout << "Do you want to buy pesticide? Y or N " << endl;
+    cin >> optionChoice;
+    while (optionChoice != "Y" && optionChoice != "N"){
+        cout << "Invalid input, enter either Y or N" << endl;
+    }
+    if (optionChoice == "Y"){
+        if (*getCornCount() > 0){
+            if (corn[0]->getPesticideApplied() == false){
+                // Check to see if the user has enough money to buy pesticide.
+                if (*getMoneyCount() < corn[0]->getPesticidePrice()){
+                    cout << "You do not have enough money to buy pesticide, try again later" << endl;
+                }else{
+                    corn[0] -> applyPesticide(getMoneyCount());
+                    for (int i = 1; i < *getCornCount(); i++){
+                        corn[i] -> setPesticideApplied(true);
+                    }
+                }
+                cout << "Pesticide applied to all corn.";
+            } else {
+                cout << "You have already applied pesticide to corn" << endl;
+            }
+        }
+
+        if (*getWheatCount() > 0){
+            if (wheat[0]->getPesticideApplied() == false){
+                // Check to see if the user has enough money to buy pesticide.
+                if (*getMoneyCount() < wheat[0]->getPesticidePrice()){
+                    cout << "You do not have enough money to buy pesticide, try again later" << endl;
+                }else{
+                    wheat[0] ->applyPesticide(getMoneyCount());
+                    for (int i = 1; i < *getWheatCount(); i++){
+                        wheat[i] -> setPesticideApplied(true);
+                    }
+                }
+                cout << "Pesticide applied to all wheat.";
+            } else {
+                cout << "You have already applied pesticide to wheat" << endl;
+            }
+        }
+    }
+}
+*/
+
 
 // the read and write files were written using information from the week 5 lecture video and https://stackoverflow.com/questions/132358/how-to-read-file-content-into-istringstream
 void Farmer::fileReader(string filename) {
