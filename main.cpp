@@ -275,25 +275,8 @@ int main(){
                 cout << "To upgrade highYield, enter yield" << endl;
                 cin >> optionChoice;
                 if (optionChoice == "speed") {
-                    //if (*farmer.getCowCount() > 0 || *farmer.getPigCount() > 0){
-                        //cout << "both animals must be purchased before upgrades can be applied" << endl;
-                    //}
-                    //farmer.getCowArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
-                    //farmer.barnSpeedGrowthBought();
                     farmer.applySpeedGrowAnimals();
                 } else if (optionChoice == "yield") {
-                    /*if (*farmer.getCornCount() > 0 || *farmer.getWheatCount() > 0){
-                        cout << "both animals must be purchased before upgrades can be applied" << endl;
-                    }
-                    cout << "which animal would you like to apply highYield to, enter cow or pig" << endl;
-                    cin >> optionChoice;
-                    if (optionChoice == "cow"){
-                        farmer.getCowArray()[0]->applyHighYield(farmer.getMoneyCount());
-                        farmer.highYieldBought();
-                    } else if (optionChoice == "pig") {
-                        farmer.getPigArray()[0]->applyHighYield(farmer.getMoneyCount());
-                        farmer.highYieldBought();
-                    }*/
                    farmer.applyHighYieldAnimals();
                 }
             } else if (optionChoice == "leave") {
@@ -322,16 +305,12 @@ int main(){
                 if (farmer.getProduct() == "corn" && *farmer.getCornCount() > 9){
                     for (int i = 0; i < *farmer.getCornCount(); i++){
                         farmer.getCornArray()[i]->Event(farmer.getCornCount());
-                        //line below is for debugging, needs to be taken out.
-                        cout << "" << i << " " << farmer.getCornArray()[i]->getCornEvent() << endl;
                     }
                     farmer.executeEvent();
                 }
                 if (farmer.getProduct() == "Wheat" && *farmer.getWheatCount() > 9) {
                     for (int i = 0; i < *farmer.getWheatCount(); i++){
                         farmer.getWheatArray()[i]->Event(farmer.getWheatCount());
-                        //line below is for debugging, needs to be taken out.
-                        cout << "" << i << " " << farmer.getWheatArray()[i]->getWheatEvent() << endl;
                     }
                     farmer.executeEvent();
                 }
@@ -348,19 +327,8 @@ int main(){
                     cin >> optionChoice;
                 }
                 if (optionChoice == "speed") {
-                    //farmer.getCornArray()[0]->applySpeedGrowth(farmer.getMoneyCount());
-                    //farmer.fieldSpeedGrowthBought();
                     farmer.applySpeedGrowCrops();
                 } else if (optionChoice == "yield") {
-                    /*cout << "which crop would you like to apply highYield to, enter corn or wheat" << endl;
-                    cin >> optionChoice;
-                    if (optionChoice == "corn"){
-                        farmer.getCornArray()[0]->applyHighYield(farmer.getMoneyCount());
-                        farmer.highYieldBought();
-                    } else if (optionChoice == "wheat") {
-                        farmer.getWheatArray()[0]->applyHighYield(farmer.getMoneyCount());
-                        farmer.highYieldBought();
-                    }*/
                    farmer.applyHighYieldCrops();
                 } else if (optionChoice == "pesticide"){
                     
