@@ -100,7 +100,7 @@ void Farm::setCornHighYieldApplied(bool cornHighYieldApplied){
 }
 
 // This fucntions detemines if the object (cow,corn,wheat,pig) is ready to sell.
-bool Farm:: isReadyToSell (){
+bool Farm::isReadyToSell (){
     // gets time difference between current time and when the object was created.
     int getDuration = time(NULL) - timer;
     // determines if the time difference is greater than the sell time and returns a boolean.

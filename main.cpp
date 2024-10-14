@@ -25,10 +25,10 @@ int main(){
     bool barnScreen, fieldScreen = false;
     string optionChoice;
 
-    farmer.setFarmName();
+    farmer.setFarmName(); 
     cout << "Would you like to read in a savefile? enter Y or N" << endl;
     cin >> optionChoice;
-        while (optionChoice != "Y" && optionChoice != "N") {
+        while (optionChoice != "Y" && optionChoice != "N") { //validating input
             cout << "invalid input! please enter Y or N" << endl;
             cin >> optionChoice;
         }
@@ -67,9 +67,9 @@ int main(){
                 mainScreen = false;
             } else if (optionChoice == "quit"){
                 farmer.fileWriter("savefile", farmer.getMoneyCount()); //saving progress/money, writing onto file
-                *farmer.getMoneyCount() = 0;
+                *farmer.getMoneyCount() = 0; //intializing farmer money count such that the game loop can be exited
                 cout << "Game has ended" << endl;
-                mainScreen = false;
+                mainScreen = false; 
             }
             
         }
@@ -168,7 +168,7 @@ int main(){
                    farmer.applyHighYieldCrops();
                 } 
             }else if (optionChoice == "pesticide"){
-                    farmer.appliedPesticide();
+                    farmer.appliedPesticide(); 
             }else if (optionChoice == "leave") {
                 mainScreen = true;
                 fieldScreen = false;
