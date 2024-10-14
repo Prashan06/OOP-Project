@@ -944,7 +944,10 @@ void Farmer::executeEvent() {
 }
 
 void Farmer::appliedPesticide(){
-    
+    corn[0] -> applyPesticide(getMoneyCount());
+        for (int i = 0; i < *getCornCount(); i++){
+            
+        }
 }
 
 // the read and write files were written using information from the week 5 lecture video and https://stackoverflow.com/questions/132358/how-to-read-file-content-into-istringstream
