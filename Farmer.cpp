@@ -848,7 +848,7 @@ void Farmer::applySpeedGrowCrops(){
         cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         int optionChoice = 0;
         cin >> optionChoice;
-        while (cin.fail() || < 0 || optionChoice > numberCanUpgrade){
+        while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){
             cout << "invalid input! please enter a valid number" << endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
