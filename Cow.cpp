@@ -5,7 +5,7 @@ Cow::Cow() : Barn(){ //constructor
 
     this -> sellPrice = 18;
     this -> buyPrice = 15;
-    this -> sellTime = 15;
+    this -> sellTime = 10;
 
 }
 

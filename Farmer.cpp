@@ -244,6 +244,9 @@ void Farmer::sellAnimal(){
             // sets thhe cowCount.
             setCowCount(cowCount - readyToSellCount);
         }
+        if (optionChoice == "N"){
+            cout << "No cow sold" << endl;
+        }
     // If the user entered pig, the code to sell wheat will run.
     } else if (product == "pig") {
         string optionChoice;
@@ -288,6 +291,10 @@ void Farmer::sellAnimal(){
             pig = newPigArray;
             // sets the pigCount
             setPigCount(pigCount - readyToSellCount);
+        }
+
+        if (optionChoice == "N"){
+            cout << "No pig sold" << endl;
         }
     }   
 }
@@ -460,6 +467,10 @@ void Farmer::sellCrop(){
             // sets the wheatCount
             setWheatCount(wheatCount - readyToSellCount);
         }
+
+        if (optionChoice == "N"){
+            cout << "No wheat sold" << endl;
+        }
      // If the user entered corn, the code to sell wheat will run.
     } else if (getProduct() == "corn") {
         string optionChoice;
@@ -504,6 +515,10 @@ void Farmer::sellCrop(){
             corn = newCornArray;
             // sets the cornCount.
             setCornCount(cornCount - readyToSellCount);
+        }
+
+        if (optionChoice == "N"){
+            cout << "No corn sold" << endl;
         }
     }
 }
@@ -1098,41 +1113,41 @@ void Farmer::appliedPesticide(){
         }
     } 
 
-        if (pesticideChoice == "Y"){
-            if (product == "wheat"){
-                if (*getWheatCount() > 0){
-                    int numWheatPesticideApplied = 0;
-                    for (int i = 0; i < *getWheatCount(); i++){
-                        if (wheat[i]->getPesticideApplied() == false){
-                            numWheatPesticideApplied++;
-                        }
+    if (pesticideChoice == "Y"){
+        if (product == "wheat"){
+            if (*getWheatCount() > 0){
+                int numWheatPesticideApplied = 0;
+                for (int i = 0; i < *getWheatCount(); i++){
+                    if (wheat[i]->getPesticideApplied() == false){
+                        numWheatPesticideApplied++;
                     }
-
-                    cout << "You have " << numWheatPesticideApplied << "corn with no pesticide applied it will cost " << numWheatPesticideApplied*tempCorn.getPesticidePrice();
-                    cout << " do you want to buy pesticide, enter Y or N" << endl;
-                    cin >> pesticideChoice;
-                    while (pesticideChoice != "Y" && pesticideChoice != "N"){
-                        cout << "Invalid input, enter either Y or N" << endl;
-                        cin >> pesticideChoice;
-                    }
-
-
-                    if (pesticideChoice == "Y"){                
-                        for (int i = 0; i < *getWheatCount(); i++){
-                            if (*getMoneyCount() < numWheatPesticideApplied*tempWheat.getPesticidePrice()){
-                                cout << "You do not have enough money, try again later" << endl;
-                                break;
-                            }
-                            if (wheat[i]->getPesticideApplied() == false){
-                                wheat[i] -> setPesticideApplied(true);
-                            }
-                        }
-                    }
-                } else {
-                    cout << "You have no wheat" << endl;
                 }
+
+                cout << "You have " << numWheatPesticideApplied << "corn with no pesticide applied it will cost " << numWheatPesticideApplied*tempCorn.getPesticidePrice();
+                cout << " do you want to buy pesticide, enter Y or N" << endl;
+                cin >> pesticideChoice;
+                while (pesticideChoice != "Y" && pesticideChoice != "N"){
+                    cout << "Invalid input, enter either Y or N" << endl;
+                    cin >> pesticideChoice;
+                }
+
+
+                if (pesticideChoice == "Y"){                
+                    for (int i = 0; i < *getWheatCount(); i++){
+                        if (*getMoneyCount() < numWheatPesticideApplied*tempWheat.getPesticidePrice()){
+                            cout << "You do not have enough money, try again later" << endl;
+                            break;
+                        }
+                        if (wheat[i]->getPesticideApplied() == false){
+                            wheat[i] -> setPesticideApplied(true);
+                        }
+                    }
+                }
+            } else {
+                cout << "You have no wheat" << endl;
             }
         }
+    }
     if (pesticideChoice == "N"){
         cout << "You have chosen not to buy pesticide" << endl;
     }
