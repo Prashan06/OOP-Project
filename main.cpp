@@ -329,7 +329,6 @@ int main(){
                    farmer.applyHighYieldCrops();
                 } 
             }else if (optionChoice == "pesticide"){
-                    cout << "Yes" << endl;
                     farmer.appliedPesticide();
             }else if (optionChoice == "leave") {
                 mainScreen = true;

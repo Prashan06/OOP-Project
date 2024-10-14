@@ -48,18 +48,6 @@ void Farmer:: getStatus(){
     std::cout << "You have " << pigCount << " pigs" << std::endl;
     std::cout << "You have " << cornCount << " corns" << std::endl;
     std::cout << "You have " << wheatCount << " wheat" << std::endl;
-    if (cowCount > 0) {
-        cout << "Cow sell time: " << cow[0]->getSellTime() << " seconds" << endl;
-    }
-    if (pigCount > 0) {
-        cout << "Pig sell time: " << pig[0]->getSellTime() << " seconds" <<endl;
-    }
-    if (wheatCount > 0) {
-        cout << "Wheat sell time: " << wheat[0]->getSellTime() << " seconds" << endl;
-    }
-    if (cornCount > 0) {
-        cout << "Corn sell time: " << corn[0]->getSellTime() << " seconds" <<endl;
-    }
 }
 
 // creates a cow object
@@ -1137,39 +1125,20 @@ void Farmer::fileWriter(string filename, int* money) {
 }
 
 Farmer::~Farmer() {
-    if (wheatCount > 0) {
-        for (int i = 0; i < wheatCount; ++i) {
-            delete wheat[i]; // Ensure we delete each object
-        }
+    for (int i = 0; i < cowCount; i++){
+        cow[i] = nullptr;
     }
-    delete[] wheat; // Delete the array
-    wheat = nullptr;
-
-    // Delete Corn array
-    if (cornCount > 0) {
-        for (int i = 0; i < cornCount; ++i) {
-            delete corn[i];
-        }
+    for (int i = 0; i < pigCount; i++){
+        pig[i] = nullptr;
     }
-    delete[] corn; // Delete the array
-    corn = nullptr;
-
-    // Delete Pig array
-    if (pigCount > 0) {
-        for (int i = 0; i < pigCount; ++i) {
-            delete pig[i];
-        }
+    for (int i = 0; i < wheatCount; i++){
+        wheat[i] = nullptr;
     }
-    delete[] pig; // Delete the array
-    pig = nullptr;
-
-    // Delete Cow array
-    if (cowCount > 0) {
-        for (int i = 0; i < cowCount; ++i) {
-            delete cow[i];
-        }
+    for (int i = 0; i < cornCount; i++){
+        corn[i] = nullptr;
     }
     delete[] cow;
-    cow = nullptr;
+    delete[] pig;
+    delete[] wheat;
+    delete[] corn;
 }
-

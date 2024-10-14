@@ -32,7 +32,6 @@ class Field: public Farm {
         int getSpeedGrowLevel();
         void applySpeedGrowth(int* money);
         bool getPesticideApplied ();
-        void applyPesticide(int* money);
         void setSpeedGrowApplied(bool speedGrowApplied);
         bool getSpeedGrowApplied();
 };
