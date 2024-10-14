@@ -234,7 +234,6 @@ int main(){
             } else if (optionChoice == "quit"){
                 farmer.fileWriter("savefile", farmer.getMoneyCount()); //saving progress/money, writing onto file
                 //*farmer.getMoneyCount() = 0;
-                //farmer.~Farmer(); //calling destructor for farmer
                 mainScreen = false;
             }
             
@@ -338,8 +337,9 @@ int main(){
                 fieldScreen = false;
             }
         }
+        *farmer.getMoneyCount() = 0;
     }
-    farmer.fileWriter("savefile", farmer.getMoneyCount()); //saving progress/money, writing onto file
+    cout << "reached here" << endl;
     farmer.~Farmer(); //calling destructor for farmer
     return 0;
 }
