@@ -586,16 +586,15 @@ void Farmer::applySpeedGrowAnimals(){
         cin >> product;
     }
 
-    if (*getCowCount() == 0){
+    if (product == "cow" && *getCowCount() == 0){
         cout << "You have no cow"<<endl;
         return;
     }
 
-    if (*getPigCount() == 0){
+    if (product == "pig" && *getPigCount() == 0){
         cout << "You have no pig"<<endl;
         return;
     }
-
 
 
     if (product == "pig"){
@@ -688,12 +687,12 @@ void Farmer::applyHighYieldAnimals(){
         cin >> product;
     }
 
-    if (*getCowCount() == 0){
+    if (product == "cow" && *getCowCount() == 0){
         cout << "You have no cow"<<endl;
         return;
     }
 
-    if (*getPigCount() == 0){
+    if (product == "pig" && *getPigCount() == 0){
         cout << "You have no pig"<<endl;
         return;
     }
@@ -789,12 +788,12 @@ void Farmer::applySpeedGrowCrops(){
         cin >> product;
     }
 
-    if (*getCornCount() == 0){
+    if (product == "corn" && *getCornCount() == 0){
         cout << "You have no corn"<<endl;
         return;
     }
 
-    if (*getWheatCount() == 0){
+    if (product == "wheat" && *getWheatCount() == 0){
         cout << "You have no wheat"<<endl;
         return;
     }
@@ -887,12 +886,12 @@ void Farmer::applyHighYieldCrops(){
         cin >> product;
     }
 
-    if (*getCornCount() == 0){
+    if (product == "corn" && *getCornCount() == 0){
         cout << "You have no corn"<<endl;
         return;
     }
 
-    if (*getWheatCount() == 0){
+    if (product == "wheat" && *getWheatCount() == 0){
         cout << "You have no wheat"<<endl;
         return;
     }
