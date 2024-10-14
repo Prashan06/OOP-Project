@@ -629,7 +629,7 @@ void Farmer::applySpeedGrowAnimals(){
         cout << "You can upgrade " << numberCanUpgrade << " pigs" << endl;
         cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         cin >> optionChoice;
-        while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){
+        while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){ //validating input and rerequesting if invalid, reference(cin.fail() method): https://www.geeksforgeeks.org/how-to-use-cin-fail-method-in-cpp/
             cout << "invalid input! please enter a valid number" << endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -664,7 +664,7 @@ void Farmer::applySpeedGrowAnimals(){
         cout << "You can upgrade " << numberCanUpgrade << " cows" << endl;
         cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         cin >> optionChoice;
-        while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){
+        while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){ //validating input and rerequesting if invalid, reference(cin.fail() method): https://www.geeksforgeeks.org/how-to-use-cin-fail-method-in-cpp/
             cout << "invalid input! please enter a valid number" << endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -730,7 +730,7 @@ void Farmer::applyHighYieldAnimals(){
         cout << "You can upgrade " << numberCanUpgrade << " pigs" << endl;
         cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         cin >> numberUpgraded;
-        while (cin.fail() || numberUpgraded < 0 || numberUpgraded > numberCanUpgrade){
+        while (cin.fail() || numberUpgraded < 0 || numberUpgraded > numberCanUpgrade){ //validating input and rerequesting if invalid, reference(cin.fail() method): https://www.geeksforgeeks.org/how-to-use-cin-fail-method-in-cpp/
             cout << "invalid input! please enter a valid number" << endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -765,7 +765,7 @@ void Farmer::applyHighYieldAnimals(){
         cout << "You can upgrade " << numberCanUpgrade << " cows" << endl;
         cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         cin >> numberUpgraded;
-        while (cin.fail() || numberUpgraded < 0 || numberUpgraded > numberCanUpgrade){
+        while (cin.fail() || numberUpgraded < 0 || numberUpgraded > numberCanUpgrade){ //validating input and rerequesting if invalid, reference(cin.fail() method): https://www.geeksforgeeks.org/how-to-use-cin-fail-method-in-cpp/
             cout << "invalid input! please enter a valid number" << endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -829,7 +829,7 @@ void Farmer::applySpeedGrowCrops(){
         cout << "You can upgrade " << numberCanUpgrade << " wheat" << endl;
         cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         cin >> optionChoice;
-        while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){
+        while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){ //validating input and rerequesting if invalid, reference(cin.fail() method): https://www.geeksforgeeks.org/how-to-use-cin-fail-method-in-cpp/
             cout << "invalid input! please enter a valid number" << endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -862,7 +862,7 @@ void Farmer::applySpeedGrowCrops(){
         cout << "You can upgrade " << numberCanUpgrade << " corn" << endl;
         cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         cin >> optionChoice;
-        while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){
+        while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){ //validating input and rerequesting if invalid, reference(cin.fail() method): https://www.geeksforgeeks.org/how-to-use-cin-fail-method-in-cpp/
             cout << "invalid input! please enter a valid number" << endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -927,7 +927,7 @@ void Farmer::applyHighYieldCrops(){
         cout << "You can upgrade " << numberCanUpgrade << " wheat" << endl;
         cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         cin >> optionChoice;
-        while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){
+        while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){ //validating input and rerequesting if invalid, reference(cin.fail() method): https://www.geeksforgeeks.org/how-to-use-cin-fail-method-in-cpp/
             cout << "invalid input! please enter a valid number" << endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -947,13 +947,12 @@ void Farmer::applyHighYieldCrops(){
 
     }else if (product == "corn"){
 
-                int option;
-        int newMoney = 0;
-        int highYieldNotAppliedCount;
+        int option;
+        int newMoney = 0; 
 
-        int numberCanUpgrade = money/functionCorn.getHighYieldPrice();
+        int numberCanUpgrade = money/functionCorn.getHighYieldPrice(); //calculating how many upgrades the player can pay for
 
-        if (numberCanUpgrade > cornCount){
+        if (numberCanUpgrade > cornCount){ //limiting the number of available upgrades to the number of corn player has
             numberCanUpgrade = cornCount;
         }
 
@@ -961,19 +960,19 @@ void Farmer::applyHighYieldCrops(){
         cout << "You can upgrade " << numberCanUpgrade << " corn" << endl;
         cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         cin >> optionChoice;
-        while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){
+        while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){ //validating input and rerequesting if invalid, reference(cin.fail() method): https://www.geeksforgeeks.org/how-to-use-cin-fail-method-in-cpp/
             cout << "invalid input! please enter a valid number" << endl;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.clear(); //clear error flags on input stream
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //ignore the rest of the line 
             cin >> optionChoice;
         }
-        if (optionChoice != 0) {
+        if (optionChoice != 0) { //executing loop only if player has decided to upgrade (i.e chooses value above 0)
             int j = 0;
-            for (int i = 0; i < cornCount; ++i) {
-                if (j < optionChoice){
+            for (int i = 0; i < cornCount; ++i) { //iterating though corn array
+                if (j < optionChoice){ //executing applyHighYield only the number of times the player has chosen
                     corn[i]->applyHighYield(&money);
                     j++;
-                } else {
+                } else { 
                     break;
                 }
             }
