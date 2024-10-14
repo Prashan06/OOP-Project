@@ -22,16 +22,17 @@ void Pig::applyHighYield(int *money){
 
 // This functions sets pigEvent to true depending on the value of pigCount. The code to affect the pig is in Farmer
 void Pig::Event(int* count){
-    /*if (*count % 10 == 0){
+
+    if (*count % 5 == 0){
         random_device rd; // obtain a random number from hardware
         mt19937 gen(rd()); // seed the generator, initialise generator
-        uniform_int_distribution<> distr(1, 10); // define the range
+        uniform_int_distribution<> distr(1, 20); // define the range
         int randomNumber = distr(gen);
-        if (randomNumber == 1){ */
+        if (randomNumber == 1){ 
             this -> pigEvent = true;
             setPigEvent(pigEvent);
-        //}
-   // }
+        }
+    }
 }
 
 void Pig::setPigEvent(bool pigEvent){ //setter for pigEvent
