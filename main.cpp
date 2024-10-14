@@ -216,19 +216,25 @@ int main(){
             cout << "To view status, enter status" << endl;
             cout << "To visit the Barn, enter barn" << endl;
             cout << "To visit the Field, enter field" << endl;
+            cout << "To quit the game, enter quit" << endl;
             cin >> optionChoice;
 
-            while (optionChoice != "barn" && optionChoice != "field" && optionChoice != "status"){
+            while (optionChoice != "barn" && optionChoice != "field" && optionChoice != "status" && optionChoice != "quit"){
                 cout << "Invalid input, reenter your choice of action. Choose, barn, field, or status." << endl;
                 cin >> optionChoice;
             }
             if (optionChoice == "status") {
-                farmer.getStatus();
+                farmer.getStatus(); //displaying how many cows, pigs, wheat & corn the player has
             } else if (optionChoice == "barn") {
                 barnScreen = true;
                 mainScreen = false;
             } else if (optionChoice == "field"){
                 fieldScreen = true;
+                mainScreen = false;
+            } else if (optionChoice == "quit"){
+                farmer.fileWriter("savefile", farmer.getMoneyCount()); //saving progress/money, writing onto file
+                //*farmer.getMoneyCount() = 0;
+                //farmer.~Farmer(); //calling destructor for farmer
                 mainScreen = false;
             }
             
@@ -365,7 +371,7 @@ int main(){
             }
         }
     }
-    farmer.fileWriter("savefile", farmer.getMoneyCount());
-    farmer.~Farmer();
+    farmer.fileWriter("savefile", farmer.getMoneyCount()); //saving progress/money, writing onto file
+    farmer.~Farmer(); //calling destructor for farmer
     return 0;
 }
