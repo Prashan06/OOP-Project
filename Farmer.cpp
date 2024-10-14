@@ -966,16 +966,16 @@ void Farmer::fileWriter(string filename, int* money) {
 
 Farmer::~Farmer() {
     for (int i = 0; i < cowCount; i++){
-        delete cow[i];
+        cow[i] = nullptr;
     }
     for (int i = 0; i < pigCount; i++){
-        delete pig[i];
+        pig[i] = nullptr;
     }
     for (int i = 0; i < wheatCount; i++){
-        delete wheat[i];
+        wheat[i] = nullptr;
     }
     for (int i = 0; i < cornCount; i++){
-        delete corn[i];
+        corn[i] = nullptr;
     }
     delete[] cow;
     delete[] pig;

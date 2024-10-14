@@ -233,7 +233,7 @@ int main(){
                 mainScreen = false;
             } else if (optionChoice == "quit"){
                 farmer.fileWriter("savefile", farmer.getMoneyCount()); //saving progress/money, writing onto file
-                //*farmer.getMoneyCount() = 0;
+                *farmer.getMoneyCount() = 0;
                 mainScreen = false;
             }
             
@@ -279,10 +279,8 @@ int main(){
                    farmer.applyHighYieldAnimals();
                 }
             } else if (optionChoice == "leave") {
-                cout << "Leaving the Barn..." << endl;  // Debug statement
                 barnScreen = false;
                 mainScreen = true;
-                cout << "mainScreen: " << mainScreen << ", barnScreen: " << barnScreen << endl; // Debug statement
             }
         }
 
@@ -337,9 +335,7 @@ int main(){
                 fieldScreen = false;
             }
         }
-        *farmer.getMoneyCount() = 0;
     }
-    cout << "reached here" << endl;
     farmer.~Farmer(); //calling destructor for farmer
     return 0;
 }
