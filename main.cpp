@@ -223,7 +223,7 @@ int main(){
                 cin >> optionChoice;
             }
             if (optionChoice == "status") {
-                farmer.getStatus();
+                farmer.getStatus(); //displaying how many cows, pigs, wheat & corn the player has
             } else if (optionChoice == "barn") {
                 barnScreen = true;
                 mainScreen = false;
@@ -365,7 +365,7 @@ int main(){
             }
         }
     }
-    farmer.fileWriter("savefile", farmer.getMoneyCount());
-    farmer.~Farmer();
+    farmer.fileWriter("savefile", farmer.getMoneyCount()); //saving progress/money, writing onto file
+    farmer.~Farmer(); //calling destructor for farmer
     return 0;
 }
