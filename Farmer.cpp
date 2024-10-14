@@ -780,7 +780,7 @@ void Farmer::applySpeedGrowCrops(){
     Pig functionPig;
     Cow functionCow;
 
-    cout << "What crop would you like to upgrade? Wheat or Corn? (Enter response in lower case)" << endl;
+    cout << "What crop would you like to upgrade? wheat or corn? (Enter response in lower case)" << endl;
     cin >> product;
 
     while (product != "wheat" && product != "corn"){
