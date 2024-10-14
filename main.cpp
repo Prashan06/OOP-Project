@@ -371,7 +371,7 @@ int main(){
             }
         }
     }
-    farmer.fileWriter("savefile", farmer.getMoneyCount()); //saving progress/money, writing onto file
-    farmer.~Farmer(); //calling destructor for farmer
+    //farmer.fileWriter("savefile", farmer.getMoneyCount()); //saving progress/money, writing onto file
+    //farmer.~Farmer(); //calling destructor for farmer
     return 0;
 }
