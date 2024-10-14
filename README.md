@@ -1,1 +1,4 @@
 # OOP-Project
+Welcome to Farming Simulator, this is a game where the user tries to obtain as much money as possible through buying and selling farm animals and crops as well as upgrades to increase profit, while handling the occurance of random events that will hinder their progress. 
+After purchasing a animal or crop, the user will have to wait for them to grow and mature before they can be sold.
+the user can navigate between 3 menu screens - the main menu, the barn menu and the field menu. the barn and field menus are where animals and crops and upgrades are bought and sold, and the main menu is where the user can view their stats, navigate to the barn and field menus, or save and quit the game, where their final money total is saved into a file and can be read in at the start of the game so that the user can play on without losing progress. 
