@@ -30,18 +30,11 @@ void Corn::Event(int* count){
 // This functions sets the cornHighYieldApplied to true. The code to increase the price of corn objects is in Farmer.
 void Corn::applyHighYield(int* money){
 
-    if (*money < highYieldPrice){
-
-        cout << "You do not have enough money to buy high yield fertilizer" << endl; //checks whether the player has enough money to execute the function
-
-    } else{
         // Decreases tghe money and sets cornHighYieldApplied to true.
         *money = (*money) - this->highYieldPrice;
         cornHighYieldApplied = true;
         cout << "highYield successfully applied" << endl;
-
-    }
-
+        
 }
 
 void Corn::setCornEvent(bool cornEvent){ //setter for cornEvent
