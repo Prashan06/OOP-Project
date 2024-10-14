@@ -578,12 +578,12 @@ void Farmer::applySpeedGrowAnimals(){
     Pig functionPig;
     Cow functionCow;
 
-    std::cout << "What crop would you like to upgrade? cow or pig? (Enter response in lower case)" << endl;
-    std::cin >> product;
+    cout << "What crop would you like to upgrade? cow or pig? (Enter response in lower case)" << endl;
+    cin >> product;
 
     while (product != "pig" && product != "cow"){
-        std::cout << "invalid input! please enter cow or pig" << endl;
-        std::cin >> product;
+        cout << "invalid input! please enter cow or pig" << endl;
+        cin >> product;
     }
 
     if (*getCowCount() == 0){
@@ -611,12 +611,12 @@ void Farmer::applySpeedGrowAnimals(){
             numberCanUpgrade = pigCount;
         }
 
-        std::cout << "You can upgrade " << numberCanUpgrade << " pigs" << endl;
-        std::cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         int optionChoice = 0;
-        std::cin >> optionChoice;
+        cout << "You can upgrade " << numberCanUpgrade << " pigs" << endl;
+        cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
+        cin >> optionChoice;
         while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){
-            std::cout << "invalid input! please enter a valid number" << endl;
+            cout << "invalid input! please enter a valid number" << endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cin >> optionChoice;
@@ -646,12 +646,12 @@ void Farmer::applySpeedGrowAnimals(){
             numberCanUpgrade = cowCount;
         }
 
-        std::cout << "You can upgrade " << numberCanUpgrade << " cows" << endl;
-        std::cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         int optionChoice = 0;
-        std::cin >> optionChoice;
+        cout << "You can upgrade " << numberCanUpgrade << " cows" << endl;
+        cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
+        cin >> optionChoice;
         while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){
-            std::cout << "invalid input! please enter a valid number" << endl;
+            cout << "invalid input! please enter a valid number" << endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cin >> optionChoice;
@@ -680,12 +680,12 @@ void Farmer::applyHighYieldAnimals(){
     Pig functionPig;
     Cow functionCow;
 
-    std::cout << "What crop would you like to upgrade? cow or pig? (Enter response in lower case)" << endl;
-    std::cin >> product;
+    cout << "What crop would you like to upgrade? cow or pig? (Enter response in lower case)" << endl;
+    cin >> product;
 
     while (product != "pig" && product != "cow"){
-        std::cout << "invalid input! please enter cow or pig" << endl;
-        std::cin >> product;
+        cout << "invalid input! please enter cow or pig" << endl;
+        cin >> product;
     }
 
     if (*getCowCount() == 0){
@@ -712,12 +712,12 @@ void Farmer::applyHighYieldAnimals(){
             numberCanUpgrade = pigCount;
         }
 
-        std::cout << "You can upgrade " << numberCanUpgrade << " pigs" << endl;
-        std::cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         int numberUpgraded = 0;
-        std::cin >> numberUpgraded;
+        cout << "You can upgrade " << numberCanUpgrade << " pigs" << endl;
+        cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
+        cin >> numberUpgraded;
         while (cin.fail() || numberUpgraded < 0 || numberUpgraded > numberCanUpgrade){
-            std::cout << "invalid input! please enter a valid number" << endl;
+            cout << "invalid input! please enter a valid number" << endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cin >> numberUpgraded;
@@ -747,12 +747,12 @@ void Farmer::applyHighYieldAnimals(){
             numberCanUpgrade = cowCount;
         }
 
-        std::cout << "You can upgrade " << numberCanUpgrade << " cows" << endl;
-        std::cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         int numberUpgraded = 0;
-        std::cin >> numberUpgraded;
+        cout << "You can upgrade " << numberCanUpgrade << " cows" << endl;
+        cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
+        cin >> numberUpgraded;
         while (cin.fail() || numberUpgraded < 0 || numberUpgraded > numberCanUpgrade){
-            std::cout << "invalid input! please enter a valid number" << endl;
+            cout << "invalid input! please enter a valid number" << endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cin >> numberUpgraded;
@@ -811,10 +811,10 @@ void Farmer::applySpeedGrowCrops(){
             numberCanUpgrade = wheatCount;
         }
 
-        std::cout << "You can upgrade " << numberCanUpgrade << " wheat" << endl;
-        std::cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
         int optionChoice = 0;
-        std::cin >> optionChoice;
+        cout << "You can upgrade " << numberCanUpgrade << " wheat" << endl;
+        cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
+        cin >> optionChoice;
         while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){
             cout << "invalid input! please enter a valid number" << endl;
             cin.clear();
@@ -844,9 +844,9 @@ void Farmer::applySpeedGrowCrops(){
             numberCanUpgrade = cornCount;
         }
 
+        int optionChoice = 0;
         cout << "You can upgrade " << numberCanUpgrade << " corn" << endl;
         cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
-        int optionChoice = 0;
         cin >> optionChoice;
         while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){
             cout << "invalid input! please enter a valid number" << endl;
@@ -943,14 +943,15 @@ void Farmer::applyHighYieldCrops(){
             numberCanUpgrade = cornCount;
         }
 
+        int optionChoice = 0;
         cout << "You can upgrade " << numberCanUpgrade << " corn" << endl;
         cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
-        int optionChoice = 0;
         cin >> optionChoice;
         while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){
             cout << "invalid input! please enter a valid number" << endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin >> optionChoice;
         }
         if (optionChoice != 0) {
             int j = 0;
