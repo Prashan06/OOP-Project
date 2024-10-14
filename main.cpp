@@ -233,8 +233,8 @@ int main(){
                 mainScreen = false;
             } else if (optionChoice == "quit"){
                 farmer.fileWriter("savefile", farmer.getMoneyCount()); //saving progress/money, writing onto file
-                *farmer.getMoneyCount() = 0;
-                farmer.~Farmer(); //calling destructor for farmer
+                //*farmer.getMoneyCount() = 0;
+                //farmer.~Farmer(); //calling destructor for farmer
                 mainScreen = false;
             }
             
@@ -371,7 +371,7 @@ int main(){
             }
         }
     }
-    //farmer.fileWriter("savefile", farmer.getMoneyCount()); //saving progress/money, writing onto file
-    //farmer.~Farmer(); //calling destructor for farmer
+    farmer.fileWriter("savefile", farmer.getMoneyCount()); //saving progress/money, writing onto file
+    farmer.~Farmer(); //calling destructor for farmer
     return 0;
 }
