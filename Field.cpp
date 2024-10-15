@@ -53,25 +53,15 @@ int Field::getHighYieldPrice(){
 
 
 void Field::applySpeedGrowth(int* money){
-    // Asks user if they want to buy speed grow and then put their response into optionChoice.
-    cout << "Do you want to buy the SpeedGrowth upgrade? Y or N " << endl;
-    cin >> optionChoice;
-    // Only "Y" and "N" and accepted. Otherwise, ask user for another input.
-    while (optionChoice != "Y" && optionChoice != "N") {
-        cout << "invalid input! please enter Y or N" << endl;
-        cin >> optionChoice;
-    }
-    if (optionChoice == "Y"){
-        // Below ensures the user has enough money to buy speedGrow.
-        if (*money < speedGrowPrice){
-            cout << "You do not have enough money to buy the SpeedGrowth update, try again later" << endl;
-        }else{
-            // sets speedGrowApplied to true and decreases the money the user has.
-            *money = *money - speedGrowPrice;
-            speedGrowLevel++;
-            speedGrowApplied = true;
-            cout << "speedGrowth for field successfully applied" << endl;
-        }
+    // Below ensures the user has enough money to buy speedGrow.
+    if (*money < speedGrowPrice){
+        cout << "You do not have enough money to buy the SpeedGrowth update, try again later" << endl;
+    }else{
+        // sets speedGrowApplied to true and decreases the money the user has.
+        *money = *money - speedGrowPrice;
+        speedGrowLevel++;
+        speedGrowApplied = true;
+        cout << "speedGrowth for field successfully applied" << endl;
     }
 }
 
