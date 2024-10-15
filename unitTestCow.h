@@ -32,7 +32,6 @@ class unitTestCow{
     // Test the applyHighYield
         void testApplyHighYield(){
             Cow cow;
-            Farmer farmer;
             // Set money to 30.
             int Money = 30;
             int* MoneyCountPtr = &Money;

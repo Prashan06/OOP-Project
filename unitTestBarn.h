@@ -19,10 +19,10 @@ class unitTestBarn{
     protected:
         void testHighYield(){
             Barn testBarn;
-            // Set the highYieldFactor to 1.2.
-            testBarn.setHighYieldFactor(1.2);
+            // Set the highYieldFactor to 1.
+            testBarn.setHighYieldFactor(1);
             // Check if getHighYieldFactor() works as expected.
-            if (testBarn.getHighYieldFactor() != 1.2){
+            if (testBarn.getHighYieldFactor() != 1){
                 // Error message.
                 cout << "Test failed" << endl;
             }

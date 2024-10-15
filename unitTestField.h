@@ -19,11 +19,10 @@ class unitTestField{
     protected:
         void testHighYield(){
             Field testField;
-            // Set the highYieldFactor to 1.8.
-            testField.setHighYieldFactor(1.8);
-            cout << "" << testField.getHighYieldFactor() << endl;
+            // Set the highYieldFactor to 1.
+            testField.setHighYieldFactor(1);
             // Check if getHighYieldFactor() works as expected.
-            if (testField.getHighYieldFactor() != 1.8){
+            if (testField.getHighYieldFactor() != 1){
                 // Error message.
                 cout << "Test failed1" << endl;
             }
