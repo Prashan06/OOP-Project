@@ -107,6 +107,10 @@ void Farmer::buyAnimal(){
         Cow tempCow;
         cout << "How many cows would you like to buy?, you can buy " << money/tempCow.getBuyPrice() << " cows" << endl;
         cin >> amount;
+        while (amount < 0) {
+            cout << "Invalid input please enter a positive value" << endl;
+            cin >> amount;
+        } 
         // figure out how much the user has to pay.
         int amountPaid = tempCow.getBuyPrice() * amount;
         // Outputs message notifying user that they do not have enough money to buy cows
@@ -150,6 +154,10 @@ void Farmer::buyAnimal(){
         // Message notifying user that they are buying pigs.
         cout << "How many pigs would you like to buy?, you can buy " << money/tempPig.getBuyPrice() << " pigs" << endl;
         cin >> amount;
+        while (amount < 0) {
+            cout << "Invalid input please enter a positive value" << endl;
+            cin >> amount;
+        } 
         // Amount user has to pay to buy the pigs.
         int amountPaid = tempPig.getBuyPrice() * amount;
         // Notifies user that they do not have enough money to buy pigs and asks them to enter an amount they can afford.
@@ -319,6 +327,10 @@ void Farmer::buyCrop() {
         // Message notifying user that they are buying wheat.
         cout << "How many wheat crops would you like to buy?, you can buy " << money/tempWheat.getBuyPrice() << " wheat" << endl;
         cin >> amount;
+        while (amount < 0) {
+            cout << "Invalid input please enter a positive value" << endl;
+            cin >> amount;
+        } 
         // Amount user has to pay to buy the wheat
         int amountPaid = tempWheat.getBuyPrice() * amount;
         // Notifies user that they do not have enough money to buy wheat and asks them to enter an amount they can afford.
@@ -363,6 +375,10 @@ void Farmer::buyCrop() {
         // Message notifying user that they are buying corn.
         cout << "How many corn crops would you like to buy?, you can buy " << money/tempCorn.getBuyPrice() << " corn" << endl;
         cin >> amount;
+        while (amount < 0) {
+            cout << "Invalid input please enter a positive value" << endl;
+            cin >> amount;
+        } 
         // Amount user has to pay to buy the corn.
         int amountPaid = tempCorn.getBuyPrice() * amount;
         // Notifies user that they do not have enough money to buy corn and asks them to enter an amount they can afford.
@@ -602,12 +618,12 @@ void Farmer::applySpeedGrowAnimals(){
     }
 
     if (product == "cow" && *getCowCount() == 0){
-        cout << "You have no cow"<<endl;
+        cout << "You have no cows, please buy some cows before applying speedGrow"<<endl; // prompting user to buy cows before applying speedgrow
         return;
     }
 
     if (product == "pig" && *getPigCount() == 0){
-        cout << "You have no pig"<<endl;
+        cout << "You have no pigs, please buy some cows before applying speedGrow"<<endl; // prompting user to buy pigs before applying speedgrow
         return;
     }
 
@@ -702,12 +718,12 @@ void Farmer::applyHighYieldAnimals(){
     }
 
     if (product == "cow" && *getCowCount() == 0){
-        cout << "You have no cow"<<endl;
+        cout << "You have no cows, please buy some cows before applying highYield"<<endl; // prompting user to buy cows before applying highyield
         return;
     }
 
     if (product == "pig" && *getPigCount() == 0){
-        cout << "You have no pig"<<endl;
+        cout << "You have no pigs, please buy some pigs before applying highYield"<<endl;  // prompting user to buy pigs before applying highyield
         return;
     }
 
@@ -780,7 +796,6 @@ void Farmer::applyHighYieldAnimals(){
             }
         }
     }
-
 } 
 
 void Farmer::applySpeedGrowCrops(){
@@ -803,12 +818,12 @@ void Farmer::applySpeedGrowCrops(){
     }
 
     if (product == "corn" && *getCornCount() == 0){
-        cout << "You have no corn"<<endl;
+        cout << "You have no corn, please buy some corn before applying speedGrow"<<endl;  // let user know that they need to buy some corn before applying speedGrow
         return;
     }
 
     if (product == "wheat" && *getWheatCount() == 0){
-        cout << "You have no wheat"<<endl;
+        cout << "You have no wheat, please buy some corn before applying speedGrow"<<endl;  // let user know that they need to buy some wheat before applying speedGrow
         return;
     }
 
@@ -843,7 +858,7 @@ void Farmer::applySpeedGrowCrops(){
                     break;
                 }
             }
-
+        }
     }else if (product == "corn"){
 
         int option;
@@ -877,9 +892,7 @@ void Farmer::applySpeedGrowCrops(){
             }
         }
     }
-
 } 
-}
 
 void Farmer::applyHighYieldCrops(){
 
@@ -901,12 +914,12 @@ void Farmer::applyHighYieldCrops(){
     }
 
     if (product == "corn" && *getCornCount() == 0){
-        cout << "You have no corn"<<endl;
+        cout << "You have no corn, please buy corn to apply the upgrade"<<endl; // let user know that they need to buy some corn before applying highyield
         return;
     }
 
     if (product == "wheat" && *getWheatCount() == 0){
-        cout << "You have no wheat"<<endl;
+        cout << "You have no wheat, please buy wheat to apply the upgrade"<<endl; // let user know that they need to buy some wheat before applying highyield
         return;
     }
 
@@ -942,7 +955,7 @@ void Farmer::applyHighYieldCrops(){
                     break;
                 }
             }
-
+        }
     }else if (product == "corn"){
 
         int option;
@@ -976,28 +989,26 @@ void Farmer::applyHighYieldCrops(){
             }
         }
     }
-
 } 
-}
 
 void Farmer::executeEvent() {
     if (getProduct() == "cow"){
-        if (cow[9]->getCowEvent() == true && *getCowCount() > 9) {
+        if (cow[9]->getCowEvent() == true && *getCowCount() > 9) { // statement to check if event should be executed or not
             cout << "A disease has spread throughout the cows, half of your cows have died." << endl;
-                int newCowCount = cowCount * 0.5;
-                for (int i = newCowCount; i < cowCount; i++){
-                    cow[i - newCowCount] = cow[i];
+                int newCowCount = cowCount * 0.5; // half the cow count
+                for (int i = newCowCount; i < cowCount; i++){ // loop to shift every element in array to the first half of the array
+                    cow[i - newCowCount] = cow[i]; 
                     cow[i]->setCowEvent(false);
                 }
-            cowCount = newCowCount;
+            cowCount = newCowCount; // decrease cow count to finish array 
         }
     }
     if (getProduct() == "pig"){
-        if (pig[9]->getPigEvent() == true && *getPigCount() > 9) {
+        if (pig[9]->getPigEvent() == true && *getPigCount() > 9) { // statement to check if event should be executed or not
             cout << "the demand for pig meat greatly decreased, in order to maintain a healthy flow of pigs " << endl;
             cout << "coming in and out of the farm, the sell price of all currently owned pigs must be reduced by half." << endl;
             for (int i = 0; i < pigCount; i++){
-                pig[i]->setSellPrice((pig[i]->getSellPrice()) * 0.5);
+                pig[i]->setSellPrice((pig[i]->getSellPrice()) * 0.5); //decrease the sell pricec for each pig by half
                 pig[i]->setPigEvent(false);
             }
         }
@@ -1006,6 +1017,8 @@ void Farmer::executeEvent() {
      if (wheat[9] -> getWheatEvent() == true && *getWheatCount() > 9) {
         int newWheatCount = 0;
             if (wheat[9]->getPesticideApplied() == true){
+                // a similar implementation used in the cow event is used for this event, 
+                //the difference is that the arary is 1/4 the orignal size compared to the cow event where the array size was halved 
                 cout << "A disease has spread throughout the wheat, 1/4 of your wheat have died." << endl;
                 newWheatCount = (wheatCount) * 0.25;
                 cout << "Your pesticide has been used" << endl;
@@ -1018,11 +1031,12 @@ void Farmer::executeEvent() {
             }
 
             if (wheat[9]->getPesticideApplied() == false){
+                // only redcucing the wheat array by half if pesticide is applied
                 cout << "A disease has spread throughout the wheat, half of your wheat have died." << endl;
                 newWheatCount = (wheatCount) * 0.5;
                 for (int i = newWheatCount; i < wheatCount; i++){
                     wheat[i - newWheatCount] = wheat[i];
-                    wheat[i]->setWheatEvent(false);
+                    wheat[i]->setWheatEvent(false); // re-setting the wheat event to false so that the event doesnt run again
                 }
                 wheatCount = newWheatCount;
             }
@@ -1031,6 +1045,7 @@ void Farmer::executeEvent() {
      if (getProduct() == "corn"){
         if (corn[9]->getCornEvent() == true && *getCornCount() > 9) {
             if (corn[9]->getPesticideApplied() == true){
+                // the corn event is the same as the wheat event
                 cout << "A disease has spread throughout the corn, 1/4 of your corn have died." << endl;
                 int newCornCount = (cornCount) * 0.25;
                 cout << "Your Pesticide has been used" << endl;
@@ -1043,6 +1058,7 @@ void Farmer::executeEvent() {
             }
 
             if (corn[9]->getPesticideApplied() == false){
+                // identical implementation to the wheat event
                 cout << "A disease has spread throughout the wheat, half of your wheat have died." << endl;
                 int newCornCount = (cornCount) * 0.5;
                 for (int i = newCornCount; i < cornCount; i++){
@@ -1150,30 +1166,38 @@ void Farmer::appliedPesticide(){
     }
 }
 
-// the read and write files were written using information from the week 5 lecture video and https://stackoverflow.com/questions/132358/how-to-read-file-content-into-istringstream
+// the read and write files were written using information from the week 5 lecture video
 void Farmer::fileReader(string filename) {
+    // open the file
     inputFile.open(filename, ios::in);
+    // read in the integer value in the file
     int newMoney;
     inputFile >> newMoney;
+    // close the file 
     inputFile.close();
+    // set the money count to the value from the file 
     setMoneyCount(newMoney);
 
 }
 
 void Farmer::fileWriter(string filename, int* money) {
-
+    // open the output file which will be the same as the input file for simplicity
     outputFile.open(filename, ios::out);
+    // write the money parameter into the txt file
     outputFile << *money << endl;
+    // close the file
     outputFile.close();
 }
 
 Farmer::~Farmer() {
+// the if statments are implemented to prevent epmty arrays being deleted, as this would result in an segmentation fault
 if (*getCowCount() > 0){
         for (int i = 0; i < cowCount; i++){
-            cow[i] = nullptr;
+            cow[i] = nullptr; // set every element in array to null pointer 
         }
-        delete[] cow;
+        delete[] cow; // delete the array
     }
+// the following code uses identical implementation as the above destructor for the cow array
     if (*getPigCount() > 0){
         for (int i = 0; i < pigCount; i++){
             pig[i] = nullptr;
