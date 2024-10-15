@@ -56,7 +56,6 @@ void Barn::applySpeedGrowth(int* money) {
         speedGrowApplied = true;
         speedGrowLevel++;
         *money = *money - speedGrowPrice;
-        cout << "Speed growth for barn successfully applied. " << endl;
     }
 }
 

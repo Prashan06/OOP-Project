@@ -61,7 +61,6 @@ void Field::applySpeedGrowth(int* money){
         *money = *money - speedGrowPrice;
         speedGrowLevel++;
         speedGrowApplied = true;
-        cout << "speedGrowth for field successfully applied" << endl;
     }
 }
 
