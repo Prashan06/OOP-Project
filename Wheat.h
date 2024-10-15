@@ -3,22 +3,18 @@
 
 #include "Field.h"
 
-class Wheat: public Field, public Events{
+class Wheat : public Field, public Events {
+ protected:
+  bool wheatEvent;
 
-    protected:
+ public:
+  Wheat();  // constructor
+  void Event(int* count);
+  void applyHighYield(int* money);  // modifies sellPrice & money(from farmer)
 
-        bool wheatEvent; 
-
-    public:
-
-        Wheat(); //constructor
-        void Event(int* count);
-        void applyHighYield(int *money); //modifies sellPrice & money(from farmer)
-
-        //getter & setter for wheatEvent
-        void setWheatEvent(bool wheatEvent);
-        bool getWheatEvent();
-
+  // getter & setter for wheatEvent
+  void setWheatEvent(bool wheatEvent);
+  bool getWheatEvent();
 };
 
 #endif
