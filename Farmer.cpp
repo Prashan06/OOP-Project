@@ -1080,21 +1080,21 @@ void Farmer::appliedPesticide(){
     // initialise the pesticideChoice variable.
     string pesticideChoice = "";
     // asks user if they want to buy pesticide.
-    cout << "Do you want to buy pesticide Y or N" << endl;
+    cout << " Do you want to buy pesticide Y or N" << endl;
     cin >> pesticideChoice;
     //If the user does not enter a valid input, code will prompt user to enter it again.
     while (pesticideChoice != "Y" && pesticideChoice != "N"){
-        cout << "Invalid input, enter either Y or N" << endl;
+        cout << " Invalid input, enter either Y or N" << endl;
         cin >> pesticideChoice;
     }
     // initialise product variable.
     string product = "";
     // Asks user if they want to buy pesticide and puts it into product.
-    cout << "Do you want to buy pesticide for corn or wheat" << endl;
+    cout << " Do you want to buy pesticide for corn or wheat" << endl;
     cin >> product;
     // asks user for another input if their previous input is invalid.
     while (product != "corn" && product != "wheat"){
-    cout << "Invalid input, enter either corn or wheat" << endl;
+    cout << " Invalid input, enter either corn or wheat" << endl;
     cin >> product;
     }
 
@@ -1113,13 +1113,13 @@ void Farmer::appliedPesticide(){
                 }
 
                 // Inform the user of the number of corn crops without pesticide applied and the total cost to apply it.
-                cout << "You have " << numCornPesticideApplied << "corn with no pesticide applied it will cost " << numCornPesticideApplied*tempCorn.getPesticidePrice();
+                cout << " You have " << numCornPesticideApplied << " corn with no pesticide applied it will cost " << numCornPesticideApplied*tempCorn.getPesticidePrice();
                 // Prompt the user to decide whether to purchase pesticide.
                 cout << " do you want to buy pesticide, enter Y or N" << endl;
                 cin >> pesticideChoice;
                 // Validate the user's input, ensuring it's either 'Y' or 'N'.
                 while (pesticideChoice != "Y" && pesticideChoice != "N"){
-                    cout << "Invalid input, enter either Y or N" << endl;
+                    cout << " Invalid input, enter either Y or N" << endl;
                     cin >> pesticideChoice;
                 }
 
@@ -1129,7 +1129,7 @@ void Farmer::appliedPesticide(){
                     for (int i = 0; i < *getCornCount(); i++){
                         // Check if there's enough money to apply pesticide to all applicable crops
                         if (*getMoneyCount() < numCornPesticideApplied*tempCorn.getPesticidePrice()){
-                            cout << "You do not have enough money, try again later" << endl;
+                            cout << " You do not have enough money, try again later" << endl;
                             break;
                         }
                         // Apply pesticide to corn crops that currently do not have it.
@@ -1140,7 +1140,7 @@ void Farmer::appliedPesticide(){
                 }
             } else {
                 // Inform the user if there are no corn crops.
-                cout << "You have no corn" << endl;
+                cout << " You have no corn" << endl;
             }
         }
     } 
@@ -1159,13 +1159,13 @@ void Farmer::appliedPesticide(){
                     }
                 }
                 // Inform the user of the number of untreated wheat crops and total pesticide cost.
-                cout << "You have " << numWheatPesticideApplied << "corn with no pesticide applied it will cost " << numWheatPesticideApplied*tempCorn.getPesticidePrice();
+                cout << " You have " << numWheatPesticideApplied << " corn with no pesticide applied it will cost " << numWheatPesticideApplied*tempCorn.getPesticidePrice();
                 // Prompt the user to decide whether to buy pesticide for wheat.
                 cout << " do you want to buy pesticide, enter Y or N" << endl;
                 cin >> pesticideChoice;
                 // Validate the user's input for wheat.
                 while (pesticideChoice != "Y" && pesticideChoice != "N"){
-                    cout << "Invalid input, enter either Y or N" << endl;
+                    cout << " Invalid input, enter either Y or N" << endl;
                     cin >> pesticideChoice;
                 }
 
@@ -1174,7 +1174,7 @@ void Farmer::appliedPesticide(){
                     for (int i = 0; i < *getWheatCount(); i++){
                         // Check if there's enough money to apply pesticide to all applicable wheat crops.
                         if (*getMoneyCount() < numWheatPesticideApplied*tempWheat.getPesticidePrice()){
-                            cout << "You do not have enough money, try again later" << endl;
+                            cout << " You do not have enough money, try again later" << endl;
                             break;
                         }
                         // Apply pesticide to wheat crops that currently do not have it.
@@ -1185,13 +1185,13 @@ void Farmer::appliedPesticide(){
                 }
             } else {
                 // Inform the user if there are no wheat crops.
-                cout << "You have no wheat" << endl;
+                cout << " You have no wheat" << endl;
             }
         }
     }
     // If the user chose not to buy pesticide, outputs a message. 
     if (pesticideChoice == "N"){
-        cout << "You have chosen not to buy pesticide" << endl;
+        cout << " You have chosen not to buy pesticide" << endl;
     }
 }
 
