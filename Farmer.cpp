@@ -594,11 +594,11 @@ void Farmer::applySpeedGrowAnimals(){
     Cow functionCow;
 
     cout << "What crop would you like to upgrade? cow or pig? (Enter response in lower case)" << endl;
-    cin >> product;
+    cin >> product; //reading user input
 
-    while (product != "pig" && product != "cow"){
+    while (product != "pig" && product != "cow"){ //validating user input, rerequesting if invalid
         cout << "invalid input! please enter cow or pig" << endl;
-        cin >> product;
+        cin >> product; //reading user input
     }
 
     if (product == "cow" && *getCowCount() == 0){
@@ -613,32 +613,30 @@ void Farmer::applySpeedGrowAnimals(){
 
 
     if (product == "pig"){
-
         
         int option;
         int newMoney = 0;
-        int highYieldNotAppliedCount;
 
-        int numberCanUpgrade = money/functionPig.getSpeedGrowPrice();
+        int numberCanUpgrade = money/functionPig.getSpeedGrowPrice(); //calculating number of upgrades player can pay for
 
-        if (numberCanUpgrade > pigCount){
+        if (numberCanUpgrade > pigCount){ //limiting this number to the number of pigs the player has
             numberCanUpgrade = pigCount;
         }
 
         int optionChoice = 0;
         cout << "You can upgrade " << numberCanUpgrade << " pigs" << endl;
         cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
-        cin >> optionChoice;
+        cin >> optionChoice; //reading user input
         while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){ //validating input and rerequesting if invalid, reference(cin.fail() method): https://www.geeksforgeeks.org/how-to-use-cin-fail-method-in-cpp/
             cout << "invalid input! please enter a valid number" << endl;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cin >> optionChoice;
+            cin.clear(); //clearing error flags from the input stream
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //ignoring the rest of the line
+            cin >> optionChoice; //reading user input
         }
         if (optionChoice != 0) {
             int j = 0;
-            for (int i = 0; i < pigCount; ++i) {
-                if (j < optionChoice){
+            for (int i = 0; i < pigCount; ++i) { //iterating though pig array
+                if (j < optionChoice){ //executing applySpeedGrowth only the number of times requested by the player
                     pig[i]->applySpeedGrowth(&money);
                     j++;
                 } else {
@@ -652,28 +650,27 @@ void Farmer::applySpeedGrowAnimals(){
         
         int option;
         int newMoney = 0;
-        int highYieldNotAppliedCount;
 
-        int numberCanUpgrade = money/functionCow.getSpeedGrowPrice();
+        int numberCanUpgrade = money/functionCow.getSpeedGrowPrice(); //calculating the number of upgrades the player can play for
 
-        if (numberCanUpgrade > cowCount){
+        if (numberCanUpgrade > cowCount){ //limiting this number to the numbe of cows the player has
             numberCanUpgrade = cowCount;
         }
 
         int optionChoice = 0;
         cout << "You can upgrade " << numberCanUpgrade << " cows" << endl;
         cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
-        cin >> optionChoice;
+        cin >> optionChoice; //reading user input
         while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){ //validating input and rerequesting if invalid, reference(cin.fail() method): https://www.geeksforgeeks.org/how-to-use-cin-fail-method-in-cpp/
             cout << "invalid input! please enter a valid number" << endl;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cin >> optionChoice;
+            cin.clear(); //clearing error flags from the input stream
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //ignoring the rest of the line
+            cin >> optionChoice; //reading user input
         }
         if (optionChoice != 0) {
             int j = 0;
-            for (int i = 0; i < cowCount; ++i) {
-                if (j < optionChoice){
+            for (int i = 0; i < cowCount; ++i) { //iterating through the cow array
+                if (j < optionChoice){ //executing applySpeedGrowth only the number of times requested by the user
                     cow[i]->applySpeedGrowth(&money);
                     j++;
                 } else {
@@ -689,17 +686,19 @@ void Farmer::applyHighYieldAnimals(){
 
     string product;
 
+    //temporary objects within function to get default variable values
+
     Wheat functionWheat;
     Corn functionCorn;
     Pig functionPig;
     Cow functionCow;
 
     cout << "What crop would you like to upgrade? cow or pig? (Enter response in lower case)" << endl;
-    cin >> product;
+    cin >> product; //reading user input
 
-    while (product != "pig" && product != "cow"){
+    while (product != "pig" && product != "cow"){ //validating user input, rerequesting if invalid
         cout << "invalid input! please enter cow or pig" << endl;
-        cin >> product;
+        cin >> product; //reading user input
     }
 
     if (product == "cow" && *getCowCount() == 0){
@@ -718,29 +717,28 @@ void Farmer::applyHighYieldAnimals(){
         
         int option;
         int newMoney = 0;
-        int highYieldNotAppliedCount;
 
-        int numberCanUpgrade = money/functionPig.getHighYieldPrice();
+        int numberCanUpgrade = money/functionPig.getHighYieldPrice(); //calculating the number of upgrades the player can pay for
 
-        if (numberCanUpgrade > pigCount){
+        if (numberCanUpgrade > pigCount){ //limiting this number to the number of pigs the playe has
             numberCanUpgrade = pigCount;
         }
 
         int numberUpgraded = 0;
         cout << "You can upgrade " << numberCanUpgrade << " pigs" << endl;
         cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
-        cin >> numberUpgraded;
+        cin >> numberUpgraded; //reading user input
         while (cin.fail() || numberUpgraded < 0 || numberUpgraded > numberCanUpgrade){ //validating input and rerequesting if invalid, reference(cin.fail() method): https://www.geeksforgeeks.org/how-to-use-cin-fail-method-in-cpp/
             cout << "invalid input! please enter a valid number" << endl;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cin >> numberUpgraded;
+            cin.clear(); //clearing error flags from the input stream
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //ignoring the rest of the line
+            cin >> numberUpgraded; //reading user input
         }
         if (numberUpgraded != 0) {
             int j = 0;
-            for (int i = 0; i < pigCount; ++i) {
+            for (int i = 0; i < pigCount; ++i) { //iterating through the pig array
                 if (j < numberUpgraded){
-                    pig[i]->applyHighYield(&money);
+                    pig[i]->applyHighYield(&money); //executing applyHighYield only the numbe ro times requested by the player
                     j++;
                 } else {
                     break;
@@ -753,28 +751,27 @@ void Farmer::applyHighYieldAnimals(){
         
         int option;
         int newMoney = 0;
-        int highYieldNotAppliedCount;
 
-        int numberCanUpgrade = money/functionCow.getHighYieldPrice();
+        int numberCanUpgrade = money/functionCow.getHighYieldPrice(); //calculating the number of upgrades the player can pay for
 
-        if (numberCanUpgrade > cowCount){
+        if (numberCanUpgrade > cowCount){ //limiting this number to the number of cows the player has
             numberCanUpgrade = cowCount;
         }
 
         int numberUpgraded = 0;
         cout << "You can upgrade " << numberCanUpgrade << " cows" << endl;
         cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
-        cin >> numberUpgraded;
+        cin >> numberUpgraded; //reading user input
         while (cin.fail() || numberUpgraded < 0 || numberUpgraded > numberCanUpgrade){ //validating input and rerequesting if invalid, reference(cin.fail() method): https://www.geeksforgeeks.org/how-to-use-cin-fail-method-in-cpp/
             cout << "invalid input! please enter a valid number" << endl;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cin >> numberUpgraded;
+            cin.clear(); //clearing error flags from the input stream
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //ignoring the rest of the line
+            cin >> numberUpgraded; //reading user input
         }
         if (numberUpgraded != 0) {
             int j = 0;
-            for (int i = 0; i < cowCount; ++i) {
-                if (j < numberUpgraded){
+            for (int i = 0; i < cowCount; ++i) { //iteratig through the cow array
+                if (j < numberUpgraded){ //executing apply highHighYield only the number of times requested by the user
                     cow[i]->applyHighYield(&money);
                     j++;
                 } else {
@@ -790,6 +787,8 @@ void Farmer::applySpeedGrowCrops(){
 
     string product;
 
+    //initializing the temporary objects to get default variable values
+
     Wheat functionWheat;
     Corn functionCorn;
     Pig functionPig;
@@ -798,7 +797,7 @@ void Farmer::applySpeedGrowCrops(){
     cout << "What crop would you like to upgrade? wheat or corn? (Enter response in lower case)" << endl;
     cin >> product;
 
-    while (product != "wheat" && product != "corn"){
+    while (product != "wheat" && product != "corn"){ //validating user input and rerequesting if invalid
         cout << "invalid input! please enter wheat or corn" << endl;
         cin >> product;
     }
@@ -817,28 +816,27 @@ void Farmer::applySpeedGrowCrops(){
 
         int option;
         int newMoney = 0;
-        int highYieldNotAppliedCount;
 
-        int numberCanUpgrade = money/functionWheat.getSpeedGrowPrice();
+        int numberCanUpgrade = money/functionWheat.getSpeedGrowPrice(); //calculating the number of inputs the player can pay for
 
-        if (numberCanUpgrade > wheatCount){
+        if (numberCanUpgrade > wheatCount){ //limiting this number to the number of wheat the player had
             numberCanUpgrade = wheatCount;
         }
 
         int optionChoice = 0;
         cout << "You can upgrade " << numberCanUpgrade << " wheat" << endl;
         cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
-        cin >> optionChoice;
+        cin >> optionChoice; //reading user input
         while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){ //validating input and rerequesting if invalid, reference(cin.fail() method): https://www.geeksforgeeks.org/how-to-use-cin-fail-method-in-cpp/
             cout << "invalid input! please enter a valid number" << endl;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cin >> optionChoice;
+            cin.clear(); //clearing error flags from the input stream
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //ignoring the rest of the line
+            cin >> optionChoice; //reading user input
         }
         if (optionChoice != 0) {
             int j = 0;
-            for (int i = 0; i < wheatCount; ++i) {
-                if (j < optionChoice){
+            for (int i = 0; i < wheatCount; ++i) { //iterating through the wheat array
+                if (j < optionChoice){ //executing applySpeedGrowth only the number of times requested by the user
                     wheat[i]->applySpeedGrowth(&money);
                     j++;
                 } else {
@@ -848,30 +846,29 @@ void Farmer::applySpeedGrowCrops(){
 
     }else if (product == "corn"){
 
-                int option;
+        int option;
         int newMoney = 0;
-        int highYieldNotAppliedCount;
 
-        int numberCanUpgrade = money/functionCorn.getSpeedGrowPrice();
+        int numberCanUpgrade = money/functionCorn.getSpeedGrowPrice(); //calculating the number of upgrades the player can pay for
 
-        if (numberCanUpgrade > cornCount){
+        if (numberCanUpgrade > cornCount){ //limiting this number to the number of corn the player has
             numberCanUpgrade = cornCount;
         }
 
         int optionChoice = 0;
         cout << "You can upgrade " << numberCanUpgrade << " corn" << endl;
         cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
-        cin >> optionChoice;
+        cin >> optionChoice; //reading user input
         while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){ //validating input and rerequesting if invalid, reference(cin.fail() method): https://www.geeksforgeeks.org/how-to-use-cin-fail-method-in-cpp/
             cout << "invalid input! please enter a valid number" << endl;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cin >> optionChoice;
+            cin.clear(); //clearing error flags from the input stream
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //ignoring the rest of the line
+            cin >> optionChoice; //reading user input
         }
         if (optionChoice != 0) {
             int j = 0;
-            for (int i = 0; i < cornCount; ++i) {
-                if (j < optionChoice){
+            for (int i = 0; i < cornCount; ++i) { //iterating through the corn array
+                if (j < optionChoice){ //executing applySpeedGrowth only the number of times requested by the user
                     corn[i]->applySpeedGrowth(&money);
                     j++;
                 } else {
@@ -888,6 +885,8 @@ void Farmer::applyHighYieldCrops(){
 
     string product;
 
+    //temporary objects to get default variable values
+
     Wheat functionWheat;
     Corn functionCorn;
     Pig functionPig;
@@ -896,7 +895,7 @@ void Farmer::applyHighYieldCrops(){
     cout << "What crop would you like to upgrade? wheat or corn? (Enter response in lower case)" << endl;
     cin >> product;
 
-    while (product != "wheat" && product != "corn"){
+    while (product != "wheat" && product != "corn"){ //validating input and rerequesting if invalid
         cout << "invalid input! please enter wheat or corn" << endl;
         cin >> product;
     }
@@ -915,29 +914,28 @@ void Farmer::applyHighYieldCrops(){
 
         int option;
         int newMoney = 0;
-        int highYieldNotAppliedCount;
 
-        int numberCanUpgrade = money/functionWheat.getHighYieldPrice();
+        int numberCanUpgrade = money/functionWheat.getHighYieldPrice(); //calculating the number of upgrades the player can pay for
 
-        if (numberCanUpgrade > wheatCount){
+        if (numberCanUpgrade > wheatCount){ //limiting this number to the number of wheat the player has
             numberCanUpgrade = wheatCount;
         }
 
         int optionChoice = 0;
         cout << "You can upgrade " << numberCanUpgrade << " wheat" << endl;
         cout << "Enter the number that you would like to upgrade or 0 to exit" << endl;
-        cin >> optionChoice;
+        cin >> optionChoice; //reading user input
         while (cin.fail() || optionChoice < 0 || optionChoice > numberCanUpgrade){ //validating input and rerequesting if invalid, reference(cin.fail() method): https://www.geeksforgeeks.org/how-to-use-cin-fail-method-in-cpp/
             cout << "invalid input! please enter a valid number" << endl;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cin >> optionChoice;
+            cin.clear(); //clearing error flags from the input stream
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //ignoring the rest of the line
+            cin >> optionChoice; //reading user input
 
         }
         if (optionChoice != 0) {
             int j = 0;
-            for (int i = 0; i < wheatCount; ++i) {
-                if (j < optionChoice){
+            for (int i = 0; i < wheatCount; ++i) { //iterating through the wheat array
+                if (j < optionChoice){ //executing applyHigh Yield only the number of times requested by the player
                     wheat[i]->applyHighYield(&money);
                     j++;
                 } else {
