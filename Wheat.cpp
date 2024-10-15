@@ -1,6 +1,7 @@
 #include <random>
 #include "Wheat.h"
 
+// Constructor 
 Wheat::Wheat():Field(){
 
     this->sellPrice = 15;
@@ -11,12 +12,14 @@ Wheat::Wheat():Field(){
 
 }
 
+// This functions sets the wheatHighYieldApplied to true. The code to increase the price of wheat objects is in Farmer
 void Wheat::applyHighYield(int *money){
-
+        // Decreases the money and sets cowHighYieldApplied to true.
         *money = *money - this->highYieldPrice;
         wheatHighYieldApplied = true;
 }
 
+// This functions sets wheatEvent to true depending on the value of wheatCount. The code to affect the wheat is in Farmer
 void Wheat::Event(int* count){
     if (*count % 10 == 0) {
         random_device rd; // obtain a random number from hardware
@@ -29,9 +32,9 @@ void Wheat::Event(int* count){
     }
 }
 
-void Wheat::setWheatEvent(bool wheatEvent) {
+void Wheat::setWheatEvent(bool wheatEvent) {//setter for pigEvent
     this -> wheatEvent = wheatEvent;
 }
-bool Wheat::getWheatEvent() {
+bool Wheat::getWheatEvent() { // getter for pigEvent.
     return wheatEvent;
 }
