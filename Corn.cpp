@@ -32,9 +32,7 @@ void Corn::applyHighYield(int* money){
 
         // Decreases tghe money and sets cornHighYieldApplied to true.
         *money = (*money) - this->highYieldPrice;
-        cornHighYieldApplied = true;
-        cout << "highYield successfully applied" << endl;
-        
+        cornHighYieldApplied = true;       
 }
 
 void Corn::setCornEvent(bool cornEvent){ //setter for cornEvent

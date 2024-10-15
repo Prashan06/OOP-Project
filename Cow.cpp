@@ -15,8 +15,6 @@ void Cow::applyHighYield(int* money){
         // Decreases the money and sets cowHighYieldApplied to true.
         *money = (*money) - this-> highYieldPrice;
         cowHighYieldApplied = true;
-        cout << "highYield successfully applied" << endl;
-
 }
 
 

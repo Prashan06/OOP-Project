@@ -15,8 +15,6 @@ void Wheat::applyHighYield(int *money){
 
         *money = *money - this->highYieldPrice;
         wheatHighYieldApplied = true;
-        cout << "HighYield successfully applied" << endl;
-
 }
 
 void Wheat::Event(int* count){

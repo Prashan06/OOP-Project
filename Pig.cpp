@@ -13,7 +13,6 @@ void Pig::applyHighYield(int *money){
          // Decreases the money and sets cowHighYieldApplied to true.
         *money = *money - this-> highYieldPrice;
         pigHighYieldApplied = true;
-        cout << "highYield successfully applied" << endl;
 }
 
 // This functions sets pigEvent to true depending on the value of pigCount. The code to affect the pig is in Farmer

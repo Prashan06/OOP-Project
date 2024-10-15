@@ -695,7 +695,7 @@ void Farmer::applySpeedGrowAnimals(){
             }
         }
     }
-
+    cout << "Speed growth for barn successfully applied. " << endl;
 } 
 
 void Farmer::applyHighYieldAnimals(){
@@ -796,7 +796,7 @@ void Farmer::applyHighYieldAnimals(){
             }
         }
     }
-    cout << "Speed growth for barn successfully applied. " << endl;
+    cout << "HighYield successfully applied" << endl;
 } 
 
 void Farmer::applySpeedGrowCrops(){
@@ -991,6 +991,7 @@ void Farmer::applyHighYieldCrops(){
             }
         }
     }
+    cout << "HighYield successfully applied" << endl;
 } 
 
 void Farmer::executeEvent() {
