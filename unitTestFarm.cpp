@@ -1,10 +1,10 @@
-#include "unitTestCow.h"
+#include "unitTestFarm.h"
 #include <iostream>
 
 int main(){
     // creates instance of unitTestCow
-    unitTestCow testc;
+    unitTestFarm testf;
     // executes testCow function.
-    testc.testCow();
+    testf.runTests();
     return 0;
 }
